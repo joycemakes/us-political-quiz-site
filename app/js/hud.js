@@ -79,19 +79,63 @@ export function silhouetteSVG(id) {
 }
 
 // A blacked-out cut of the candidate's own portrait (art/silhouettes/<id>.png, made by
-// tools/make-silhouettes.py): hair and shoulders hint at who it is without showing a face. Falls back
-// to the drawn bust when the cut is missing.
-export function silhouetteEl(id, cls = 'ghost-img') {
+// tools/make-silhouettes.py): hair and shoulders hint at who it is without showing a face. Drawn once
+// per candidate and rim colour to a small canvas (no live CSS filters), then copied; falls back to the
+// drawn bust when the cut is missing.
+const bustCache = new Map();
+function loadBust(id, rim) {
+  const key = `${id}|${rim}`;
+  if (!bustCache.has(key)) {
+    bustCache.set(key, new Promise(res => {
+      const img = new Image();
+      img.decoding = 'async';
+      img.onload = () => {
+        const S = 88, c = document.createElement('canvas');
+        c.width = S; c.height = S;
+        const x = c.getContext('2d');
+        x.imageSmoothingEnabled = false;
+        // rim: the mask in the rim colour, nudged one pixel each way; then the black figure on top
+        const tint = document.createElement('canvas');
+        tint.width = S; tint.height = S;
+        const tx = tint.getContext('2d');
+        tx.imageSmoothingEnabled = false;
+        tx.drawImage(img, 0, 0, S, S);
+        tx.globalCompositeOperation = 'source-in';
+        tx.fillStyle = rim; tx.fillRect(0, 0, S, S);
+        for (const [dx, dy] of [[2, 0], [-2, 0], [0, -2]]) x.drawImage(tint, dx, dy);
+        x.drawImage(img, 0, 0, S, S);
+        x.globalCompositeOperation = 'source-atop';
+        x.fillStyle = '#05070d';
+        x.globalCompositeOperation = 'source-over';
+        // blacken the figure itself
+        const fig = document.createElement('canvas');
+        fig.width = S; fig.height = S;
+        const fx = fig.getContext('2d');
+        fx.imageSmoothingEnabled = false;
+        fx.drawImage(img, 0, 0, S, S);
+        fx.globalCompositeOperation = 'source-in';
+        fx.fillStyle = '#05070d'; fx.fillRect(0, 0, S, S);
+        x.drawImage(fig, 0, 0);
+        res(c);
+      };
+      img.onerror = () => res(null);
+      img.src = `art/silhouettes/${id}.png`;
+    }));
+  }
+  return bustCache.get(key);
+}
+
+export function silhouetteEl(id, cls = 'ghost-img', rim = '#6f86c9') {
   const wrap = document.createElement('span');
   wrap.className = `${cls}-wrap`;
-  const img = document.createElement('img');
-  img.className = cls;
-  img.alt = '';
-  img.width = 44; img.height = 44;
-  img.decoding = 'async';
-  img.onerror = () => { wrap.innerHTML = silhouetteSVG(id).replace('<svg ', '<svg width="44" height="48" '); };
-  img.src = `art/silhouettes/${id}.png`;
-  wrap.appendChild(img);
+  const c = document.createElement('canvas');
+  c.className = cls;
+  c.width = 88; c.height = 88;
+  wrap.appendChild(c);
+  loadBust(id, rim).then(src => {
+    if (src) c.getContext('2d').drawImage(src, 0, 0);
+    else wrap.innerHTML = silhouetteSVG(id).replace('<svg ', '<svg width="44" height="48" ');
+  });
   return wrap;
 }
 
@@ -113,7 +157,7 @@ export function createGhosts() {
       top3.forEach((id, i) => {
         if (current[i] === id) return;
         const s = slots[i];
-        s.querySelector('.ghost-sil').replaceChildren(silhouetteEl(id));
+        s.querySelector('.ghost-sil').replaceChildren(silhouetteEl(id, 'ghost-img', i === 0 ? '#F2C66D' : '#6f86c9'));
         if (current.length) { s.classList.remove('shift'); void s.offsetWidth; s.classList.add('shift'); }
       });
       current = top3.slice();

@@ -151,7 +151,7 @@ h1, h2, h3 { font-weight: 400; margin: 0; }
 .ghost-sil { width: 44px; height: 44px; display: grid; place-items: end center; background: rgba(9, 13, 24, .6); box-shadow: var(--outline); overflow: hidden; }
 .ghost-img-wrap { display: block; width: 44px; height: 44px; }
 .ghost-img, .ghost-sil svg { display: block; width: 44px; height: 44px; max-width: 44px; image-rendering: pixelated; }
-.ghost-img { filter: brightness(0) drop-shadow(1px 0 0 var(--rim)) drop-shadow(-1px 0 0 var(--rim)) drop-shadow(0 -1px 0 var(--rim)); }
+.ghost-img { image-rendering: pixelated; }
 .ghost { --rim: #6f86c9; }
 .ghost.g1 { --rim: var(--brass-2); }
 .ghost.g1 .ghost-sil { box-shadow: var(--outline), 0 0 0 2px var(--brass), var(--glow); }
@@ -195,8 +195,7 @@ h1, h2, h3 { font-weight: 400; margin: 0; }
   background: radial-gradient(ellipse 60% 45% at 20% 100%, rgba(240, 166, 74, .28), transparent 70%), radial-gradient(ellipse 60% 45% at 80% 100%, rgba(240, 166, 74, .22), transparent 70%), radial-gradient(ellipse at center, transparent 40%, rgba(0, 0, 0, .55)); }
 .fx-candles .candle-overlay { opacity: 1; animation: gutter 3.6s steps(18) infinite; }
 @keyframes gutter { 0%, 100% { opacity: 1; } 18% { opacity: .7; } 22% { opacity: .95; } 47% { opacity: .45; } 52% { opacity: .9; } 76% { opacity: .6; } 80% { opacity: .2; } 83% { opacity: .85; } }
-.fx-night .q-wrap { filter: brightness(.82) saturate(.8) hue-rotate(-8deg); }
-.fx-night::after { content: ''; position: fixed; inset: 0; pointer-events: none; z-index: 2; background: radial-gradient(ellipse at 50% 30%, transparent 30%, rgba(9, 13, 24, .6)); }
+.fx-night::after { content: ''; position: fixed; inset: 0; pointer-events: none; z-index: 2; background: radial-gradient(ellipse at 50% 30%, rgba(9, 13, 24, .15) 30%, rgba(9, 13, 24, .65)); }
 
 /* ---- chapter title cards ------------------------------------------------------------------------- */
 .chapter-card { position: fixed; inset: 0; z-index: 20; display: grid; place-items: center; padding: 24px var(--gutter); cursor: pointer;
@@ -437,7 +436,7 @@ h1, h2, h3 { font-weight: 400; margin: 0; }
 .pod-sil svg { width: 80%; }
 .pod-sil .ghost-fill { fill: #05070d; }
 .pod-sil-img-wrap { display: block; width: 100%; height: 100%; }
-.pod-sil-img { display: block; width: 100%; height: 100%; image-rendering: pixelated; filter: brightness(0) drop-shadow(2px 0 0 var(--brass)) drop-shadow(-2px 0 0 var(--brass)) drop-shadow(0 -2px 0 var(--brass)); }
+.pod-sil-img { display: block; width: 100%; height: 100%; image-rendering: pixelated; }
 .pod.revealed .pod-card .portrait { opacity: 1; transition: opacity .4s steps(4); }
 .pod.revealed .pod-sil { opacity: 0; transition: opacity .4s steps(4); }
 .pod-rank { color: var(--brass-2); font-size: 22px; }
@@ -507,15 +506,18 @@ h1, h2, h3 { font-weight: 400; margin: 0; }
     linear-gradient(rgba(42, 14, 17, .45), rgba(18, 6, 8, .55)),
     url(../art/ui/ink.webp) center / 512px 512px;
 }
-.backdrop { position: fixed; inset: 0; z-index: 0; pointer-events: none; background: var(--navy) center / cover no-repeat; transition: background-image .3s; image-rendering: pixelated; }
+.backdrop { position: fixed; inset: 0; z-index: 0; pointer-events: none; background: var(--navy) center / cover no-repeat; }
 .backdrop::after { content: ''; position: absolute; inset: 0;
   background: linear-gradient(rgba(9, 13, 24, .72), rgba(9, 13, 24, .86) 45%, rgba(9, 13, 24, .95)), radial-gradient(ellipse at 50% 20%, transparent, rgba(9, 13, 24, .6)); }
 .title-backdrop::after { background: linear-gradient(rgba(9, 13, 24, .55), rgba(9, 13, 24, .78) 50%, rgba(9, 13, 24, .94)); }
 .fog { position: fixed; left: -10%; right: -10%; bottom: 0; height: 34vh; z-index: 0; pointer-events: none; opacity: .5;
   background: url(../art/ui/loading-fog.webp) center bottom / cover repeat-x; animation: fog 40s linear infinite alternate; }
 @keyframes fog { from { transform: translateX(-4%); } to { transform: translateX(4%); } }
-.candle { display: inline-block; width: 64px; height: 64px; background: url(../art/ui/loading-candle.webp) 0 0 / 800% 100% no-repeat; animation: candle .9s steps(8) infinite; image-rendering: auto; }
-@keyframes candle { to { background-position: 114.2857% 0; } }
+.candle { display: inline-block; position: relative; overflow: hidden; width: 64px; height: 64px; }
+/* The sprite strip slides on transform (compositor only) instead of animating background-position. */
+.candle::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 800%; background: url(../art/ui/loading-candle.webp) 0 0 / 100% 100% no-repeat; animation: candle .9s steps(8) infinite; }
+@keyframes candle { to { transform: translateX(-100%); } }
+.paused *, .paused *::before, .paused *::after { animation-play-state: paused !important; }
 .candle-row { display: flex; justify-content: center; gap: 28px; }
 .chapter-card .candle-row { margin-bottom: 4px; }
 .candle-overlay .candle { position: absolute; bottom: 8px; width: 72px; height: 72px; }
@@ -566,6 +568,31 @@ h1, h2, h3 { font-weight: 400; margin: 0; }
   .run-screen { padding-bottom: 12px; }
 }
 
+
+/* ---- first-timer fixes ------------------------------------------------------------------------- */
+.q.typing .q-answer { opacity: .55; pointer-events: none; }
+.q.ready .q-answer { opacity: 1; }
+.hud { background: var(--navy); }
+.hud-note { margin: 0 0 8px; padding: 6px 10px; font-size: 15px; color: var(--parchment); background: rgba(20, 33, 61, .9); box-shadow: var(--outline); text-align: center; }
+.res-cap { margin: -4px 0 4px; color: var(--sub); font-size: 15px; line-height: 1.25; }
+.cand-tag { display: block; font-size: 12px; letter-spacing: .06em; color: var(--muted); }
+.cand-chip.right { background: linear-gradient(#24482a, #183020); box-shadow: var(--outline), inset 0 0 0 3px var(--good), 0 0 16px rgba(154, 215, 122, .45); }
+.btn.commit.waiting { filter: saturate(.4) brightness(.8); }
+.veto-cap.flash { color: var(--r-text); animation: blinktxt .3s steps(2) 2; }
+.art-scene .art-frame, .art-envelope .art-frame { max-height: var(--scene-h, 40vh); }
+.art-slot[data-version="tall"].art-scene .art-frame, .art-slot[data-version="tall"].art-envelope .art-frame { width: min(100%, calc(var(--scene-h, 40vh) * var(--ar))); }
+@media (max-width: 899px) {
+  .q:has(.q-context:not([hidden])) .art-envelope .art-frame { max-height: var(--scene-h, 26vh); }
+  /* The commit button stays reachable at the bottom of a phone screen. */
+  .q-answer .btn.commit, .q-answer .pin-confirm { position: sticky; bottom: max(8px, env(safe-area-inset-bottom)); z-index: 4; box-shadow: var(--outline), inset 2px 2px 0 #f6d38a, inset -2px -2px 0 #8a5a14, 0 -8px 16px rgba(9, 13, 24, .9); }
+}
+@media (max-height: 700px) and (max-width: 899px) {
+  .q-prompt { font-size: 21px; }
+  .q-answer { gap: 8px; }
+  .btn { min-height: 48px; padding-top: 8px; padding-bottom: 8px; }
+  .how { font-size: 14px; padding: 4px 8px; }
+  .art-pin .art-frame { max-height: var(--pin-h, 44vh); }
+}
 
 /* ---- how to answer ------------------------------------------------------------------------------ */
 .how { order: -1; margin: 0; padding: 6px 10px; color: var(--parchment); font-size: 16px; line-height: 1.2;

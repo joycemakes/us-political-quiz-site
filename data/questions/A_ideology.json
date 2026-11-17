@@ -19,7 +19,7 @@
       },
       {
         "id": "b",
-        "label": "Bring the subsidies back and add a public option",
+        "label": "Bring the subsidies back, plus a government plan anyone can buy",
         "effects": {
           "econ": -0.8
         }
@@ -306,7 +306,7 @@
     "type": "pin",
     "tier": "core",
     "topic": "cost-of-living",
-    "prompt": "A family's kitchen table, late. The month's bills are spread across it. Which cost would you fix first? Tap the bill.",
+    "prompt": "A family's kitchen table, late. The month's bills are spread across it. Which cost would you fix first?",
     "art": "SC-KITCHEN-BILLS",
     "artNote": "Pixel-art kitchen table seen from above and slightly behind an empty chair, one lamp, night outside the window. No people. Six paper items laid out clearly apart: rent notice top left, long grocery receipt curling at center left, electricity bill top right, hospital bill at center, pay stub bottom left, day-care invoice bottom right with a crayon drawing beside it.",
     "regions": [
@@ -377,7 +377,8 @@
     "type": "sign",
     "tier": "core",
     "topic": "housing",
-    "prompt": "On your desk: the Homes for Families Act. It bars big investment funds from buying single-family houses.",
+    "context": "The Homes for Families Act",
+    "prompt": "The Homes for Families Act bars big investment funds from buying single-family houses. Do you sign it?",
     "options": [
       {
         "id": "sign",
@@ -818,7 +819,8 @@
     "type": "sign",
     "tier": "core",
     "topic": "dei-offices",
-    "prompt": "On your desk: the Equal Treatment in Education Act. Any college that keeps a diversity office loses its federal money.",
+    "context": "The Equal Treatment in Education Act",
+    "prompt": "The Equal Treatment in Education Act: any college that keeps a diversity office loses its federal money. Do you sign it?",
     "options": [
       {
         "id": "sign",
@@ -1179,7 +1181,7 @@
     "type": "budget",
     "tier": "core",
     "topic": "defense-budget",
-    "prompt": "Split 100 points of the security budget. The joint chiefs are pretending not to watch.",
+    "prompt": "Where does the security budget go? Split 100 points. The joint chiefs are pretending not to watch.",
     "options": [
       {
         "id": "a",
@@ -1366,7 +1368,8 @@
     "type": "sign",
     "tier": "core",
     "topic": "war-powers",
-    "prompt": "On your desk: the War Powers Restoration Act. Any strike abroad ends in 30 days unless Congress votes for it.",
+    "context": "The War Powers Restoration Act",
+    "prompt": "The War Powers Restoration Act: any strike abroad ends in 30 days unless Congress votes for it. Do you sign it?",
     "options": [
       {
         "id": "sign",
@@ -1395,7 +1398,7 @@
     "type": "choice",
     "tier": "core",
     "topic": "americas-role",
-    "prompt": "Your party has two foreign policies and one nomination. Which one opens your first big speech?",
+    "prompt": "Republicans are split: lead the world, or come home. Which line opens your first big speech?",
     "options": [
       {
         "id": "a",
@@ -1416,7 +1419,7 @@
       },
       {
         "id": "c",
-        "label": "China, yes. Europe and the Gulf, no",
+        "label": "Face down China. Leave Europe and the Gulf to pay for themselves.",
         "effects": {
           "world": -0.8,
           "trade": -0.3
@@ -1695,7 +1698,7 @@
     "type": "pin",
     "tier": "core",
     "topic": "factory-jobs",
-    "prompt": "A factory floor, half the lights off. How do you bring the second shift back? Tap your answer.",
+    "prompt": "A factory floor, half the lights off. How do you bring the second shift back?",
     "art": "SC-FACTORY-FLOOR",
     "artNote": "Pixel-art factory interior, wide, one production line lit and one dark. No people; hard hats on hooks. Left: an open loading dock with stacked import crates. Center: an idle orange robot arm over the dark line. Right wall: a cork union noticeboard. Upper right mezzanine: a glass manager's office with shelves of fat rule binders. Far back: a classroom door with a training sign.",
     "regions": [
@@ -1892,7 +1895,7 @@
     "excludes": [
       "A-040"
     ],
-    "prompt": "The tariffs have raised real money. Split 100 points of it.",
+    "prompt": "The tariffs have raised real money. Who gets it? Split 100 points.",
     "options": [
       {
         "id": "a",
@@ -2058,7 +2061,7 @@
     "type": "slider",
     "tier": "core",
     "topic": "church-and-state",
-    "prompt": "God and government. How far apart should they be?",
+    "prompt": "God and government. How much God should there be in government?",
     "slider": {
       "left": "Faith is private. Keep it out of the state",
       "right": "The country needs more God in public life",
@@ -2235,7 +2238,7 @@
     "excludes": [
       "D-065"
     ],
-    "prompt": "Sunday, a church fellowship hall, coffee still warm. Your aide wants one photograph of you here. What should it show? Tap where you stand.",
+    "prompt": "Sunday, a church fellowship hall, coffee still warm. Your aide wants one photograph of you here. What should it show?",
     "art": "SC-FELLOWSHIP-HALL",
     "artNote": "Pixel-art church fellowship hall, folding chairs, noon light through plain windows. No people; coats on chair backs, steam off a coffee urn. Left: a low stage with a lectern and a live microphone. Center: a long potluck table of covered dishes. Back wall: food-pantry shelves of cans and boxes. Right, by the double doors: a card table with clipboards and pens. Through the right-hand window: the parking lot.",
     "regions": [
@@ -2378,7 +2381,8 @@
     "type": "sign",
     "tier": "core",
     "topic": "conscience-exemptions",
-    "prompt": "On your desk: the Conscience Protection Act. Employers with religious objections may drop birth control from staff health plans.",
+    "context": "The Conscience Protection Act",
+    "prompt": "The Conscience Protection Act: employers with religious objections may drop birth control from staff health plans. Do you sign it?",
     "options": [
       {
         "id": "sign",
@@ -2665,7 +2669,7 @@
       },
       {
         "id": "d",
-        "label": "A green card stapled to every science degree",
+        "label": "A green card with every science degree",
         "effects": {
           "border": 1.3,
           "tech": 1
@@ -2748,7 +2752,7 @@
     "type": "pin",
     "tier": "core",
     "topic": "border-security",
-    "prompt": "Main street of a border town, early. You decide where the next federal immigration dollar goes. Tap what you fund.",
+    "prompt": "Main street of a border town, early. Where does the next federal immigration dollar go?",
     "art": "SC-BORDER-TOWN",
     "artNote": "Pixel-art desert border town main street at dawn, looking down the road toward a steel fence on the horizon. No people; vehicles empty. Far end of the street: the border fence with a gap under construction. Right foreground: a port-of-entry booth with a line of trucks. Left midground: a small courthouse with a rope line outside. Left foreground: a white unmarked van. Right midground: a mission church with cots visible through open doors. Far right: a produce packing shed with a help-wanted sign.",
     "regions": [
@@ -2823,7 +2827,7 @@
     "type": "budget",
     "tier": "core",
     "topic": "border-security",
-    "prompt": "Split 100 points of the immigration budget.",
+    "prompt": "Where does the immigration budget go? Split 100 points.",
     "options": [
       {
         "id": "a",
@@ -2971,7 +2975,8 @@
     "type": "sign",
     "tier": "core",
     "topic": "deportations",
-    "prompt": "On your desk: the Earned Status Act. Legal status, not citizenship, for people here five years who pay a fine. Every employer must check workers' papers.",
+    "context": "The Earned Status Act",
+    "prompt": "The Earned Status Act: legal status, not citizenship, for people here five years who pay a fine. Every employer must check workers' papers. Do you sign it?",
     "options": [
       {
         "id": "sign",
@@ -3118,7 +3123,7 @@
     "type": "slider",
     "tier": "core",
     "topic": "ai-speed",
-    "prompt": "Artificial intelligence. One dial for your whole administration: how fast should America build it?",
+    "prompt": "Artificial intelligence. One lever for your whole administration: how fast should America build it?",
     "slider": {
       "left": "Slow it down until it is proven safe",
       "right": "Build as fast as we can and win",
@@ -3309,7 +3314,7 @@
     "type": "pin",
     "tier": "core",
     "topic": "data-centers",
-    "prompt": "A server farm on the edge of town, humming. You are here to announce one AI policy. Tap what it is about.",
+    "prompt": "A server farm on the edge of town, humming. You are here to announce one AI policy. What is it about?",
     "art": "SC-SERVER-FARM",
     "artNote": "Pixel-art cutaway of a data center at dusk, no people. Center: long aisles of server racks with blue status lights. Left exterior: an electrical substation with pylons. Bottom left: fat cooling pipes running to a river. Right: a loading bay with one sealed crate marked as chips under a security camera. Upper right: a glass control room with a single empty chair and many screens.",
     "regions": [
@@ -3373,7 +3378,7 @@
     "type": "budget",
     "tier": "core",
     "topic": "big-tech",
-    "prompt": "Split 100 points of your tech agenda.",
+    "prompt": "What does your tech agenda put first? Split 100 points.",
     "options": [
       {
         "id": "a",
@@ -3481,7 +3486,7 @@
     "cards": [
       {
         "id": "c1",
-        "text": "No social media under sixteen",
+        "text": "Ban social media for under-sixteens",
         "yes": {
           "tech": -1
         },
@@ -3491,7 +3496,7 @@
       },
       {
         "id": "c2",
-        "text": "A national Bitcoin reserve",
+        "text": "Create a national Bitcoin reserve",
         "yes": {
           "tech": 1,
           "system": 0.5
@@ -3502,7 +3507,7 @@
       },
       {
         "id": "c3",
-        "text": "Driverless trucks on the interstates",
+        "text": "Allow driverless trucks on the interstates",
         "yes": {
           "tech": 1
         },
@@ -3536,7 +3541,7 @@
       },
       {
         "id": "c6",
-        "text": "Nuclear reactors beside data centers",
+        "text": "Build nuclear reactors beside data centers",
         "yes": {
           "tech": 1
         },
@@ -3546,7 +3551,7 @@
       },
       {
         "id": "c7",
-        "text": "Facial recognition for police",
+        "text": "Let police use facial recognition",
         "yes": {
           "tech": 0.5,
           "psych": 0.5,
@@ -3900,7 +3905,7 @@
     "type": "pin",
     "tier": "core",
     "topic": "state-fair",
-    "prompt": "A state fair at dusk, the week before the convention. You get one campaign event here. What kind? Tap where you hold it.",
+    "prompt": "A state fair at dusk, the week before the convention. You get one campaign event here. What kind?",
     "art": "SC-STATE-FAIR",
     "artNote": "Pixel-art state fair midway at dusk, string lights, no people; empty stalls and parked strollers. Left: a grandstand stage dressed in bunting. Center foreground: a wooden soapbox beside a corn-dog stand. Right: a Ferris wheel, lit. Back left: a livestock barn with open doors and hay. Far right edge: the fairground gate from outside, with hand-painted signs leaning on the fence.",
     "regions": [
@@ -3946,7 +3951,7 @@
       },
       {
         "id": "gate",
-        "label": "Outside the gate — rally against the whole show",
+        "label": "Outside the gate — rally against everyone on the inside",
         "where": "far right edge, fairground gate with hand-painted signs",
         "effects": {
           "system": 1.5
@@ -4015,7 +4020,8 @@
     "type": "sign",
     "tier": "core",
     "topic": "supreme-court",
-    "prompt": "On your desk: the Supreme Court Term Limits Act. Eighteen years and out, one new justice every two years.",
+    "context": "The Supreme Court Term Limits Act",
+    "prompt": "The Supreme Court Term Limits Act: eighteen years and out, one new justice every two years. Do you sign it?",
     "options": [
       {
         "id": "sign",
@@ -4045,7 +4051,7 @@
     "excludes": [
       "D-089"
     ],
-    "prompt": "First hundred days. You have 100 points of political capital and it does not roll over. How do you spend it?",
+    "prompt": "Say you win. First hundred days: you have 100 points of political capital and it does not roll over. How do you spend it?",
     "options": [
       {
         "id": "a",
@@ -4152,7 +4158,7 @@
       "D-013",
       "E-019"
     ],
-    "prompt": "Texas Republicans redrew their House map mid-decade to take seats. California Democrats answered in kind. Democrats elsewhere now ask you whether to keep going.",
+    "prompt": "Texas Republicans redrew their House map mid-decade to take seats. California Democrats answered in kind. Democrats elsewhere now ask you: do we keep going?",
     "options": [
       {
         "id": "a",
@@ -4390,7 +4396,7 @@
     "options": [
       {
         "id": "vance",
-        "label": "Vance: called him America's Hitler, then took the job",
+        "label": "Vance: called Trump America's Hitler, then became his Vice President",
         "effects": {
           "world": -1,
           "trade": -1
@@ -4434,7 +4440,7 @@
       },
       {
         "id": "kemp",
-        "label": "Kemp: held the line in 2020, endorsed him anyway in 2024",
+        "label": "Kemp: refused to overturn Georgia in 2020, endorsed Trump in 2024",
         "effects": {
           "system": -1,
           "econ": 0.8
@@ -4445,7 +4451,7 @@
       },
       {
         "id": "ramaswamy",
-        "label": "Ramaswamy: co-led DOGE for zero days, has notes anyway",
+        "label": "Ramaswamy: quit the cost-cutting squad before day one, kept the notes",
         "effects": {
           "tech": 1,
           "system": 1
@@ -4520,7 +4526,7 @@
       },
       {
         "id": "youngkin",
-        "label": "Youngkin: buyout-firm discipline. You are the portfolio company",
+        "label": "Youngkin: ran a buyout firm. Would run you like one.",
         "effects": {
           "econ": 1.2,
           "system": -0.3
@@ -4542,7 +4548,7 @@
       },
       {
         "id": "buttigieg",
-        "label": "Buttigieg: McKinsey slides, now with bridges",
+        "label": "Buttigieg: a consultant who got a roads budget",
         "effects": {
           "tech": 0.8,
           "system": -0.5
@@ -4884,7 +4890,7 @@
     "type": "dilemma",
     "tier": "core",
     "topic": "state-owned-stakes",
-    "prompt": "Washington now owns a tenth of Intel. No nationalization, the White House says, just a good deal. Is it?",
+    "prompt": "Washington now owns a tenth of Intel, the chipmaker. No nationalization, the White House says, just a good deal. Is it?",
     "options": [
       {
         "id": "a",
@@ -4945,7 +4951,7 @@
     "excludes": [
       "A-007"
     ],
-    "prompt": "A $100 billion windfall lands in the Treasury. Split 100 points before Congress notices.",
+    "prompt": "A $100 billion windfall lands in the Treasury. Where does it go? Split 100 points before Congress notices.",
     "options": [
       {
         "id": "a",
@@ -5042,7 +5048,8 @@
     "type": "sign",
     "tier": "core",
     "topic": "kids-online-safety",
-    "prompt": "On your desk: the Kids Online Safety Act. Age checks for social media, and a duty of care the platforms swear will break the internet.",
+    "context": "The Kids Online Safety Act",
+    "prompt": "The Kids Online Safety Act: age checks for social media, and platforms made liable for harm to children. They swear it will break the internet. Do you sign it?",
     "options": [
       {
         "id": "sign",

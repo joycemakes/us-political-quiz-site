@@ -4,17 +4,32 @@
 export const HOW = {
   choice: 'Tap your answer.',
   dilemma: 'Pick one. There is no middle.',
-  hold: 'Press and hold your answer. The longer you hold, the stronger you mean it.',
-  slider: 'Drag the lever to where you stand, then pull it.',
-  budget: 'Split your 100 chips. Tap + and − on each line, then lock it in.',
-  rank: 'Drag the cards into order, most important at the top, then lock it in.',
-  swipe: 'Swipe right for yes, left for no, or use the buttons. You have 4 seconds a card.',
+  hold: 'Press and hold your answer. The longer you hold, the stronger you mean it: about a second and a half is full.',
+  slider: 'Drag the lever to where you stand, then lock it in.',
+  budget: 'Split your 100 points, 10 at a time. Tap + and − on each line, then lock it in.',
+  rank: 'Drag the cards into order, most important at the top. The bottom card is the one you would drop.',
+  swipe: 'Press Start, then swipe right for yes, left for no, or use the buttons. Four seconds a card.',
   whosaid: 'First guess who said it. Then say if you agree.',
   draft: 'Tap the person you would pick.',
   sign: 'Drag the pen across the line to sign, or stamp VETO.',
-  envelope: 'Choose what you do with the offer.',
+  envelope: 'Choose what you do.',
   pin: 'Tap a spot on the picture. Each spot is a different answer. Then confirm.',
 };
+// The line for this question: the data's own line when it has one, ends for speed rounds and units for
+// budgets, Click and the keys on desktop.
+export function howFor(q, { fine = false, ends = null } = {}) {
+  if (q.line || q.how) return q.line || q.how;
+  let t = HOW[q.type] || 'Tap your answer.';
+  if (q.type === 'swipe' && ends) t = `Press Start, then swipe right for ${ends.yes}, left for ${ends.no}, or use the buttons. Four seconds a card.`;
+  if (q.type === 'budget' && q.unit) t = t.replace('points', q.unit);
+  if (fine) {
+    t = t.replace(/\bTap\b/g, 'Click').replace(/\btap\b/g, 'click').replace(/^Press and hold/, 'Click and hold').replace(/swipe right for/, 'drag right for');
+    const keys = { slider: ' Or use the arrow keys.', rank: ' Or use the arrow keys on a card.', swipe: ' Arrow keys work too.', sign: ' Or press Enter on the pen.' }[q.type];
+    if (keys) t += keys;
+  }
+  return t;
+}
+
 export const HOLD_TAP = 'Keep holding. Release when the bar fills as far as you mean it.';
 export const IDLE_MS = 6000;
 export const CUE_MS = 2200;

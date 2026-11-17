@@ -10,7 +10,7 @@
       "D-046"
     ],
     "context": "28 February 2025. Ukraine's president came to the Oval Office for help and got an argument on live television. The room has emptied.",
-    "prompt": "What went wrong in that meeting? Tap the object that fits your view.",
+    "prompt": "What went wrong in that meeting?",
     "regions": [
       {
         "id": "suit",
@@ -25,7 +25,7 @@
           "vance": 1,
           "trumpjr": 1
         },
-        "poly": { "wide": [[9,25],[12,14],[17,14],[19,25],[19,50],[17,62],[9,62]], "tall": [[6,15],[9,9],[16,9],[21,15],[21,33],[18,41],[6,41]] }
+        "poly": { "wide": [[8,22],[12,13],[17,13],[20,22],[20,47],[17,60],[9,60],[8,47]], "tall": [[6,15],[9,9],[16,9],[21,15],[21,33],[18,41],[6,41]] }
       },
       {
         "id": "card",
@@ -38,7 +38,7 @@
         "cand": {
           "vance": 2
         },
-        "poly": { "tall": [[43,36],[57,36],[57,44.5],[43,44.5]] }
+        "poly": { "wide": [[41,39],[53,39],[53,49],[41,49]], "tall": [[43,36],[57,36],[57,44.5],[43,44.5]] }
       },
       {
         "id": "sofa",
@@ -53,7 +53,7 @@
           "pence": 1,
           "christie": 1
         },
-        "poly": { "wide": [[69,52],[75,48],[87,48],[99,53],[99,80],[90,82],[77,76],[69,70]], "tall": [[43,62],[55,55],[80,54],[96,58],[100,62],[100,78],[50,78],[43,72]] }
+        "poly": { "wide": [[72,58],[76,54],[86,52],[100,52],[100,84],[91,84],[91,75],[76,74],[72,72]], "tall": [[43,62],[55,55],[80,54],[96,58],[100,62],[100,78],[50,78],[43,72]] }
       },
       {
         "id": "map",
@@ -68,7 +68,7 @@
           "kelly": 1,
           "pence": 1
         },
-        "poly": { "wide": [[85.5,25],[91,22],[96,26],[94,47],[86,47]], "tall": [[82,40],[86,16],[92,16],[93,22],[90,41]] }
+        "poly": { "wide": [[84,27],[89,24],[92,26],[91,40],[88,51],[84,50]], "tall": [[82,40],[86,16],[92,16],[93,22],[90,41]] }
       },
       {
         "id": "cameras",
@@ -82,7 +82,7 @@
           "beshear": 1,
           "youngkin": 1
         },
-        "poly": { "wide": [[13,72],[20,68],[45,72],[62,72],[66,71],[72,73],[75,77],[75,100],[13,100]], "tall": [[12,80],[22,78],[45,79.5],[65,79],[85,79],[88,84],[88,100],[12,100]] }
+        "poly": { "wide": [[7,77],[14,74],[40,71],[55,71],[62,75],[78,77],[89,77],[90,100],[7,100]], "tall": [[12,80],[22,78],[45,79.5],[65,79],[85,79],[88,84],[88,100],[12,100]] }
       }
     ],
     "signature": [
@@ -166,7 +166,7 @@
     "type": "whosaid",
     "tier": "core",
     "topic": "roots",
-    "prompt": "Who said it?",
+    "prompt": "A politician quotes her mother at a White House event and the internet never lets it go. Who said it?",
     "quote": "You think you just fell out of a coconut tree?",
     "answer": "harris",
     "options": [
@@ -221,7 +221,7 @@
     "tier": "bombshell",
     "topic": "hypocrisy-scandals",
     "context": "February 2021. The Texas grid fails in a deep freeze. Millions have no heat. A senator is photographed at the airport, bound for Cancun.",
-    "prompt": "He flew home the next day. What is your verdict on the trip? Tap the detail that sums it up.",
+    "prompt": "He flew home the next day. What is your verdict on the trip?",
     "regions": [
       {
         "id": "suitcase",
@@ -425,7 +425,7 @@
     "tier": "bombshell",
     "topic": "hypocrisy-scandals",
     "context": "November 2020. A governor who has told his state to stay home attends a lobbyist's birthday dinner at one of the most expensive restaurants in America.",
-    "prompt": "The guests have gone. How do you judge him for that dinner? Tap the detail that decides it.",
+    "prompt": "The guests have gone. How do you judge him for that dinner?",
     "regions": [
       {
         "id": "mask",
@@ -438,7 +438,7 @@
         "cand": {
           "desantis": 1
         },
-        "poly": { "tall": [[0,52],[10,49],[22,50],[34,55],[34,62],[16,64],[0,64]] }
+        "poly": { "wide": [[1,73],[10,66],[20,67],[29,76],[25,87],[9,87],[1,80]], "tall": [[0,52],[10,49],[22,50],[34,55],[34,62],[16,64],[0,64]] }
       },
       {
         "id": "bill",
@@ -451,7 +451,7 @@
         "cand": {
           "aoc": 1
         },
-        "poly": { "tall": [[59,66],[71,57],[95,57],[97,60],[96,73],[60,73]] }
+        "poly": { "wide": [[32,75],[57,74],[58,93],[33,93]], "tall": [[59,66],[71,57],[95,57],[97,60],[96,73],[60,73]] }
       },
       {
         "id": "placecard",
@@ -465,7 +465,7 @@
           "ossoff": 1,
           "khanna": 1
         },
-        "poly": { "tall": [[36,25],[52,20],[58,24],[58,31],[37,31]] }
+        "poly": { "wide": [[43,35],[53,35],[53,45],[43,45]], "tall": [[36,25],[52,20],[58,24],[58,31],[37,31]] }
       },
       {
         "id": "door",
@@ -478,7 +478,7 @@
         "cand": {
           "newsom": 1
         },
-        "poly": { "tall": [[73,2],[100,0],[100,37],[90,36],[87,28],[73,26]] }
+        "poly": { "wide": [[72,8],[100,0],[100,47],[72,47]], "tall": [[73,2],[100,0],[100,37],[90,36],[87,28],[73,26]] }
       },
       {
         "id": "note",
@@ -492,7 +492,7 @@
         "cand": {
           "newsom": 2
         },
-        "poly": { "tall": [[33,77],[36,62],[50,61],[52,75],[64,76],[67,95],[34,95]] }
+        "poly": { "wide": [[74,61],[82,60],[83,73],[90,74],[90,90],[78,90],[74,84]], "tall": [[33,77],[36,62],[50,61],[52,75],[64,76],[67,95],[34,95]] }
       }
     ],
     "signature": [
@@ -569,8 +569,8 @@
     "type": "pin",
     "tier": "core",
     "topic": "hypocrisy-scandals",
-    "context": "A billionaire buys the mansion next door to his own, has its toilets disconnected, and the house is assessed as uninhabitable. The tax bill falls by about $330,000.",
-    "prompt": "He later repaid it. What is your verdict on the tax dodge? Tap the detail that says it.",
+    "context": "A billionaire, later a governor with his eye on the White House, buys the mansion next door to his own, has its toilets disconnected, and the house is assessed as uninhabitable. The tax bill falls by about $330,000.",
+    "prompt": "He later repaid it. What is your verdict on the tax dodge?",
     "regions": [
       {
         "id": "pipes",
@@ -676,7 +676,7 @@
     ],
     "followup": "Set the group chat aside. Is the sentiment right?",
     "agree": {
-      "label": "Agree. Let Europe guard its own sea lanes.",
+      "label": "Yes. Let Europe guard its own sea lanes.",
       "effects": {
         "world": -1.5,
         "trade": -0.5
@@ -686,7 +686,7 @@
       }
     },
     "disagree": {
-      "label": "Disagree. Allies are the whole advantage.",
+      "label": "No. Allies are the whole advantage.",
       "effects": {
         "world": 1.5
       },
@@ -896,7 +896,7 @@
     "tier": "bombshell",
     "topic": "petty-revenge",
     "context": "September 2013. Two of the three lanes one town uses to reach the busiest bridge in America are coned off for four days. The town at its foot had a mayor who would not endorse the governor.",
-    "prompt": "Who or what do you blame for the four-day traffic jam? Tap it.",
+    "prompt": "Who or what do you blame for the four-day traffic jam?",
     "regions": [
       {
         "id": "cones",
@@ -985,7 +985,7 @@
     "type": "whosaid",
     "tier": "core",
     "topic": "personal-faith",
-    "prompt": "Who says it of himself?",
+    "prompt": "A politician introduces himself the same way every time. Who says it of himself?",
     "quote": "I'm a Christian, a conservative and a Republican, in that order.",
     "answer": "pence",
     "options": [
@@ -1068,8 +1068,8 @@
     "type": "pin",
     "tier": "core",
     "topic": "four-jobs",
-    "context": "2025. One man is Secretary of State, National Security Adviser, and for a while acting head of the aid agency and acting national archivist as well.",
-    "prompt": "His desk. What do you make of one man holding four jobs? Tap the object that fits your view.",
+    "context": "2025. One man is Secretary of State, National Security Adviser, and for a while acting national archivist and acting head of the foreign aid agency, which is shut down on his watch.",
+    "prompt": "His desk. What do you make of one man holding four jobs?",
     "regions": [
       {
         "id": "globe",
@@ -1082,7 +1082,7 @@
         "cand": {
           "rubio": 1
         },
-        "poly": { "wide": [[5,40],[10,33],[17,34],[18,45],[16,62],[7,62]], "tall": [[4,24],[12,18],[24,20],[25,30],[21,38],[6,38]] }
+        "poly": { "wide": [[2,36],[9,34],[17,38],[18,52],[14,66],[3,66]], "tall": [[3,22],[11,20],[20,24],[19,34],[15,38],[6,38]] }
       },
       {
         "id": "redphone",
@@ -1095,7 +1095,7 @@
         "cand": {
           "rubio": 2
         },
-        "poly": { "wide": [[36,48],[40,44],[52,44],[53,58],[37,58]], "tall": [[37,40],[43,35],[62,35],[63,45],[42,45]] }
+        "poly": { "wide": [[36,49],[49,49],[50,62],[36,62]], "tall": [[38,37],[57,37],[58,47],[38,47]] }
       },
       {
         "id": "crate",
@@ -1109,7 +1109,7 @@
           "slotkin": 1,
           "pence": 1
         },
-        "poly": { "wide": [[60,37],[79,37],[79,58],[60,58]], "tall": [[5,75],[42,74],[44,78],[44,96],[5,96]] }
+        "poly": { "wide": [[66.5,49],[83.5,49],[83.5,66],[66.5,66]], "tall": [[4,76],[15,76],[36,77],[37,95],[5,95]] }
       },
       {
         "id": "box",
@@ -1123,7 +1123,7 @@
           "randpaul": 1,
           "christie": 1
         },
-        "poly": { "wide": [[82,44],[85,42],[96,42],[97,61],[82,61]], "tall": [[68,56],[74,52],[90,52],[96,56],[96,70],[68,70]] }
+        "poly": { "wide": [[84,43.5],[98.5,43.5],[98.5,66],[84,66]], "tall": [[71,51],[80,49],[91,49],[98,52],[98,64],[88,68],[72,64]] }
       },
       {
         "id": "cot",
@@ -1137,7 +1137,7 @@
         "cand": {
           "rubio": 1
         },
-        "poly": { "wide": [[72,18],[91,18],[91,35],[72,35]], "tall": [[61,16],[95,16],[95,28],[61,28]] }
+        "poly": { "wide": [[66,34],[78,32],[84,31],[88,34],[86,42.5],[67,42.5]], "tall": [[66,23],[85,16],[97,17],[97,24],[72,31],[66,29]] }
       }
     ],
     "signature": [
@@ -1307,7 +1307,7 @@
     ],
     "followup": "Is that a good way to govern a state?",
     "agree": {
-      "label": "Agree. Fight the culture war and win it.",
+      "label": "Yes. Fight the culture war and win it.",
       "effects": {
         "social": -1.5,
         "style": 1
@@ -1317,7 +1317,7 @@
       }
     },
     "disagree": {
-      "label": "Disagree. Government isn't a culture cop.",
+      "label": "No. Government isn't a culture cop.",
       "effects": {
         "social": 1,
         "style": -0.5
@@ -1427,7 +1427,7 @@
     "tier": "core",
     "topic": "hypocrisy-scandals",
     "context": "July 2017. A budget fight shuts the state's parks and beaches over a holiday weekend. A news plane photographs the governor on one of them with his family.",
-    "prompt": "How do you judge the governor? Tap the detail that decides it.",
+    "prompt": "How do you judge the governor?",
     "regions": [
       {
         "id": "chair",
@@ -1440,11 +1440,11 @@
         "cand": {
           "christie": 2
         },
-        "poly": { "wide": [[39,54],[46,52],[54,60],[60,62],[68,72],[68,79],[50,81],[39,80]] }
+        "poly": { "wide": [[39,54],[46,52],[54,60],[60,62],[68,72],[68,79],[50,81],[39,80]], "tall": [[26,66],[43,65],[52,73],[62,74],[64,80],[77,81],[77,88],[28,88]] }
       },
       {
         "id": "sign",
-        "label": "The CLOSED sign — shut for them means shut for you",
+        "label": "The CLOSED sign — shut for the public means shut for him",
         "where": "left, a chain across the entrance with a closed sign",
         "effects": {
           "narc": -1,
@@ -1455,7 +1455,7 @@
           "beshear": 1,
           "kemp": 1
         },
-        "poly": { "wide": [[0,54],[5,52],[28,54],[31,58],[30,88],[0,88]] }
+        "poly": { "wide": [[0,54],[5,52],[28,54],[31,58],[30,88],[0,88]], "tall": [[5,43],[13,41],[40,42],[46,46],[46,61],[5,61]] }
       },
       {
         "id": "plane",
@@ -1469,7 +1469,7 @@
           "christie": 1,
           "desantis": 1
         },
-        "poly": { "wide": [[37,6],[61,5],[61,18],[37,18]] }
+        "poly": { "wide": [[37,6],[61,5],[61,18],[37,18]], "tall": [[27,6],[62,3],[66,8],[60,12],[50,15],[38,15],[27,12]] }
       },
       {
         "id": "house",
@@ -1482,7 +1482,7 @@
         "cand": {
           "randpaul": 1
         },
-        "poly": { "wide": [[67,32],[75,22],[85,14],[95,9],[100,10],[100,40],[82,50],[67,40]] }
+        "poly": { "wide": [[67,32],[75,22],[85,14],[95,9],[100,10],[100,40],[82,50],[67,40]], "tall": [[47,30],[60,20],[78,13],[90,14],[98,24],[98,35],[78,38],[65,42],[58,41],[48,34]] }
       }
     ],
     "signature": [
@@ -1663,7 +1663,7 @@
       "holdStrength",
       "hesitation"
     ],
-    "context": "2025. A progressive Democrat and a libertarian Republican force a House vote to release the Epstein files, over the Speaker's objections. It passes 427 to 1.",
+    "context": "2025. A progressive Democrat and a libertarian Republican start a petition that forces a House vote to release the Epstein files, over the Speaker's objections. It passes 427 to 1.",
     "prompt": "Before the vote, your leadership asks you to take your name off the petition. Do you?",
     "options": [
       {
@@ -1784,11 +1784,11 @@
     "measure": [
       "speed"
     ],
-    "prompt": "Each card is something a politician really did. Swipe right to forgive it, left if it should end a career.",
+    "prompt": "Each card is something a politician really did. Is it forgivable? No means it should end a career.",
     "cards": [
       {
         "id": "cancun",
-        "text": "Flying to Cancun while your state freezes.",
+        "text": "Forgivable: flying to Cancun while your state freezes.",
         "yes": {
           "libertine": 0.5
         },
@@ -1802,7 +1802,7 @@
       },
       {
         "id": "laundry",
-        "text": "A lobbyist's birthday dinner during your own lockdown.",
+        "text": "Forgivable: a lobbyist's birthday dinner during your own lockdown.",
         "yes": {
           "libertine": 0.5
         },
@@ -1816,7 +1816,7 @@
       },
       {
         "id": "beach",
-        "text": "Sunbathing on the beach you closed.",
+        "text": "Forgivable: sunbathing on the beach you closed.",
         "yes": {
           "libertine": 0.5,
           "narc": 0.5
@@ -1830,7 +1830,7 @@
       },
       {
         "id": "toilets",
-        "text": "Pulling out the toilets to cut the tax bill.",
+        "text": "Forgivable: pulling out the toilets to cut the tax bill.",
         "yes": {
           "libertine": 0.5,
           "mach": 0.5
@@ -1845,7 +1845,7 @@
       },
       {
         "id": "dress",
-        "text": "A Tax the Rich gown at a $35,000-a-ticket gala.",
+        "text": "Forgivable: a Tax the Rich gown at a $35,000-a-ticket gala.",
         "yes": {
           "libertine": 0.5,
           "online": 0.5
@@ -1860,7 +1860,7 @@
       },
       {
         "id": "leave",
-        "text": "Paternity leave in the middle of a supply-chain crisis.",
+        "text": "Forgivable: paternity leave in the middle of a supply-chain crisis.",
         "yes": {
           "social": 0.5,
           "psych": -0.5
@@ -1875,7 +1875,7 @@
       },
       {
         "id": "water",
-        "text": "Lunging for a water bottle mid-speech on live TV.",
+        "text": "Forgivable: lunging for a water bottle mid-speech on live TV.",
         "yes": {
           "libertine": 0.5,
           "psych": -0.5
@@ -1998,7 +1998,7 @@
     "type": "whosaid",
     "tier": "core",
     "topic": "wealth-tax",
-    "prompt": "Who made the argument? (paraphrased)",
+    "prompt": "A politician keeps making this case against great fortunes. Who made the argument? (paraphrased)",
     "quote": "A system that lets billionaires exist beside deep poverty is immoral.",
     "answer": "aoc",
     "options": [
@@ -2021,7 +2021,7 @@
     ],
     "followup": "Is it immoral?",
     "agree": {
-      "label": "Agree. No one earns a billion.",
+      "label": "Yes. No one earns a billion.",
       "effects": {
         "econ": -1.5,
         "system": 1
@@ -2031,7 +2031,7 @@
       }
     },
     "disagree": {
-      "label": "Disagree. Fortunes build things.",
+      "label": "No. Fortunes build things.",
       "effects": {
         "econ": 1.5
       }
@@ -2052,8 +2052,8 @@
     "excludes": [
       "D-053"
     ],
-    "context": "6 January 2021. A senator raises a fist to the crowd outside the Capitol. Footage shown eighteen months later has him jogging down a corridor to get out.",
-    "prompt": "What do the fist and the run tell you about him? Tap your reading.",
+    "context": "6 January 2021. A senator who objected to counting the electoral votes raises a fist to the crowd outside the Capitol. Footage shown eighteen months later has him jogging down a corridor to get out.",
+    "prompt": "What do the fist and the run tell you about him?",
     "regions": [
       {
         "id": "photo",
@@ -2066,7 +2066,7 @@
         "cand": {
           "hawley": 2
         },
-        "poly": { "wide": [[3,5],[21,13],[21.5,58],[3,58]], "tall": [[3,11],[20,14],[20,42],[3,42]] }
+        "poly": { "wide": [[2,5],[22,5],[22,46],[2,46]], "tall": [[1,16],[22,17],[22,43],[1,42]] }
       },
       {
         "id": "monitor",
@@ -2079,7 +2079,7 @@
         "cand": {
           "hawley": 1
         },
-        "poly": { "wide": [[77,20],[96,15],[99,17],[99,55],[87,55],[77,46]], "tall": [[78,22],[96,19],[97,41],[85,41],[78,37]] }
+        "poly": { "wide": [[76,13],[95,12],[96,43],[77,43]], "tall": [[76,21],[96,21],[97,41],[77,41]] }
       },
       {
         "id": "gap",
@@ -2092,7 +2092,7 @@
         "cand": {
           "christie": 1
         },
-        "poly": { "wide": [[38,20],[63,20],[65,45],[70,67],[60,75.5],[45,72],[38,70],[36,45]], "tall": [[38,27],[62,27],[65,45],[78,62],[84,74],[68,75],[30,74],[30,60],[35,45]] }
+        "poly": { "wide": [[33,20],[45,8],[60,8],[70,20],[74,55],[74,75],[34,75],[30,55]], "tall": [[30,10],[40,5],[60,5],[70,10],[76,50],[78,77],[56,77],[28,76],[24,50]] }
       },
       {
         "id": "mug",
@@ -2105,7 +2105,7 @@
         "cand": {
           "pence": 1
         },
-        "poly": { "wide": [[26,74],[30,72],[37,72],[38,80],[37,88],[26,88]], "tall": [[10,73],[20,71],[28,72],[29,81],[10,81]] }
+        "poly": { "wide": [[13,68],[19,60],[22,68],[27,70],[27,88],[13,88]], "tall": [[9,76],[15,74],[16,67],[21,67],[26,74],[27,87],[10,87]] }
       },
       {
         "id": "papers",
@@ -2119,7 +2119,7 @@
           "hawley": 1,
           "cruz": 1
         },
-        "poly": { "wide": [[55,79],[62,76.5],[74,78],[74,90],[56,90]], "tall": [[68,77],[80,75.5],[94,77],[94,84],[69,84]] }
+        "poly": { "wide": [[48,79],[52,77],[73,77],[78,81],[77,90],[58,91],[48,85]], "tall": [[54,80],[60,78.5],[90,78.5],[93,83],[92,88],[66,90],[54,86]] }
       }
     ],
     "signature": [
@@ -2138,7 +2138,7 @@
     "tier": "core",
     "topic": "billionaire-feud",
     "context": "March 2025. The richest man in the world calls a senator, a former combat pilot and astronaut, a traitor for visiting Ukraine. The senator owns one of his cars.",
-    "prompt": "You are the senator, in your garage. How do you answer him? Tap your move.",
+    "prompt": "You are the senator, in your garage. How do you answer him?",
     "regions": [
       {
         "id": "sedan",
@@ -2152,7 +2152,7 @@
         "cand": {
           "kelly": 2
         },
-        "poly": { "wide": [[23,58],[28,45],[38,39],[60,37],[70,44],[80,54],[84,62],[84,76],[48,83],[25,72]] }
+        "poly": { "wide": [[23,58],[28,45],[38,39],[60,37],[70,44],[80,54],[84,62],[84,76],[48,83],[25,72]], "tall": [[8,70],[20,59],[38,55],[62,55],[78,62],[93,68],[95,82],[85,86],[50,90],[10,82]] }
       },
       {
         "id": "phone",
@@ -2166,7 +2166,7 @@
           "pritzker": 1,
           "kelly": 1
         },
-        "poly": { "wide": [[2,54],[16,54],[17,72],[2,72]] }
+        "poly": { "wide": [[2,54],[16,54],[17,72],[2,72]], "tall": [[6,43],[18,43],[19,52],[6,52]] }
       },
       {
         "id": "helmet",
@@ -2179,7 +2179,7 @@
         "cand": {
           "kelly": 1
         },
-        "poly": { "wide": [[72,6],[99,3],[99,24],[72,24]] }
+        "poly": { "wide": [[72,6],[99,3],[99,24],[72,24]], "tall": [[61,8],[94,6],[98,12],[98,24],[60,24]] }
       },
       {
         "id": "charger",
@@ -2193,7 +2193,7 @@
           "khanna": 1,
           "ramaswamy": 1
         },
-        "poly": { "wide": [[86,33],[93,32],[97,40],[97,70],[86,70]] }
+        "poly": { "wide": [[86,33],[93,32],[97,40],[97,70],[86,70]], "tall": [[81,30],[95,29],[97,40],[97,57],[81,57],[80,40]] }
       }
     ],
     "signature": [
@@ -2212,7 +2212,7 @@
     "tier": "core",
     "topic": "state-fair",
     "context": "August 2023. A long-shot candidate grabs the microphone at the Iowa State Fair and raps a famous hip-hop track. The rapper asks him to stop.",
-    "prompt": "It's your turn on the fair stage. What do you do with it? Tap.",
+    "prompt": "It's your turn on the fair stage. What do you do with it?",
     "regions": [
       {
         "id": "mic",
@@ -2350,7 +2350,7 @@
     ],
     "followup": "Is that a good creed for someone in office?",
     "agree": {
-      "label": "Agree. Do your stretch of the road.",
+      "label": "Yes. Do your stretch of the road.",
       "effects": {
         "faith": 1,
         "system": -0.5,
@@ -2361,7 +2361,7 @@
       }
     },
     "disagree": {
-      "label": "Nice sermon. Voters want it finished.",
+      "label": "No. Nice sermon. Voters want it finished.",
       "effects": {
         "faith": -0.5,
         "psych": 0.5,
@@ -2530,7 +2530,7 @@
     "options": [
       {
         "id": "vance",
-        "label": "Vance: the movement's heir",
+        "label": "Vance: the Vice President and the movement's heir",
         "effects": {
           "loyalty": 1,
           "world": -1
@@ -2541,7 +2541,7 @@
       },
       {
         "id": "rubio",
-        "label": "Rubio: the diplomat who takes any brief",
+        "label": "Rubio: Secretary of State, the diplomat who takes any brief",
         "effects": {
           "world": 0.5,
           "mach": 0.5
@@ -2552,7 +2552,7 @@
       },
       {
         "id": "desantis",
-        "label": "DeSantis: the governor who never blinks",
+        "label": "DeSantis of Florida: the governor who never blinks",
         "effects": {
           "style": 1,
           "social": -1
@@ -2563,7 +2563,7 @@
       },
       {
         "id": "kemp",
-        "label": "Kemp: said no to a president and survived",
+        "label": "Kemp of Georgia: said no to a president and survived",
         "effects": {
           "system": -1,
           "loyalty": -1
@@ -2574,7 +2574,7 @@
       },
       {
         "id": "youngkin",
-        "label": "Youngkin: the vest that wins suburbs",
+        "label": "Youngkin of Virginia: won the suburbs in a fleece vest",
         "effects": {
           "econ": 1,
           "style": -1
@@ -2585,7 +2585,7 @@
       },
       {
         "id": "ramaswamy",
-        "label": "Ramaswamy: the talker who never tires",
+        "label": "Ramaswamy: the biotech millionaire who never stops talking",
         "effects": {
           "tech": 1,
           "narc": 0.5
@@ -2634,7 +2634,7 @@
     "options": [
       {
         "id": "shapiro",
-        "label": "Shapiro: the swing-state closer",
+        "label": "Shapiro of Pennsylvania: the swing-state closer",
         "effects": {
           "system": -1,
           "world": 0.5
@@ -2645,7 +2645,7 @@
       },
       {
         "id": "beshear",
-        "label": "Beshear: the red-state deacon",
+        "label": "Beshear of Kentucky: the red-state deacon",
         "effects": {
           "faith": 1,
           "style": -1
@@ -2656,7 +2656,7 @@
       },
       {
         "id": "kelly",
-        "label": "Kelly: the astronaut from the border",
+        "label": "Kelly of Arizona: the astronaut from the border",
         "effects": {
           "tech": 1,
           "border": -0.5
@@ -2667,7 +2667,7 @@
       },
       {
         "id": "buttigieg",
-        "label": "Buttigieg: wins every interview he walks into",
+        "label": "Buttigieg: ex-Transportation chief, wins every interview",
         "effects": {
           "online": 0.5,
           "mach": 0.5
@@ -2678,7 +2678,7 @@
       },
       {
         "id": "slotkin",
-        "label": "Slotkin: the spy who talks like a neighbor",
+        "label": "Slotkin of Michigan: the ex-spy who talks like a neighbor",
         "effects": {
           "world": 1,
           "trade": -0.5
@@ -2689,7 +2689,7 @@
       },
       {
         "id": "ossoff",
-        "label": "Ossoff: the investigator with clean hands",
+        "label": "Ossoff of Georgia: the investigator with clean hands",
         "effects": {
           "system": 0.5,
           "econ": -0.5
@@ -2841,7 +2841,7 @@
     "tier": "core",
     "topic": "vp-debate-2020",
     "context": "October 2020, the vice-presidential debate, plexiglass between the desks. For about two minutes a fly sits on the Vice President's white hair. He never moves.",
-    "prompt": "The stage after the lights go down. What was that night really about? Tap it.",
+    "prompt": "The stage after the lights go down. What was that night really about?",
     "regions": [
       {
         "id": "fly",
@@ -3083,7 +3083,7 @@
     ],
     "followup": "Is he right?",
     "agree": {
-      "label": "Agree. Guests don't get to wreck the house.",
+      "label": "Yes. Guests don't get to wreck the house.",
       "effects": {
         "border": -1.5,
         "social": -0.5
@@ -3093,7 +3093,7 @@
       }
     },
     "disagree": {
-      "label": "Disagree. Speech is speech, visa or not.",
+      "label": "No. Speech is speech, visa or not.",
       "effects": {
         "border": 1,
         "social": 0.5,
@@ -3179,7 +3179,7 @@
     "type": "choice",
     "tier": "core",
     "topic": "parents-vs-schools",
-    "context": "Virginia, 2021. In a debate the Democrat says he doesn't think parents should be telling schools what to teach. The Republican in the fleece vest builds his close on it, and wins.",
+    "context": "Virginia, 2021. In a debate the Democrat says he doesn't think parents should be telling schools what to teach. The Republican in the fleece vest makes it his closing argument, and wins.",
     "prompt": "Who should decide what schools teach?",
     "options": [
       {
@@ -3246,11 +3246,11 @@
     "measure": [
       "speed"
     ],
-    "prompt": "Each card is a real campaign moment. Swipe right if it charms you, left if it makes you cringe.",
+    "prompt": "Each card is a real campaign moment. Does it charm you? No means it makes you cringe.",
     "cards": [
       {
         "id": "rap",
-        "text": "A candidate raps at the state fair.",
+        "text": "Charming: a candidate raps at the state fair.",
         "yes": {
           "online": 0.5,
           "narc": 0.5
@@ -3264,7 +3264,7 @@
       },
       {
         "id": "brat",
-        "text": "A pop star calls the nominee brat; the campaign goes lime green.",
+        "text": "Charming: a pop star calls the nominee brat; the campaign goes lime green.",
         "yes": {
           "online": 0.5,
           "social": 0.5
@@ -3278,7 +3278,7 @@
       },
       {
         "id": "vest",
-        "text": "The same fleece vest at every stop for a year.",
+        "text": "Charming: the same fleece vest at every stop for a year.",
         "yes": {
           "style": -0.5,
           "mach": 0.5
@@ -3292,7 +3292,7 @@
       },
       {
         "id": "kitchen",
-        "text": "Policy answers on a livestream while cooking dinner.",
+        "text": "Charming: policy answers on a livestream while cooking dinner.",
         "yes": {
           "online": 0.5
         },
@@ -3306,7 +3306,7 @@
       },
       {
         "id": "seuss",
-        "text": "Reading Green Eggs and Ham on the Senate floor.",
+        "text": "Charming: reading Green Eggs and Ham on the Senate floor.",
         "yes": {
           "narc": 0.5,
           "online": 0.5
@@ -3320,7 +3320,7 @@
       },
       {
         "id": "festivus",
-        "text": "A yearly airing of grievances against your own colleagues.",
+        "text": "Charming: a yearly airing of grievances against your own colleagues.",
         "yes": {
           "loyalty": -0.5,
           "online": 0.5
@@ -3334,7 +3334,7 @@
       },
       {
         "id": "podcast",
-        "text": "A governor starts a podcast and books his enemies.",
+        "text": "Charming: a governor starts a podcast and books his enemies.",
         "yes": {
           "online": 0.5,
           "mach": 0.5
@@ -3367,7 +3367,7 @@
     "tier": "bombshell",
     "topic": "hypocrisy-scandals",
     "context": "September 2021. A socialist congresswoman attends New York's most exclusive party in a white gown with Tax the Rich painted down the back in red.",
-    "prompt": "The staircase, after midnight. What do you make of the dress? Tap your verdict.",
+    "prompt": "The staircase, after midnight. What do you make of the dress?",
     "regions": [
       {
         "id": "gown",
@@ -3381,7 +3381,7 @@
         "cand": {
           "aoc": 2
         },
-        "poly": { "wide": [[44,10],[50,3],[57,10],[58,35],[64,66],[60,70.5],[50,76],[22,84],[20,78],[38,58]], "tall": [[46,13],[53,8],[62,18],[62,40],[73,58],[60,64],[40,76],[8,74],[26,60],[40,40]] }
+        "poly": { "wide": [[44,3],[56,3],[58,25],[57,45],[62,65],[67,77],[27,77],[39,65],[44,45],[43,25]], "tall": [[46,13],[53,8],[62,18],[62,40],[73,58],[60,64],[40,76],[8,74],[26,60],[40,40]] }
       },
       {
         "id": "ticket",
@@ -3392,7 +3392,7 @@
           "econ": 0.5,
           "system": 0.5
         },
-        "poly": { "wide": [[3,24],[13,22],[26,38],[26,52],[16,56],[14,86],[3,86]], "tall": [[0,40],[8,33],[33,38],[33,47],[20,49],[19.5,63],[0,64]] }
+        "poly": { "wide": [[11,24],[17,24],[27,47],[27,61],[21,62],[21,85],[11,85]], "tall": [[0,40],[8,33],[33,38],[33,47],[20,49],[19.5,63],[0,64]] }
       },
       {
         "id": "envelope",
@@ -3405,7 +3405,7 @@
         "cand": {
           "shapiro": 1
         },
-        "poly": { "wide": [[75,50],[90,45],[94,48],[94,61],[75,61]], "tall": [[67,72],[80,63],[95,64],[95,75],[68,75]] }
+        "poly": { "wide": [[75,62],[90,61],[93,65],[90,73],[75,72]], "tall": [[67,72],[80,63],[95,64],[95,75],[68,75]] }
       },
       {
         "id": "camera",
@@ -3420,7 +3420,7 @@
           "newsom": 1,
           "ramaswamy": 1
         },
-        "poly": { "wide": [[55,80],[63,71],[71,71],[74,78],[74,92],[60,95],[46,94],[46,85]], "tall": [[40,80],[52,77],[62,78],[67,85],[67,95],[19,96],[19,90],[38,84]] }
+        "poly": { "wide": [[34,85],[47,81],[57,79],[64,82],[64,97],[47,98],[34,96]], "tall": [[40,80],[52,77],[62,78],[67,85],[67,95],[19,96],[19,90],[38,84]] }
       },
       {
         "id": "champagne",
@@ -3430,7 +3430,7 @@
           "libertine": 1,
           "style": -1
         },
-        "poly": { "wide": [[77,15],[85,3],[93,3],[99,15],[99,41],[80,41],[77,25]], "tall": [[68,23],[80,9],[88,9],[99,23],[99,34],[68,34]] }
+        "poly": { "wide": [[82,4],[90,4],[94,18],[95,28],[79,28],[79,18]], "tall": [[68,23],[80,9],[88,9],[99,23],[99,34],[68,34]] }
       }
     ],
     "signature": [
@@ -3478,7 +3478,7 @@
         "label": "Ted Cruz"
       }
     ],
-    "followup": "Do you side with the man who said it?",
+    "followup": "Whose side are you on?",
     "agree": {
       "label": "The old hand's. Too slick is a tell.",
       "effects": {
@@ -3588,7 +3588,7 @@
       "A-103",
       "D-025"
     ],
-    "context": "2023. A Democratic governor backs $100 million in private-school scholarships for children in the worst public schools. His own party's House refuses; he strikes the money to get a budget.",
+    "context": "2023. A Democratic governor backs $100 million in private-school scholarships for children in the worst public schools. His own party's House refuses; he cuts the money himself to get a budget passed.",
     "prompt": "Should public money follow a child to a private school?",
     "options": [
       {
@@ -3796,7 +3796,7 @@
     "tier": "core",
     "topic": "guns",
     "context": "A 2018 campaign ad: the candidate sits in an armchair with a shotgun across his lap beside a teenage boy who wants to date his daughter. The boy recites the platform.",
-    "prompt": "The set, after the crew has gone. What do you think of the ad? Tap your verdict.",
+    "prompt": "The set, after the crew has gone. What do you think of the ad?",
     "regions": [
       {
         "id": "shotgun",
@@ -3810,7 +3810,7 @@
         "cand": {
           "kemp": 2
         },
-        "poly": { "wide": [[34,32],[40,28],[56,28],[59,33],[63,45],[64,52],[63,72],[36,72],[34,52],[30,48]] }
+        "poly": { "wide": [[34,32],[40,28],[56,28],[59,33],[63,45],[64,52],[63,72],[36,72],[34,52],[30,48]], "tall": [[32,17],[40,13],[60,13],[66,17],[74,23],[72,42],[33,42],[28,27]] }
       },
       {
         "id": "chair",
@@ -3823,7 +3823,7 @@
         "cand": {
           "pritzker": 1
         },
-        "poly": { "wide": [[69,48],[75,38],[87,38],[89,48],[89,84],[77,84],[72,78],[69,76]] }
+        "poly": { "wide": [[69,48],[75,38],[87,38],[89,48],[89,84],[77,84],[72,78],[69,76]], "tall": [[66,46],[72,43.5],[88,44],[89,75],[56,75],[56,60]] }
       },
       {
         "id": "cards",
@@ -3835,7 +3835,7 @@
         "cand": {
           "kemp": 1
         },
-        "poly": { "wide": [[25,82],[34,78],[50,76],[66,78],[75,84],[73,95],[50,98],[27,95]] }
+        "poly": { "wide": [[25,82],[34,78],[50,76],[66,78],[75,84],[73,95],[50,98],[27,95]], "tall": [[12,82],[25,77],[75,76],[88,82],[86,92],[50,95],[14,92]] }
       },
       {
         "id": "remote",
@@ -3849,7 +3849,7 @@
         "cand": {
           "beshear": 1
         },
-        "poly": { "wide": [[2,53],[10,50],[20,51],[23,56],[22,63],[3,63]] }
+        "poly": { "wide": [[2,53],[10,50],[20,51],[23,56],[22,63],[3,63]], "tall": [[10,48],[20,46],[40,47],[40,56],[33,57],[33,73],[12,73],[22,57],[10,55]] }
       }
     ],
     "signature": [
@@ -3998,8 +3998,8 @@
     "excludes": [
       "D-011"
     ],
-    "context": "2023, an election year. A Democrat who needs Republican votes to survive sides with transgender minors anyway.",
-    "prompt": "A Democrat who needs Republican votes sides with transgender minors anyway. Who explained it this way? (paraphrased)",
+    "context": "2023, an election year. A Democratic governor who needs Republican votes to survive vetoes a ban on medical care for transgender minors.",
+    "prompt": "A Democratic governor in a red state vetoes a ban on medical care for transgender minors. Who explained it this way? (paraphrased)",
     "quote": "My faith teaches me that every child is a child of God.",
     "answer": "beshear",
     "options": [
@@ -4020,9 +4020,9 @@
         "label": "JB Pritzker"
       }
     ],
-    "followup": "Is faith a good reason for that veto?",
+    "followup": "He vetoed the ban and gave his faith as the reason. Was he right?",
     "agree": {
-      "label": "Agree. Faith belongs to both sides.",
+      "label": "Right. Faith belongs to both sides.",
       "effects": {
         "faith": 1,
         "social": 1,
@@ -4033,7 +4033,7 @@
       }
     },
     "disagree": {
-      "label": "Disagree. The legislature had it right.",
+      "label": "Wrong. The ban should have stood.",
       "effects": {
         "social": -1.5
       }
@@ -4119,7 +4119,7 @@
     "measure": [
       "hesitation"
     ],
-    "context": "August 2024. At a rally in your own state the nominee calls you disloyal and goes after your wife. Three weeks later he needs your machine to win it.",
+    "context": "August 2024. At a rally in your own state the nominee calls you disloyal and goes after your wife. Three weeks later he needs your organization to win it.",
     "prompt": "He calls. Do you help him?",
     "options": [
       {
@@ -4204,7 +4204,7 @@
       },
       {
         "id": "d",
-        "label": "Go for the railroad. Somebody profited from this.",
+        "label": "Go after the railroad. Somebody profited from this.",
         "effects": {
           "econ": -1.5,
           "style": 1
@@ -4228,7 +4228,7 @@
     "type": "whosaid",
     "tier": "core",
     "topic": "tariffs",
-    "prompt": "Who keeps telling his own party this? (paraphrased)",
+    "prompt": "One Republican senator keeps telling his own party this. Who? (paraphrased)",
     "quote": "Tariffs are a tax on Americans, and we used to be the party against taxes.",
     "answer": "randpaul",
     "options": [
@@ -4251,7 +4251,7 @@
     ],
     "followup": "Is he right?",
     "agree": {
-      "label": "Agree. A tax is a tax.",
+      "label": "Yes. A tax is a tax.",
       "effects": {
         "trade": 1.5,
         "econ": 1,
@@ -4263,7 +4263,7 @@
       }
     },
     "disagree": {
-      "label": "Disagree. Tariffs bring the factories home.",
+      "label": "No. Tariffs bring the factories home.",
       "effects": {
         "trade": -1.5,
         "econ": -0.5
@@ -4341,7 +4341,7 @@
     "tier": "core",
     "topic": "winning-hostile-ground",
     "context": "2021. A former private-equity chief wins a blue-leaning state in a red fleece vest, keeping his party's biggest name at a polite distance.",
-    "prompt": "His wardrobe. How would you dress to win a state like that? Tap what you'd wear.",
+    "prompt": "His wardrobe. How would you dress to win a state like that?",
     "regions": [
       {
         "id": "vest",
@@ -4533,7 +4533,7 @@
     ],
     "followup": "Is he right, even though the host is on the other side?",
     "agree": {
-      "label": "Agree. The weapon gets used on us next.",
+      "label": "Yes. The weapon gets used on us next.",
       "effects": {
         "loyalty": -1,
         "system": -0.5,
@@ -4545,7 +4545,7 @@
       }
     },
     "disagree": {
-      "label": "Disagree. Networks answer for what they air.",
+      "label": "No. Networks answer for what they air.",
       "effects": {
         "loyalty": 1,
         "style": 1
@@ -4886,7 +4886,7 @@
     ],
     "followup": "Is this the moment for it?",
     "agree": {
-      "label": "Agree. Politeness has lost every round.",
+      "label": "Yes. Politeness has lost every round.",
       "effects": {
         "style": 1.5,
         "system": 1
@@ -4896,7 +4896,7 @@
       }
     },
     "disagree": {
-      "label": "Disagree. Win elections, not shouting matches.",
+      "label": "No. Win elections, not shouting matches.",
       "effects": {
         "style": -1.5,
         "system": -1
@@ -5114,7 +5114,7 @@
     "excludes": [
       "B-028"
     ],
-    "prompt": "Who told a conservative conference this? (paraphrased)",
+    "prompt": "A senator told a conservative conference this. Who? (paraphrased)",
     "quote": "Tell men their manhood is the problem and they retreat into idleness, porn and video games.",
     "answer": "hawley",
     "options": [
@@ -5137,7 +5137,7 @@
     ],
     "followup": "A fair thing for a senator to say?",
     "agree": {
-      "label": "Agree. Somebody has to say it.",
+      "label": "Fair. Somebody has to say it.",
       "effects": {
         "social": -1,
         "tech": -1.5,
@@ -5148,7 +5148,7 @@
       }
     },
     "disagree": {
-      "label": "Disagree. Not the state's business.",
+      "label": "Unfair. Men's free time is not a senator's business.",
       "effects": {
         "libertine": 1,
         "tech": 1
@@ -5497,7 +5497,7 @@
     ],
     "followup": "Is that the party's problem?",
     "agree": {
-      "label": "Agree. Toughen up and talk plainly.",
+      "label": "Yes. Toughen up and talk plainly.",
       "effects": {
         "social": -1,
         "style": 1
@@ -5507,7 +5507,7 @@
       }
     },
     "disagree": {
-      "label": "Disagree. That's the other side's caricature.",
+      "label": "No. That's the other side's caricature.",
       "effects": {
         "social": 1,
         "style": -0.5
@@ -6101,7 +6101,7 @@
     "options": [
       {
         "id": "pence",
-        "label": "Pence: the man who counted the votes",
+        "label": "Pence: certified the 2020 result when his President said not to",
         "effects": {
           "system": -1,
           "faith": 1
@@ -6112,7 +6112,7 @@
       },
       {
         "id": "kemp",
-        "label": "Kemp: the governor who wouldn't budge",
+        "label": "Kemp: refused to overturn Georgia in 2020",
         "effects": {
           "system": -1,
           "loyalty": -1

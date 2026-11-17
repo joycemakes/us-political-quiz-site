@@ -65,7 +65,7 @@ export function renderResults(root, R) {
     const slot = h('div', `pod pod-${i + 1}`);
     const card = h('div', 'pod-card');
     const sil = h('div', 'pod-sil');
-    sil.appendChild(silhouetteEl(m.id, 'pod-sil-img'));
+    sil.appendChild(silhouetteEl(m.id, 'pod-sil-img', '#D9A441'));
     card.append(sil, portraitEl(c, 'pod-portrait'));
     slot.append(card, h('div', 'pod-rank', String(i + 1)), h('div', 'pod-name', c.name), h('div', 'pod-pct', `${m.pct}%`));
     pod.appendChild(slot);
@@ -79,6 +79,7 @@ export function renderResults(root, R) {
 
   // ---- top five ----
   const top = section('Your top five');
+  top.appendChild(h('p', 'res-cap', 'The five of the 23 candidates whose answers sit closest to yours.'));
   const ol = h('ol', 'top5');
   const campShort = id => (camps || []).find(l => l.id === id)?.short || '';
   const usedPhrases = new Set();
@@ -131,6 +132,7 @@ export function renderResults(root, R) {
 
   // ---- ideology gauges ----
   const ideo = section('Ideology');
+  ideo.appendChild(h('p', 'res-cap', 'Where you sit on each fight, left pole to right pole. Faded rows had too few questions to say.'));
   const g = h('div', 'gauges');
   for (const ax of AXES.filter(a => a.group === 'ideology' || a.group === 'style')) g.appendChild(gauge(ax, scores[ax.id].value, scores[ax.id].conf));
   ideo.appendChild(g);
@@ -138,6 +140,7 @@ export function renderResults(root, R) {
 
   // ---- temperament ----
   const tem = section('Temperament');
+  tem.appendChild(h('p', 'res-cap', 'The dark triad: scheming, self-regard and coldness. Middling is normal.'));
   const trio = h('div', 'dials trio');
   trio.append(dial('Machiavellianism', scores.mach.value), dial('Narcissism', scores.narc.value), dial('Psychopathy', scores.psych.value));
   tem.appendChild(trio);
@@ -145,6 +148,7 @@ export function renderResults(root, R) {
 
   // ---- power: dynasty and libertine ----
   const pow = section('Power and private life');
+  pow.appendChild(h('p', 'res-cap', 'How you feel about family power, and how scandal-proof you play it.'));
   const duo = h('div', 'dials duo');
   duo.append(
     dial('Dynasty', scores.dynasty.value, scores.dynasty.value >= 0.4 ? 'Family power is fine' : scores.dynasty.value <= -0.4 ? 'Meritocrat' : 'Undecided'),

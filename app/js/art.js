@@ -117,7 +117,9 @@ export function createArtSlot(id, opts = {}) {
   let svg = null;
   let natural = null; // [w, h] of the loaded picture; nominal size until it loads
   let polys = [];
-  const slot = { el, frame, update, setGrade, version: null, regionAt };
+  const slot = { el, frame, update, setGrade, version: null, regionAt, destroy };
+  let ro = null;
+  function destroy() { ro?.disconnect(); ro = null; live.delete(slot); }
 
   function placeholder(version, file) {
     frame.querySelector('img')?.remove();
@@ -144,7 +146,11 @@ export function createArtSlot(id, opts = {}) {
     if (!mayExist(file)) placeholder(version, file);
     else {
       let img = frame.querySelector('img');
-      if (!img) { img = document.createElement('img'); img.alt = ''; img.decoding = 'async'; frame.prepend(img); }
+      if (!img) {
+        img = document.createElement('img'); img.alt = ''; img.decoding = 'async';
+        img.width = NOMINAL[version][0]; img.height = NOMINAL[version][1];
+        frame.prepend(img);
+      }
       img.onload = () => {
         frame.querySelector('.art-ph')?.remove();
         frame.classList.remove('is-placeholder');
@@ -234,7 +240,7 @@ export function createArtSlot(id, opts = {}) {
 
   if (opts.regions && opts.onRegion) {
     frame.addEventListener('click', e => {
-      const marker = e.target.closest('.pin-marker');
+      const marker = e.target.closest('.pin-marker, .pin-region');
       let r = marker ? opts.regions.find(x => x.id === marker.dataset.region) : null;
       if (!r && polys.length) {
         const b = frame.getBoundingClientRect();
@@ -245,13 +251,17 @@ export function createArtSlot(id, opts = {}) {
     });
     if (typeof ResizeObserver !== 'undefined') {
       let last = '';
-      new ResizeObserver(() => {
+      ro = new ResizeObserver(() => {
+        if (!el.isConnected) { destroy(); return; }
         const k = `${frame.clientWidth}x${frame.clientHeight}`;
-        if (k !== last && el.isConnected) { last = k; drawRegions(slot.version); }
-      }).observe(frame);
+        if (k !== last) { last = k; drawRegions(slot.version); }
+      });
+      ro.observe(frame);
     }
   }
   update();
+  // Slots of earlier questions go when a new one is made (no growing list of dead pictures).
+  for (const s of [...live]) if (!s.el.isConnected) live.delete(s);
   live.add(slot);
   return slot;
 }
@@ -276,6 +286,8 @@ export function portraitEl(cand, cls = '') {
     const img = document.createElement('img');
     img.alt = '';
     img.decoding = 'async';
+    img.loading = 'lazy';
+    img.width = 512; img.height = 512;
     img.onload = () => el.classList.add('has-img');
     img.onerror = () => img.remove();
     img.src = ART_BASE + file;

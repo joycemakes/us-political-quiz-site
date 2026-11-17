@@ -411,7 +411,7 @@
     "type": "envelope",
     "tier": "core",
     "topic": "press-ethics",
-    "prompt": "A national reporter reads you her story before it runs. She has a fact wrong, and the error flatters you. Her deadline is in ten minutes. What do you say?",
+    "prompt": "A national reporter calls to read you her story before it runs, and offers you one chance to flag anything. A fact is wrong, and the error flatters you. Her deadline is in ten minutes. What do you say?",
     "options": [
       {
         "id": "a",
@@ -495,7 +495,7 @@
     "type": "pin",
     "tier": "core",
     "topic": "kingmaker",
-    "prompt": "The hotel suite, the night before the endorsement vote. Five people, one hour. Who do you go to first? Tap them.",
+    "prompt": "The hotel suite, the night before the endorsement vote. Five people, one hour. Who do you go to first?",
     "art": "C-PIN-SUITE",
     "regions": [
       {
@@ -506,7 +506,68 @@
           "mach": 1,
           "loyalty": 0.5
         },
-        "poly": { "wide": [[76,15],[78,8],[84,8],[89,25],[88,82],[75,82],[74,40]], "tall": [[71,10],[75,6],[82,7],[87,14],[86,45],[70,45],[69,25]] }
+        "poly": {
+          "wide": [
+            [
+              76,
+              15
+            ],
+            [
+              78,
+              8
+            ],
+            [
+              84,
+              8
+            ],
+            [
+              89,
+              25
+            ],
+            [
+              88,
+              82
+            ],
+            [
+              75,
+              82
+            ],
+            [
+              74,
+              40
+            ]
+          ],
+          "tall": [
+            [
+              71,
+              10
+            ],
+            [
+              75,
+              6
+            ],
+            [
+              82,
+              7
+            ],
+            [
+              87,
+              14
+            ],
+            [
+              86,
+              45
+            ],
+            [
+              70,
+              45
+            ],
+            [
+              69,
+              25
+            ]
+          ]
+        }
       },
       {
         "id": "delegate",
@@ -516,7 +577,64 @@
           "mach": -0.5,
           "psych": -1
         },
-        "poly": { "wide": [[5,15],[10,10],[18,12],[19,30],[19,90],[3,90],[3,40]], "tall": [[7,46],[16,44],[26,48],[27,98],[5,98],[4,60]] }
+        "poly": {
+          "wide": [
+            [
+              5,
+              15
+            ],
+            [
+              10,
+              10
+            ],
+            [
+              18,
+              12
+            ],
+            [
+              19,
+              30
+            ],
+            [
+              19,
+              90
+            ],
+            [
+              3,
+              90
+            ],
+            [
+              3,
+              40
+            ]
+          ],
+          "tall": [
+            [
+              7,
+              46
+            ],
+            [
+              16,
+              44
+            ],
+            [
+              26,
+              48
+            ],
+            [
+              27,
+              98
+            ],
+            [
+              5,
+              98
+            ],
+            [
+              4,
+              60
+            ]
+          ]
+        }
       },
       {
         "id": "aide",
@@ -525,7 +643,80 @@
         "effects": {
           "mach": 2
         },
-        "poly": { "wide": [[30,30],[42,24],[48,12],[53,13],[57,22],[58,45],[56,70],[31,70]], "tall": [[29,50],[46,47],[52,32],[66,36],[68,46],[71,55],[70,74],[56,75],[29,71]] }
+        "poly": {
+          "wide": [
+            [
+              30,
+              30
+            ],
+            [
+              42,
+              24
+            ],
+            [
+              48,
+              12
+            ],
+            [
+              53,
+              13
+            ],
+            [
+              57,
+              22
+            ],
+            [
+              58,
+              45
+            ],
+            [
+              56,
+              70
+            ],
+            [
+              31,
+              70
+            ]
+          ],
+          "tall": [
+            [
+              29,
+              50
+            ],
+            [
+              46,
+              47
+            ],
+            [
+              52,
+              32
+            ],
+            [
+              66,
+              36
+            ],
+            [
+              68,
+              46
+            ],
+            [
+              71,
+              55
+            ],
+            [
+              70,
+              74
+            ],
+            [
+              56,
+              75
+            ],
+            [
+              29,
+              71
+            ]
+          ]
+        }
       },
       {
         "id": "phone",
@@ -535,7 +726,56 @@
           "mach": -1,
           "narc": -0.5
         },
-        "poly": { "wide": [[33,72],[58,71],[60,80],[55,88],[33,88]], "tall": [[38,81],[64,81],[66,89],[62,95],[38,95],[36,89]] }
+        "poly": {
+          "wide": [
+            [
+              33,
+              72
+            ],
+            [
+              58,
+              71
+            ],
+            [
+              60,
+              80
+            ],
+            [
+              55,
+              88
+            ],
+            [
+              33,
+              88
+            ]
+          ],
+          "tall": [
+            [
+              38,
+              81
+            ],
+            [
+              64,
+              81
+            ],
+            [
+              66,
+              89
+            ],
+            [
+              62,
+              95
+            ],
+            [
+              38,
+              95
+            ],
+            [
+              36,
+              89
+            ]
+          ]
+        }
       },
       {
         "id": "press",
@@ -545,7 +785,44 @@
           "narc": 1.5,
           "online": 0.5
         },
-        "poly": { "wide": [[19.5,15],[25,14],[25,66],[19.5,66]], "tall": [[9,7],[22,7],[23,40],[9,40]] }
+        "poly": {
+          "wide": [
+            [
+              19.5,
+              15
+            ],
+            [
+              25,
+              14
+            ],
+            [
+              25,
+              66
+            ],
+            [
+              19.5,
+              66
+            ]
+          ],
+          "tall": [
+            [
+              9,
+              7
+            ],
+            [
+              22,
+              7
+            ],
+            [
+              23,
+              40
+            ],
+            [
+              9,
+              40
+            ]
+          ]
+        }
       }
     ],
     "artNote": "A dim hotel suite with heavy curtains and lamps. All five figures are invented and unremarkable: the older man at the window on the right, the young delegate by the door on the left, the aide at the sideboard center back, a phone glowing on the coffee table in the foreground, and a reporter glimpsed through the half-open door at far left.",
@@ -611,7 +888,7 @@
       "C-080",
       "D-084"
     ],
-    "prompt": "You have lost, narrowly. The lawyers say a recount will change nothing. The fundraisers say a fight would bring in millions and keep your list warm for next time. What do you do?",
+    "prompt": "Picture it: you have lost, narrowly. The lawyers say a recount will change nothing. The fundraisers say a fight would bring in millions and keep your list warm for next time. What do you do?",
     "options": [
       {
         "id": "a",
@@ -699,7 +976,7 @@
     "type": "slider",
     "tier": "core",
     "topic": "main-character",
-    "prompt": "Two drafts of tonight's speech. One says we forty-one times. The other says I forty-one times. Which one is the truth?",
+    "prompt": "Your victory speech has two drafts. One uses the word we forty-one times. The other uses the word I forty-one times. Which one is true?",
     "slider": {
       "left": "We. I was only the vehicle.",
       "right": "I. They voted for a person, and it was me.",
@@ -709,7 +986,10 @@
       },
       "steps": 5
     },
-    "discrimination": 2
+    "discrimination": 2,
+    "excludes": [
+      "D-081"
+    ]
   },
   {
     "id": "C-018",
@@ -959,7 +1239,7 @@
     "type": "pin",
     "tier": "core",
     "topic": "victory-night",
-    "prompt": "You have won. The stage is lit and the confetti is loaded. Where do you stand for the victory picture? Tap your place.",
+    "prompt": "You have won. The stage is lit and the confetti is loaded. Where do you stand for the victory picture?",
     "art": "C-PIN-VICTORY-STAGE",
     "regions": [
       {
@@ -969,7 +1249,52 @@
         "effects": {
           "narc": 2
         },
-        "poly": { "wide": [[46,12],[54,12],[58,30],[58,68],[42,68],[42,30]], "tall": [[48,18],[67,18],[68,40],[48,40]] }
+        "poly": {
+          "wide": [
+            [
+              46,
+              12
+            ],
+            [
+              54,
+              12
+            ],
+            [
+              58,
+              30
+            ],
+            [
+              58,
+              68
+            ],
+            [
+              42,
+              68
+            ],
+            [
+              42,
+              30
+            ]
+          ],
+          "tall": [
+            [
+              48,
+              18
+            ],
+            [
+              67,
+              18
+            ],
+            [
+              68,
+              40
+            ],
+            [
+              48,
+              40
+            ]
+          ]
+        }
       },
       {
         "id": "family",
@@ -979,7 +1304,76 @@
           "dynasty": 1.5,
           "narc": 0.5
         },
-        "poly": { "wide": [[67,47],[75,41],[83,38],[92,37],[99,40],[99,72],[67,72]], "tall": [[48,48],[54,45],[60,41],[69,41],[74,37],[90,34],[98,36],[98,71],[48,71]] }
+        "poly": {
+          "wide": [
+            [
+              67,
+              47
+            ],
+            [
+              75,
+              41
+            ],
+            [
+              83,
+              38
+            ],
+            [
+              92,
+              37
+            ],
+            [
+              99,
+              40
+            ],
+            [
+              99,
+              72
+            ],
+            [
+              67,
+              72
+            ]
+          ],
+          "tall": [
+            [
+              48,
+              48
+            ],
+            [
+              54,
+              45
+            ],
+            [
+              60,
+              41
+            ],
+            [
+              69,
+              41
+            ],
+            [
+              74,
+              37
+            ],
+            [
+              90,
+              34
+            ],
+            [
+              98,
+              36
+            ],
+            [
+              98,
+              71
+            ],
+            [
+              48,
+              71
+            ]
+          ]
+        }
       },
       {
         "id": "staff",
@@ -989,7 +1383,68 @@
           "narc": -1.5,
           "psych": -0.5
         },
-        "poly": { "wide": [[10,46],[14,38],[23,37],[28,40],[35,49],[35,71],[10,71]], "tall": [[2,48],[10,44],[25,43],[32,48],[44,52],[45,71],[2,71]] }
+        "poly": {
+          "wide": [
+            [
+              10,
+              46
+            ],
+            [
+              14,
+              38
+            ],
+            [
+              23,
+              37
+            ],
+            [
+              28,
+              40
+            ],
+            [
+              35,
+              49
+            ],
+            [
+              35,
+              71
+            ],
+            [
+              10,
+              71
+            ]
+          ],
+          "tall": [
+            [
+              2,
+              48
+            ],
+            [
+              10,
+              44
+            ],
+            [
+              25,
+              43
+            ],
+            [
+              32,
+              48
+            ],
+            [
+              44,
+              52
+            ],
+            [
+              45,
+              71
+            ],
+            [
+              2,
+              71
+            ]
+          ]
+        }
       },
       {
         "id": "crowd",
@@ -999,7 +1454,44 @@
           "narc": -1,
           "system": 0.5
         },
-        "poly": { "wide": [[0,74],[100,74],[100,100],[0,100]], "tall": [[0,73],[100,73],[100,100],[0,100]] }
+        "poly": {
+          "wide": [
+            [
+              0,
+              74
+            ],
+            [
+              100,
+              74
+            ],
+            [
+              100,
+              100
+            ],
+            [
+              0,
+              100
+            ]
+          ],
+          "tall": [
+            [
+              0,
+              73
+            ],
+            [
+              100,
+              73
+            ],
+            [
+              100,
+              100
+            ],
+            [
+              0,
+              100
+            ]
+          ]
+        }
       },
       {
         "id": "wings",
@@ -1009,7 +1501,60 @@
           "mach": 1.5,
           "narc": -0.5
         },
-        "poly": { "wide": [[0,0],[9.5,0],[9.5,30],[8,45],[9,72],[0,72]], "tall": [[0,0],[12,0],[12,22],[20,26],[20,42],[0,42]] }
+        "poly": {
+          "wide": [
+            [
+              0,
+              0
+            ],
+            [
+              9.5,
+              0
+            ],
+            [
+              9.5,
+              30
+            ],
+            [
+              8,
+              45
+            ],
+            [
+              9,
+              72
+            ],
+            [
+              0,
+              72
+            ]
+          ],
+          "tall": [
+            [
+              0,
+              0
+            ],
+            [
+              12,
+              0
+            ],
+            [
+              12,
+              22
+            ],
+            [
+              20,
+              26
+            ],
+            [
+              20,
+              42
+            ],
+            [
+              0,
+              42
+            ]
+          ]
+        }
       }
     ],
     "artNote": "A ballroom victory stage seen from the back of the hall. Podium dead center under a spotlight; an invented family group to its right; a knot of young staff to its left; the crowd barrier across the bottom; shadowed wings at far left. No real faces, no real party logos.",
@@ -1109,7 +1654,7 @@
     "type": "slider",
     "tier": "core",
     "topic": "legacy",
-    "prompt": "In fifty years, what should people remember?",
+    "prompt": "In fifty years, what should people remember about you?",
     "slider": {
       "left": "What we passed",
       "right": "Who I was",
@@ -1688,7 +2233,7 @@
     "excludes": [
       "C-033"
     ],
-    "prompt": "The war room, 2 a.m. The money runs out on Friday and something has to go. What do you cut? Tap it.",
+    "prompt": "The war room, 2 a.m. The money runs out on Friday and something has to go. What do you cut?",
     "art": "C-PIN-WAR-ROOM-CUTS",
     "regions": [
       {
@@ -1698,7 +2243,68 @@
         "effects": {
           "psych": 1.5
         },
-        "poly": { "wide": [[0,45],[5,36],[15,30],[32,33],[34,46],[30,60],[25,75],[0,75]], "tall": [[0,76],[10,70],[90,70],[100,74],[100,100],[0,100]] }
+        "poly": {
+          "wide": [
+            [
+              0,
+              45
+            ],
+            [
+              5,
+              36
+            ],
+            [
+              15,
+              30
+            ],
+            [
+              32,
+              33
+            ],
+            [
+              34,
+              46
+            ],
+            [
+              30,
+              60
+            ],
+            [
+              25,
+              75
+            ],
+            [
+              0,
+              75
+            ]
+          ],
+          "tall": [
+            [
+              0,
+              76
+            ],
+            [
+              10,
+              70
+            ],
+            [
+              90,
+              70
+            ],
+            [
+              100,
+              74
+            ],
+            [
+              100,
+              100
+            ],
+            [
+              0,
+              100
+            ]
+          ]
+        }
       },
       {
         "id": "friend",
@@ -1708,7 +2314,88 @@
           "psych": 1,
           "mach": 0.5
         },
-        "poly": { "wide": [[35,55],[42,46],[50,36],[57,35],[62,46],[67,48],[69,58],[67,82],[35,82]], "tall": [[14,50],[30,44],[35,38],[48,32],[58,33],[66,40],[77,43],[84,50],[83,66],[14,66]] }
+        "poly": {
+          "wide": [
+            [
+              35,
+              55
+            ],
+            [
+              42,
+              46
+            ],
+            [
+              50,
+              36
+            ],
+            [
+              57,
+              35
+            ],
+            [
+              62,
+              46
+            ],
+            [
+              67,
+              48
+            ],
+            [
+              69,
+              58
+            ],
+            [
+              67,
+              82
+            ],
+            [
+              35,
+              82
+            ]
+          ],
+          "tall": [
+            [
+              14,
+              50
+            ],
+            [
+              30,
+              44
+            ],
+            [
+              35,
+              38
+            ],
+            [
+              48,
+              32
+            ],
+            [
+              58,
+              33
+            ],
+            [
+              66,
+              40
+            ],
+            [
+              77,
+              43
+            ],
+            [
+              84,
+              50
+            ],
+            [
+              83,
+              66
+            ],
+            [
+              14,
+              66
+            ]
+          ]
+        }
       },
       {
         "id": "ads",
@@ -1718,7 +2405,44 @@
           "psych": -1,
           "narc": -1
         },
-        "poly": { "wide": [[69.5,24],[100,23],[100,46],[69.5,48]], "tall": [[8,6],[51,6],[51,21],[8,21]] }
+        "poly": {
+          "wide": [
+            [
+              69.5,
+              24
+            ],
+            [
+              100,
+              23
+            ],
+            [
+              100,
+              46
+            ],
+            [
+              69.5,
+              48
+            ]
+          ],
+          "tall": [
+            [
+              8,
+              6
+            ],
+            [
+              51,
+              6
+            ],
+            [
+              51,
+              21
+            ],
+            [
+              8,
+              21
+            ]
+          ]
+        }
       },
       {
         "id": "jet",
@@ -1728,7 +2452,44 @@
           "narc": -1.5,
           "psych": -0.5
         },
-        "poly": { "wide": [[70,2],[98,1],[98,21],[70,22]], "tall": [[55,6],[94,6],[94,19],[55,19]] }
+        "poly": {
+          "wide": [
+            [
+              70,
+              2
+            ],
+            [
+              98,
+              1
+            ],
+            [
+              98,
+              21
+            ],
+            [
+              70,
+              22
+            ]
+          ],
+          "tall": [
+            [
+              55,
+              6
+            ],
+            [
+              94,
+              6
+            ],
+            [
+              94,
+              19
+            ],
+            [
+              55,
+              19
+            ]
+          ]
+        }
       }
     ],
     "artNote": "A campaign war room in the small hours, pizza boxes and whiteboards. Young invented staffers asleep at folding tables on the left; an older man in a cardigan at the central desk; the ad schedule wall and a blank screen on the right; a model airplane and printed itinerary pinned top right.",
@@ -1893,7 +2654,7 @@
     "type": "envelope",
     "tier": "core",
     "topic": "staff-loyalty",
-    "prompt": "A junior staffer shows you the complaint she is about to file against your finance director. He raises half your money. It is in a sealed envelope, addressed to the board. What do you do?",
+    "prompt": "A junior staffer shows you the harassment complaint she is about to file against your finance director. He raises half your money. It is in a sealed envelope, addressed to the board. What do you do?",
     "options": [
       {
         "id": "a",
@@ -1939,7 +2700,7 @@
       "D-039",
       "D-041"
     ],
-    "prompt": "His father's face is on the banner, bigger than his own. The crowd chants the surname; it saves time. What is a president's son on the ballot?",
+    "prompt": "A president's son is running. His father's face is on the banner, bigger than his own. The crowd chants the surname; it saves time. What is a president's son on the ballot?",
     "slider": {
       "left": "A coronation with extra paperwork",
       "right": "A candidate. Voters can read a ballot.",
@@ -2238,11 +2999,11 @@
     "excludes": [
       "C-054"
     ],
-    "prompt": "Politics as a family business. Is each of these fine? Yes or no, four seconds each.",
+    "prompt": "Politics as a family business. Do you agree with each one? Yes or no, four seconds each.",
     "cards": [
       {
         "id": "1",
-        "text": "A president's child with a White House office.",
+        "text": "A president's child can have a White House office.",
         "yes": {
           "dynasty": 1.5
         },
@@ -2252,7 +3013,7 @@
       },
       {
         "id": "2",
-        "text": "A senator's widow taking his seat.",
+        "text": "A senator's widow can take his seat.",
         "yes": {
           "dynasty": 1
         },
@@ -2262,7 +3023,7 @@
       },
       {
         "id": "3",
-        "text": "A ten-year ban on presidents' relatives running.",
+        "text": "Ban presidents' relatives from running for ten years.",
         "yes": {
           "dynasty": -1.5
         },
@@ -2272,7 +3033,7 @@
       },
       {
         "id": "4",
-        "text": "A first lady running for the Senate.",
+        "text": "A first lady can run for the Senate.",
         "yes": {
           "dynasty": 1
         },
@@ -2282,7 +3043,7 @@
       },
       {
         "id": "5",
-        "text": "Your brother as your campaign manager.",
+        "text": "Your brother can run your campaign.",
         "yes": {
           "dynasty": 1,
           "loyalty": 0.5
@@ -2293,7 +3054,7 @@
       },
       {
         "id": "6",
-        "text": "A governor appointing his son to a vacant seat.",
+        "text": "A governor can appoint his son to a vacant seat.",
         "yes": {
           "dynasty": 2
         },
@@ -2303,7 +3064,7 @@
       },
       {
         "id": "7",
-        "text": "College places reserved for the children of alumni.",
+        "text": "Colleges can reserve places for the children of alumni.",
         "yes": {
           "dynasty": 1.5
         },
@@ -2582,7 +3343,7 @@
     "type": "pin",
     "tier": "core",
     "topic": "fathers-shadow",
-    "prompt": "Picture the day you win the office your father once held. His portrait hangs in the mansion hall. Where does yours go? Tap the spot.",
+    "prompt": "Picture the day you win the office your father once held. His portrait hangs in the mansion hall. Where does yours go?",
     "art": "C-PIN-PORTRAIT-HALL",
     "regions": [
       {
@@ -2592,7 +3353,44 @@
         "effects": {
           "dynasty": 2
         },
-        "poly": { "tall": [[56,10],[86,10],[86,33],[56,33]] }
+        "poly": {
+          "wide": [
+            [
+              41,
+              16
+            ],
+            [
+              54,
+              16
+            ],
+            [
+              54,
+              53
+            ],
+            [
+              41,
+              53
+            ]
+          ],
+          "tall": [
+            [
+              56,
+              10
+            ],
+            [
+              86,
+              10
+            ],
+            [
+              86,
+              33
+            ],
+            [
+              56,
+              33
+            ]
+          ]
+        }
       },
       {
         "id": "opposite",
@@ -2602,7 +3400,44 @@
           "narc": 1.5,
           "dynasty": -0.5
         },
-        "poly": { "wide": [[76,10],[95,10],[95,52],[76,52]], "tall": [[64,46],[93,46],[93,70],[64,70]] }
+        "poly": {
+          "wide": [
+            [
+              56,
+              18
+            ],
+            [
+              75,
+              18
+            ],
+            [
+              75,
+              55
+            ],
+            [
+              56,
+              55
+            ]
+          ],
+          "tall": [
+            [
+              64,
+              46
+            ],
+            [
+              93,
+              46
+            ],
+            [
+              93,
+              70
+            ],
+            [
+              64,
+              70
+            ]
+          ]
+        }
       },
       {
         "id": "replace",
@@ -2613,7 +3448,44 @@
           "narc": 1.5,
           "dynasty": -1
         },
-        "poly": { "wide": [[17.5,7],[35,7],[35,54],[17.5,54]], "tall": [[23,11],[50,11],[50,35],[23,35]] }
+        "poly": {
+          "wide": [
+            [
+              21.5,
+              9
+            ],
+            [
+              39.5,
+              9
+            ],
+            [
+              39.5,
+              53
+            ],
+            [
+              21.5,
+              53
+            ]
+          ],
+          "tall": [
+            [
+              23,
+              11
+            ],
+            [
+              50,
+              11
+            ],
+            [
+              50,
+              35
+            ],
+            [
+              23,
+              35
+            ]
+          ]
+        }
       },
       {
         "id": "none",
@@ -2623,7 +3495,44 @@
           "narc": -1.5,
           "dynasty": -1
         },
-        "poly": { "wide": [[9,25],[17,25],[17,45],[9,45]], "tall": [[8,51],[22,51],[22,64],[8,64]] }
+        "poly": {
+          "wide": [
+            [
+              6,
+              24
+            ],
+            [
+              15,
+              24
+            ],
+            [
+              15,
+              40
+            ],
+            [
+              6,
+              40
+            ]
+          ],
+          "tall": [
+            [
+              8,
+              51
+            ],
+            [
+              22,
+              51
+            ],
+            [
+              22,
+              64
+            ],
+            [
+              8,
+              64
+            ]
+          ]
+        }
       }
     ],
     "artNote": "A long hall in a governor's mansion, checkered floor, evening light. Center left: a gilt-framed portrait of an invented older man in a dark suit. An empty space beside it at center. A bare far wall with a picture light on the right. An empty brass hook by a doorway at far left. A new portrait leans face-in against a chair.",
@@ -2738,7 +3647,7 @@
       "C-064",
       "C-065"
     ],
-    "prompt": "The best governor your state has had in forty years is caught in an affair. Two adults, no staff, no public money. How much of his career is left?",
+    "prompt": "The best governor your state has had in forty years is caught in an affair. Two adults, nobody who works for him, no public money. How much of his career is left?",
     "slider": {
       "left": "None. Character is the job.",
       "right": "All of it. I hired a governor, not a husband.",
@@ -2854,7 +3763,7 @@
     "cards": [
       {
         "id": "1",
-        "text": "An affair, twenty years ago.",
+        "text": "An affair twenty years ago should end a career.",
         "yes": {
           "libertine": -1.5
         },
@@ -2864,7 +3773,7 @@
       },
       {
         "id": "2",
-        "text": "An affair with someone who reports to them.",
+        "text": "An affair with someone who reports to them should end a career.",
         "yes": {
           "libertine": -0.5,
           "social": 0.5
@@ -2875,7 +3784,7 @@
       },
       {
         "id": "3",
-        "text": "A divorce in the middle of the campaign.",
+        "text": "A divorce in the middle of the campaign should end a career.",
         "yes": {
           "libertine": -1.5,
           "social": -0.5
@@ -2886,7 +3795,7 @@
       },
       {
         "id": "4",
-        "text": "Private photos leaked by a bitter ex.",
+        "text": "Private photos leaked by a bitter ex should end a career.",
         "yes": {
           "libertine": -1.5,
           "psych": 0.5
@@ -2898,7 +3807,7 @@
       },
       {
         "id": "5",
-        "text": "A third marriage.",
+        "text": "A third marriage should end a career.",
         "yes": {
           "libertine": -1.5
         },
@@ -2908,7 +3817,7 @@
       },
       {
         "id": "6",
-        "text": "Campaign money spent keeping a story quiet.",
+        "text": "Campaign money spent keeping a story quiet should end a career.",
         "yes": {
           "mach": -1,
           "system": -0.5
@@ -2920,7 +3829,7 @@
       },
       {
         "id": "7",
-        "text": "Lying about it under oath.",
+        "text": "Lying about it under oath should end a career.",
         "yes": {
           "system": -0.5,
           "mach": -0.5
@@ -2986,7 +3895,7 @@
     "type": "envelope",
     "tier": "core",
     "topic": "office-romance",
-    "prompt": "An unsigned note under your door: your campaign manager and your communications director are sleeping together. Both are single. Both are essential. What do you do?",
+    "prompt": "An unsigned note under your door: your campaign manager and your communications director are sleeping together. Both are single. Both are essential. What do you do with the note?",
     "options": [
       {
         "id": "a",
@@ -3026,7 +3935,7 @@
     "type": "pin",
     "tier": "core",
     "topic": "scandal-night",
-    "prompt": "The story about your marriage broke this morning. The press conference is in five minutes. Where should your spouse be? Tap the place.",
+    "prompt": "The story about your marriage broke this morning. The press conference is in five minutes. Where should your spouse be?",
     "art": "C-PIN-PRESS-CONFERENCE",
     "regions": [
       {
@@ -3037,7 +3946,44 @@
           "libertine": -1,
           "mach": 1
         },
-        "poly": { "wide": [[40.5,57],[64,57],[66,72],[40.5,73]], "tall": [[67,50],[85,50],[85,66],[67,66]] }
+        "poly": {
+          "wide": [
+            [
+              46,
+              55
+            ],
+            [
+              58,
+              55
+            ],
+            [
+              58,
+              67
+            ],
+            [
+              46,
+              67
+            ]
+          ],
+          "tall": [
+            [
+              67,
+              50
+            ],
+            [
+              85,
+              50
+            ],
+            [
+              85,
+              66
+            ],
+            [
+              67,
+              66
+            ]
+          ]
+        }
       },
       {
         "id": "behind",
@@ -3047,7 +3993,60 @@
           "psych": 1.5,
           "mach": 1
         },
-        "poly": { "wide": [[40.5,5],[64,5],[64,56],[40.5,56]], "tall": [[28,6],[63,6],[63,36],[53,37],[50,38.5],[47,40],[40,40.5],[28,36]] }
+        "poly": {
+          "wide": [
+            [
+              47,
+              40
+            ],
+            [
+              67,
+              40
+            ],
+            [
+              67,
+              54
+            ],
+            [
+              47,
+              54
+            ]
+          ],
+          "tall": [
+            [
+              28,
+              6
+            ],
+            [
+              63,
+              6
+            ],
+            [
+              63,
+              36
+            ],
+            [
+              53,
+              37
+            ],
+            [
+              50,
+              38.5
+            ],
+            [
+              47,
+              40
+            ],
+            [
+              40,
+              40.5
+            ],
+            [
+              28,
+              36
+            ]
+          ]
+        }
       },
       {
         "id": "row",
@@ -3057,7 +4056,44 @@
           "libertine": 0.5,
           "psych": -0.5
         },
-        "poly": { "wide": [[0,74],[38,76],[47,85],[47,100],[0,100]], "tall": [[0,77],[100,77],[100,100],[0,100]] }
+        "poly": {
+          "wide": [
+            [
+              0,
+              68
+            ],
+            [
+              37,
+              68
+            ],
+            [
+              39,
+              100
+            ],
+            [
+              0,
+              100
+            ]
+          ],
+          "tall": [
+            [
+              0,
+              77
+            ],
+            [
+              100,
+              77
+            ],
+            [
+              100,
+              100
+            ],
+            [
+              0,
+              100
+            ]
+          ]
+        }
       },
       {
         "id": "home",
@@ -3067,7 +4103,44 @@
           "libertine": 1.5,
           "psych": -1
         },
-        "poly": { "wide": [[79,4],[98,4],[98,31],[79,31]], "tall": [[70,2],[98,2],[98,18],[70,18]] }
+        "poly": {
+          "wide": [
+            [
+              78,
+              7
+            ],
+            [
+              100,
+              6
+            ],
+            [
+              100,
+              31
+            ],
+            [
+              78,
+              31
+            ]
+          ],
+          "tall": [
+            [
+              70,
+              2
+            ],
+            [
+              98,
+              2
+            ],
+            [
+              98,
+              18
+            ],
+            [
+              70,
+              18
+            ]
+          ]
+        }
       },
       {
         "id": "podium",
@@ -3077,7 +4150,76 @@
           "mach": 1.5,
           "dynasty": 1
         },
-        "poly": { "wide": [[22,30],[39,30],[40,45],[39.5,71],[23,71],[22,45]], "tall": [[34,43],[47,41],[51,39.5],[54,41],[63,43],[66,49],[65,70],[32,70],[31,49]] }
+        "poly": {
+          "wide": [
+            [
+              29,
+              26
+            ],
+            [
+              35,
+              25
+            ],
+            [
+              44,
+              26
+            ],
+            [
+              44,
+              36
+            ],
+            [
+              43,
+              65
+            ],
+            [
+              29,
+              65
+            ],
+            [
+              29,
+              36
+            ]
+          ],
+          "tall": [
+            [
+              34,
+              43
+            ],
+            [
+              47,
+              41
+            ],
+            [
+              51,
+              39.5
+            ],
+            [
+              54,
+              41
+            ],
+            [
+              63,
+              43
+            ],
+            [
+              66,
+              49
+            ],
+            [
+              65,
+              70
+            ],
+            [
+              32,
+              70
+            ],
+            [
+              31,
+              49
+            ]
+          ]
+        }
       }
     ],
     "artNote": "An empty press room minutes before a statement: podium with microphones at center, flags behind, rows of folding chairs filling the foreground, a wall television at top right showing a still shot of a suburban house. No people are drawn; regions are the empty places a person would stand.",
@@ -3350,7 +4492,7 @@
       },
       {
         "id": "d",
-        "label": "Get engaged before Iowa. It polls.",
+        "label": "Get engaged before the first primary votes. It polls.",
         "effects": {
           "mach": 1.5,
           "libertine": -0.5
@@ -3587,7 +4729,7 @@
       "C-015",
       "D-084"
     ],
-    "prompt": "You have lost the primary. The winner called you a fraud on live television in March. Their people are on the phone asking for your endorsement. Do you give it?",
+    "prompt": "Picture it: you have lost the primary. The winner called you a fraud on live television in March. Their people are on the phone asking for your endorsement. Do you give it?",
     "options": [
       {
         "id": "a",
@@ -4176,7 +5318,7 @@
     "type": "pin",
     "tier": "core",
     "topic": "back-room-table",
-    "prompt": "The back room, after midnight. The nomination is not settled and everything you need is on the table. What is your next move? Tap what you reach for.",
+    "prompt": "The back room, after midnight. The nomination is not settled and everything you need is on the table. What is your next move?",
     "art": "C-PIN-BACKROOM-TABLE",
     "regions": [
       {
@@ -4187,16 +5329,114 @@
           "mach": 1.5,
           "psych": 0.5
         },
-        "poly": { "wide": [[20,57],[30,54],[38,55],[39,63],[37,69],[21,69]], "tall": [[4,68],[14,63],[42,63],[42,77],[20,80],[4,77]] }
+        "poly": {
+          "wide": [
+            [
+              20,
+              57
+            ],
+            [
+              30,
+              54
+            ],
+            [
+              38,
+              55
+            ],
+            [
+              39,
+              63
+            ],
+            [
+              37,
+              69
+            ],
+            [
+              21,
+              69
+            ]
+          ],
+          "tall": [
+            [
+              4,
+              68
+            ],
+            [
+              14,
+              63
+            ],
+            [
+              42,
+              63
+            ],
+            [
+              42,
+              77
+            ],
+            [
+              20,
+              80
+            ],
+            [
+              4,
+              77
+            ]
+          ]
+        }
       },
       {
         "id": "phone",
-        "label": "The phone — call the leader",
+        "label": "The phone — call the party boss",
         "where": "center of the table, an old desk telephone",
         "effects": {
           "loyalty": 1.5
         },
-        "poly": { "wide": [[40,55],[44,51],[56,51],[56,64],[41,64]], "tall": [[33,52],[42,49],[62,50],[62,61],[33,61]] }
+        "poly": {
+          "wide": [
+            [
+              40,
+              55
+            ],
+            [
+              44,
+              51
+            ],
+            [
+              56,
+              51
+            ],
+            [
+              56,
+              64
+            ],
+            [
+              41,
+              64
+            ]
+          ],
+          "tall": [
+            [
+              33,
+              52
+            ],
+            [
+              42,
+              49
+            ],
+            [
+              62,
+              50
+            ],
+            [
+              62,
+              61
+            ],
+            [
+              33,
+              61
+            ]
+          ]
+        }
       },
       {
         "id": "decanter",
@@ -4206,7 +5446,68 @@
           "style": -1.5,
           "libertine": 0.5
         },
-        "poly": { "wide": [[61,56],[64,44],[69,43],[72,55],[75,56],[75,64],[61,64]], "tall": [[59,66],[68,58],[78,58],[82,69],[90,70],[90,80],[59,80]] }
+        "poly": {
+          "wide": [
+            [
+              61,
+              56
+            ],
+            [
+              64,
+              44
+            ],
+            [
+              69,
+              43
+            ],
+            [
+              72,
+              55
+            ],
+            [
+              75,
+              56
+            ],
+            [
+              75,
+              64
+            ],
+            [
+              61,
+              64
+            ]
+          ],
+          "tall": [
+            [
+              59,
+              66
+            ],
+            [
+              68,
+              58
+            ],
+            [
+              78,
+              58
+            ],
+            [
+              82,
+              69
+            ],
+            [
+              90,
+              70
+            ],
+            [
+              90,
+              80
+            ],
+            [
+              59,
+              80
+            ]
+          ]
+        }
       },
       {
         "id": "mirror",
@@ -4215,7 +5516,44 @@
         "effects": {
           "narc": 1.5
         },
-        "poly": { "wide": [[39,17],[61,17],[61,41],[39,41]], "tall": [[30,15],[69,15],[69,37],[30,37]] }
+        "poly": {
+          "wide": [
+            [
+              39,
+              17
+            ],
+            [
+              61,
+              17
+            ],
+            [
+              61,
+              41
+            ],
+            [
+              39,
+              41
+            ]
+          ],
+          "tall": [
+            [
+              30,
+              15
+            ],
+            [
+              69,
+              15
+            ],
+            [
+              69,
+              37
+            ],
+            [
+              30,
+              37
+            ]
+          ]
+        }
       },
       {
         "id": "door",
@@ -4225,7 +5563,52 @@
           "mach": -1.5,
           "system": 0.5
         },
-        "poly": { "wide": [[86,15],[97,8],[99,10],[99,64],[86,62]], "tall": [[84,13],[97,10],[99,12],[99,51],[84,51]] }
+        "poly": {
+          "wide": [
+            [
+              86,
+              15
+            ],
+            [
+              97,
+              8
+            ],
+            [
+              99,
+              10
+            ],
+            [
+              99,
+              64
+            ],
+            [
+              86,
+              62
+            ]
+          ],
+          "tall": [
+            [
+              84,
+              13
+            ],
+            [
+              97,
+              10
+            ],
+            [
+              99,
+              12
+            ],
+            [
+              99,
+              51
+            ],
+            [
+              84,
+              51
+            ]
+          ]
+        }
       }
     ],
     "artNote": "A smoke-stained private room, one hanging lamp over a round table. On the table, left to right: a folder tied with red string, an old desk telephone, a cut-glass decanter with two glasses. A tarnished gilt mirror on the back wall, a heavy door ajar at far right. No people.",

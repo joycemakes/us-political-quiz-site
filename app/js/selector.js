@@ -33,6 +33,8 @@ export const SPECIAL_TYPES = new Set(['whosaid', 'budget', 'rank', 'draft', 'swi
 export const SPECIAL_GAP = 4;
 export const CHAPTER_TYPE_SHARE = 0.25;
 export const SWIPE_PER_50 = 2;
+// Heavy types per 50 questions (first-timer playtest: five budgets, eight holds in a run).
+export const TYPE_PER_50 = { budget: 3, hold: 5, rank: 3, draft: 3, sign: 3 };
 export const SWIPE_GAP = 10;
 // Topic groups: related slugs that must be spaced as one (playtest 2: eight family questions in fourteen,
 // four affair questions in a row). A topic may sit in more than one group.
@@ -199,6 +201,7 @@ export function createSelector({ bank, candidates, route, length, seed, seen = n
     if (q.type === 'swipe' && (typeCount.swipe || 0) >= swipeCap()) return false;
     const ch = slots[i];
     if (relax < 3 && ((chapterTypeCount[ch] || {})[q.type] || 0) >= chapterTypeCap(ch, q.type)) return false;
+    if (relax < 3 && TYPE_PER_50[q.type] && (typeCount[q.type] || 0) >= Math.max(1, Math.round((TYPE_PER_50[q.type] * slots.length) / 50))) return false;
     const prev = history[history.length - 1];
     const a = ax(q);
     if (relax < 1 && adaptive && history.length >= 2) {

@@ -27,6 +27,16 @@ const lockAll = el => el.querySelectorAll('button, .btn, [tabindex]').forEach(b 
 const capture = (el, e) => { try { el.setPointerCapture(e.pointerId); } catch { /* ignore */ } };
 export const HOLD_MIN_MS = 150;
 
+// A short role for a who-said-it card: Governor, Kentucky; Senator, Ohio; Former Vice President.
+export function shortTitle(c) {
+  const t = c.title || '';
+  let m = /^Governor of (.+)$/.exec(t); if (m) return `Governor, ${m[1]}`;
+  m = /^U\.S\. Senator from (.+)$/.exec(t); if (m) return `Senator, ${m[1]}`;
+  m = /^U\.S\. Representative, (.+?)'s/.exec(t); if (m) return `House, ${m[1]}`;
+  m = /^Former Governor of (.+)$/.exec(t); if (m) return `Former governor, ${m[1]}`;
+  return t.split(/[;,]/)[0].replace(/^U\.S\. /, '');
+}
+
 // A bill's title: its own `bill` field, or a short context; long set-ups stay above as context.
 export function billTitle(q) {
   if (q.bill) return q.bill;
@@ -199,6 +209,7 @@ function renderHold(q, ctx) {
         const t = ms();
         meterLbl.textContent = strength >= 1 ? 'Full conviction' : strength < 0.25 ? 'A shrug' : strength < 0.6 ? 'Lukewarm' : 'Firm';
         await chosen(list, b, strength >= 1 ? 'heavy' : 'commit');
+        await sleep(reducedMotion() ? 200 : 750); // let the verdict read
         resolve({ optionId: o.id, holdStrength: strength, ms: t });
       };
       b.addEventListener('pointerdown', start);
@@ -221,7 +232,7 @@ function renderSlider(q, ctx) {
     const ms = clock();
     const s = q.slider;
     const steps = Math.max(2, s.steps || 5);
-    let idx = Math.floor((steps - 1) / 2), lastRelease = idx, moves = 0;
+    let idx = Math.floor((steps - 1) / 2), lastRelease = idx, moves = 0, touched = false;
     const wrap = h('div', 'lever');
     const ends = h('div', 'lever-ends');
     ends.append(h('span', 'lever-left', s.left || ''), h('span', 'lever-right', s.right || ''));
@@ -240,13 +251,17 @@ function renderSlider(q, ctx) {
     handle.innerHTML = '<span class="lever-arrow l" aria-hidden="true"></span><span class="lever-knob"><span class="lever-grip"></span></span><span class="lever-arrow r" aria-hidden="true"></span><span class="lever-shaft"></span>';
     track.appendChild(handle);
     const readout = h('div', 'lever-readout');
-    const commit = btn('Pull the lever', 'primary commit');
+    const commit = btn('Lock it in', 'primary commit');
+    commit.disabled = true;
+    commit.setAttribute('aria-disabled', 'true');
     const value = () => (idx / (steps - 1)) * 2 - 1;
     const describe = () => {
       const v = value();
-      readout.textContent = Math.abs(v) < 0.01 ? (s.centre || 'Dead centre') : `${Math.abs(v) > 0.99 ? 'All the way' : 'Leaning'}: ${v < 0 ? s.left : s.right}`;
+      if (!touched) { readout.textContent = 'Not set yet. Move the lever.'; return; }
+      readout.textContent = 'Your answer: ' + (Math.abs(v) < 0.01 ? (s.centre || 'Dead centre') : `${Math.abs(v) > 0.99 ? 'All the way' : 'Leaning'}: ${v < 0 ? s.left : s.right}`);
     };
     const place = () => {
+      if (touched && commit.disabled) { commit.disabled = false; commit.setAttribute('aria-disabled', 'false'); }
       handle.style.left = `${(idx / (steps - 1)) * 100}%`;
       track.setAttribute('aria-valuenow', String(idx));
       track.setAttribute('aria-valuetext', readout.textContent);
@@ -260,12 +275,13 @@ function renderSlider(q, ctx) {
     };
     const release = () => { if (idx !== lastRelease) { moves++; lastRelease = idx; } };
     let dragging = false;
-    track.addEventListener('pointerdown', e => { dragging = true; capture(track, e); handle.classList.add('grab'); setFromX(e.clientX); });
+    track.addEventListener('pointerdown', e => { dragging = true; touched = true; capture(track, e); handle.classList.add('grab'); setFromX(e.clientX); place(); });
     track.addEventListener('pointermove', e => { if (dragging) setFromX(e.clientX); });
     const up = () => { if (!dragging) return; dragging = false; handle.classList.remove('grab'); release(); };
     track.addEventListener('pointerup', up);
     track.addEventListener('pointercancel', up);
     track.addEventListener('keydown', e => {
+      if (e.key === 'ArrowLeft' || e.key === 'ArrowRight') touched = true;
       if (e.key === 'ArrowLeft' && idx > 0) { idx--; place(); release(); haptic('ratchet'); }
       if (e.key === 'ArrowRight' && idx < steps - 1) { idx++; place(); release(); haptic('ratchet'); }
     });
@@ -285,6 +301,7 @@ function renderPin(q, ctx) {
   return new Promise(resolve => {
     const ms = clock();
     let done = false, current = null, changes = 0;
+    const cleanups = [];
     const esc = id => CSS.escape(id);
     const legend = h('div', 'pin-legend');
     legend.setAttribute('role', 'radiogroup');
@@ -316,18 +333,19 @@ function renderPin(q, ctx) {
     };
 
     const firstHint = 'Tap a spot on the picture to choose. Each spot is a different answer.';
+    const tapLine = ctx.fine ? 'Click a spot or a numbered square on the picture, or pick from the list. Then confirm.' : 'Tap a spot or a numbered square on the picture, or pick from the list. Then confirm.';
     const hint = ctx.how || h('p', 'hint pin-hint', firstHint);
     const withArt = hasArt(q.art, 'wide') || hasArt(q.art, 'tall');
     const slot = withArt
       ? createArtSlot(q.art, {
         kind: 'pin', regions: q.regions, onRegion: r => select(r), chapter: ctx.chapter,
-        onTraced: t => { if (t === '0') hint.textContent = 'Pick a number from the list under the picture, then confirm.'; },
+        onTraced: t => { hint.textContent = t === '0' ? 'Choose from the list below, then confirm.' : tapLine; },
         onMiss: () => { hint.classList.remove('flash'); void hint.offsetWidth; hint.classList.add('flash'); haptic('error'); },
       })
       : { frame: document.createElement('div'), el: null };
     if (slot.el) ctx.artHost.appendChild(slot.el);
-    else { ctx.artHost.hidden = true; ctx.artHost.closest('.q')?.classList.remove('has-art'); hint.textContent = 'Pick one, then confirm.'; }
-    if (slot.el && slot.el.dataset.traced === '0') hint.textContent = 'Pick a number from the list under the picture, then confirm.';
+    else { ctx.artHost.hidden = true; ctx.artHost.closest('.q')?.classList.remove('has-art'); hint.textContent = 'Choose from the list below, then confirm.'; }
+    if (slot.el) hint.textContent = slot.el.dataset.traced === '0' ? 'Choose from the list below, then confirm.' : tapLine;
 
     q.regions.forEach((r, i) => {
       const b = h('button', 'pin-opt');
@@ -352,6 +370,7 @@ function renderPin(q, ctx) {
       slot.frame.querySelectorAll(`[data-region="${esc(current.id)}"]`).forEach(x => x.classList.add('chosen'));
       lockAll(legend);
       await chosen(ctx.el, confirm);
+      for (const f of cleanups) f();
       resolve({ regionId: current.id, revisions: changes, ms: t });
     });
 
@@ -370,6 +389,7 @@ function renderPin(q, ctx) {
       requestAnimationFrame(fit);
       setTimeout(fit, 120);
       window.addEventListener('resize', fit);
+      cleanups.push(() => window.removeEventListener('resize', fit), () => slot.destroy?.());
     }
   });
 }
@@ -398,7 +418,8 @@ function renderBudget(q, ctx) {
         r.querySelector('.minus').disabled = alloc[o.id] <= 0;
         r.querySelector('.plus').disabled = left() <= 0;
       }
-      commit.disabled = left() !== 0;
+      // Lock it in stays pressable (it explains itself) but looks waiting until every point is placed.
+      commit.classList.toggle('waiting', left() !== 0);
       commit.setAttribute('aria-disabled', String(left() !== 0));
       if (left() === 0) reachedFull = true;
     };
@@ -415,10 +436,7 @@ function renderBudget(q, ctx) {
       const add = (n = CHIP) => { const k = Math.min(n, left()); if (k > 0) { alloc[o.id] += k; haptic('chip'); refresh(); return true; } return false; };
       repeatOn(minus, sub);
       repeatOn(plus, () => add());
-      // Tapping the row itself drops a stack of three chips.
-      lab.addEventListener('click', () => add(3 * CHIP));
-      lab.setAttribute('role', 'button');
-      lab.title = 'Tap to add 30';
+
       const ctl = h('div', 'budget-ctl');
       ctl.append(minus, amt, plus);
       r.append(lab, chips(0), ctl);
@@ -426,7 +444,13 @@ function renderBudget(q, ctx) {
       rowEls[o.id] = r;
     }
     commit.addEventListener('click', async () => {
-      if (left() !== 0) return;
+      if (left() !== 0) {
+        const how = ctx.how || pile;
+        how.textContent = `Place the last ${left()} first.`;
+        how.classList.remove('again'); void how.offsetWidth; how.classList.add('again');
+        haptic('error');
+        return;
+      }
       const t = ms();
       await chosen(wrap, commit);
       resolve({ alloc: { ...alloc }, revisions, ms: t });
@@ -528,28 +552,42 @@ function renderRank(q, ctx) {
 // ---- swipe: rapid round, 4 s a card, swipe or tap ----------------------------------------------
 const CARD_MS = 4000;
 const GRACE_MS = 2500;
+// The two ends of a speed round: per card where the data names them, else the question's, else
+// Agree and Disagree.
+export function swipeEnds(q, c = null) {
+  const yes = c?.yesLabel || q.yesLabel || q.ends?.yes || 'Agree';
+  const no = c?.noLabel || q.noLabel || q.ends?.no || 'Disagree';
+  return { yes, no };
+}
+
 function renderSwipe(q, ctx) {
   return new Promise(resolve => {
     const ms = clock();
     const res = {};
+    const ends = swipeEnds(q);
     const wrap = h('div', 'swipe');
     const count = h('div', 'swipe-count');
     const deck = h('div', 'swipe-deck');
     const ctl = h('div', 'swipe-ctl');
-    const no = btn('No', 'swipe-no');
-    const yes = btn('Yes', 'swipe-yes');
+    const no = btn(ends.no, 'swipe-no');
+    const yes = btn(ends.yes, 'swipe-yes');
     ctl.append(no, yes);
     wrap.append(count, deck, ctl);
     ctx.el.appendChild(wrap);
-    let i = 0, timer = 0, shownAt = 0, card = null, busy = false, started = false;
+    // Cards missed on time come back once at the end before they count as no answer.
+    const queue = q.cards.map(c => ({ c, retry: false }));
+    let k = 0, timer = 0, shownAt = 0, card = null, busy = false, started = false;
 
+    const label = (el, t) => { el.querySelector('.btn-label').textContent = t; };
     const next = () => {
-      if (i >= q.cards.length) { lockAll(wrap); resolve({ cards: res, ms: ms() }); return; }
-      const c = q.cards[i];
-      count.textContent = `${i + 1} / ${q.cards.length}`;
+      if (k >= queue.length) { lockAll(wrap); window.removeEventListener('keydown', onKey); resolve({ cards: res, ms: ms() }); return; }
+      const { c, retry } = queue[k];
+      const e = swipeEnds(q, c);
+      label(yes, e.yes); label(no, e.no);
+      count.textContent = retry ? 'One more try' : `${Math.min(k + 1, q.cards.length)} / ${q.cards.length}`;
       card = h('div', 'swipe-card');
       card.dataset.card = c.id;
-      card.append(h('span', 'swipe-edge no', 'No'), h('div', 'swipe-text', c.text || c.id), h('span', 'swipe-edge yes', 'Yes'), h('div', 'swipe-timer'));
+      card.append(h('span', 'swipe-edge no', e.no), h('div', 'swipe-text', c.text || c.id), h('span', 'swipe-edge yes', e.yes), h('div', 'swipe-timer'));
       card.querySelector('.swipe-timer').style.animationDuration = `${CARD_MS}ms`;
       deck.innerHTML = '';
       deck.appendChild(card);
@@ -559,16 +597,19 @@ function renderSwipe(q, ctx) {
       attachDrag(card);
     };
     const decide = async v => {
-      if (busy || !started) return;
+      if (busy || !started || k >= queue.length) return;
       busy = true;
       clearTimeout(timer);
-      const c = q.cards[i];
-      res[c.id] = { v, ms: Math.round(performance.now() - shownAt) };
+      const item = queue[k];
+      res[item.c.id] = { v, ms: Math.round(performance.now() - shownAt) };
       card.classList.add(v === 'yes' ? 'out-right' : v === 'no' ? 'out-left' : 'out-down');
       haptic(v ? 'whoosh' : 'error');
-      if (!v) card.appendChild(h('div', 'swipe-stamp', 'Too slow'));
-      i++;
-      await sleep(reducedMotion() ? 60 : v ? 220 : 420);
+      if (!v) {
+        card.appendChild(h('div', 'swipe-stamp', item.retry ? 'Too slow' : 'Back at the end'));
+        if (!item.retry) queue.push({ c: item.c, retry: true });
+      }
+      k++;
+      await sleep(reducedMotion() ? 60 : v ? 220 : 520);
       next();
     };
     const attachDrag = el => {
@@ -600,21 +641,20 @@ function renderSwipe(q, ctx) {
     no.addEventListener('click', () => decide('no'));
     const onKey = e => {
       if (!wrap.isConnected) { window.removeEventListener('keydown', onKey); return; }
+      if (!started && (e.key === 'Enter' || e.key === ' ')) { e.preventDefault(); begin(); return; }
       if (e.key === 'ArrowRight') decide('yes');
       if (e.key === 'ArrowLeft') decide('no');
     };
     window.addEventListener('keydown', onKey);
-    // The clock starts after Ready, or after 2.5 s of grace with a countdown bar.
+    // Nothing runs until Start: the card says what the two ends mean.
     const gate = h('div', 'swipe-card swipe-ready');
-    gate.append(h('div', 'swipe-text', `${q.cards.length} cards. ${CARD_MS / 1000} seconds each.`), h('div', 'swipe-timer grace'));
-    gate.querySelector('.swipe-timer').style.animationDuration = `${GRACE_MS}ms`;
-    const go = btn('Ready', 'primary swipe-go');
+    gate.append(h('div', 'swipe-text', `${q.cards.length} cards, ${CARD_MS / 1000} seconds each. Right for ${ends.yes}, left for ${ends.no}.`));
+    const go = btn('Start', 'primary swipe-go');
     deck.appendChild(gate);
     ctl.hidden = true;
     wrap.insertBefore(go, ctl);
-    count.textContent = 'Get ready';
-    const begin = () => { if (started) return; started = true; clearTimeout(graceT); go.remove(); ctl.hidden = false; next(); };
-    const graceT = setTimeout(begin, GRACE_MS);
+    count.textContent = 'Press Start when you are ready';
+    const begin = () => { if (started) return; started = true; go.remove(); ctl.hidden = false; next(); };
     go.addEventListener('click', begin);
   });
 }
@@ -636,6 +676,7 @@ function renderWhosaid(q, ctx) {
       const c = ctx.cands.get(o.id);
       const b = btn(o.label || c?.name || o.id, 'opt cand-chip');
       b.dataset.opt = o.id;
+      if (c?.title) b.appendChild(h('span', 'cand-tag', shortTitle(c)));
       b.addEventListener('click', async () => {
         const right = o.id === q.answer;
         grid.querySelectorAll('.cand-chip').forEach(x => { const cc = ctx.cands.get(x.dataset.opt); x.prepend(portraitEl(cc || { id: x.dataset.opt, name: x.textContent }, 'sm')); });
@@ -712,9 +753,10 @@ function renderSign(q, ctx) {
     pen.type = 'button';
     pen.setAttribute('aria-label', 'Drag the pen across the line to sign. Enter signs.');
     line.append(h('span', 'sig-guide'), svg, h('span', 'sig-x', 'x'), pen);
-    const sigCap = h('div', 'sig-cap', `Drag the pen along the line to sign \u2014 ${signO?.label || 'Sign'}`);
+    const sigCap = h('div', 'sig-cap', signO?.label || 'Sign it');
     bill.append(line, sigCap);
-    const veto = btn('Veto', 'veto-stamp');
+    const veto = btn('Hold to veto', 'veto-stamp hold');
+    veto.style.setProperty('--press-dur', '700ms');
     veto.dataset.opt = 'veto';
     const vetoCap = h('div', 'veto-cap', vetoO?.label || '');
     ctx.el.append(bill, veto, vetoCap);
@@ -767,6 +809,8 @@ function renderSign(q, ctx) {
         pen.style.left = '0%'; pts = []; path.setAttribute('points', '');
         if (!moved) { // a tap: show what to do
           pen.classList.remove('nudge'); void pen.offsetWidth; pen.classList.add('nudge');
+          sigCap.textContent = 'Drag it along the line.';
+          setTimeout(() => { if (!done) sigCap.textContent = signO?.label || 'Sign it'; }, 1600);
           sigCap.classList.remove('flash'); void sigCap.offsetWidth; sigCap.classList.add('flash');
           haptic('tap');
         }
@@ -775,6 +819,17 @@ function renderSign(q, ctx) {
     pen.addEventListener('pointerup', up);
     pen.addEventListener('pointercancel', up);
     pen.addEventListener('keydown', e => { if (e.key === 'Enter') { e.preventDefault(); finish('sign', 'commit'); } });
-    veto.addEventListener('click', () => finish('veto', 'stamp'));
+    // VETO cannot be undone, so it takes a short press and hold (0.7 s), with the brass border filling.
+    let v0 = 0;
+    veto.addEventListener('pointerdown', () => { v0 = performance.now(); });
+    veto.addEventListener('pointerup', () => {
+      if (!v0) return;
+      const held = performance.now() - v0;
+      v0 = 0;
+      if (held >= 650) finish('veto', 'stamp');
+      else { vetoCap.textContent = 'Hold VETO a moment to stamp it.'; vetoCap.classList.remove('flash'); void vetoCap.offsetWidth; vetoCap.classList.add('flash'); haptic('error'); }
+    });
+    veto.addEventListener('pointerleave', () => { v0 = 0; });
+    veto.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); finish('veto', 'stamp'); } });
   });
 }

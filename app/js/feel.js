@@ -133,7 +133,7 @@ export function typewriter(el, text, { cps = 40, maxMs = 2200, sound = true } = 
   if (!text) return { done: Promise.resolve(), skip() {} };
   if (reducedMotion()) { el.textContent = text; if (sound) sfx('type'); return { done: Promise.resolve(), skip() {} }; }
   const rate = Math.max(cps, (text.length * 1000) / maxMs);
-  let shown = 0, timer = null, resolve, over = false;
+  let shown = 0, raf = 0, to = 0, resolve, over = false;
   const done = new Promise(r => (resolve = r));
   const caret = document.createElement('span');
   caret.className = 'caret';
@@ -143,7 +143,7 @@ export function typewriter(el, text, { cps = 40, maxMs = 2200, sound = true } = 
   const finish = () => {
     if (over) return;
     over = true;
-    clearInterval(timer);
+    cancelAnimationFrame(raf); clearTimeout(to);
     typing.delete(finish);
     node.data = text;
     caret.remove();
@@ -151,7 +151,12 @@ export function typewriter(el, text, { cps = 40, maxMs = 2200, sound = true } = 
     if (sound) sfx('ding');
     resolve();
   };
+  // One text write per animation frame. A timer backs the frame up, so text still finishes when the
+  // browser stops painting (a hidden or covered window gives no frames).
+  const schedule = () => { raf = requestAnimationFrame(step); to = setTimeout(step, 120); };
   const step = () => {
+    cancelAnimationFrame(raf); clearTimeout(to);
+    if (over) return;
     const n = Math.min(text.length, Math.floor(((performance.now() - t0) * rate) / 1000));
     if (n > shown) {
       const added = text.slice(shown, n);
@@ -159,9 +164,10 @@ export function typewriter(el, text, { cps = 40, maxMs = 2200, sound = true } = 
       node.data = text.slice(0, n);
       if (sound && /\S/.test(added)) sfx('type');
     }
-    if (shown >= text.length) finish();
+    if (shown >= text.length) { finish(); return; }
+    schedule();
   };
-  timer = setInterval(step, Math.max(16, Math.floor(1000 / rate)));
+  schedule();
   typing.add(finish);
   el.addEventListener('pointerdown', finish);
   return { done, skip: finish };

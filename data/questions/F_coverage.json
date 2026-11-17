@@ -63,8 +63,8 @@
     "type": "pin",
     "tier": "core",
     "topic": "launch-film",
-    "context": "Before politics a candidate ran a company that made investigative documentaries: war crimes, crooked officials, bribes on hidden camera. Now the film is about you.",
-    "prompt": "The edit suite, 3 a.m. What does your campaign launch film open on? Tap it.",
+    "context": "Before politics you made investigative documentaries: war crimes, crooked officials, bribes on hidden camera. Now the film is about you.",
+    "prompt": "The edit suite, 3 a.m. What does your campaign launch film open on?",
     "regions": [
       {
         "id": "ledger",
@@ -77,7 +77,8 @@
         },
         "cand": {
           "ossoff": 2
-        }
+        },
+        "poly": { "wide": [[26,57],[28,38],[34,36],[39,38.5],[46,40],[46,47],[56,57],[58,73],[44,77],[25,74]], "tall": [[36,53],[38,38],[48,35],[60,40],[60,44],[64,52],[73,62],[52,64],[30,62]] }
       },
       {
         "id": "photos",
@@ -90,11 +91,12 @@
         },
         "cand": {
           "beshear": 1
-        }
+        },
+        "poly": { "wide": [[1,2],[22.5,10],[22.5,44],[1,47]], "tall": [[2,30],[35,33],[35,48],[2,51]] }
       },
       {
         "id": "jacket",
-        "label": "The flight jacket — your service, no adjectives",
+        "label": "The flight jacket — your years in uniform, played straight",
         "where": "right, a worn flight jacket over the back of a swivel chair",
         "effects": {
           "world": 0.5,
@@ -103,7 +105,8 @@
         },
         "cand": {
           "kelly": 1
-        }
+        },
+        "poly": { "wide": [[59,64],[64,52],[69,44],[78,43],[84,47],[86,58],[86,88],[78,91],[63,86]], "tall": [[31,78],[44,67.5],[52,65.5],[66,67],[72,74],[74,86],[70,92],[50,92],[32,86]] }
       },
       {
         "id": "ringlight",
@@ -116,11 +119,12 @@
         "cand": {
           "aoc": 1,
           "newsom": 1
-        }
+        },
+        "poly": { "wide": [[86.5,15],[98,15],[99,40],[100,72],[87,72],[87,40]], "tall": [[76,41],[83,40],[83,32],[97,32],[96,44],[100,60],[84,60],[76,56]] }
       },
       {
         "id": "monitor",
-        "label": "The big monitor — a padlocked factory, and who locked it",
+        "label": "The big monitor — a shut factory, and the men who shut it",
         "where": "back wall, the largest monitor, showing a padlocked factory gate",
         "effects": {
           "trade": -1,
@@ -129,7 +133,8 @@
         "cand": {
           "hawley": 1,
           "khanna": 1
-        }
+        },
+        "poly": { "wide": [[40,7],[71,7],[71,37],[40,37]], "tall": [[26,3],[73,3],[73,22.5],[26,22.5]] }
       }
     ],
     "signature": [
@@ -171,7 +176,7 @@
     ],
     "followup": "He spent the other nineteen minutes calling the President corrupt, in a state the President won. Smart?",
     "agree": {
-      "label": "Agree. Say it where it costs you or don't say it.",
+      "label": "Smart. Say it where it costs you or don't say it.",
       "effects": {
         "style": 1.5,
         "democracy": 1
@@ -181,7 +186,7 @@
       }
     },
     "disagree": {
-      "label": "Disagree. Swing states are won on groceries, not kings.",
+      "label": "Dumb. Swing states are won on groceries, not kings.",
       "effects": {
         "style": -1,
         "mach": 0.5,
@@ -211,7 +216,7 @@
       "hesitation"
     ],
     "context": "April 2025. The President's meme coin promises its biggest buyers a private dinner with him. At a town hall in a state he carried, a voter asks her senator what he plans to do about it.",
-    "prompt": "The room wants one word. Do you say impeachment?",
+    "prompt": "You are the senator. The room wants one word. Do you say impeachment?",
     "options": [
       {
         "id": "a",
@@ -256,7 +261,7 @@
       "hesitation"
     ],
     "context": "August 2025. A senator's staff count 510 credible reports of abuse in immigration detention, children and pregnant women among them. His state voted for the President who runs it.",
-    "prompt": "The report is on your desk. What do you do with it?",
+    "prompt": "You are that senator, and the report is on your desk. What do you do with it?",
     "options": [
       {
         "id": "a",
@@ -317,11 +322,11 @@
       "speed"
     ],
     "context": "You chair the Senate's investigations panel. One gavel, one year, and a stack of files no pollster has ever asked about.",
-    "prompt": "Do you investigate? Swipe right to open the file, left to leave it shut. Four seconds each.",
+    "prompt": "Do you open an investigation into each of these? Four seconds each.",
     "cards": [
       {
         "id": "housing",
-        "text": "Mold and neglect in military family housing.",
+        "text": "Investigate mold and neglect in military family housing.",
         "yes": {
           "psych": -0.5,
           "econ": -0.5
@@ -335,7 +340,7 @@
       },
       {
         "id": "deaths",
-        "text": "Deaths in jails and prisons that nobody counted.",
+        "text": "Investigate deaths in jails and prisons that nobody counted.",
         "yes": {
           "liberty": 0.5,
           "psych": -0.5
@@ -349,7 +354,7 @@
       },
       {
         "id": "donor",
-        "text": "Your own party's biggest donor.",
+        "text": "Investigate your own party's biggest donor.",
         "yes": {
           "loyalty": -1,
           "mach": -0.5
@@ -361,7 +366,7 @@
       },
       {
         "id": "women",
-        "text": "Staff abusing women in federal prisons.",
+        "text": "Investigate staff abusing women in federal prisons.",
         "yes": {
           "liberty": 0.5,
           "psych": -0.5
@@ -376,7 +381,7 @@
       },
       {
         "id": "rivalson",
-        "text": "The business deals of a rival's son.",
+        "text": "Investigate the business deals of a rival's son.",
         "yes": {
           "mach": 1,
           "style": 0.5
@@ -388,7 +393,7 @@
       },
       {
         "id": "trades",
-        "text": "Your colleagues' stock trades.",
+        "text": "Investigate your colleagues' stock trades.",
         "yes": {
           "system": 0.5,
           "loyalty": -0.5
@@ -418,7 +423,7 @@
     "tier": "bombshell",
     "topic": "election-night-count",
     "context": "5 November 2020. The count is still running, and it is running the wrong way. One post goes up before the lawyers have finished their coffee.",
-    "prompt": "The 2020 count is still running, and running the wrong way for his side. Who posted it?",
+    "prompt": "November 2020. The count is still running, and running the wrong way for his side. Who posted it?",
     "quote": "Go to total war over this election.",
     "answer": "trumpjr",
     "options": [
@@ -513,7 +518,7 @@
     "type": "choice",
     "tier": "core",
     "topic": "trophy-photos",
-    "context": "A candidate co-founded a hunting magazine for, in its own words, the unapologetic man. His feed is trophies, memes and feuds. The consultants would like a quieter one by Super Tuesday.",
+    "context": "You co-founded a hunting magazine for, in its own words, the unapologetic man. Your feed is trophies, memes and feuds. The consultants would like a quieter one by Super Tuesday.",
     "prompt": "What do you do with the feed?",
     "options": [
       {
@@ -732,7 +737,7 @@
     "excludes": [
       "D-005"
     ],
-    "context": "September 2025. The losing nominee's memoir is named for the length of her campaign. The argument is in the title: 107 days were not enough.",
+    "context": "September 2025. The losing nominee's memoir is named for the length of her campaign: the 107 days left after the President quit the race. The argument is in the title: 107 days were not enough.",
     "prompt": "Why did she lose?",
     "slider": {
       "left": "The candidate. A year wouldn't have saved her.",
@@ -773,7 +778,7 @@
       "hesitation"
     ],
     "context": "6 January 2025. The Constitution has the Vice President preside over the count. This year the count makes her opponent President.",
-    "prompt": "You lost. The gavel is yours for one more afternoon. What do you do with it?",
+    "prompt": "You are the Vice President, and you lost. The gavel is yours for one more afternoon. What do you do with it?",
     "options": [
       {
         "id": "a",
@@ -828,7 +833,7 @@
     "tier": "core",
     "topic": "coalition-targets",
     "context": "October 2024. A month out, the nominee shares a stage with a Republican dynasty's daughter at the birthplace of the Republican Party, courting voters who have never picked a Democrat.",
-    "prompt": "One month, one schedule. Where do you spend it?",
+    "prompt": "You are the nominee. One month, one schedule. Where do you spend it?",
     "options": [
       {
         "id": "a",

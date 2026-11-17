@@ -74,7 +74,7 @@
     "options": [
       {
         "id": "a",
-        "label": "Stay shut. No subsidies, no votes.",
+        "label": "Stay shut. Until the subsidies are back, nobody gets my vote.",
         "effects": {
           "style": 1,
           "econ": -0.8
@@ -222,7 +222,7 @@
       },
       {
         "id": "b",
-        "label": "A campaign that had 107 days and played it safe",
+        "label": "A campaign with only 107 days after the President quit, played safe",
         "effects": {
           "loyalty": -0.8,
           "style": 0.8
@@ -244,7 +244,7 @@
       },
       {
         "id": "d",
-        "label": "A vocabulary written by activists, not neighbors",
+        "label": "Words that came from activists and sounded like it",
         "effects": {
           "social": -1,
           "online": -0.5
@@ -312,7 +312,7 @@
     "tier": "core",
     "topic": "oligarchy-vs-abundance",
     "context": "A union hall in Iowa, the night before the caucus. The room is empty for another ten minutes.",
-    "prompt": "Where are you standing when the voters walk in? Each spot is a different pitch. Tap one.",
+    "prompt": "Where are you standing when the voters walk in? Each spot is a different pitch.",
     "art": "D-UNION-HALL-IOWA",
     "artNote": "Empty union hall at night, snow against the windows, folding chairs in rows. No people. Left wall: a stack of hand-painted picket signs. Center: a trestle table with rolled blueprints and a hard hat. Right foreground: a steel coffee urn and paper cups. Back right: a press riser with two tripods. Far back: a side door with a green exit sign.",
     "regions": [
@@ -329,7 +329,64 @@
           "aoc": 1,
           "ossoff": 1
         },
-        "poly": { "wide": [[3,32],[8,29],[16,32],[18,45],[18,63],[5,63],[3,50]], "tall": [[4,74],[12,70],[25,72],[38,80],[38,98],[8,98]] }
+        "poly": {
+          "wide": [
+            [
+              3,
+              32
+            ],
+            [
+              8,
+              29
+            ],
+            [
+              16,
+              32
+            ],
+            [
+              18,
+              45
+            ],
+            [
+              18,
+              63
+            ],
+            [
+              5,
+              63
+            ],
+            [
+              3,
+              50
+            ]
+          ],
+          "tall": [
+            [
+              4,
+              74
+            ],
+            [
+              12,
+              70
+            ],
+            [
+              25,
+              72
+            ],
+            [
+              38,
+              80
+            ],
+            [
+              38,
+              98
+            ],
+            [
+              8,
+              98
+            ]
+          ]
+        }
       },
       {
         "id": "blueprints",
@@ -343,7 +400,72 @@
         "cand": {
           "shapiro": 2
         },
-        "poly": { "wide": [[21,60],[30,55],[55,52],[62,53],[68,57],[70,66],[60,70],[24,70]], "tall": [[16,50],[25,46],[60,45.5],[68,48],[82,50],[83,56],[15,56]] }
+        "poly": {
+          "wide": [
+            [
+              21,
+              60
+            ],
+            [
+              30,
+              55
+            ],
+            [
+              55,
+              52
+            ],
+            [
+              62,
+              53
+            ],
+            [
+              68,
+              57
+            ],
+            [
+              70,
+              66
+            ],
+            [
+              60,
+              70
+            ],
+            [
+              24,
+              70
+            ]
+          ],
+          "tall": [
+            [
+              16,
+              50
+            ],
+            [
+              25,
+              46
+            ],
+            [
+              60,
+              45.5
+            ],
+            [
+              68,
+              48
+            ],
+            [
+              82,
+              50
+            ],
+            [
+              83,
+              56
+            ],
+            [
+              15,
+              56
+            ]
+          ]
+        }
       },
       {
         "id": "urn",
@@ -357,7 +479,72 @@
         "cand": {
           "beshear": 2
         },
-        "poly": { "wide": [[80,67],[86,62],[88,53],[98,53],[100,62],[100,88],[80,88]], "tall": [[66,72],[78,68],[96,70],[98,80],[99,98],[51,98],[51,81],[64,79]] }
+        "poly": {
+          "wide": [
+            [
+              80,
+              67
+            ],
+            [
+              86,
+              62
+            ],
+            [
+              88,
+              53
+            ],
+            [
+              98,
+              53
+            ],
+            [
+              100,
+              62
+            ],
+            [
+              100,
+              88
+            ],
+            [
+              80,
+              88
+            ]
+          ],
+          "tall": [
+            [
+              66,
+              72
+            ],
+            [
+              78,
+              68
+            ],
+            [
+              96,
+              70
+            ],
+            [
+              98,
+              80
+            ],
+            [
+              99,
+              98
+            ],
+            [
+              51,
+              98
+            ],
+            [
+              51,
+              81
+            ],
+            [
+              64,
+              79
+            ]
+          ]
+        }
       },
       {
         "id": "riser",
@@ -371,7 +558,44 @@
         "cand": {
           "newsom": 1
         },
-        "poly": { "wide": [[70,16],[98,16],[98,47],[70,47]], "tall": [[58,13],[99,13],[99,34],[58,34]] }
+        "poly": {
+          "wide": [
+            [
+              70,
+              16
+            ],
+            [
+              98,
+              16
+            ],
+            [
+              98,
+              47
+            ],
+            [
+              70,
+              47
+            ]
+          ],
+          "tall": [
+            [
+              58,
+              13
+            ],
+            [
+              99,
+              13
+            ],
+            [
+              99,
+              34
+            ],
+            [
+              58,
+              34
+            ]
+          ]
+        }
       },
       {
         "id": "door",
@@ -381,7 +605,44 @@
           "mach": 1.2,
           "style": -0.5
         },
-        "poly": { "wide": [[36.5,19],[48.5,19],[48.5,42],[36.5,42]], "tall": [[6,16],[25,16],[25,33],[6,33]] }
+        "poly": {
+          "wide": [
+            [
+              36.5,
+              19
+            ],
+            [
+              48.5,
+              19
+            ],
+            [
+              48.5,
+              42
+            ],
+            [
+              36.5,
+              42
+            ]
+          ],
+          "tall": [
+            [
+              6,
+              16
+            ],
+            [
+              25,
+              16
+            ],
+            [
+              25,
+              33
+            ],
+            [
+              6,
+              33
+            ]
+          ]
+        }
       }
     ],
     "discrimination": 2
@@ -457,7 +718,7 @@
     "cards": [
       {
         "id": "s1",
-        "text": "Three hours, no notes, with a comedian who voted for the other guy",
+        "text": "Do three hours, no notes, with a comic who voted for the other guy",
         "yes": {
           "online": 1,
           "libertine": 0.5
@@ -469,7 +730,7 @@
       },
       {
         "id": "s2",
-        "text": "A sit-down on the cable channel your base boycotts",
+        "text": "Take a sit-down on the cable channel your base boycotts",
         "yes": {
           "style": 0.8,
           "system": -0.3
@@ -484,7 +745,7 @@
       },
       {
         "id": "s3",
-        "text": "A livestream with a gamer who has never read a bill",
+        "text": "Join a livestream with a gamer who has never read a bill",
         "yes": {
           "online": 1,
           "tech": 0.5
@@ -495,7 +756,7 @@
       },
       {
         "id": "s4",
-        "text": "Six minutes on a legacy Sunday show",
+        "text": "Take six minutes on a legacy Sunday show",
         "yes": {
           "online": -0.8,
           "system": -0.5
@@ -523,7 +784,7 @@
       },
       {
         "id": "s6",
-        "text": "A hunting show. You will be handed a shotgun.",
+        "text": "Go on a hunting show. You will be handed a shotgun.",
         "yes": {
           "social": -0.5,
           "style": 0.3
@@ -534,7 +795,7 @@
       },
       {
         "id": "s7",
-        "text": "Nine thousand words on zoning for a newsletter",
+        "text": "Write nine thousand words on zoning for a newsletter",
         "yes": {
           "tech": 0.5,
           "econ": 0.5,
@@ -720,7 +981,7 @@
       },
       {
         "id": "b",
-        "label": "Lawsuits, and independent commissions everywhere",
+        "label": "Lawsuits, and maps drawn by neutral panels in every state",
         "effects": {
           "system": -1.2,
           "mach": -0.8
@@ -728,7 +989,7 @@
       },
       {
         "id": "c",
-        "label": "Shelter the lawmakers who fled to break quorum",
+        "label": "Shelter the Texas lawmakers who left the state to stop the vote",
         "effects": {
           "style": 0.8,
           "loyalty": 0.5
@@ -979,7 +1240,7 @@
       "D-077"
     ],
     "context": "You have the delegates. The vetting binders are stacked on the hotel bed.",
-    "prompt": "Draft your running mate.",
+    "prompt": "Who is your running mate?",
     "pool": [
       "beshear",
       "kelly",
@@ -1156,7 +1417,7 @@
     "tier": "core",
     "topic": "closing-message",
     "context": "The last 100 million of ad money. The pollster and the organizer are not speaking to each other.",
-    "prompt": "Split the ad budget by message.",
+    "prompt": "Which message gets the ad money? Split it.",
     "options": [
       {
         "id": "a",
@@ -1221,7 +1482,7 @@
     "tier": "core",
     "topic": "age-question",
     "context": "A New Hampshire town hall. The first question will be about age, yours or someone else's.",
-    "prompt": "How do you answer the age question? Tap the spot you answer it from.",
+    "prompt": "How do you answer the age question?",
     "art": "D-NH-TOWNHALL-AGE",
     "artNote": "Empty white clapboard town hall interior, winter light, wooden floor. No people. Center back: a plain lectern with one microphone. Front left: a single folding chair pulled into the audience rows. Right: a trestle table with a birthday cake crowded with far too many candles. Back wall: a row of framed portraits shown only as dark silhouettes in gilt frames. Far right: a door standing ajar with snow light behind it.",
     "regions": [
@@ -1236,7 +1497,44 @@
         "cand": {
           "harris": 1
         },
-        "poly": { "wide": [[43,36],[56,36],[56,61],[43,61]], "tall": [[39,31],[61,31],[61,52],[39,52]] }
+        "poly": {
+          "wide": [
+            [
+              43,
+              36
+            ],
+            [
+              56,
+              36
+            ],
+            [
+              56,
+              61
+            ],
+            [
+              43,
+              61
+            ]
+          ],
+          "tall": [
+            [
+              39,
+              31
+            ],
+            [
+              61,
+              31
+            ],
+            [
+              61,
+              52
+            ],
+            [
+              39,
+              52
+            ]
+          ]
+        }
       },
       {
         "id": "chair",
@@ -1250,7 +1548,64 @@
           "beshear": 1,
           "kelly": 1
         },
-        "poly": { "wide": [[5,63],[10,61],[17,66],[21,80],[21,96],[4,96],[3,80]], "tall": [[5,72],[12,70],[25,76],[35,82],[35,97],[5,97]] }
+        "poly": {
+          "wide": [
+            [
+              5,
+              63
+            ],
+            [
+              10,
+              61
+            ],
+            [
+              17,
+              66
+            ],
+            [
+              21,
+              80
+            ],
+            [
+              21,
+              96
+            ],
+            [
+              4,
+              96
+            ],
+            [
+              3,
+              80
+            ]
+          ],
+          "tall": [
+            [
+              5,
+              72
+            ],
+            [
+              12,
+              70
+            ],
+            [
+              25,
+              76
+            ],
+            [
+              35,
+              82
+            ],
+            [
+              35,
+              97
+            ],
+            [
+              5,
+              97
+            ]
+          ]
+        }
       },
       {
         "id": "cake",
@@ -1265,7 +1620,64 @@
           "ossoff": 1,
           "buttigieg": 1
         },
-        "poly": { "wide": [[69,45],[72,38],[82,38],[86,48],[86,66],[69,66]], "tall": [[57,74],[70,64],[94,66],[95,78],[99,82],[99,97],[57,97]] }
+        "poly": {
+          "wide": [
+            [
+              69,
+              45
+            ],
+            [
+              72,
+              38
+            ],
+            [
+              82,
+              38
+            ],
+            [
+              86,
+              48
+            ],
+            [
+              86,
+              66
+            ],
+            [
+              69,
+              66
+            ]
+          ],
+          "tall": [
+            [
+              57,
+              74
+            ],
+            [
+              70,
+              64
+            ],
+            [
+              94,
+              66
+            ],
+            [
+              95,
+              78
+            ],
+            [
+              99,
+              82
+            ],
+            [
+              99,
+              97
+            ],
+            [
+              57,
+              97
+            ]
+          ]
+        }
       },
       {
         "id": "portraits",
@@ -1275,7 +1687,44 @@
           "system": -1.2,
           "dynasty": 0.5
         },
-        "poly": { "wide": [[28.5,18],[79,18],[79,35],[28.5,35]], "tall": [[21,13],[91,13],[91,26],[21,26]] }
+        "poly": {
+          "wide": [
+            [
+              28.5,
+              18
+            ],
+            [
+              79,
+              18
+            ],
+            [
+              79,
+              35
+            ],
+            [
+              28.5,
+              35
+            ]
+          ],
+          "tall": [
+            [
+              21,
+              13
+            ],
+            [
+              91,
+              13
+            ],
+            [
+              91,
+              26
+            ],
+            [
+              21,
+              26
+            ]
+          ]
+        }
       },
       {
         "id": "door",
@@ -1285,7 +1734,48 @@
           "narc": -1.2,
           "loyalty": -0.5
         },
-        "poly": { "wide": [[88,17],[96,16],[100,17],[100,64],[88,64]], "tall": [[80,28],[98,26],[98,54],[80,54]] }
+        "poly": {
+          "wide": [
+            [
+              88,
+              17
+            ],
+            [
+              96,
+              16
+            ],
+            [
+              100,
+              17
+            ],
+            [
+              100,
+              64
+            ],
+            [
+              88,
+              64
+            ]
+          ],
+          "tall": [
+            [
+              80,
+              28
+            ],
+            [
+              98,
+              26
+            ],
+            [
+              98,
+              54
+            ],
+            [
+              80,
+              54
+            ]
+          ]
+        }
       }
     ],
     "discrimination": 2
@@ -1551,7 +2041,7 @@
       },
       {
         "id": "d",
-        "label": "Ask why anyone is still relitigating a 107-day campaign.",
+        "label": "Ask why anyone still fights over a campaign that lasted 107 days.",
         "effects": {
           "system": 0.6,
           "loyalty": -0.5
@@ -1574,12 +2064,12 @@
     "type": "rank",
     "tier": "core",
     "topic": "party-rules",
-    "context": "The calendar fight. Every state wants to go first and none of them agrees on why.",
+    "context": "Which state votes first in the primaries is a fight. Every state wants to go first and none of them agrees on why.",
     "prompt": "Rank who should vote first in the primary.",
     "options": [
       {
         "id": "a",
-        "label": "Iowa: caucus gyms, snow, tradition",
+        "label": "Iowa: caucuses in school gyms, snow, tradition",
         "effects": {
           "system": -0.6,
           "online": -0.5
@@ -1789,7 +2279,7 @@
     "cards": [
       {
         "id": "s1",
-        "text": "Medicare for All",
+        "text": "Medicare for All stays in",
         "yes": {
           "econ": -1.2
         },
@@ -1799,7 +2289,7 @@
       },
       {
         "id": "s2",
-        "text": "End the filibuster",
+        "text": "Ending the filibuster stays in",
         "yes": {
           "system": 1
         },
@@ -1809,7 +2299,7 @@
       },
       {
         "id": "s3",
-        "text": "Add seats to the Supreme Court",
+        "text": "Adding seats to the Supreme Court stays in",
         "yes": {
           "system": 1.2
         },
@@ -1819,7 +2309,7 @@
       },
       {
         "id": "s4",
-        "text": "A wealth tax on billionaires",
+        "text": "A wealth tax on billionaires stays in",
         "yes": {
           "econ": -1.2
         },
@@ -1829,7 +2319,7 @@
       },
       {
         "id": "s5",
-        "text": "More border agents and faster removals",
+        "text": "More border agents and faster removals stay in",
         "yes": {
           "border": -1
         },
@@ -1839,7 +2329,7 @@
       },
       {
         "id": "s6",
-        "text": "A nuclear power build-out",
+        "text": "A nuclear power build-out stays in",
         "yes": {
           "tech": 1
         },
@@ -1849,7 +2339,7 @@
       },
       {
         "id": "s7",
-        "text": "No corporate PAC money, ever",
+        "text": "No corporate PAC money, ever, stays in",
         "yes": {
           "system": 0.8,
           "econ": -0.5
@@ -1975,7 +2465,7 @@
     "tier": "core",
     "topic": "coalition-targets",
     "context": "You have one hundred field organizers left to place among five groups of voters. Every state director is reading over your shoulder.",
-    "prompt": "Split the organizers. The group that gets the fewest will read about it in the morning.",
+    "prompt": "Which voters get your organizers? The group that gets the fewest will read about it in the morning.",
     "options": [
       {
         "id": "a",
@@ -2084,7 +2574,7 @@
       "D-079"
     ],
     "context": "You beat them all. Now one of them has to run your White House, and know every grudge in it.",
-    "prompt": "Draft a chief of staff from the rivals you just defeated.",
+    "prompt": "Which defeated rival becomes your chief of staff?",
     "pool": [
       "newsom",
       "pritzker",
@@ -2256,7 +2746,7 @@
       },
       {
         "id": "d",
-        "label": "The former President",
+        "label": "The party's last two-term President",
         "effects": {
           "loyalty": 1,
           "system": -0.8
@@ -2424,7 +2914,7 @@
       },
       {
         "id": "c",
-        "label": "Sign nothing. Tell his camp and his rivals you are with them.",
+        "label": "Sign nothing. Tell both sides, separately, you are with them.",
         "effects": {
           "mach": 1.5
         },
@@ -2550,7 +3040,7 @@
     "tier": "core",
     "topic": "tech-right",
     "context": "A Nevada casino floor at 4 a.m., an hour before your rally in the ballroom. The tech money and the nationalists are both in the building.",
-    "prompt": "You have one free hour. Who gets it? Tap where you spend it.",
+    "prompt": "You have one free hour. Who gets it?",
     "art": "D-NEVADA-CASINO-FLOOR",
     "artNote": "Casino floor before dawn, carpet patterned, lights on, nobody there. No people. Left: a roped-off high-limit table with stacked chips and a velvet rope. Center: a long row of slot machines glowing. Right: a wall of sportsbook screens showing only numbers and tickers. Back: a low stage with flag bunting and a lone microphone stand. Far left corner: a plain service door propped open with a cleaning cart.",
     "regions": [
@@ -2565,7 +3055,64 @@
         "cand": {
           "ramaswamy": 2
         },
-        "poly": { "wide": [[0,52],[8,51],[30,54],[36,62],[36,85],[25,97],[0,97]], "tall": [[0,74],[20,72.5],[45,75],[62,76],[62,97],[0,98]] }
+        "poly": {
+          "wide": [
+            [
+              0,
+              52
+            ],
+            [
+              8,
+              51
+            ],
+            [
+              30,
+              54
+            ],
+            [
+              36,
+              62
+            ],
+            [
+              36,
+              85
+            ],
+            [
+              25,
+              97
+            ],
+            [
+              0,
+              97
+            ]
+          ],
+          "tall": [
+            [
+              0,
+              74
+            ],
+            [
+              20,
+              72.5
+            ],
+            [
+              45,
+              75
+            ],
+            [
+              62,
+              76
+            ],
+            [
+              62,
+              97
+            ],
+            [
+              0,
+              98
+            ]
+          ]
+        }
       },
       {
         "id": "slots",
@@ -2579,7 +3126,72 @@
           "hawley": 1,
           "vance": 1
         },
-        "poly": { "wide": [[40,50],[43,43],[50,39],[60,38.5],[75,38.5],[75,76],[40,76]], "tall": [[11,58],[18,48],[86,51],[91,66],[55,70],[42,72],[31,73],[11,71]] }
+        "poly": {
+          "wide": [
+            [
+              40,
+              50
+            ],
+            [
+              43,
+              43
+            ],
+            [
+              50,
+              39
+            ],
+            [
+              60,
+              38.5
+            ],
+            [
+              75,
+              38.5
+            ],
+            [
+              75,
+              76
+            ],
+            [
+              40,
+              76
+            ]
+          ],
+          "tall": [
+            [
+              11,
+              58
+            ],
+            [
+              18,
+              48
+            ],
+            [
+              86,
+              51
+            ],
+            [
+              91,
+              66
+            ],
+            [
+              55,
+              70
+            ],
+            [
+              42,
+              72
+            ],
+            [
+              31,
+              73
+            ],
+            [
+              11,
+              71
+            ]
+          ]
+        }
       },
       {
         "id": "sportsbook",
@@ -2592,7 +3204,48 @@
         "cand": {
           "trumpjr": 2
         },
-        "poly": { "wide": [[76,13],[99,5],[99,60],[76,52]], "tall": [[55,27],[90,22],[98,25],[98,47],[55,47]] }
+        "poly": {
+          "wide": [
+            [
+              76,
+              13
+            ],
+            [
+              99,
+              5
+            ],
+            [
+              99,
+              60
+            ],
+            [
+              76,
+              52
+            ]
+          ],
+          "tall": [
+            [
+              55,
+              27
+            ],
+            [
+              90,
+              22
+            ],
+            [
+              98,
+              25
+            ],
+            [
+              98,
+              47
+            ],
+            [
+              55,
+              47
+            ]
+          ]
+        }
       },
       {
         "id": "stage",
@@ -2605,7 +3258,44 @@
         "cand": {
           "cruz": 1
         },
-        "poly": { "wide": [[21,12],[53,12],[53,37.5],[21,37.5]], "tall": [[28,6],[72,6],[72,24],[28,24]] }
+        "poly": {
+          "wide": [
+            [
+              21,
+              12
+            ],
+            [
+              53,
+              12
+            ],
+            [
+              53,
+              37.5
+            ],
+            [
+              21,
+              37.5
+            ]
+          ],
+          "tall": [
+            [
+              28,
+              6
+            ],
+            [
+              72,
+              6
+            ],
+            [
+              72,
+              24
+            ],
+            [
+              28,
+              24
+            ]
+          ]
+        }
       },
       {
         "id": "service",
@@ -2619,7 +3309,52 @@
         "cand": {
           "kemp": 1
         },
-        "poly": { "wide": [[5,15],[13,14],[20,22],[20,46],[5,46]], "tall": [[7,28],[22,27],[35,34],[35,45],[7,45]] }
+        "poly": {
+          "wide": [
+            [
+              5,
+              15
+            ],
+            [
+              13,
+              14
+            ],
+            [
+              20,
+              22
+            ],
+            [
+              20,
+              46
+            ],
+            [
+              5,
+              46
+            ]
+          ],
+          "tall": [
+            [
+              7,
+              28
+            ],
+            [
+              22,
+              27
+            ],
+            [
+              35,
+              34
+            ],
+            [
+              35,
+              45
+            ],
+            [
+              7,
+              45
+            ]
+          ]
+        }
       }
     ],
     "discrimination": 2
@@ -3345,7 +4080,7 @@
       "A-063"
     ],
     "context": "The fight over visas for skilled foreign workers: the tech right wants the engineers, the nationalists want the door shut.",
-    "prompt": "What should the policy be? Split 100 points between the options.",
+    "prompt": "Four factions want four visa policies. How much of your backing does each one get? Split 100 points.",
     "options": [
       {
         "id": "a",
@@ -3383,7 +4118,7 @@
       },
       {
         "id": "d",
-        "label": "Staple a green card to every science degree",
+        "label": "A green card with every science degree",
         "effects": {
           "border": 1.5,
           "tech": 1
@@ -3481,8 +4216,8 @@
       "B-042",
       "B-073"
     ],
-    "context": "The Big Beautiful Bill is the President's whole agenda in one binding: tax cuts, border money, Medicaid cuts and trillions in new debt. The Senate passed it 51 to 50, on the Vice President's vote.",
-    "prompt": "The pen is yours. Do you sign the whole package into law, or veto it?",
+    "context": "The Big Beautiful Bill",
+    "prompt": "You are the President. The Big Beautiful Bill is your whole agenda in one binding: tax cuts, border money, Medicaid cuts and trillions in new debt. The Senate passed it 51 to 50. Do you sign it, or veto it?",
     "options": [
       {
         "id": "sign",
@@ -3594,7 +4329,7 @@
     "cards": [
       {
         "id": "s1",
-        "text": "The billionaire who called your big bill an abomination",
+        "text": "Still welcome: the billionaire who called your big bill an abomination",
         "yes": {
           "tech": 1,
           "mach": 0.5
@@ -3606,7 +4341,7 @@
       },
       {
         "id": "s2",
-        "text": "The governor who certified the 2020 result",
+        "text": "Still welcome: the governor who certified the 2020 result",
         "yes": {
           "system": -0.8,
           "loyalty": -0.8
@@ -3617,7 +4352,7 @@
       },
       {
         "id": "s3",
-        "text": "The host who interviews extremists",
+        "text": "Still welcome: the host who interviews extremists",
         "yes": {
           "online": 1,
           "system": 1
@@ -3629,7 +4364,7 @@
       },
       {
         "id": "s4",
-        "text": "The senator who votes no on everything",
+        "text": "Still welcome: the senator who votes no on everything",
         "yes": {
           "econ": 0.8,
           "loyalty": -0.5
@@ -3640,7 +4375,7 @@
       },
       {
         "id": "s5",
-        "text": "The congresswoman who quit over the Epstein files",
+        "text": "Still welcome: the congresswoman who quit over the Epstein files",
         "yes": {
           "system": 0.8,
           "loyalty": -0.5
@@ -3651,7 +4386,7 @@
       },
       {
         "id": "s6",
-        "text": "The former Vice President",
+        "text": "Still welcome: the former Vice President",
         "yes": {
           "faith": 0.8,
           "loyalty": -1
@@ -3729,12 +4464,12 @@
     "excludes": [
       "B-036"
     ],
-    "context": "You are a governor. The biggest employer in your state publicly attacks your schools law.",
+    "context": "You are a governor. The biggest employer in your state attacks your new law on what schools may teach.",
     "prompt": "How do you answer the company?",
     "options": [
       {
         "id": "a",
-        "label": "Strip its special tax district. Make an example.",
+        "label": "Strip the company's tax perks. Make an example.",
         "effects": {
           "style": 1.5,
           "psych": 1,
@@ -3771,7 +4506,7 @@
       },
       {
         "id": "d",
-        "label": "Out-message them. The parents are with you.",
+        "label": "Out-argue them in public. The parents are with you.",
         "effects": {
           "social": -0.8,
           "style": -0.3,
@@ -3800,7 +4535,7 @@
       "A-054"
     ],
     "context": "A South Carolina church on the Sunday before the primary. The pews want one thing from you; the phones on tripods want another.",
-    "prompt": "Tap where you put yourself.",
+    "prompt": "Where do you put yourself?",
     "art": "D-SC-CHURCH-SUNDAY",
     "artNote": "Interior of a white wooden Southern church, empty, morning light through plain windows. No people. Front center: the pulpit with an open Bible. Front right: a brass collection plate on a small table. Middle: the back pew with a folded program left on it. Left aisle: a phone on a tripod with a ring light, livestream icon glowing. Rear: open double doors onto a gravel parking lot with pickup trucks.",
     "regions": [
@@ -3815,7 +4550,76 @@
         "cand": {
           "pence": 2
         },
-        "poly": { "wide": [[22,79],[28,68],[40,64],[50,64],[57,72],[57,100],[22,100]], "tall": [[2,79],[12,69],[34,68],[35,59],[44,59],[47,68],[61,71],[62,100],[2,100]] }
+        "poly": {
+          "wide": [
+            [
+              22,
+              79
+            ],
+            [
+              28,
+              68
+            ],
+            [
+              40,
+              64
+            ],
+            [
+              50,
+              64
+            ],
+            [
+              57,
+              72
+            ],
+            [
+              57,
+              100
+            ],
+            [
+              22,
+              100
+            ]
+          ],
+          "tall": [
+            [
+              2,
+              79
+            ],
+            [
+              12,
+              69
+            ],
+            [
+              34,
+              68
+            ],
+            [
+              35,
+              59
+            ],
+            [
+              44,
+              59
+            ],
+            [
+              47,
+              68
+            ],
+            [
+              61,
+              71
+            ],
+            [
+              62,
+              100
+            ],
+            [
+              2,
+              100
+            ]
+          ]
+        }
       },
       {
         "id": "pew",
@@ -3829,7 +4633,56 @@
         "cand": {
           "kemp": 2
         },
-        "poly": { "wide": [[21,47],[66,48],[66,63],[50,63],[40,63],[28,66],[21,66]], "tall": [[58,42],[100,41],[100,61],[59,61]] }
+        "poly": {
+          "wide": [
+            [
+              21,
+              47
+            ],
+            [
+              66,
+              48
+            ],
+            [
+              66,
+              63
+            ],
+            [
+              50,
+              63
+            ],
+            [
+              40,
+              63
+            ],
+            [
+              28,
+              66
+            ],
+            [
+              21,
+              66
+            ]
+          ],
+          "tall": [
+            [
+              58,
+              42
+            ],
+            [
+              100,
+              41
+            ],
+            [
+              100,
+              61
+            ],
+            [
+              59,
+              61
+            ]
+          ]
+        }
       },
       {
         "id": "tripod",
@@ -3843,7 +4696,64 @@
           "trumpjr": 1,
           "vance": 1
         },
-        "poly": { "wide": [[8,28],[13,25],[20,28],[20,60],[21,86],[5,86],[8,60]], "tall": [[10,31],[25,30],[26,40],[29,64],[1,66],[8,40]] }
+        "poly": {
+          "wide": [
+            [
+              8,
+              28
+            ],
+            [
+              13,
+              25
+            ],
+            [
+              20,
+              28
+            ],
+            [
+              20,
+              60
+            ],
+            [
+              21,
+              86
+            ],
+            [
+              5,
+              86
+            ],
+            [
+              8,
+              60
+            ]
+          ],
+          "tall": [
+            [
+              10,
+              31
+            ],
+            [
+              25,
+              30
+            ],
+            [
+              26,
+              40
+            ],
+            [
+              29,
+              64
+            ],
+            [
+              1,
+              66
+            ],
+            [
+              8,
+              40
+            ]
+          ]
+        }
       },
       {
         "id": "plate",
@@ -3856,7 +4766,60 @@
         "cand": {
           "youngkin": 1
         },
-        "poly": { "wide": [[70,76],[76,72],[93,72],[100,78],[100,100],[70,100]], "tall": [[63,80],[70,74],[94,74],[100,79],[100,100],[63,100]] }
+        "poly": {
+          "wide": [
+            [
+              70,
+              76
+            ],
+            [
+              76,
+              72
+            ],
+            [
+              93,
+              72
+            ],
+            [
+              100,
+              78
+            ],
+            [
+              100,
+              100
+            ],
+            [
+              70,
+              100
+            ]
+          ],
+          "tall": [
+            [
+              63,
+              80
+            ],
+            [
+              70,
+              74
+            ],
+            [
+              94,
+              74
+            ],
+            [
+              100,
+              79
+            ],
+            [
+              100,
+              100
+            ],
+            [
+              63,
+              100
+            ]
+          ]
+        }
       },
       {
         "id": "carpark",
@@ -3870,7 +4833,48 @@
         "cand": {
           "desantis": 1
         },
-        "poly": { "wide": [[70,29],[88,29],[88,50],[73,50],[70,45]], "tall": [[33,16],[67,16],[67,35],[33,35]] }
+        "poly": {
+          "wide": [
+            [
+              70,
+              29
+            ],
+            [
+              88,
+              29
+            ],
+            [
+              88,
+              50
+            ],
+            [
+              73,
+              50
+            ],
+            [
+              70,
+              45
+            ]
+          ],
+          "tall": [
+            [
+              33,
+              16
+            ],
+            [
+              67,
+              16
+            ],
+            [
+              67,
+              35
+            ],
+            [
+              33,
+              35
+            ]
+          ]
+        }
       }
     ],
     "discrimination": 2
@@ -3961,7 +4965,7 @@
       "D-077"
     ],
     "context": "The nomination is yours. The ballroom wants a name by Thursday.",
-    "prompt": "Draft your running mate.",
+    "prompt": "Who is your running mate?",
     "pool": [
       "rubio",
       "desantis",
@@ -3975,7 +4979,7 @@
     "options": [
       {
         "id": "rubio",
-        "label": "Marco Rubio: already doing every other job",
+        "label": "Marco Rubio: Secretary of State, and every other job going",
         "effects": {
           "world": 1,
           "mach": 0.6
@@ -3998,7 +5002,7 @@
       },
       {
         "id": "youngkin",
-        "label": "Glenn Youngkin: the vest, the suburbs, the donors",
+        "label": "Glenn Youngkin: won blue Virginia in a fleece vest; donors love him",
         "effects": {
           "econ": 1,
           "style": -1
@@ -4054,7 +5058,7 @@
       },
       {
         "id": "trumpjr",
-        "label": "Donald Trump Jr.: the name on the hat",
+        "label": "Donald Trump Jr.: the President's son, the name on the hat",
         "effects": {
           "dynasty": 1.5,
           "loyalty": 1
@@ -4077,7 +5081,7 @@
       "B-084"
     ],
     "context": "Your pick for Attorney General has just withdrawn. The Senate will confirm one of its own, or a former prosecutor, by morning.",
-    "prompt": "Draft a new Attorney General, the country's top lawyer.",
+    "prompt": "Who is your new Attorney General, the country's top lawyer?",
     "pool": [
       "cruz",
       "hawley",
@@ -4236,7 +5240,7 @@
     "cards": [
       {
         "id": "s1",
-        "text": "A 15 dollar federal minimum wage",
+        "text": "Conservative: a 15 dollar federal minimum wage",
         "yes": {
           "econ": -1.2
         },
@@ -4249,7 +5253,7 @@
       },
       {
         "id": "s2",
-        "text": "Abolish the Department of Education",
+        "text": "Conservative: abolishing the Department of Education",
         "yes": {
           "econ": 1,
           "system": 1,
@@ -4262,7 +5266,7 @@
       },
       {
         "id": "s3",
-        "text": "The government buys a stake in a chipmaker",
+        "text": "Conservative: the government buying a stake in a chipmaker",
         "yes": {
           "econ": -1,
           "trade": -1
@@ -4274,7 +5278,7 @@
       },
       {
         "id": "s4",
-        "text": "A national limit on abortion",
+        "text": "Conservative: a national limit on abortion",
         "yes": {
           "social": -1.2,
           "faith": 1
@@ -4286,7 +5290,7 @@
       },
       {
         "id": "s5",
-        "text": "Cap credit-card interest at 10 percent",
+        "text": "Conservative: capping credit-card interest at 10 percent",
         "yes": {
           "econ": -1.2
         },
@@ -4299,7 +5303,7 @@
       },
       {
         "id": "s6",
-        "text": "Legal sports betting in every state",
+        "text": "Conservative: legal sports betting in every state",
         "yes": {
           "libertine": 1
         },
@@ -4310,7 +5314,7 @@
       },
       {
         "id": "s7",
-        "text": "Ban members of Congress from trading stocks",
+        "text": "Conservative: banning members of Congress from trading stocks",
         "yes": {
           "system": 0.8,
           "libertine": -0.5
@@ -4668,7 +5672,7 @@
       "D-067"
     ],
     "context": "The convention is deadlocked and the country is tired. Your pollster slides over one page: a unity ticket.",
-    "prompt": "Draft a running mate from across the aisle.",
+    "prompt": "Who is your running mate from across the aisle?",
     "pool": [
       "kemp",
       "christie",
@@ -4686,7 +5690,7 @@
     "options": [
       {
         "id": "kemp",
-        "label": "Brian Kemp: said no when it counted",
+        "label": "Brian Kemp: refused to overturn Georgia in 2020",
         "effects": {
           "system": -1.2,
           "loyalty": -0.8
@@ -4730,7 +5734,7 @@
       },
       {
         "id": "pence",
-        "label": "Mike Pence: counted the votes and paid for it",
+        "label": "Mike Pence: certified the 2020 result and paid for it",
         "effects": {
           "system": -1.2,
           "faith": 0.8
@@ -4833,7 +5837,7 @@
     "tier": "core",
     "topic": "drafts-defense",
     "context": "The transition office, a hotel suite with the curtains shut. The first box on the whiteboard is the Pentagon.",
-    "prompt": "Draft a Secretary of Defense.",
+    "prompt": "Who is your Secretary of Defense?",
     "pool": [
       "kelly",
       "slotkin",
@@ -4879,7 +5883,7 @@
       },
       {
         "id": "rubio",
-        "label": "Marco Rubio: one more job will not hurt",
+        "label": "Marco Rubio: already has four jobs; one more will not hurt",
         "effects": {
           "world": 1,
           "loyalty": 0.8
@@ -4928,7 +5932,7 @@
       "D-036"
     ],
     "context": "You need a chief of staff who knows where everything is buried, because they did some of the digging.",
-    "prompt": "Draft the gatekeeper.",
+    "prompt": "Who is your chief of staff, the gatekeeper?",
     "pool": [
       "christie",
       "cruz",
@@ -5019,7 +6023,7 @@
       "A-099"
     ],
     "context": "The bond market opens in nine hours and would like to know who is in charge of the money.",
-    "prompt": "Draft a Treasury Secretary.",
+    "prompt": "Who is your Treasury Secretary?",
     "pool": [
       "youngkin",
       "pritzker",
@@ -5117,7 +6121,7 @@
     "type": "slider",
     "tier": "core",
     "topic": "acceptance-speech",
-    "context": "You have the nomination. Two drafts of your acceptance speech are on the lectern in the empty arena, and somebody has left you a pair of scissors.",
+    "context": "You have the nomination. Two drafts of your acceptance speech are on the lectern in the empty arena: one heals the country, one names the enemies. Somebody has left you a pair of scissors.",
     "prompt": "You get one speech. How much of each draft goes into it?",
     "slider": {
       "left": "Heal the country",
@@ -5137,7 +6141,10 @@
       "trumpjr": 1,
       "newsom": 1
     },
-    "discrimination": 2
+    "discrimination": 2,
+    "excludes": [
+      "C-017"
+    ]
   },
   {
     "id": "D-082",
@@ -5203,7 +6210,7 @@
       "E-024"
     ],
     "context": "Election night, 2 a.m. in your war room. The race is down to one state, one county and a warehouse of uncounted ballots.",
-    "prompt": "What do you do while the count hangs? Tap what you reach for.",
+    "prompt": "What do you do while the count hangs?",
     "art": "D-WARROOM-2AM",
     "artNote": "The war room at night, empty, lit by screens. No people. Back wall: a huge electoral map with one state blinking amber. Left: a bank of desk phones with one receiver off the hook, legal pads beside them. Right: a row of muted televisions showing only tickers and percentages. Front right: a cot with a folded suit jacket. Center back: a door edged in bright light and the sound of a ballroom crowd beyond it. Front left: a paper shredder with a full bin.",
     "regions": [
@@ -5219,7 +6226,44 @@
           "kemp": 1,
           "kelly": 1
         },
-        "poly": { "wide": [[10,4],[42,4],[42,34],[10,34]], "tall": [[15,4],[84,4],[84,27],[15,27]] }
+        "poly": {
+          "wide": [
+            [
+              10,
+              4
+            ],
+            [
+              42,
+              4
+            ],
+            [
+              42,
+              34
+            ],
+            [
+              10,
+              34
+            ]
+          ],
+          "tall": [
+            [
+              15,
+              4
+            ],
+            [
+              84,
+              4
+            ],
+            [
+              84,
+              27
+            ],
+            [
+              15,
+              27
+            ]
+          ]
+        }
       },
       {
         "id": "phones",
@@ -5233,7 +6277,68 @@
           "cruz": 1,
           "shapiro": 1
         },
-        "poly": { "wide": [[7,40],[17,36],[36,35],[41,38],[40,47],[22,54],[8,52]], "tall": [[3,46],[15,43],[30,42],[40,47],[38,52],[24,60],[6,58]] }
+        "poly": {
+          "wide": [
+            [
+              7,
+              40
+            ],
+            [
+              17,
+              36
+            ],
+            [
+              36,
+              35
+            ],
+            [
+              41,
+              38
+            ],
+            [
+              40,
+              47
+            ],
+            [
+              22,
+              54
+            ],
+            [
+              8,
+              52
+            ]
+          ],
+          "tall": [
+            [
+              3,
+              46
+            ],
+            [
+              15,
+              43
+            ],
+            [
+              30,
+              42
+            ],
+            [
+              40,
+              47
+            ],
+            [
+              38,
+              52
+            ],
+            [
+              24,
+              60
+            ],
+            [
+              6,
+              58
+            ]
+          ]
+        }
       },
       {
         "id": "tvs",
@@ -5248,7 +6353,44 @@
           "newsom": 1,
           "vance": 1
         },
-        "poly": { "wide": [[68,9],[98,9],[98,38],[68,38]], "tall": [[67,28],[99,27],[99,50],[67,50]] }
+        "poly": {
+          "wide": [
+            [
+              68,
+              9
+            ],
+            [
+              98,
+              9
+            ],
+            [
+              98,
+              38
+            ],
+            [
+              68,
+              38
+            ]
+          ],
+          "tall": [
+            [
+              67,
+              28
+            ],
+            [
+              99,
+              27
+            ],
+            [
+              99,
+              50
+            ],
+            [
+              67,
+              50
+            ]
+          ]
+        }
       },
       {
         "id": "bed",
@@ -5262,7 +6404,80 @@
           "beshear": 1,
           "pence": 1
         },
-        "poly": { "wide": [[54,72],[62,63],[80,58],[86,53],[97,55],[99,62],[99,85],[75,97],[55,95]], "tall": [[39,77],[50,72],[76,64],[96,63],[99,72],[99,85],[80,95],[40,94]] }
+        "poly": {
+          "wide": [
+            [
+              54,
+              72
+            ],
+            [
+              62,
+              63
+            ],
+            [
+              80,
+              58
+            ],
+            [
+              86,
+              53
+            ],
+            [
+              97,
+              55
+            ],
+            [
+              99,
+              62
+            ],
+            [
+              99,
+              85
+            ],
+            [
+              75,
+              97
+            ],
+            [
+              55,
+              95
+            ]
+          ],
+          "tall": [
+            [
+              39,
+              77
+            ],
+            [
+              50,
+              72
+            ],
+            [
+              76,
+              64
+            ],
+            [
+              96,
+              63
+            ],
+            [
+              99,
+              72
+            ],
+            [
+              99,
+              85
+            ],
+            [
+              80,
+              95
+            ],
+            [
+              40,
+              94
+            ]
+          ]
+        }
       },
       {
         "id": "door",
@@ -5276,7 +6491,44 @@
         "cand": {
           "trumpjr": 2
         },
-        "poly": { "wide": [[47,7],[61,7],[61,52],[47,52]], "tall": [[41,29],[59,29],[59,55],[41,55]] }
+        "poly": {
+          "wide": [
+            [
+              47,
+              7
+            ],
+            [
+              61,
+              7
+            ],
+            [
+              61,
+              52
+            ],
+            [
+              47,
+              52
+            ]
+          ],
+          "tall": [
+            [
+              41,
+              29
+            ],
+            [
+              59,
+              29
+            ],
+            [
+              59,
+              55
+            ],
+            [
+              41,
+              55
+            ]
+          ]
+        }
       },
       {
         "id": "shredder",
@@ -5286,7 +6538,68 @@
           "mach": 1.5,
           "libertine": 0.5
         },
-        "poly": { "wide": [[0,57],[5,55],[20,55],[21,70],[27,72],[27,97],[0,96]], "tall": [[1,68],[7,64],[27,65],[28,72],[36,76],[36,95],[1,95]] }
+        "poly": {
+          "wide": [
+            [
+              0,
+              57
+            ],
+            [
+              5,
+              55
+            ],
+            [
+              20,
+              55
+            ],
+            [
+              21,
+              70
+            ],
+            [
+              27,
+              72
+            ],
+            [
+              27,
+              97
+            ],
+            [
+              0,
+              96
+            ]
+          ],
+          "tall": [
+            [
+              1,
+              68
+            ],
+            [
+              7,
+              64
+            ],
+            [
+              27,
+              65
+            ],
+            [
+              28,
+              72
+            ],
+            [
+              36,
+              76
+            ],
+            [
+              36,
+              95
+            ],
+            [
+              1,
+              95
+            ]
+          ]
+        }
       }
     ],
     "fx": [
@@ -5463,7 +6776,7 @@
     "tier": "core",
     "topic": "convention-lineup",
     "context": "Your convention hall, an hour before the doors. Thousands of balloons hang in a net over an empty floor, and everything in here is a lever.",
-    "prompt": "What kind of night do you run? Tap the thing you take charge of.",
+    "prompt": "What kind of night do you run?",
     "art": "D-CONVENTION-FLOOR-EMPTY",
     "artNote": "Vast empty convention arena, house lights half up, balloons netted in the rafters. No people. Center: the podium with two glass teleprompter panels. Stage left wing: a heavy curtain with a strip of light under it. Upper right: a glass-fronted skybox with a bar cart. Floor, front left: a delegate microphone on a stand beside a blank state placard. Far right wall: a big red lever on a control box labeled DROP.",
     "regions": [
@@ -5480,7 +6793,60 @@
           "harris": 1,
           "youngkin": 1
         },
-        "poly": { "wide": [[34,35],[40,31],[58,31],[64,35],[64,59],[34,59]], "tall": [[32,41],[42,40],[60,40],[69,41],[69,61],[32,61]] }
+        "poly": {
+          "wide": [
+            [
+              29,
+              37
+            ],
+            [
+              50,
+              37
+            ],
+            [
+              49,
+              48
+            ],
+            [
+              48,
+              58
+            ],
+            [
+              30,
+              58
+            ],
+            [
+              30,
+              48
+            ]
+          ],
+          "tall": [
+            [
+              32,
+              41
+            ],
+            [
+              42,
+              40
+            ],
+            [
+              60,
+              40
+            ],
+            [
+              69,
+              41
+            ],
+            [
+              69,
+              61
+            ],
+            [
+              32,
+              61
+            ]
+          ]
+        }
       },
       {
         "id": "curtain",
@@ -5494,7 +6860,64 @@
           "trumpjr": 1,
           "pritzker": 1
         },
-        "poly": { "wide": [[0,0],[17,0],[16,30],[12,50],[11.5,71],[0,71]], "tall": [[0,11],[25,15],[22,30],[17,45],[17,58],[0,58]] }
+        "poly": {
+          "wide": [
+            [
+              0,
+              0
+            ],
+            [
+              17,
+              0
+            ],
+            [
+              16,
+              20
+            ],
+            [
+              9,
+              35
+            ],
+            [
+              8,
+              56
+            ],
+            [
+              8.5,
+              72
+            ],
+            [
+              0,
+              74
+            ]
+          ],
+          "tall": [
+            [
+              0,
+              11
+            ],
+            [
+              25,
+              15
+            ],
+            [
+              22,
+              30
+            ],
+            [
+              17,
+              45
+            ],
+            [
+              17,
+              58
+            ],
+            [
+              0,
+              58
+            ]
+          ]
+        }
       },
       {
         "id": "skybox",
@@ -5504,7 +6927,52 @@
           "mach": 1,
           "econ": 0.8
         },
-        "poly": { "wide": [[70,10],[92,4],[93,30],[70,30]], "tall": [[60,15],[75,9],[98,6],[98,30],[60,30]] }
+        "poly": {
+          "wide": [
+            [
+              67,
+              7
+            ],
+            [
+              80,
+              2
+            ],
+            [
+              92,
+              1
+            ],
+            [
+              93,
+              35
+            ],
+            [
+              68,
+              36
+            ]
+          ],
+          "tall": [
+            [
+              60,
+              15
+            ],
+            [
+              75,
+              9
+            ],
+            [
+              98,
+              6
+            ],
+            [
+              98,
+              30
+            ],
+            [
+              60,
+              30
+            ]
+          ]
+        }
       },
       {
         "id": "floormic",
@@ -5518,7 +6986,60 @@
           "aoc": 1,
           "randpaul": 1
         },
-        "poly": { "wide": [[12,66],[18,66],[18,72],[25,72],[29,79],[29,97],[12,97]], "tall": [[8,73],[17,73],[17,78],[28,78],[35,90],[35,96],[8,96]] }
+        "poly": {
+          "wide": [
+            [
+              10,
+              73
+            ],
+            [
+              17,
+              58
+            ],
+            [
+              22,
+              58
+            ],
+            [
+              22,
+              90
+            ],
+            [
+              9,
+              90
+            ]
+          ],
+          "tall": [
+            [
+              8,
+              73
+            ],
+            [
+              17,
+              73
+            ],
+            [
+              17,
+              78
+            ],
+            [
+              28,
+              78
+            ],
+            [
+              35,
+              90
+            ],
+            [
+              35,
+              96
+            ],
+            [
+              8,
+              96
+            ]
+          ]
+        }
       },
       {
         "id": "lever",
@@ -5533,7 +7054,44 @@
           "ramaswamy": 1,
           "newsom": 1
         },
-        "poly": { "wide": [[88,34],[99.5,34],[99.5,64],[88,64]], "tall": [[80,68],[99.5,68],[99.5,90],[80,90]] }
+        "poly": {
+          "wide": [
+            [
+              89,
+              40
+            ],
+            [
+              99,
+              40
+            ],
+            [
+              99,
+              67
+            ],
+            [
+              89,
+              67
+            ]
+          ],
+          "tall": [
+            [
+              80,
+              68
+            ],
+            [
+              99.5,
+              68
+            ],
+            [
+              99.5,
+              90
+            ],
+            [
+              80,
+              90
+            ]
+          ]
+        }
       }
     ],
     "discrimination": 2
@@ -5602,7 +7160,7 @@
     "tier": "core",
     "topic": "victory-night",
     "context": "Victory night. Halfway through your speech the crowd starts a chant about locking up your opponent.",
-    "prompt": "Every second you wait is an answer too. What do you do about the chant?",
+    "prompt": "The crowd is chanting to lock up your opponent. What do you do about it?",
     "options": [
       {
         "id": "a",

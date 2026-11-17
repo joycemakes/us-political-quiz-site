@@ -78,8 +78,8 @@
     "type": "pin",
     "tier": "core",
     "topic": "guard-in-cities",
-    "context": "You are the governor. Another state's Guard convoy, sent on the President's orders, has just reached your state line.",
-    "prompt": "What is your first move against the convoy? Tap it.",
+    "context": "You are the governor. Another state's National Guard convoy, sent on the President's orders, has just reached your state line.",
+    "prompt": "What is your first move?",
     "art": "E-PIN-STATELINE",
     "artNote": "A two-lane highway at dusk at a state line, no people anywhere. Center: a line of plain olive trucks with headlights on, stopped at a big wooden WELCOME TO sign (state name left blank). Left foreground: an empty state trooper cruiser parked sideways across one lane, light bar lit. Right lane: open road, empty, running off to the horizon. Top right, on a hill: a small domed courthouse with one lit window. Bottom right: a TV satellite van with its dish raised and a camera on a tripod pointing at the road. Bottom left: a roadside payphone with the receiver hanging off the hook.",
     "regions": [
@@ -92,7 +92,7 @@
           "style": 1.5,
           "system": 0.5
         },
-        "poly": { "wide": [[14,47],[17,43],[28,43],[36,48],[44,54],[49.5,56],[49.5,69],[40,72],[28,74],[14.5,71]], "tall": [[3,46],[13,41],[30,40],[42,44],[57,47],[60,53],[60,56],[40,58],[10,57],[3,54]] }
+        "poly": { "wide": [[6,55],[20,46],[30,45],[40,52],[48,56],[51,62],[49,71],[28,73],[15.5,68],[15.5,58]], "tall": [[4,57],[12,52],[25,48],[40,49],[50,53],[60,55],[67,58],[66,63],[40,65],[5,62]] }
       },
       {
         "id": "courthouse",
@@ -106,7 +106,7 @@
         "cand": {
           "pritzker": 1
         },
-        "poly": { "wide": [[83,24],[83,12],[88,9],[89.5,3],[92,3],[94,9],[98,13],[98,24]], "tall": [[74,17],[75,9],[83,7],[84,2],[87,2],[88,7],[97,8],[97,17]] }
+        "poly": { "wide": [[80,10],[89,3],[92,3],[98,10],[98,17],[80,17]], "tall": [[69,10],[82,2],[86,2],[96,10],[96,19],[69,19]] }
       },
       {
         "id": "openlane",
@@ -117,7 +117,7 @@
           "liberty": -1,
           "loyalty": 1
         },
-        "poly": { "wide": [[70,48],[76,42],[84,35],[92,35],[87,44],[84.5,52],[82,59.5],[70,59.5]], "tall": [[72,47],[78,36],[80,27],[90,27],[94,32],[92,45],[86,54],[74,54]] }
+        "poly": { "wide": [[73,24],[78,23],[100,30],[100,50],[80,49],[71,44]], "tall": [[36,19],[46,19],[58,33],[56,37],[30,37],[24,33]] }
       },
       {
         "id": "tvvan",
@@ -132,7 +132,7 @@
         "cand": {
           "newsom": 1
         },
-        "poly": { "wide": [[65,67],[74,63],[84,61],[86,52],[88,45],[93,42],[99,44],[100,90],[86,95],[66,96]], "tall": [[44,72],[56,70],[76,60],[88,55.5],[93,57],[98,67],[98,90],[75,93],[45,92]] }
+        "poly": { "wide": [[59,70],[67,63],[80,55],[84,51],[90,52],[99,62],[99,97],[59,97]], "tall": [[37,76],[48,74],[72,66],[80,61],[88,63],[97,72],[98,88],[90,94],[37,94]] }
       },
       {
         "id": "payphone",
@@ -143,7 +143,7 @@
           "style": -1,
           "federal": -0.5
         },
-        "poly": { "wide": [[0,28],[17.5,28],[17.5,42],[13.5,46],[14,98],[0,98]], "tall": [[2,59],[32,59],[32,65],[29,67],[29,98],[2,98]] }
+        "poly": { "wide": [[3,59],[9,58],[15,60],[15,82],[13,97],[4,97]], "tall": [[4,67],[13,66],[23,68],[23,92],[18,96],[5,96]] }
       }
     ],
     "facts": "About 200 federalized Texas National Guard troops arrived at Elwood, Illinois, on October 6-7, 2025 on federal orders, over Gov. Pritzker's objection. Scene is invented; no real people shown.",
@@ -184,11 +184,11 @@
     "tier": "core",
     "topic": "states-rights",
     "context": "States' rights, speed round. Everyone loves them until the other side's state uses them.",
-    "prompt": "Swipe right to leave it to the states. Left for one national rule.",
+    "prompt": "Should each of these be left to the states? No means one national rule.",
     "cards": [
       {
         "id": "abortion",
-        "text": "Abortion law",
+        "text": "Leave abortion law to each state",
         "yes": {
           "federal": 1
         },
@@ -198,7 +198,7 @@
       },
       {
         "id": "weed",
-        "text": "Legal marijuana",
+        "text": "Leave legal marijuana to each state",
         "yes": {
           "federal": 1,
           "liberty": 0.5
@@ -209,7 +209,7 @@
       },
       {
         "id": "wage",
-        "text": "The minimum wage",
+        "text": "Let each state set its own minimum wage",
         "yes": {
           "federal": 1,
           "econ": 0.5
@@ -221,7 +221,7 @@
       },
       {
         "id": "guns",
-        "text": "Who can carry a gun",
+        "text": "Let each state decide who can carry a gun",
         "yes": {
           "federal": 1
         },
@@ -231,7 +231,7 @@
       },
       {
         "id": "ai",
-        "text": "Rules for AI companies",
+        "text": "Let each state write its own rules for AI companies",
         "yes": {
           "federal": 1,
           "tech": -0.5
@@ -243,7 +243,7 @@
       },
       {
         "id": "schools",
-        "text": "What schools teach",
+        "text": "Let each state decide what schools teach",
         "yes": {
           "federal": 1
         },
@@ -253,7 +253,7 @@
       },
       {
         "id": "ice",
-        "text": "Whether local police help deport people",
+        "text": "Let each state decide if local police help deport people",
         "yes": {
           "federal": 1,
           "border": 0.5
@@ -265,7 +265,7 @@
       },
       {
         "id": "votes",
-        "text": "How presidential elections are run",
+        "text": "Let each state run presidential elections its own way",
         "yes": {
           "federal": 1
         },
@@ -351,7 +351,7 @@
     "tier": "core",
     "topic": "state-defiance",
     "context": "You are governor. Washington's offer: open your jails to immigration agents, or lose the highway money.",
-    "prompt": "No middle. Do you open the jails?",
+    "prompt": "Do you open the jails?",
     "options": [
       {
         "id": "a",
@@ -873,11 +873,11 @@
     "tier": "core",
     "topic": "executive-power",
     "context": "You are President. Congress is stuck. The emergency powers drawer is right there, and it opens for either party.",
-    "prompt": "Swipe right to declare a national emergency over it. Left to wait for Congress.",
+    "prompt": "Do you declare a national emergency over each of these? No means you wait for Congress.",
     "cards": [
       {
         "id": "trade",
-        "text": "The trade deficit",
+        "text": "Declare an emergency over the trade deficit",
         "yes": {
           "democracy": -0.75,
           "trade": -1
@@ -889,7 +889,7 @@
       },
       {
         "id": "climate",
-        "text": "Climate change",
+        "text": "Declare an emergency over climate change",
         "yes": {
           "democracy": -0.75,
           "econ": -0.5
@@ -900,7 +900,7 @@
       },
       {
         "id": "border",
-        "text": "The southern border",
+        "text": "Declare an emergency over the southern border",
         "yes": {
           "democracy": -0.75,
           "border": -1
@@ -912,7 +912,7 @@
       },
       {
         "id": "guns",
-        "text": "Gun deaths",
+        "text": "Declare an emergency over gun deaths",
         "yes": {
           "democracy": -0.75,
           "liberty": -0.5
@@ -923,7 +923,7 @@
       },
       {
         "id": "debt",
-        "text": "Student debt",
+        "text": "Declare an emergency over student debt",
         "yes": {
           "democracy": -0.75,
           "econ": -1
@@ -935,7 +935,7 @@
       },
       {
         "id": "crime",
-        "text": "Crime in a city you lost",
+        "text": "Declare an emergency over crime in a city you lost",
         "yes": {
           "democracy": -1,
           "liberty": -1,
@@ -948,7 +948,7 @@
       },
       {
         "id": "virus",
-        "text": "A new virus",
+        "text": "Declare an emergency over a new virus",
         "yes": {
           "liberty": -0.5,
           "federal": -0.5
@@ -1069,7 +1069,7 @@
       },
       {
         "id": "nothing",
-        "label": "Nothing. He won.",
+        "label": "His own conscience. Nobody else gets a say.",
         "effects": {
           "democracy": -2,
           "loyalty": 1.5
@@ -1204,7 +1204,7 @@
       "D-083"
     ],
     "context": "3:10 am on election night. You are behind by three tenths of a point with six counties still counting. The ballroom is waiting.",
-    "prompt": "What do you do now? Tap where you go.",
+    "prompt": "What do you do now?",
     "art": "E-PIN-HOTEL-SUITE",
     "artNote": "A campaign hotel suite at 3 am, no people. Center back: a doorway onto a ballroom stage with an empty podium and a wall of flags, lit bright. Left: a TV news camera on a tripod with its red light on, pointed at an empty chair. Right: a desk with a landline phone and a printed list of county phone numbers. Bottom left: a lawyer's open briefcase spilling filing papers. Bottom right: a couch with a folded blanket and a muted television showing a map with no names.",
     "regions": [
@@ -1217,7 +1217,7 @@
           "narc": -1,
           "style": -1
         },
-        "poly": { "wide": [[48,4],[74,4],[74,37],[62,38],[48,37]], "tall": [[27,3],[75,3],[75,27.5],[27,27.5]] }
+        "poly": { "wide": [[43,6],[66,6],[66,50],[43,50]], "tall": [[33,2],[65,2],[65,30],[33,30]] }
       },
       {
         "id": "camera",
@@ -1228,7 +1228,7 @@
           "narc": 1.5,
           "style": 1
         },
-        "poly": { "wide": [[3,15],[12,14],[20,17],[20,30],[19,61],[1,61],[1,30]], "tall": [[4,25],[20,25],[30,29.5],[30,40],[28,62],[1,62],[1,35]] }
+        "poly": { "wide": [[7,22],[15,19],[21,23],[21,32],[22,64],[5,64],[6,40]], "tall": [[4,37],[15,34],[26,38],[25,50],[27,62],[3,62]] }
       },
       {
         "id": "phone",
@@ -1239,7 +1239,7 @@
           "mach": 1.5,
           "psych": 0.5
         },
-        "poly": { "wide": [[76,30],[98,30],[98,50],[76,50],[73,44]], "tall": [[56,33],[90,33],[97,40],[97,49],[78,50],[56,46]] }
+        "poly": { "wide": [[79,36],[90,36],[98,44],[97,52],[79,52]], "tall": [[67,40],[85,40],[94,46],[93,52],[67,52]] }
       },
       {
         "id": "briefcase",
@@ -1250,7 +1250,7 @@
           "mach": 0.5,
           "style": 0.5
         },
-        "poly": { "wide": [[1,63],[17,62],[20,70],[29,80],[29,95],[1,95]], "tall": [[1,76],[24,75],[28,85],[41,88],[41,97],[1,97]] }
+        "poly": { "wide": [[2,66],[22,65],[30,82],[30,96],[5,96]], "tall": [[3,77],[28,75],[31,80],[45,88],[45,98],[8,98]] }
       },
       {
         "id": "sofa",
@@ -1261,7 +1261,7 @@
           "style": -1,
           "narc": -0.5
         },
-        "poly": { "wide": [[50,70],[60,62],[80,59],[98,62],[100,70],[100,100],[55,100],[50,90]], "tall": [[49,84],[60,79],[70,78],[70,63],[99,63],[100,100],[49,100]] }
+        "poly": { "wide": [[61,64],[70,59],[85,57],[100,57],[100,100],[66,100],[61,85]], "tall": [[50,84],[60,81],[80,79],[100,78],[100,100],[50,100]] }
       }
     ],
     "fx": [
@@ -1277,7 +1277,7 @@
     "tier": "core",
     "topic": "supreme-court",
     "context": "Your party holds the White House and both chambers. The Supreme Court's nine justices keep striking down what you pass. Your base wants four more chairs on that bench.",
-    "prompt": "No middle. Do you add the seats?",
+    "prompt": "Do you add the seats?",
     "options": [
       {
         "id": "a",
@@ -1460,7 +1460,7 @@
       },
       {
         "id": "veto",
-        "label": "Veto: get a warrant, like the Fourth says.",
+        "label": "Veto: get a warrant, like the Fourth Amendment says.",
         "effects": {
           "liberty": 1.5,
           "world": -0.5
@@ -1530,11 +1530,11 @@
     "tier": "core",
     "topic": "civil-liberties",
     "context": "Free country, speed round. Nobody gets through this one without annoying their own side.",
-    "prompt": "Swipe right if it should be legal. Left if not.",
+    "prompt": "Free country, speed round. Should each of these be legal?",
     "cards": [
       {
         "id": "flag",
-        "text": "Burning the flag",
+        "text": "Let people burn the flag",
         "yes": {
           "liberty": 1
         },
@@ -1545,7 +1545,7 @@
       },
       {
         "id": "ar15",
-        "text": "Owning an AR-15",
+        "text": "Let people own an AR-15",
         "yes": {
           "liberty": 1,
           "social": -0.5
@@ -1557,7 +1557,7 @@
       },
       {
         "id": "film",
-        "text": "Filming federal agents making an arrest",
+        "text": "Let people film federal agents making an arrest",
         "yes": {
           "liberty": 1
         },
@@ -1568,7 +1568,7 @@
       },
       {
         "id": "vax",
-        "text": "Refusing a vaccine and keeping your job",
+        "text": "Let workers refuse a vaccine and keep the job",
         "yes": {
           "liberty": 1
         },
@@ -1578,7 +1578,7 @@
       },
       {
         "id": "hate",
-        "text": "Saying something hateful online",
+        "text": "Let people say something hateful online",
         "yes": {
           "liberty": 1
         },
@@ -1588,7 +1588,7 @@
       },
       {
         "id": "judge",
-        "text": "Protesting outside a judge's home",
+        "text": "Let people protest outside a judge's home",
         "yes": {
           "liberty": 1,
           "system": 0.5
@@ -1600,7 +1600,7 @@
       },
       {
         "id": "mask",
-        "text": "Wearing a mask at a protest",
+        "text": "Let people wear a mask at a protest",
         "yes": {
           "liberty": 1
         },
@@ -1610,7 +1610,7 @@
       },
       {
         "id": "road",
-        "text": "Blocking a highway for a cause",
+        "text": "Let people block a highway for a cause",
         "yes": {
           "liberty": 0.5,
           "system": 1
@@ -1634,7 +1634,7 @@
     "tier": "core",
     "topic": "pandemic",
     "context": "A new virus. The modelers give you a graph and an hour. There is no vaccine yet.",
-    "prompt": "No middle. Do you lock down?",
+    "prompt": "Do you lock down?",
     "options": [
       {
         "id": "a",
@@ -1670,7 +1670,7 @@
     "type": "hold",
     "tier": "core",
     "topic": "mass-protest",
-    "context": "Forty thousand people who despise you fill the streets around your rally. So far it is drums and cardboard.",
+    "context": "You are the governor, and it is your own rally. Forty thousand people who despise you fill the streets around it. So far it is drums and cardboard.",
     "prompt": "What is your order?",
     "options": [
       {
@@ -1691,7 +1691,7 @@
       },
       {
         "id": "c",
-        "label": "Call out the Guard.",
+        "label": "Call out the National Guard.",
         "effects": {
           "liberty": -1.5,
           "psych": 0.5
@@ -1855,7 +1855,7 @@
     "tier": "core",
     "topic": "surveillance",
     "context": "One city block, after dark. You get one ban.",
-    "prompt": "Which one do you ban? Tap it.",
+    "prompt": "Which one do you ban?",
     "art": "E-PIN-NIGHT-BLOCK",
     "artNote": "A city street corner at night, no people. Top left: a tall pole with a camera cluster and a glowing green scanning lens. Center: an unmarked dark van with tinted windows, side door ajar, parked at the curb. Top right: a small police drone hovering with a searchlight cone. Bottom right: a steel crowd barricade with hand-painted protest placards leaning on it (placards blank or abstract). Bottom left: a lit street lamp over an empty bench.",
     "regions": [
@@ -1870,7 +1870,7 @@
         "cand": {
           "randpaul": 1
         },
-        "poly": { "wide": [[7,0],[18,0],[18,20],[14,22],[14,46],[7,46],[7,20]], "tall": [[8,6],[17,1],[34,3],[34,15],[25,18],[24,35],[14,36],[14,17],[8,14]] }
+        "poly": { "wide": [[5,7],[11,0],[16,0],[21,4],[21,21],[14.5,23],[14.5,40.5],[10.5,40.5],[10.5,18],[5,14]], "tall": [[8,6],[17,1],[34,3],[34,15],[25,18],[24,35],[14,36],[14,17],[8,14]] }
       },
       {
         "id": "van",
@@ -1880,7 +1880,7 @@
           "liberty": 1.5,
           "border": 0.5
         },
-        "poly": { "wide": [[29,32],[33,29],[60,29],[66,36],[70,42],[70,52],[52,58],[30,55],[28,44]], "tall": [[14,46],[18,40],[68,40],[78,46],[88,50],[88,57],[60,61],[18,59],[13,54]] }
+        "poly": { "wide": [[33,40],[36,35],[55,34],[62,40],[65,47],[65,60],[33,60]], "tall": [[14,46],[18,40],[68,40],[78,46],[88,50],[88,57],[60,61],[18,59],[13,54]] }
       },
       {
         "id": "drone",
@@ -1890,7 +1890,7 @@
           "liberty": 1,
           "tech": -1
         },
-        "poly": { "wide": [[74,5],[97,5],[97,15],[90,22],[86,30],[78,30],[80,18],[74,12]], "tall": [[52,4],[88,4],[88,12],[80,14],[76,25],[64,25],[66,13],[52,8]] }
+        "poly": { "wide": [[74,4],[96,4],[96,12],[89,30],[80,30],[78,12]], "tall": [[52,4],[88,4],[88,12],[80,14],[76,25],[64,25],[66,13],[52,8]] }
       },
       {
         "id": "placards",
@@ -1900,7 +1900,7 @@
           "liberty": -1.5,
           "system": -0.5
         },
-        "poly": { "wide": [[62,74],[72,60],[85,60],[95,63],[98,74],[99,95],[62,95]], "tall": [[50,80],[58,70],[93,72],[95,79],[98,96],[48,96]] }
+        "poly": { "wide": [[63,75],[73,61],[84,62],[93,66],[94,73],[98,75],[98,95],[63,95]], "tall": [[50,80],[58,70],[93,72],[95,79],[98,96],[48,96]] }
       },
       {
         "id": "lamp",
@@ -1910,7 +1910,7 @@
           "liberty": -1.5,
           "tech": 0.5
         },
-        "poly": { "wide": [[5,50],[12,48],[17,53],[17,62],[35,72],[35,92],[4,92]], "tall": [[6,64],[14,62],[26,67],[26,80],[45,84],[45,93],[5,93]] }
+        "poly": { "wide": [[4,44],[9,42],[16,46],[20,52],[19,58],[11,58],[11,76],[31,76],[31,94],[4,94]], "tall": [[6,64],[14,62],[26,67],[26,80],[45,84],[45,93],[5,93]] }
       }
     ],
     "fx": [
@@ -2168,7 +2168,7 @@
     "tier": "core",
     "topic": "use-of-force",
     "context": "A real war. The volunteers have run out.",
-    "prompt": "No middle. Do you bring back the draft?",
+    "prompt": "Do you bring back the draft?",
     "options": [
       {
         "id": "a",
@@ -2263,7 +2263,7 @@
     "tier": "core",
     "topic": "use-of-force",
     "context": "A hostile regime has seized an American ship. The table is set with everything a President can reach for.",
-    "prompt": "How do you respond? Tap the first thing you pick up.",
+    "prompt": "What do you reach for first?",
     "art": "E-PIN-SITROOM-TABLE",
     "artNote": "A situation room table seen from above, no people, chairs pushed back. Center: a sea chart with a small brass aircraft carrier model on it. Top left: a gray drone model on a stand beside a single red key. Top right: a red desk telephone with a coiled cord. Bottom left: a thick folder stamped SANCTIONS with a fountain pen on top. Bottom right: the room's heavy door standing open onto a lit corridor.",
     "regions": [
@@ -2275,7 +2275,7 @@
           "world": 1.5,
           "psych": 1
         },
-        "poly": { "wide": [[34,32],[66,31],[67,45],[70,64],[50,65],[29,65],[32,48]], "tall": [[14,31],[80,31],[84,40],[85,56],[50,57],[13,55],[16,43]] }
+        "poly": { "wide": [[34,32],[66,31],[67,45],[70,64],[50,65],[29,65],[32,48]], "tall": [[15,27],[79,26],[83,47],[15,47]] }
       },
       {
         "id": "drone",
@@ -2286,7 +2286,7 @@
           "psych": 1.5,
           "mach": 1
         },
-        "poly": { "wide": [[11,22],[19,19],[30,19],[30,30],[31,35],[27,42],[16,40],[11,34]], "tall": [[14,23],[22,14],[46,13],[47.5,22],[45.5,30],[22,29.5]] }
+        "poly": { "wide": [[11,22],[19,19],[30,19],[30,30],[31,35],[27,42],[16,40],[11,34]], "tall": [[15,13],[25,10],[49,12],[49,25],[25,24.5],[15,20]] }
       },
       {
         "id": "phone",
@@ -2297,7 +2297,7 @@
           "psych": -1,
           "style": -1
         },
-        "poly": { "wide": [[69,22],[74,20],[86,21],[86,32],[82,39],[72,39],[69,32]], "tall": [[54,20],[62,14],[83,16],[83,25],[78,29],[58,29]] }
+        "poly": { "wide": [[69,22],[74,20],[86,21],[86,32],[82,39],[72,39],[69,32]], "tall": [[55,15],[63,12],[82,13],[82,23.5],[57,23.5]] }
       },
       {
         "id": "folder",
@@ -2308,17 +2308,17 @@
           "trade": -0.5,
           "psych": -0.5
         },
-        "poly": { "wide": [[8,56],[14,52],[24,54],[28,70],[28,78],[11,79],[8,70]], "tall": [[14,61],[38,59],[46,70],[48,78],[22,81],[14,77]] }
+        "poly": { "wide": [[8,56],[14,52],[24,54],[28,70],[28,78],[11,79],[8,70]], "tall": [[12,49],[42,48],[50,55],[50,63],[15,64.5]] }
       },
       {
         "id": "door",
-        "label": "The door — bring everyone home",
+        "label": "The door — pull every ship out of the region",
         "where": "bottom right, the open door to the corridor",
         "effects": {
           "world": -2,
           "psych": -0.5
         },
-        "poly": { "wide": [[77,48],[86,48],[94,42],[97,45],[97,94],[86,90],[77,82]], "tall": [[52,60],[71,60],[84,57.5],[86,59.5],[86,88],[78,89],[57,83],[52,83]] }
+        "poly": { "wide": [[77,48],[86,48],[94,42],[97,45],[97,94],[86,90],[77,82]], "tall": [[68,69],[78,69],[98,68],[98,97.5],[69,97.5]] }
       }
     ],
     "lev12": "militarist",
@@ -2361,7 +2361,7 @@
     "type": "hold",
     "tier": "core",
     "topic": "use-of-force",
-    "context": "The man who planned the attack is in a house tonight. So is his family. The pilot is waiting on you.",
+    "context": "You are the President. The man who planned last month's attack is in a house tonight. So is his family. The pilot is waiting on you.",
     "prompt": "What is your order?",
     "options": [
       {
@@ -2485,12 +2485,12 @@
     "excludes": [
       "E-048"
     ],
-    "context": "Every candidate has two faiths: the one voters see at the prayer breakfast and the one that is there at 2 am. Neither answer is the wrong one.",
-    "prompt": "Which of yours is bigger?",
+    "context": "Every candidate has two faiths: the one on show at the prayer breakfast and the one that turns up at 2 am. Neither answer is the wrong one.",
+    "prompt": "Are you more religious in public or in private?",
     "slider": {
-      "left": "The one the voters see",
-      "right": "The one nobody sees",
-      "centre": "The same size. I checked.",
+      "left": "In public. It is mostly for the cameras.",
+      "right": "In private. I keep it to myself.",
+      "centre": "The same in both. I checked.",
       "effects": {
         "mach": -1,
         "narc": -1
@@ -2514,8 +2514,8 @@
     "excludes": [
       "A-051"
     ],
-    "context": "The moderator sets down her cards and asks the one nobody rehearsed: do you believe in God?",
-    "prompt": "Hold for the answer you would actually give. The longer you hold, the more it is true.",
+    "context": "The moderator sets down her cards and asks the one nobody rehearsed.",
+    "prompt": "Do you believe in God?",
     "options": [
       {
         "id": "a",

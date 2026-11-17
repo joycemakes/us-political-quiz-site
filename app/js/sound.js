@@ -6,7 +6,7 @@ const KEY = 'uspq.sound';
 const MASTER = 0.42;
 let on = true;
 try { const v = localStorage.getItem(KEY); if (v !== null) on = JSON.parse(v) !== false; } catch { /* default on */ }
-let ctx = null, master = null, noiseBuf = null;
+let ctx = null, master = null, noiseBuf = null, typeBus = null, tickBufs = [];
 const last = {};
 
 const reduced = () => { try { return window.matchMedia('(prefers-reduced-motion: reduce)').matches; } catch { return false; } };
@@ -25,6 +25,24 @@ function ensure() {
     noiseBuf = ctx.createBuffer(1, ctx.sampleRate, ctx.sampleRate);
     const d = noiseBuf.getChannelData(0);
     for (let i = 0; i < d.length; i++) d[i] = Math.random() * 2 - 1;
+    // Four pre-rendered typewriter ticks: a band-limited noise burst plus a short knock. Played as
+    // buffer sources (one cheap node each) instead of building filters per letter.
+    typeBus = ctx.createGain();
+    typeBus.gain.value = 0.9;
+    typeBus.connect(master);
+    const sr = ctx.sampleRate, len = Math.floor(sr * 0.03);
+    for (let v = 0; v < 4; v++) {
+      const b = ctx.createBuffer(1, len, sr), x = b.getChannelData(0);
+      let lp = 0, lp2 = 0;
+      const knock = 700 + v * 160, a = 0.35 + v * 0.06;
+      for (let i = 0; i < len; i++) {
+        const t = i / sr, e = Math.exp(-t * (160 + v * 25));
+        const n = Math.random() * 2 - 1;
+        lp += a * (n - lp); lp2 += 0.08 * (lp - lp2);       // crude band-pass: high cut minus low cut
+        x[i] = ((lp - lp2) * 0.9 + Math.sin(2 * Math.PI * knock * t) * 0.25 * Math.exp(-t * 300)) * e * 0.5;
+      }
+      tickBufs.push(b);
+    }
   } catch { ctx = null; }
   return ctx;
 }
@@ -75,9 +93,11 @@ const SOUNDS = {
   clunk: t => { tone('sine', 150, 70, t, 0.004, 0.14, 0.5); noise(t, 0.05, 0.12, 'lowpass', 900); }, // commit
   thunk: t => { tone('sine', 110, 50, t, 0.004, 0.22, 0.65); noise(t, 0.08, 0.2, 'lowpass', 600); }, // full hold, heavy commit
   type: t => {                                                                                     // typewriter key, varied
-    const f = 2300 + Math.random() * 1400;
-    noise(t, 0.014, 0.075, 'bandpass', f, f * 0.9, 3.5);
-    tone('square', 900 + Math.random() * 300, 600, t, 0.001, 0.012, 0.012, { type: 'bandpass', f: 1200, q: 2 });
+    const s = ctx.createBufferSource();
+    s.buffer = tickBufs[Math.floor(Math.random() * tickBufs.length)];
+    s.playbackRate.value = 0.88 + Math.random() * 0.26;
+    s.connect(typeBus);
+    s.start(t);
   },
   ding: t => { tone('sine', 2093, 2093, t, 0.002, 0.28, 0.035); tone('sine', 3136, 3136, t, 0.002, 0.18, 0.015); }, // carriage return
   ratchet: t => { tone('square', 1700, 1200, t, 0.001, 0.018, 0.06, { type: 'bandpass', f: 1500, q: 4 }); noise(t, 0.015, 0.08, 'highpass', 2500); },
@@ -106,7 +126,7 @@ const SOUNDS = {
     }
   },
 };
-const THROTTLE = { type: 38, ding: 120, pen: 70, ratchet: 30, tick: 25, chip: 40 };
+const THROTTLE = { type: 50, ding: 120, pen: 70, ratchet: 30, tick: 25, chip: 40 };
 // Scheduled sounds by name, for tests and debugging (window.__quizSound).
 export const stats = { scheduled: {}, skipped: 0 };
 if (typeof window !== 'undefined') window.__quizSound = { stats, state: () => (ctx ? ctx.state : 'none'), on: () => on };

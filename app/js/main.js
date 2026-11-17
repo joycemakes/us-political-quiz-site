@@ -11,7 +11,8 @@ import { loadArtManifest, createArtSlot, artUrl, artVersion } from './art.js';
 import { billTitle } from './types.js';
 import { createWarMap, createGhosts } from './hud.js';
 import { renderAnswer } from './types.js';
-import { HOW, showCue, watchIdle } from './howto.js';
+import { howFor, showCue, watchIdle } from './howto.js';
+import { swipeEnds } from './types.js';
 import { renderResults } from './results.js';
 import { newSeed } from './rng.js';
 import { loadShareConfig } from './share.js';
@@ -25,7 +26,7 @@ const h = (tag, cls, text) => {
   return e;
 };
 const ROMAN = ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII'];
-const READY_GUARD_MS = 500;
+const READY_GUARD_MS = 400;
 
 const S = {
   data: null,
@@ -38,6 +39,10 @@ window.__quiz = S;
 
 async function boot() {
   installPress(document);
+  // Looping animations stop while the tab is hidden.
+  const vis = () => document.documentElement.classList.toggle('paused', document.hidden);
+  document.addEventListener('visibilitychange', vis);
+  vis();
   app.innerHTML = '<div class="loading"><div class="wordmark">US Political Quiz</div><p class="eyebrow">Opening the file</p></div>';
   try {
     const [data, , shareCfg] = await Promise.all([loadData(), loadArtManifest(), loadShareConfig()]);
@@ -234,12 +239,13 @@ function chapterCard(chapter, stage) {
     const go = () => {
       if (done) return;
       done = true;
+      window.removeEventListener('keydown', onKey);
       card.classList.add('out');
       setTimeout(() => { card.remove(); resolve(); }, reducedMotion() ? 0 : 280);
     };
     card.addEventListener('pointerdown', go);
     card.addEventListener('click', go);
-    const onKey = e => { if (e.key === 'Enter' || e.key === ' ' || e.key === 'Escape') { window.removeEventListener('keydown', onKey); go(); } };
+    const onKey = e => { if (e.key === 'Enter' || e.key === ' ' || e.key === 'Escape') go(); };
     window.addEventListener('keydown', onKey);
     setTimeout(go, 2200);
   });
@@ -268,6 +274,24 @@ async function askQuestion(q, { body, stage, banner }) {
   if ((q.art || q.type === 'envelope') && q.type !== 'pin') artHost.appendChild(createArtSlot(q.art || `scene-${q.id}`, { kind: q.type === 'envelope' ? 'envelope' : 'scene', chapter: q.chapter, quiet: !q.art }).el);
   if (!hasArt) artHost.hidden = true;
 
+  // The answers show at once, dimmed, while the text types on; the first tap finishes the typing.
+  const fine = (() => { try { return window.matchMedia('(pointer: fine)').matches; } catch { return false; } })();
+  S.run.seenTypes = S.run.seenTypes || new Set();
+  const firstOfType = !S.run.seenTypes.has(q.type);
+  S.run.seenTypes.add(q.type);
+  const how = h('p', 'how');
+  how.setAttribute('role', 'note');
+  answer.appendChild(how);
+  wrap.classList.add('typing');
+  // The line types first; a renderer may then replace it with something more specific (pins, budgets).
+  typewriter(how, howFor(q, { fine, ends: q.type === 'swipe' ? swipeEnds(q) : null }), { maxMs: 900 });
+  const pending = renderAnswer(q, { el: answer, artHost, cands: S.cands, stage, chapter: q.chapter, firstOfType, how, fine });
+  if (S.run.index === 0) {
+    const note = h('p', 'hud-note', 'The three shadows up top are your closest matches so far.');
+    stage.querySelector('.hud')?.after(note);
+    setTimeout(() => note.remove(), 9000);
+  }
+  fitToScreen(wrap, artHost);
   const intro = runFx(q, { stage, banner });
   let promptText = q.prompt || '';
   // The hint under a hold says how; Hold to commit. in a prompt (at either end) adds nothing.
@@ -291,15 +315,9 @@ async function askQuestion(q, { body, stage, banner }) {
     }, true);
   }
   wrap.classList.add('ready');
-  S.run.seenTypes = S.run.seenTypes || new Set();
-  const firstOfType = !S.run.seenTypes.has(q.type);
-  S.run.seenTypes.add(q.type);
-  // How to answer, always shown by the control; a demo the first time a type appears; a nudge when idle.
-  const how = h('p', 'how');
-  how.setAttribute('role', 'note');
-  answer.appendChild(how);
-  typewriter(how, HOW[q.type] || 'Tap your answer.', { maxMs: 900 });
-  const pending = renderAnswer(q, { el: answer, artHost, cands: S.cands, stage, chapter: q.chapter, firstOfType, how });
+  wrap.classList.remove('typing');
+  fitToScreen(wrap, artHost);
+  // A demo the first time a type appears; a nudge when idle.
   let stopCue = () => {};
   if (firstOfType) setTimeout(() => { if (!wrap.classList.contains('leaving')) stopCue = showCue(q.type, wrap); }, 300);
   const stopIdle = watchIdle(q.type, wrap, how);
@@ -309,6 +327,22 @@ async function askQuestion(q, { body, stage, banner }) {
   wrap.classList.add('leaving');
   await sleep(reducedMotion() ? 0 : 140);
   return res;
+}
+
+// Phones: everything needed to answer fits on screen. Pictures give up height first (down to 120 px),
+// and the commit button is sticky at the bottom (CSS) for whatever still does not fit.
+function fitToScreen(wrap, artHost) {
+  const slot = artHost.querySelector('.art-slot:not(.art-pin)');
+  if (!slot) return;
+  const fit = () => {
+    if (!wrap.isConnected) return;
+    slot.style.removeProperty('--scene-h');
+    const over = document.documentElement.scrollHeight - window.innerHeight;
+    const fh = slot.querySelector('.art-frame')?.getBoundingClientRect().height || 0;
+    if (over > 0 && fh > 0) slot.style.setProperty('--scene-h', `${Math.max(120, Math.floor(fh - over - 4))}px`);
+  };
+  setTimeout(fit, 60);
+  setTimeout(fit, 400);
 }
 
 function finish(run) {
