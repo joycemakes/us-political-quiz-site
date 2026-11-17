@@ -214,9 +214,11 @@ export function createSelector({ bank, candidates, route, length, seed, seen = n
     return false;
   }
 
-  // Hard rules, never relaxed: duplicates, excludes, requires, bombshell and draft spacing, the topic gap
-  // and cap, the topic-group cap, the swipe cap. relax 1 drops the main-axis rules; relax 2 the type
-  // spacing rules; relax 3 the topic-group gap and the per-chapter type cap.
+  // Hard rules: duplicates, excludes, requires, bombshell and draft spacing, the topic gap and cap, the
+  // topic-group cap, the swipe cap. relax 1 drops the main-axis rules; relax 2 the type spacing rules;
+  // relax 3 the topic-group gap; relax 4 the type caps (per chapter and per run). After that a slot is
+  // filled from the nearest other chapter (chapter purity), and only then are the hard caps eased.
+  // A slot is never dropped while the route has an unused question.
   function constraintsOk(q, i, relax, adaptive) {
     if (used.has(q.id) || excluded(q)) return false;
     if (q.tier === 'bombshell' && i - lastBomb < bombGap(slots.length)) return false;
@@ -232,8 +234,8 @@ export function createSelector({ bank, candidates, route, length, seed, seen = n
     if (q.type === 'swipe' && (typeCount.swipe || 0) >= swipeCap()) return false;
     if (q.type === 'whosaid' && (typeCount.whosaid || 0) >= Math.round(slots.length * WHOSAID_MAX_SHARE)) return false;
     const ch = slots[i];
-    if (relax < 3 && ((chapterTypeCount[ch] || {})[q.type] || 0) >= chapterTypeCap(ch, q.type)) return false;
-    if (relax < 3 && TYPE_PER_50[q.type] && (typeCount[q.type] || 0) >= Math.max(1, Math.round((TYPE_PER_50[q.type] * slots.length) / 50))) return false;
+    if (relax < 4 && ((chapterTypeCount[ch] || {})[q.type] || 0) >= chapterTypeCap(ch, q.type)) return false;
+    if (relax < 4 && TYPE_PER_50[q.type] && (typeCount[q.type] || 0) >= Math.max(1, Math.round((TYPE_PER_50[q.type] * slots.length) / 50))) return false;
     const prev = history[history.length - 1];
     const a = ax(q);
     if (relax < 1 && adaptive && history.length >= 2) {
@@ -260,23 +262,47 @@ export function createSelector({ bank, candidates, route, length, seed, seen = n
     return qp === ph;
   }
 
+  // Which soft rule the last candidate list needed to relax, logged on the question it fills.
+  let relaxedBy = null;
+  const RELAX_LABEL = [null, null, null, 'group', 'type'];
+
   // Only ever the slot's own chapter.
   function candidatesFor(i, filter, adaptive) {
     const chapter = slots[i];
-    // relax 3 (group spacing, the per-chapter type cap) is the last step before a slot is dropped.
-    for (let relax = 0; relax < 4; relax++) {
+    relaxedBy = null;
+    // relax 3 (topic-group spacing), then relax 4 (type caps); chapter purity goes after these, in pick().
+    for (let relax = 0; relax < 5; relax++) {
       const list = pool.filter(q => q.chapter === chapter && (!filter || filter(q)) && phaseOk(q, i) && constraintsOk(q, i, relax, adaptive));
       // The device's seen-list is a hard preference: questions seen on earlier runs only when nothing unseen fits.
       if (seen && relax < 2) { const fresh = list.filter(q => !seen.has(q.id)); if (fresh.length) return fresh; }
-      if (list.length) return list;
+      if (list.length) { relaxedBy = RELAX_LABEL[relax]; return list; }
     }
     // Election night ran out of the planned phase: allow any unused election night question but the finale.
     if (slots[i] === 'election_night' && phaseAt[i] !== 'finale') {
       const outcomeTaken = history.some(h => h.phase && h.phase === outcome);
       const list = pool.filter(q => q.chapter === chapter && !q.finale && (!filter || filter(q)) && (q.phase || 'count') !== other
         && !(outcomeTaken && (q.phase || 'count') === 'count') && constraintsOk(q, i, 2, adaptive));
-      if (list.length) return list;
+      if (list.length) { relaxedBy = 'phase'; return list; }
     }
+    return [];
+  }
+
+  // Last steps for a slot its own chapter cannot fill: relax chapter purity (the nearest chapter with a
+  // question that fits, earlier chapters first on a tie, the same relax ladder), then the hard caps
+  // (spacing and topic caps; duplicates, excludes, requires, the outcome and the finale still hold).
+  function fillAnywhere(i, adaptive) {
+    const here = CHAPTERS.indexOf(slots[i]);
+    const outcomeTaken = history.some(h => h.phase && h.phase === outcome);
+    // Election night keeps its story: no count after the outcome, no outcome borrowed early.
+    const storyOk = q => !q.finale && q.phase !== other
+      && !(q.chapter === 'election_night' && (outcomeTaken ? (q.phase || 'count') === 'count' : q.phase === outcome));
+    const near = q => Math.abs(CHAPTERS.indexOf(q.chapter) - here) + (CHAPTERS.indexOf(q.chapter) > here ? 0.5 : 0);
+    for (let relax = 0; relax < 5; relax++) {
+      const list = pool.filter(q => q.chapter !== slots[i] && storyOk(q) && constraintsOk(q, i, relax, adaptive));
+      if (list.length) { const d = Math.min(...list.map(near)); relaxedBy = 'chapter'; return list.filter(q => near(q) === d); }
+    }
+    const list = pool.filter(q => !used.has(q.id) && !excluded(q) && storyOk(q));
+    if (list.length) { relaxedBy = 'hard'; return list; }
     return [];
   }
 
@@ -294,7 +320,8 @@ export function createSelector({ bank, candidates, route, length, seed, seen = n
     chapterTypeCount[ch] = chapterTypeCount[ch] || {};
     chapterTypeCount[ch][q.type] = (chapterTypeCount[ch][q.type] || 0) + 1;
     if (q.type === 'swipe') lastSwipe = i;
-    history.push({ id: q.id, type: q.type, chapter: q.chapter, slotChapter: slots[i], tier: q.tier, topic: q.topic, excludes: q.excludes, axis: ax(q), phase: q.phase, reason });
+    history.push({ id: q.id, type: q.type, chapter: q.chapter, slotChapter: slots[i], tier: q.tier, topic: q.topic, excludes: q.excludes, axis: ax(q), phase: q.phase, reason, ...(relaxedBy ? { relaxed: relaxedBy } : {}) });
+    relaxedBy = null;
     return prepareQuestion(q, route, byId);
   }
 
@@ -307,8 +334,8 @@ export function createSelector({ bank, candidates, route, length, seed, seen = n
       if (i >= slots.length) return null;
       const q = pick(i, ranking);
       if (q) return q;
-      // Nothing fits in this chapter: drop the slot rather than borrow another chapter's question,
-      // and give a later chapter with questions to spare one more slot instead.
+      // Only when the route has no unused question left at all (a bank smaller than the run): drop the
+      // slot, and give a later chapter with questions to spare one more slot instead.
       const ch = slots[i];
       slots.splice(i, 1);
       phaseAt.splice(i, 1);
@@ -326,6 +353,7 @@ export function createSelector({ bank, candidates, route, length, seed, seen = n
   }
 
   function pick(i, ranking) {
+    relaxedBy = null;
     const prev = history[history.length - 1];
     const chapter = slots[i];
     const remaining = slots.length - i;
@@ -403,6 +431,7 @@ export function createSelector({ bank, candidates, route, length, seed, seen = n
     const wsFull = wsHave >= wsMax;
     let list = candidatesFor(i, wsFull ? q => q.type !== 'whosaid' : null, adaptive);
     if (!list.length) list = candidatesFor(i, null, adaptive);
+    if (!list.length) list = fillAnywhere(i, adaptive);
     if (!list.length) return null;
     const leaders = ranking.slice(0, 5).map(id => byId[id]).filter(Boolean);
     const uncSet = new Set(uncovered);
