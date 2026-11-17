@@ -42,7 +42,7 @@ export function createWarMap() {
   let lastLit = 0;
   return {
     el,
-    // done questions out of total. One state per question on a 50 run, one per two on a 100 run.
+    // done questions out of total; the 51 tiles light in proportion (about 1.5 a question on a 35 run).
     set(done, total) {
       const lit = total ? Math.round((done / total) * ORDER.length) : 0;
       ORDER.forEach((st, i) => {

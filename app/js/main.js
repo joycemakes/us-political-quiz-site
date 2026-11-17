@@ -1,7 +1,7 @@
 // US Political Quiz: boot, title screen, the run loop, chapter cards and the hand-off to results.
 
 import { loadData } from './data.js';
-import { createSelector } from './selector.js';
+import { createSelector, QUICK_LENGTH, FULL_LENGTH } from './selector.js';
 import { createScorer, applyAnswer, axisScores, matchCandidates, matchCamps } from './scoring.js';
 import { buildProfile } from './profile.js';
 import { CHAPTERS, CHAPTER_TITLE, CHAPTER_LINE } from './axes.js';
@@ -31,7 +31,8 @@ const READY_GUARD_MS = 400;
 const S = {
   data: null,
   route: store.get('uspq.route', 'dem'),
-  length: store.get('uspq.length', 50),
+  // Quick or Full Dossier; an older saved length maps to the nearer of the two.
+  length: store.get('uspq.length', QUICK_LENGTH) > QUICK_LENGTH ? FULL_LENGTH : QUICK_LENGTH,
   run: null,
 };
 // Test and debug handle (read-only use; the browser bot drives the real controls).
@@ -102,8 +103,8 @@ function title() {
     { value: 'gop', main: 'Republican', sub: 'The elephant', cls: 'party-gop' },
   ], 'route');
   const length = group('Length', [
-    { value: 50, main: 'Quick', sub: '50 questions' },
-    { value: 100, main: 'Full Dossier', sub: '100 questions' },
+    { value: QUICK_LENGTH, main: 'Quick', sub: `${QUICK_LENGTH} questions` },
+    { value: FULL_LENGTH, main: 'Full Dossier', sub: `${FULL_LENGTH} questions` },
   ], 'length');
 
   const hap = h('button', 'btn switch-row');

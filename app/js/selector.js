@@ -16,16 +16,29 @@
 import { CHAPTERS, CHAPTER_SHARE } from './axes.js';
 import { routeOk, optionVectors, prepareQuestion } from './questions.js';
 import { makeRng } from './rng.js';
+import { predictAnswer } from './scoring.js';
 
-export const SWEEP = 20;
-export const BOMB_GAP = 8;
+// Run lengths, in one place (Chris, 17 Nov 2026): Quick 45, Full Dossier 90. Both meet the matching
+// bar (like-candidate bots first for 22+ of 23, random play's best match under 75%; app/tests/run.mjs).
+export const QUICK_LENGTH = 45;
+export const FULL_LENGTH = 90;
+// Everything that depends on length scales from the per-50 figures below.
+export const SWEEP = 20;            // at 50; sweepAt(n) = min(21, round(0.4 n)): 14 at 35, 21 at 70
+export const BOMB_GAP = 8;          // at 50; bombGap(n) = clamp(round(8 n / 50), 6, 10): 6 at 35, 10 at 70
+export const COVER_TOP = 8;         // at 50; coverTop(n) = clamp(round(8 n / 50), 5, 8): 6 at 35, 8 at 70
+// Short runs lean harder on high-discrimination questions early, so 35 answers still separate.
+export let SWEEP_DISC = 2, SWEEP_NOISE = 1.2, LEADER_SPLIT_W = 3;
+export const setSweepWeights = (d, n, l = LEADER_SPLIT_W) => { SWEEP_DISC = d; SWEEP_NOISE = n; LEADER_SPLIT_W = l; };
+export const sweepAt = n => Math.min(21, Math.round(0.4 * n));
+export const bombGap = n => Math.max(6, Math.min(10, Math.round((BOMB_GAP * n) / 50)));
+export const coverTop = n => Math.max(5, Math.min(COVER_TOP, Math.round((COVER_TOP * n) / 50)));
 export const DRAFT_GAP = 8;
 export const TOPIC_GAP = 6;
 export const TOPIC_PER_50 = 2;
 export const CHAPTER_MAX_SHARE = 0.5;
 const VARIETY = 0.9;
-export const WHOSAID_SHARE = 0.07;
-export const WHOSAID_MAX_SHARE = 0.08;
+export const WHOSAID_SHARE = 0.065;
+export const WHOSAID_MAX_SHARE = 0.09;
 const TYPES_IN_PLAY = 10;
 const NO_REPEAT_TYPES = new Set(['pin', 'whosaid']);
 // Special interactions: never twice within any four questions, at most a quarter of a chapter.
@@ -120,6 +133,22 @@ export function splitScore(q, leaders) {
   return total / vecs.length;
 }
 
+// How differently the leading candidates would answer q (1 = all the same). A question the leaders
+// answer differently separates them directly, which matters most in short runs.
+function answerKey(a) {
+  if (a.optionId) return a.optionId;
+  if (a.regionId) return a.regionId;
+  if (a.value != null) return a.value > 0.33 ? 'R' : a.value < -0.33 ? 'L' : 'C';
+  if (a.order) return a.order.slice(0, 2).join('>');
+  if (a.cards) return Object.values(a.cards).map(c => (c.v === 'yes' ? 1 : 0)).join('');
+  if (a.alloc) return Object.keys(a.alloc).sort().join('+');
+  if (a.guess) return String(a.agree);
+  return '';
+}
+export function leaderSplit(q, leaders, byIdMap) {
+  return new Set(leaders.map(c => answerKey(predictAnswer(q, c, byIdMap)))).size;
+}
+
 export function createSelector({ bank, candidates, route, length, seed, seen = null }) {
   const rng = makeRng(seed);
   // Election night tells one story: the count, then either the loss or the victory.
@@ -151,6 +180,7 @@ export function createSelector({ bank, candidates, route, length, seed, seen = n
   if (finale && finale.chapter !== 'election_night' && slots.length) phaseAt[slots.length - 1] = 'finale';
 
   const byId = Object.fromEntries(candidates.map(c => [c.id, c]));
+  const byIdMap = new Map(candidates.map(c => [c.id, c]));
   const used = new Set();
   const history = [];
   const covered = new Set();
@@ -163,12 +193,13 @@ export function createSelector({ bank, candidates, route, length, seed, seen = n
   const axisOf = new Map();
   let faithDone = false;
   let lastBomb = -Infinity, lastDraft = -Infinity;
-  const topicCap = () => Math.max(TOPIC_PER_50, Math.round((TOPIC_PER_50 * slots.length) / 50));
-  const groupCap = () => Math.max(GROUP_PER_50, Math.round((GROUP_PER_50 * slots.length) / 50));
+  const topicCap = () => Math.max(1, Math.round((TOPIC_PER_50 * slots.length) / 50));
+  const groupCap = () => Math.max(2, Math.round((GROUP_PER_50 * slots.length) / 50));
   const swipeCap = () => Math.max(1, Math.round((SWIPE_PER_50 * slots.length) / 50));
   const chapterSlots = ch => slots.filter(c => c === ch).length;
   // Special interactions: a quarter of a chapter at most; common ones (hold, slider, dilemma) 40%.
   const chapterTypeCap = (ch, type) => (type === 'choice' ? Infinity
+    : type === 'whosaid' ? Math.max(1, Math.ceil(chapterSlots(ch) * 0.4)) // its questions sit mostly in one chapter
     : SPECIAL_TYPES.has(type) ? Math.max(1, Math.floor(chapterSlots(ch) * CHAPTER_TYPE_SHARE))
       : Math.max(2, Math.ceil(chapterSlots(ch) * 0.4)));
   const ax = q => { if (!axisOf.has(q.id)) axisOf.set(q.id, mainAxis(q)); return axisOf.get(q.id); };
@@ -188,7 +219,7 @@ export function createSelector({ bank, candidates, route, length, seed, seen = n
   // spacing rules; relax 3 the topic-group gap and the per-chapter type cap.
   function constraintsOk(q, i, relax, adaptive) {
     if (used.has(q.id) || excluded(q)) return false;
-    if (q.tier === 'bombshell' && i - lastBomb < BOMB_GAP) return false;
+    if (q.tier === 'bombshell' && i - lastBomb < bombGap(slots.length)) return false;
     if (q.type === 'draft' && i - lastDraft < DRAFT_GAP) return false;
     if (q.topic) {
       if ((topicCount[q.topic] || 0) >= topicCap()) return false;
@@ -199,6 +230,7 @@ export function createSelector({ bank, candidates, route, length, seed, seen = n
       }
     }
     if (q.type === 'swipe' && (typeCount.swipe || 0) >= swipeCap()) return false;
+    if (q.type === 'whosaid' && (typeCount.whosaid || 0) >= Math.round(slots.length * WHOSAID_MAX_SHARE)) return false;
     const ch = slots[i];
     if (relax < 3 && ((chapterTypeCount[ch] || {})[q.type] || 0) >= chapterTypeCap(ch, q.type)) return false;
     if (relax < 3 && TYPE_PER_50[q.type] && (typeCount[q.type] || 0) >= Math.max(1, Math.round((TYPE_PER_50[q.type] * slots.length) / 50))) return false;
@@ -297,14 +329,15 @@ export function createSelector({ bank, candidates, route, length, seed, seen = n
     const prev = history[history.length - 1];
     const chapter = slots[i];
     const remaining = slots.length - i;
-    const adaptive = i >= SWEEP;
+    const adaptive = i >= sweepAt(slots.length);
     if (phaseAt[i] === 'finale') {
       const l = candidatesFor(i, null, adaptive);
       if (l.length) return take(l[0], i, 'finale');
     }
-    const top8 = ranking.slice(0, 8);
+    const topN = coverTop(slots.length);
+    const top8 = ranking.slice(0, topN);
     const uncovered = top8.filter(id => !covered.has(id) && sigFor(id).length);
-    const watch = new Set(ranking.slice(8, 10).filter(id => !covered.has(id) && sigFor(id).length));
+    const watch = new Set(ranking.slice(topN, topN + 2).filter(id => !covered.has(id) && sigFor(id).length));
     const leftHere = slotsLeftIn(chapter, i);
 
     // Who-said-it schedule (in-chapter, alternating at most).
@@ -357,6 +390,7 @@ export function createSelector({ bank, candidates, route, length, seed, seen = n
         for (let relax = 0; relax < 3; relax++) {
           const l = pool.filter(q => q.signature.some(id => need.has(id)) && !q.finale && q.phase !== 'loss' && q.phase !== 'victory'
             && !(q.type === 'whosaid' && wsHave >= wsMax)
+            && !(q.chapter === 'election_night' && history.some(h => h.phase === 'loss' || h.phase === 'victory'))
             && constraintsOk(q, i, relax, adaptive));
           if (l.length) {
             const q = pickBy(l, q => 2 * q.signature.filter(id => need.has(id)).length - 0.5 * Math.abs(CHAPTERS.indexOf(q.chapter) - here) + 0.1 * q.discrimination - 0.5 * seenPenalty(q));
@@ -378,9 +412,10 @@ export function createSelector({ bank, candidates, route, length, seed, seen = n
       // Enough seeded noise that the same answers do not always draw the same question (playtest 2: E-025
       // at question 24 and F-003 at question 7 in almost every run).
       if (!adaptive) {
-        s = 0.7 * q.discrimination + (q.tier === 'core' ? 0.5 : 0) + rng.next() * 2.4;
+        s = SWEEP_DISC * q.discrimination + (q.tier === 'core' ? 0.5 : 0) + rng.next() * SWEEP_NOISE;
       } else {
         s = 1.2 * Math.min(3, splitScore(q, leaders)) + 0.3 * q.discrimination + rng.next() * 2.2;
+        s += LEADER_SPLIT_W * (leaderSplit(q, leaders.slice(0, 3), byIdMap) - 1);
         s += 3 * q.signature.filter(id => uncSet.has(id)).length + q.signature.filter(id => watch.has(id)).length;
       }
       if (prev && prev.type === q.type) s -= 0.6;
@@ -388,7 +423,7 @@ export function createSelector({ bank, candidates, route, length, seed, seen = n
       if (!typeCount[q.type] && i >= 2) s += 1.2;
       if (q.lev12 && !lev12Seen.has(q.lev12)) s += 0.8;
       if (faithOwed && q.faithQ && i >= 5) s += 2;
-      if (wsBehind && q.type === 'whosaid') s += 1.5;
+      if (wsBehind && q.type === 'whosaid') s += 6;
       s -= seenPenalty(q);
       if (s > bestScore) { bestScore = s; best = q; }
     }
