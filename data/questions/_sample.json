@@ -1,0 +1,262 @@
+{
+  "_note": "Engine test set: 2 questions of every type. Not part of the bank; ids start with S-. Facts are kept to lines on the public record or invented scenarios.",
+  "questions": [
+    {
+      "id": "S-01", "chapter": "announcement", "route": "both", "type": "choice", "tier": "core",
+      "context": "Your exploratory committee has a donor list, a logo and no reason.",
+      "prompt": "Why are you running?",
+      "options": [
+        { "id": "a", "label": "The system is rigged and I am the only one who will say so.", "effects": { "system": 1.5, "narc": 0.5 } },
+        { "id": "b", "label": "I can win the states we keep losing.", "effects": { "system": -1, "mach": 0.5 } },
+        { "id": "c", "label": "My family has served this country for three generations.", "effects": { "dynasty": 1.5, "narc": 0.5 } },
+        { "id": "d", "label": "Washington is too big and it is my turn to shrink it.", "effects": { "econ": 1.5, "federal": 1 } }
+      ],
+      "fx": ["typewriter"], "discrimination": 2, "facts": "Invented scenario."
+    },
+    {
+      "id": "S-02", "chapter": "primary", "route": "both", "type": "choice", "tier": "core",
+      "context": "Off the record, after the prayer breakfast.",
+      "prompt": "A reporter you trust asks: do you actually believe it?",
+      "options": [
+        { "id": "a", "label": "Every word.", "effects": { "faith": 1.5 }, "faithFlag": { "professed": "religious", "private": "religious" } },
+        { "id": "b", "label": "Some of it. Mostly I love the hymns.", "effects": { "faith": -0.5, "mach": 0.5 }, "faithFlag": { "professed": "religious", "private": "secular" } },
+        { "id": "c", "label": "No. I bow my head anyway.", "effects": { "faith": -1.5, "mach": 1 }, "faithFlag": { "professed": "religious", "private": "secular" } }
+      ],
+      "measure": ["faithPrivate"], "discrimination": 2, "facts": "Invented scenario; feeds the professed versus private faith flag."
+    },
+    {
+      "id": "S-03", "chapter": "debate", "route": "both", "type": "hold", "tier": "core",
+      "prompt": "The moderator asks whether you would pardon allies convicted in connection with your campaign. Hold your answer.",
+      "options": [
+        { "id": "a", "label": "Yes. Loyalty runs both ways.", "effects": { "loyalty": 1.5, "democracy": -1, "mach": 0.5 } },
+        { "id": "b", "label": "No pardons for anyone in my orbit.", "effects": { "democracy": 1.5, "loyalty": -1 } },
+        { "id": "c", "label": "I would review each case on its merits.", "effects": { "mach": 1, "democracy": 0.5 } }
+      ],
+      "signature": ["trumpjr", "christie"], "discrimination": 2, "facts": "Invented debate question."
+    },
+    {
+      "id": "S-04", "chapter": "backroom", "route": "gop", "type": "hold", "tier": "core",
+      "prompt": "Leadership wants you to whip votes for a bill you think is wrong. Hold your answer.",
+      "options": [
+        { "id": "a", "label": "Whip it. It is the team.", "effects": { "loyalty": 1.5, "psych": 0.5 } },
+        { "id": "b", "label": "Refuse, and say so on television.", "effects": { "loyalty": -1.5, "style": 1, "narc": 0.5 } },
+        { "id": "c", "label": "Vote no quietly and miss the call.", "effects": { "loyalty": -0.5, "mach": 1 } }
+      ],
+      "signature": ["kemp"], "facts": "Invented scenario."
+    },
+    {
+      "id": "S-05", "chapter": "primary", "route": "both", "type": "slider", "tier": "core",
+      "prompt": "The federal minimum wage. Pull the lever.",
+      "slider": { "left": "Raise it to $20", "right": "Abolish it", "effects": { "econ": 2, "federal": 0.5 }, "steps": 5, "candLeft": { "aoc": 1 }, "candRight": { "randpaul": 1 } },
+      "signature": ["aoc", "randpaul"], "discrimination": 3, "facts": "The federal minimum wage has been $7.25 since July 2009."
+    },
+    {
+      "id": "S-06", "chapter": "scandal", "route": "both", "type": "slider", "tier": "core",
+      "context": "A tape surfaces at 11 p.m. on a Friday.",
+      "prompt": "How fast do you apologise?",
+      "slider": { "left": "Tonight, on camera", "right": "Never. Deny everything.", "effects": { "narc": 1, "style": 1, "libertine": 0.5 }, "steps": 5 },
+      "fx": ["candles"], "facts": "Invented scenario."
+    },
+    {
+      "id": "S-07", "chapter": "backroom", "route": "both", "type": "pin", "tier": "core",
+      "prompt": "The donor dinner. Where do you sit?",
+      "art": "SAMPLE-PIN-DINNER",
+      "artNote": "A long candlelit dining table seen from above at an angle; head of table top centre; a union boss in a work jacket at the left; an open door with a phone glow at the right; a kitchen hatch at the bottom centre.",
+      "regions": [
+        { "id": "head", "label": "The head of the table", "where": "top centre, the carved chair", "effects": { "narc": 1.5, "dynasty": 0.5 },
+          "poly": { "wide": [[38, 14], [62, 14], [62, 40], [38, 40]], "tall": [[25, 6], [75, 6], [75, 26], [25, 26]] } },
+        { "id": "union", "label": "Next to the union boss", "where": "left, the man in the work jacket", "effects": { "econ": -1, "style": -0.5 },
+          "poly": { "wide": [[4, 44], [30, 44], [30, 86], [4, 86]], "tall": [[4, 34], [46, 34], [46, 62], [4, 62]] } },
+        { "id": "door", "label": "By the door, on your phone", "where": "right, the open door", "effects": { "online": 1.5, "mach": 0.5 },
+          "poly": { "wide": [[76, 10], [96, 10], [96, 82], [76, 82]], "tall": [[54, 34], [96, 34], [96, 62], [54, 62]] } },
+        { "id": "kitchen", "label": "In the kitchen with the waiters", "where": "bottom centre, the kitchen hatch", "effects": { "narc": -1.5, "style": -1 },
+          "poly": { "wide": [[40, 62], [66, 62], [66, 96], [40, 96]], "tall": [[20, 70], [80, 70], [80, 96], [20, 96]] } }
+      ],
+      "discrimination": 2, "facts": "Invented scene."
+    },
+    {
+      "id": "S-08", "chapter": "election_night", "route": "both", "type": "pin", "tier": "core",
+      "prompt": "Two in the morning in the war room. Where do you go first?",
+      "art": "SAMPLE-PIN-WARROOM",
+      "artNote": "The war room at 2 a.m.: the giant glowing map on the left wall, the TV bank top centre, the lawyers' table on the right, the coffee urn bottom centre.",
+      "regions": [
+        { "id": "map", "label": "The map wall: call the states yourself", "where": "left third, the glowing map", "effects": { "narc": 1, "system": -0.5 } },
+        { "id": "tv", "label": "The TV bank: watch the anchors", "where": "top centre, the TV bank", "effects": { "online": 1.5 } },
+        { "id": "lawyers", "label": "The lawyers' table", "where": "right third, the lawyers' table", "effects": { "democracy": -1, "mach": 1 } },
+        { "id": "coffee", "label": "The coffee urn, with the volunteers", "where": "bottom centre, the coffee urn", "effects": { "style": -1, "psych": -1 } }
+      ],
+      "fx": ["night"], "facts": "Invented scene. Regions have no polygons yet, so the engine lays them out from the where text."
+    },
+    {
+      "id": "S-09", "chapter": "announcement", "route": "both", "type": "budget", "tier": "core",
+      "prompt": "You have raised 100 million. Split it.",
+      "options": [
+        { "id": "tv", "label": "TV ads in the swing states", "effects": { "online": -1, "system": -0.5 } },
+        { "id": "pods", "label": "Podcasts and influencers", "effects": { "online": 1.5 } },
+        { "id": "ground", "label": "Ground game in union halls", "effects": { "econ": -1, "style": -0.5 } },
+        { "id": "lawyers", "label": "Lawyers for the recount", "effects": { "democracy": -0.5, "mach": 1 } }
+      ],
+      "signature": ["ramaswamy"], "discrimination": 2, "facts": "Invented scenario."
+    },
+    {
+      "id": "S-10", "chapter": "convention", "route": "gop", "type": "budget", "tier": "core",
+      "prompt": "Your first budget. Split the hundred.",
+      "options": [
+        { "id": "wall", "label": "Finish the wall", "effects": { "border": -1.5 } },
+        { "id": "tax", "label": "Cut taxes again", "effects": { "econ": 1.5 } },
+        { "id": "navy", "label": "Build the navy", "effects": { "world": 1.5 } },
+        { "id": "vouchers", "label": "School vouchers", "effects": { "faith": 1, "federal": 0.5 } }
+      ],
+      "facts": "Invented scenario."
+    },
+    {
+      "id": "S-11", "chapter": "primary", "route": "both", "type": "rank", "tier": "core",
+      "prompt": "Rank what you fix first. Drag to order.",
+      "options": [
+        { "id": "border", "label": "The border", "effects": { "border": -1.5 } },
+        { "id": "housing", "label": "Housing costs", "effects": { "econ": -1 } },
+        { "id": "bigtech", "label": "Big Tech", "effects": { "tech": -1.5 } },
+        { "id": "china", "label": "China", "effects": { "world": 1, "trade": -1 } },
+        { "id": "abortion", "label": "Abortion access", "effects": { "social": 1.5, "faith": -0.5 } }
+      ],
+      "signature": ["hawley"], "discrimination": 3, "facts": "Invented scenario."
+    },
+    {
+      "id": "S-12", "chapter": "convention", "route": "dem", "type": "rank", "tier": "core",
+      "prompt": "Rank the prime-time speakers at your convention.",
+      "options": [
+        { "id": "union", "label": "A union president", "effects": { "econ": -1 } },
+        { "id": "founder", "label": "A tech founder", "effects": { "tech": 1.5 } },
+        { "id": "pastor", "label": "A pastor", "effects": { "faith": 1.5 } },
+        { "id": "creator", "label": "A creator with 9 million followers", "effects": { "online": 1.5 } }
+      ],
+      "facts": "Invented scenario."
+    },
+    {
+      "id": "S-13", "chapter": "debate", "route": "both", "type": "swipe", "tier": "core",
+      "prompt": "Lightning round. Yes or no. Four seconds each.",
+      "cards": [
+        { "id": "stocks", "text": "Ban members of Congress from trading stocks.", "yes": { "mach": -0.5, "system": 0.5 }, "no": { "mach": 0.5 } },
+        { "id": "ukraine", "text": "Send more weapons to Ukraine.", "yes": { "world": 1.5 }, "no": { "world": -1.5 } },
+        { "id": "tariffs", "text": "A tariff on every import.", "yes": { "trade": -1.5 }, "no": { "trade": 1 } },
+        { "id": "google", "text": "Break up Google.", "yes": { "tech": -1.5 }, "no": { "tech": 1 } },
+        { "id": "scotus", "text": "Term limits for the Supreme Court.", "yes": { "system": 0.5, "democracy": 0.5 }, "no": { "system": -0.5 } }
+      ],
+      "signature": ["ossoff", "khanna"], "discrimination": 3, "facts": "Live policy debates as of 2025."
+    },
+    {
+      "id": "S-14", "chapter": "scandal", "route": "both", "type": "swipe", "tier": "bombshell",
+      "context": "The opposition file just landed in a reporter's inbox.",
+      "prompt": "Would you survive it? Yes or no.",
+      "cards": [
+        { "id": "affair", "text": "An affair from 2009.", "yes": { "libertine": 1.5 }, "no": { "libertine": -1.5 } },
+        { "id": "contract", "text": "Your brother-in-law got a federal contract.", "yes": { "dynasty": 1, "mach": 0.5 }, "no": { "dynasty": -1 } },
+        { "id": "tweets", "text": "Old posts calling your rival a fraud.", "yes": { "online": 1, "style": 1 }, "no": { "style": -1 } },
+        { "id": "tape", "text": "A recording of you mocking your donors.", "yes": { "narc": 1, "mach": 0.5 }, "no": { "narc": -0.5 } },
+        { "id": "startup", "text": "Your kid's startup lands a defense contract.", "yes": { "dynasty": 1.5 }, "no": { "dynasty": -1 } }
+      ],
+      "fx": ["breaking", "shake", "buzz_heavy"], "facts": "Invented scenarios."
+    },
+    {
+      "id": "S-15", "chapter": "announcement", "route": "gop", "type": "whosaid", "tier": "core",
+      "prompt": "Who said it?",
+      "quote": "I'm a Christian, a conservative and a Republican, in that order.",
+      "answer": "pence",
+      "options": [
+        { "id": "pence", "label": "Mike Pence" }, { "id": "vance", "label": "JD Vance" },
+        { "id": "rubio", "label": "Marco Rubio" }, { "id": "cruz", "label": "Ted Cruz" }
+      ],
+      "agree": { "effects": { "faith": 1.5, "loyalty": -0.5 } },
+      "disagree": { "effects": { "faith": -1 } },
+      "signature": ["pence"], "facts": "Pence's long-running self-description, e.g. his 2016 Republican convention speech (20 July 2016)."
+    },
+    {
+      "id": "S-16", "chapter": "debate", "route": "dem", "type": "whosaid", "tier": "core",
+      "prompt": "Who made this line famous?",
+      "quote": "Unburdened by what has been.",
+      "answer": "harris",
+      "options": [
+        { "id": "harris", "label": "Kamala Harris" }, { "id": "buttigieg", "label": "Pete Buttigieg" },
+        { "id": "newsom", "label": "Gavin Newsom" }, { "id": "shapiro", "label": "Josh Shapiro" }
+      ],
+      "agree": { "effects": { "system": 0.5, "social": 0.5 } },
+      "disagree": { "effects": { "system": -0.5, "online": -0.5 } },
+      "signature": ["harris"], "facts": "Harris used the phrase in speeches from 2023; it spread as a meme in 2024 (fact-check the first date)."
+    },
+    {
+      "id": "S-17", "chapter": "backroom", "route": "both", "type": "dilemma", "tier": "core",
+      "prompt": "Your running mate's son is caught on tape taking a bribe. No middle.",
+      "options": [
+        { "id": "a", "label": "Drop the running mate tonight.", "effects": { "loyalty": -1.5, "psych": 1 } },
+        { "id": "b", "label": "Ride it out together.", "effects": { "loyalty": 1.5, "libertine": 1 } }
+      ],
+      "discrimination": 2, "facts": "Invented scenario."
+    },
+    {
+      "id": "S-18", "chapter": "election_night", "route": "both", "type": "dilemma", "tier": "bombshell",
+      "context": "You lost one state by 11,000 votes. It decides the race.",
+      "prompt": "Concede, or challenge?",
+      "options": [
+        { "id": "a", "label": "Concede at midnight.", "effects": { "democracy": 1.5, "narc": -0.5 } },
+        { "id": "b", "label": "Challenge every county.", "effects": { "democracy": -1.5, "narc": 1, "style": 1 } }
+      ],
+      "signature": ["kemp", "pence"], "fx": ["breaking", "night", "buzz_heavy"], "discrimination": 3, "facts": "Invented scenario."
+    },
+    {
+      "id": "S-19", "chapter": "convention", "route": "dem", "type": "draft", "tier": "core",
+      "prompt": "Pick your running mate.",
+      "pool": ["shapiro", "kelly", "beshear", "slotkin", "ossoff", "buttigieg"],
+      "facts": "Shapiro, Kelly and Beshear were vetted for vice president in 2024."
+    },
+    {
+      "id": "S-20", "chapter": "convention", "route": "gop", "type": "draft", "tier": "core",
+      "prompt": "Pick your running mate.",
+      "pool": ["rubio", "kemp", "youngkin", "ramaswamy", "hawley", "desantis"],
+      "facts": "Invented scenario."
+    },
+    {
+      "id": "S-21", "chapter": "backroom", "route": "both", "type": "sign", "tier": "core",
+      "context": "H.R. 2028. It passed both chambers at 3 a.m.",
+      "prompt": "A ban on members of Congress trading individual stocks. Sign it or veto it.",
+      "options": [
+        { "id": "sign", "label": "Sign", "effects": { "mach": -1, "system": 0.5 }, "cand": { "ossoff": 1, "hawley": 1 } },
+        { "id": "veto", "label": "Veto", "effects": { "mach": 1, "system": -0.5 } }
+      ],
+      "signature": ["ossoff", "hawley"], "facts": "Ossoff and Hawley both pushed stock-trading bans (2023-2025)."
+    },
+    {
+      "id": "S-22", "chapter": "convention", "route": "both", "type": "sign", "tier": "core",
+      "context": "The Domestic Order Act.",
+      "prompt": "Emergency powers to send the Guard into any city the president names. Sign it or veto it.",
+      "options": [
+        { "id": "sign", "label": "Sign", "effects": { "democracy": -1.5, "liberty": -1.5, "federal": -1 } },
+        { "id": "veto", "label": "Veto", "effects": { "democracy": 1, "liberty": 1, "federal": 1 } }
+      ],
+      "signature": ["kelly", "slotkin"], "fx": ["shake"], "discrimination": 3, "facts": "Invented bill."
+    },
+    {
+      "id": "S-23", "chapter": "backroom", "route": "both", "type": "envelope", "tier": "core",
+      "context": "A steakhouse booth. The donor has not touched his steak.",
+      "prompt": "He slides an envelope across the table. It is thick.",
+      "art": "SAMPLE-ENV-DONOR",
+      "options": [
+        { "id": "take", "label": "Take it. Say nothing.", "effects": { "mach": 1.5, "psych": 0.5 } },
+        { "id": "push", "label": "Push it back, loudly.", "effects": { "mach": -1.5, "narc": 0.5 } },
+        { "id": "ask", "label": "Ask him what it is for.", "effects": { "mach": 1, "loyalty": -0.5 } }
+      ],
+      "measure": ["hesitation"], "fx": ["candles"], "discrimination": 2, "facts": "Invented scene."
+    },
+    {
+      "id": "S-24", "chapter": "scandal", "route": "both", "type": "envelope", "tier": "core",
+      "context": "Your oppo director closes the door behind her.",
+      "prompt": "A folder on your rival's divorce. Sealed court records.",
+      "art": "SAMPLE-ENV-FOLDER",
+      "options": [
+        { "id": "leak", "label": "Leak it tonight.", "effects": { "mach": 1.5, "psych": 1 } },
+        { "id": "shred", "label": "Shred it in front of her.", "effects": { "mach": -1, "psych": -1 } },
+        { "id": "safe", "label": "Lock it in the safe. For later.", "effects": { "mach": 1.5, "narc": -0.5 } }
+      ],
+      "measure": ["hesitation"], "fx": ["typewriter"], "facts": "Invented scene."
+    }
+  ]
+}

@@ -1,0 +1,864 @@
+[
+  {
+    "id": "F-001",
+    "chapter": "backroom",
+    "route": "both",
+    "type": "choice",
+    "tier": "core",
+    "topic": "oversight-investigations",
+    "excludes": [
+      "F-006"
+    ],
+    "context": "December 2022. A Senate subcommittee finds staff sexually abused women in at least two-thirds of the federal prisons that held them. No pollster has ever asked a voter about it.",
+    "prompt": "You chair that subcommittee: you hold the gavel and the subpoena. What do you do next?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Subpoena the wardens. Nobody votes on it; do it anyway.",
+        "effects": {
+          "liberty": 1,
+          "psych": -1,
+          "style": 0.5
+        },
+        "cand": {
+          "ossoff": 2
+        }
+      },
+      {
+        "id": "b",
+        "label": "One hearing, one viral clip, back to gas prices.",
+        "effects": {
+          "mach": 1,
+          "online": 0.5,
+          "narc": 0.5
+        }
+      },
+      {
+        "id": "c",
+        "label": "Refer it to the department and trust the process.",
+        "effects": {
+          "system": -1,
+          "style": -1
+        }
+      },
+      {
+        "id": "d",
+        "label": "Prisoners don't vote. Spend the gavel where the votes are.",
+        "effects": {
+          "mach": 1.5,
+          "psych": 1
+        }
+      }
+    ],
+    "signature": [
+      "ossoff"
+    ],
+    "facts": "The Senate Permanent Subcommittee on Investigations, chaired by Jon Ossoff, reported on December 13, 2022 that Bureau of Prisons staff had sexually abused women in at least two-thirds of the federal prisons that held women over the previous decade. His Federal Prison Oversight Act was signed into law on July 25, 2024.",
+    "discrimination": 2
+  },
+  {
+    "id": "F-002",
+    "chapter": "announcement",
+    "route": "both",
+    "type": "pin",
+    "tier": "core",
+    "topic": "launch-film",
+    "context": "Before politics a candidate ran a company that made investigative documentaries: war crimes, crooked officials, bribes on hidden camera. Now the film is about you.",
+    "prompt": "The edit suite, 3 a.m. What does your campaign launch film open on? Tap it.",
+    "regions": [
+      {
+        "id": "ledger",
+        "label": "The ledger — follow the money, name the names",
+        "where": "center, an open ledger under a brass lamp on the editing desk",
+        "effects": {
+          "style": 1,
+          "econ": -0.5,
+          "democracy": 0.5
+        },
+        "cand": {
+          "ossoff": 2
+        }
+      },
+      {
+        "id": "photos",
+        "label": "The snapshots — the porch, the dog, the modest start",
+        "where": "left wall, a corkboard of pinned snapshots",
+        "effects": {
+          "style": -1,
+          "narc": 0.5,
+          "online": -0.5
+        },
+        "cand": {
+          "beshear": 1
+        }
+      },
+      {
+        "id": "jacket",
+        "label": "The flight jacket — your service, no adjectives",
+        "where": "right, a worn flight jacket over the back of a swivel chair",
+        "effects": {
+          "world": 0.5,
+          "narc": -0.5,
+          "system": -0.5
+        },
+        "cand": {
+          "kelly": 1
+        }
+      },
+      {
+        "id": "ringlight",
+        "label": "The ring light — no film; talk straight down the lens",
+        "where": "far right, a lit ring light on a tripod facing an empty stool",
+        "effects": {
+          "online": 1.5,
+          "narc": 0.5
+        },
+        "cand": {
+          "aoc": 1,
+          "newsom": 1
+        }
+      },
+      {
+        "id": "monitor",
+        "label": "The big monitor — a padlocked factory, and who locked it",
+        "where": "back wall, the largest monitor, showing a padlocked factory gate",
+        "effects": {
+          "trade": -1,
+          "econ": -0.5
+        },
+        "cand": {
+          "hawley": 1,
+          "khanna": 1
+        }
+      }
+    ],
+    "signature": [
+      "ossoff"
+    ],
+    "art": "F-EDIT-SUITE",
+    "artNote": "A cramped documentary edit suite at night, nobody present. Center: an editing desk with an open ledger under a brass desk lamp. Left wall: a corkboard of pinned snapshots showing a porch, a dog and a pickup truck, no faces. Right: a swivel chair with a worn flight jacket over its back. Far right: a lit ring light on a tripod facing an empty stool. Back wall: a bank of monitors, the largest showing a padlocked factory gate. No people, no readable text.",
+    "facts": "Jon Ossoff became chief executive of Insight TWI, an investigative documentary company, in 2013; it described its subjects as official corruption, organized crime and war crimes. Its films include Stacey Dooley: Face to Face with ISIS and Betraying the Game (2018), built on undercover filming of bribery in African soccer.",
+    "discrimination": 2
+  },
+  {
+    "id": "F-003",
+    "chapter": "primary",
+    "route": "both",
+    "type": "whosaid",
+    "tier": "core",
+    "topic": "swing-state-defiance",
+    "context": "March 2025. A politician with an election coming, in a state the President has just carried, ends a twenty-minute speech on one line.",
+    "prompt": "A politician ends a twenty-minute speech on one line. Who said it?",
+    "quote": "Georgia will bow to no king.",
+    "answer": "ossoff",
+    "options": [
+      {
+        "id": "ossoff",
+        "label": "Jon Ossoff"
+      },
+      {
+        "id": "kemp",
+        "label": "Brian Kemp"
+      },
+      {
+        "id": "pritzker",
+        "label": "JB Pritzker"
+      },
+      {
+        "id": "beshear",
+        "label": "Andy Beshear"
+      }
+    ],
+    "followup": "He spent the other nineteen minutes calling the President corrupt, in a state the President won. Smart?",
+    "agree": {
+      "label": "Agree. Say it where it costs you or don't say it.",
+      "effects": {
+        "style": 1.5,
+        "democracy": 1
+      },
+      "cand": {
+        "ossoff": 2
+      }
+    },
+    "disagree": {
+      "label": "Disagree. Swing states are won on groceries, not kings.",
+      "effects": {
+        "style": -1,
+        "mach": 0.5,
+        "online": -0.5
+      },
+      "cand": {
+        "beshear": 1
+      }
+    },
+    "signature": [
+      "ossoff"
+    ],
+    "facts": "Jon Ossoff closed his Rally for Our Republic speech in Atlanta on March 22, 2025 with the line Georgia will bow to no king, after about twenty minutes attacking the President as corrupt; he repeated it in Savannah on July 12, 2025. Donald Trump carried Georgia in 2024.",
+    "discrimination": 2
+  },
+  {
+    "id": "F-004",
+    "chapter": "scandal",
+    "route": "both",
+    "type": "dilemma",
+    "tier": "bombshell",
+    "topic": "impeachment-talk",
+    "excludes": [
+      "B-085"
+    ],
+    "measure": [
+      "hesitation"
+    ],
+    "context": "April 2025. The President's meme coin promises its biggest buyers a private dinner with him. At a town hall in a state he carried, a voter asks her senator what he plans to do about it.",
+    "prompt": "The room wants one word. Do you say impeachment?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Say impeachment. It clears any bar the House ever set.",
+        "effects": {
+          "style": 1.5,
+          "democracy": 1,
+          "loyalty": -0.5
+        },
+        "cand": {
+          "ossoff": 2
+        }
+      },
+      {
+        "id": "b",
+        "label": "Say corruption, skip the I-word, keep his voters.",
+        "effects": {
+          "mach": 1.5,
+          "style": -1
+        }
+      }
+    ],
+    "signature": [
+      "ossoff"
+    ],
+    "fx": [
+      "breaking",
+      "buzz_heavy"
+    ],
+    "facts": "At a town hall in Cobb County, Georgia on April 25, 2025, Jon Ossoff said the President's conduct had already exceeded any prior standard for impeachment by the House, citing the dinner offered to the top holders of the TRUMP meme coin; he added that it could not happen unless Democrats won the House.",
+    "discrimination": 3
+  },
+  {
+    "id": "F-005",
+    "chapter": "debate",
+    "route": "both",
+    "type": "hold",
+    "tier": "core",
+    "topic": "detention-abuse",
+    "measure": [
+      "holdStrength",
+      "hesitation"
+    ],
+    "context": "August 2025. A senator's staff count 510 credible reports of abuse in immigration detention, children and pregnant women among them. His state voted for the President who runs it.",
+    "prompt": "The report is on your desk. What do you do with it?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Publish every case. Let them call me soft on the border.",
+        "effects": {
+          "border": 1,
+          "liberty": 1,
+          "style": 0.5
+        },
+        "cand": {
+          "ossoff": 2
+        }
+      },
+      {
+        "id": "b",
+        "label": "Publish, but lead with what it costs the taxpayer.",
+        "effects": {
+          "mach": 1,
+          "border": 0.5,
+          "econ": 0.5
+        }
+      },
+      {
+        "id": "c",
+        "label": "Hold it until after the election. Losers investigate nothing.",
+        "effects": {
+          "mach": 1.5,
+          "psych": 0.5
+        }
+      },
+      {
+        "id": "d",
+        "label": "Detention is meant to deter. File it.",
+        "effects": {
+          "border": -1.5,
+          "psych": 1,
+          "liberty": -1
+        }
+      }
+    ],
+    "signature": [
+      "ossoff"
+    ],
+    "facts": "Jon Ossoff's office published a report in August 2025 identifying 510 credible reports of human rights abuses in immigration detention since January 20, 2025, including mistreatment of children and pregnant women; by January 2026 its count had passed 1,000. The Department of Homeland Security denied the findings. Donald Trump carried Georgia in 2024.",
+    "discrimination": 2
+  },
+  {
+    "id": "F-006",
+    "chapter": "backroom",
+    "route": "both",
+    "type": "swipe",
+    "tier": "core",
+    "topic": "oversight-investigations",
+    "excludes": [
+      "F-001"
+    ],
+    "measure": [
+      "speed"
+    ],
+    "context": "You chair the Senate's investigations panel. One gavel, one year, and a stack of files no pollster has ever asked about.",
+    "prompt": "Do you investigate? Swipe right to open the file, left to leave it shut. Four seconds each.",
+    "cards": [
+      {
+        "id": "housing",
+        "text": "Mold and neglect in military family housing.",
+        "yes": {
+          "psych": -0.5,
+          "econ": -0.5
+        },
+        "no": {
+          "mach": 0.5
+        },
+        "candYes": {
+          "ossoff": 1
+        }
+      },
+      {
+        "id": "deaths",
+        "text": "Deaths in jails and prisons that nobody counted.",
+        "yes": {
+          "liberty": 0.5,
+          "psych": -0.5
+        },
+        "no": {
+          "psych": 0.5
+        },
+        "candYes": {
+          "ossoff": 2
+        }
+      },
+      {
+        "id": "donor",
+        "text": "Your own party's biggest donor.",
+        "yes": {
+          "loyalty": -1,
+          "mach": -0.5
+        },
+        "no": {
+          "loyalty": 0.5,
+          "mach": 0.5
+        }
+      },
+      {
+        "id": "women",
+        "text": "Staff abusing women in federal prisons.",
+        "yes": {
+          "liberty": 0.5,
+          "psych": -0.5
+        },
+        "no": {
+          "psych": 0.5,
+          "mach": 0.5
+        },
+        "candYes": {
+          "ossoff": 1
+        }
+      },
+      {
+        "id": "rivalson",
+        "text": "The business deals of a rival's son.",
+        "yes": {
+          "mach": 1,
+          "style": 0.5
+        },
+        "no": {
+          "mach": -0.5,
+          "style": -0.5
+        }
+      },
+      {
+        "id": "trades",
+        "text": "Your colleagues' stock trades.",
+        "yes": {
+          "system": 0.5,
+          "loyalty": -0.5
+        },
+        "no": {
+          "loyalty": 0.5,
+          "system": -0.5
+        },
+        "candYes": {
+          "ossoff": 1,
+          "hawley": 1
+        }
+      }
+    ],
+    "signature": [
+      "ossoff"
+    ],
+    "facts": "As chair of the Senate Permanent Subcommittee on Investigations from 2021 Jon Ossoff led inquiries into privatized military family housing (2022), deaths in custody that went uncounted by the Justice Department (2022) and sexual abuse of women in federal prisons (report of December 13, 2022). He first introduced a congressional stock-trading ban in January 2022. The donor and rival's-son cards are invented.",
+    "discrimination": 2
+  },
+  {
+    "id": "F-007",
+    "chapter": "election_night",
+    "phase": "count",
+    "route": "both",
+    "type": "whosaid",
+    "tier": "bombshell",
+    "topic": "election-night-count",
+    "context": "5 November 2020. The count is still running, and it is running the wrong way. One post goes up before the lawyers have finished their coffee.",
+    "prompt": "The 2020 count is still running, and running the wrong way for his side. Who posted it?",
+    "quote": "Go to total war over this election.",
+    "answer": "trumpjr",
+    "options": [
+      {
+        "id": "trumpjr",
+        "label": "Donald Trump Jr."
+      },
+      {
+        "id": "cruz",
+        "label": "Ted Cruz"
+      },
+      {
+        "id": "hawley",
+        "label": "Josh Hawley"
+      },
+      {
+        "id": "desantis",
+        "label": "Ron DeSantis"
+      }
+    ],
+    "followup": "Your own count is slipping at 3 a.m. Do you post it?",
+    "agree": {
+      "label": "Yes. You don't concede the story before the count ends.",
+      "effects": {
+        "system": 1.5,
+        "style": 1.5,
+        "democracy": -1
+      },
+      "cand": {
+        "trumpjr": 2
+      }
+    },
+    "disagree": {
+      "label": "No. Count them, lose, and keep your name.",
+      "effects": {
+        "system": -1.5,
+        "democracy": 1,
+        "style": -0.5
+      },
+      "cand": {
+        "kemp": 1,
+        "pence": 1
+      }
+    },
+    "signature": [
+      "trumpjr"
+    ],
+    "fx": [
+      "breaking",
+      "shake",
+      "buzz_heavy"
+    ],
+    "facts": "Donald Trump Jr. posted on Twitter on November 5, 2020 that the best thing for America's future was for his father to go to total war over this election to expose fraud; Twitter flagged the post, and the fraud claims were not borne out.",
+    "discrimination": 3
+  },
+  {
+    "id": "F-008",
+    "chapter": "primary",
+    "route": "both",
+    "type": "slider",
+    "tier": "core",
+    "topic": "vanity-bestseller",
+    "context": "November 2019. A president's son publishes Triggered. It debuts at number one with a dagger beside it, the mark for bulk orders. His father's party had just spent $94,800 on copies.",
+    "prompt": "What is a number one bought by the crate?",
+    "slider": {
+      "left": "A participation trophy with a dust jacket.",
+      "right": "A number one. Winners don't audit the receipt.",
+      "centre": "Tacky, legal, and half the list does it",
+      "effects": {
+        "narc": 1.5,
+        "libertine": 1,
+        "mach": 0.5
+      },
+      "steps": 5
+    },
+    "candLeft": {
+      "christie": 1
+    },
+    "candRight": {
+      "trumpjr": 2
+    },
+    "signature": [
+      "trumpjr"
+    ],
+    "facts": "Donald Trump Jr.'s Triggered was published on November 5, 2019 and debuted at number one on the New York Times hardcover nonfiction list with the dagger that marks bulk purchases. A Federal Election Commission filing showed the Republican National Committee paid Books-A-Million $94,800 in October 2019; the RNC said it was keeping up with donor demand.",
+    "discrimination": 2
+  },
+  {
+    "id": "F-009",
+    "chapter": "primary",
+    "route": "both",
+    "type": "choice",
+    "tier": "core",
+    "topic": "trophy-photos",
+    "context": "A candidate co-founded a hunting magazine for, in its own words, the unapologetic man. His feed is trophies, memes and feuds. The consultants would like a quieter one by Super Tuesday.",
+    "prompt": "What do you do with the feed?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Post more. Apologizing is the only sin left.",
+        "effects": {
+          "style": 1.5,
+          "online": 1.5,
+          "social": -0.5
+        },
+        "cand": {
+          "trumpjr": 2
+        }
+      },
+      {
+        "id": "b",
+        "label": "Scrub it. Suburbs vote; elk don't.",
+        "effects": {
+          "mach": 1,
+          "style": -1,
+          "online": -0.5
+        },
+        "cand": {
+          "youngkin": 1
+        }
+      },
+      {
+        "id": "c",
+        "label": "Keep the duck blind, drop the feuds.",
+        "effects": {
+          "style": -0.5,
+          "social": -0.5,
+          "mach": 0.5
+        },
+        "cand": {
+          "kemp": 1
+        }
+      },
+      {
+        "id": "d",
+        "label": "Hand the phone to staff and never look at it again.",
+        "effects": {
+          "online": -1.5,
+          "narc": -0.5
+        },
+        "cand": {
+          "pence": 1
+        }
+      }
+    ],
+    "signature": [
+      "trumpjr"
+    ],
+    "facts": "Donald Trump Jr. co-founded Field Ethos, a hunting and outdoors magazine and brand, in 2021; it describes itself as the premier lifestyle publication for the unapologetic man.",
+    "discrimination": 2
+  },
+  {
+    "id": "F-010",
+    "chapter": "scandal",
+    "route": "both",
+    "type": "dilemma",
+    "tier": "core",
+    "topic": "first-family-business",
+    "excludes": [
+      "B-074"
+    ],
+    "measure": [
+      "hesitation"
+    ],
+    "context": "November 2024. Your father has just won the White House back. You could have nearly any office in it. A venture fund for conservative-friendly companies offers a partnership instead.",
+    "prompt": "Do you take an office inside the White House, or the money outside it?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Outside. No oath, no disclosure forms, same phone number.",
+        "effects": {
+          "mach": 1.5,
+          "dynasty": 1,
+          "libertine": 0.5,
+          "econ": 0.5
+        },
+        "cand": {
+          "trumpjr": 2
+        }
+      },
+      {
+        "id": "b",
+        "label": "Inside. A title is the only power that outlasts him.",
+        "effects": {
+          "system": -1,
+          "narc": 0.5
+        }
+      }
+    ],
+    "signature": [
+      "trumpjr"
+    ],
+    "facts": "Donald Trump Jr. joined the venture firm 1789 Capital as a partner in November 2024 rather than take a post in his father's administration.",
+    "discrimination": 2
+  },
+  {
+    "id": "F-011",
+    "chapter": "convention",
+    "route": "gop",
+    "type": "hold",
+    "tier": "core",
+    "topic": "kingmaker",
+    "measure": [
+      "holdStrength"
+    ],
+    "context": "July 2024. The nominee's eldest son has spent months pushing one name for the ticket. The donors and the old guard have other names.",
+    "prompt": "You are the son. Do you fight for your man?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Go to war for my man. The movement outranks the money.",
+        "effects": {
+          "loyalty": 1,
+          "system": 1.5,
+          "style": 1
+        },
+        "cand": {
+          "trumpjr": 2,
+          "vance": 1
+        }
+      },
+      {
+        "id": "b",
+        "label": "Stay out of it. Sons advise; they don't pick.",
+        "effects": {
+          "dynasty": -1.5,
+          "narc": -1
+        }
+      },
+      {
+        "id": "c",
+        "label": "Back the donors' pick and bank the favor.",
+        "effects": {
+          "mach": 1.5,
+          "econ": 0.5,
+          "system": -0.5
+        }
+      }
+    ],
+    "signature": [
+      "trumpjr"
+    ],
+    "facts": "Donald Trump Jr. was a leading advocate for JD Vance, who was announced as the vice-presidential pick on July 15, 2024; he had also pressed his father to endorse Vance in the 2022 Ohio Senate primary.",
+    "discrimination": 2
+  },
+  {
+    "id": "F-012",
+    "chapter": "debate",
+    "route": "both",
+    "type": "choice",
+    "tier": "core",
+    "topic": "prosecutor-record",
+    "context": "April 2004. A new district attorney who ran on never seeking the death penalty gets her first killing of a police officer. At the funeral a senator from her own party calls for death, from the pulpit.",
+    "prompt": "You are the district attorney. The promise was easy in the campaign. Do you keep it now?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Keep it. Life in prison, and take the booing.",
+        "effects": {
+          "social": 1,
+          "style": 0.5
+        },
+        "cand": {
+          "harris": 2
+        }
+      },
+      {
+        "id": "b",
+        "label": "Seek death. Promises are for campaigns; this is the job.",
+        "effects": {
+          "mach": 1,
+          "psych": 1,
+          "social": -1,
+          "liberty": -0.5
+        }
+      },
+      {
+        "id": "c",
+        "label": "Hand the case to the state and keep my hands clean.",
+        "effects": {
+          "mach": 1.5,
+          "style": -1
+        }
+      },
+      {
+        "id": "d",
+        "label": "Keep it, then spend ten years proving I'm tough.",
+        "effects": {
+          "mach": 1,
+          "social": -0.5,
+          "narc": 0.5
+        },
+        "cand": {
+          "harris": 1
+        }
+      }
+    ],
+    "signature": [
+      "harris"
+    ],
+    "facts": "San Francisco police officer Isaac Espinoza was killed in April 2004. District Attorney Kamala Harris, who had campaigned against the death penalty, announced within days that she would not seek it; at the funeral Senator Dianne Feinstein called for the death penalty. The defendant was convicted and remains in prison. Harris later ran for state attorney general as a career prosecutor.",
+    "discrimination": 2
+  },
+  {
+    "id": "F-013",
+    "chapter": "primary",
+    "route": "both",
+    "type": "slider",
+    "tier": "core",
+    "topic": "2024-autopsy",
+    "excludes": [
+      "D-005"
+    ],
+    "context": "September 2025. The losing nominee's memoir is named for the length of her campaign. The argument is in the title: 107 days were not enough.",
+    "prompt": "Why did she lose?",
+    "slider": {
+      "left": "The candidate. A year wouldn't have saved her.",
+      "right": "The calendar. Nobody builds a presidency in 107 days.",
+      "centre": "Both, and the boss who stayed too long",
+      "effects": {
+        "loyalty": 1,
+        "system": -1,
+        "psych": -0.5
+      },
+      "steps": 5
+    },
+    "candLeft": {
+      "newsom": 1
+    },
+    "candRight": {
+      "harris": 2
+    },
+    "signature": [
+      "harris"
+    ],
+    "facts": "Kamala Harris's 107 Days was published on September 23, 2025; she writes that 107 days were not, in the end, long enough to win the presidency. Joe Biden withdrew on July 21, 2024 and the election was on November 5, 2024.",
+    "discrimination": 2
+  },
+  {
+    "id": "F-014",
+    "chapter": "election_night",
+    "phase": "loss",
+    "route": "both",
+    "type": "hold",
+    "tier": "core",
+    "topic": "concession",
+    "excludes": [
+      "B-018"
+    ],
+    "measure": [
+      "holdStrength",
+      "hesitation"
+    ],
+    "context": "6 January 2025. The Constitution has the Vice President preside over the count. This year the count makes her opponent President.",
+    "prompt": "You lost. The gavel is yours for one more afternoon. What do you do with it?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Read the count, bang the gavel, go home.",
+        "effects": {
+          "democracy": 1.5,
+          "system": -1
+        },
+        "cand": {
+          "harris": 2,
+          "pence": 1
+        }
+      },
+      {
+        "id": "b",
+        "label": "Read it, then say on the steps exactly what he is.",
+        "effects": {
+          "style": 1.5,
+          "democracy": 0.5
+        }
+      },
+      {
+        "id": "c",
+        "label": "Find a scheduling conflict. Let someone else hold it.",
+        "effects": {
+          "narc": 1,
+          "mach": 0.5,
+          "style": -0.5
+        }
+      },
+      {
+        "id": "d",
+        "label": "Object. His side would have.",
+        "effects": {
+          "democracy": -1.5,
+          "system": 1.5,
+          "psych": 0.5
+        }
+      }
+    ],
+    "signature": [
+      "harris"
+    ],
+    "facts": "Vice President Kamala Harris presided over the joint session of Congress on January 6, 2025 that certified her own defeat by Donald Trump. Mike Pence presided over the certification of his own ticket's defeat on January 6 and 7, 2021.",
+    "discrimination": 2
+  },
+  {
+    "id": "F-015",
+    "chapter": "primary",
+    "route": "dem",
+    "type": "dilemma",
+    "tier": "core",
+    "topic": "coalition-targets",
+    "context": "October 2024. A month out, the nominee shares a stage with a Republican dynasty's daughter at the birthplace of the Republican Party, courting voters who have never picked a Democrat.",
+    "prompt": "One month, one schedule. Where do you spend it?",
+    "options": [
+      {
+        "id": "a",
+        "label": "With the Republican. Decency is a coalition.",
+        "effects": {
+          "system": -1.5,
+          "world": 0.5
+        },
+        "cand": {
+          "harris": 2
+        }
+      },
+      {
+        "id": "b",
+        "label": "With the base. Nobody ever lost by turning out their own.",
+        "effects": {
+          "econ": -1,
+          "system": 1,
+          "style": 0.5
+        },
+        "cand": {
+          "aoc": 1,
+          "khanna": 1
+        }
+      }
+    ],
+    "signature": [
+      "harris"
+    ],
+    "facts": "Kamala Harris campaigned with former Republican congresswoman Liz Cheney, daughter of former Vice President Dick Cheney, in Ripon, Wisconsin, the birthplace of the Republican Party, on October 3, 2024; Cheney said she had never before voted for a Democrat.",
+    "discrimination": 2
+  }
+]

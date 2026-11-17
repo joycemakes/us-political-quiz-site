@@ -1,0 +1,5748 @@
+[
+  {
+    "id": "D-001",
+    "chapter": "primary",
+    "route": "dem",
+    "type": "choice",
+    "tier": "core",
+    "topic": "shutdown",
+    "context": "A Republican spending bill is on the Senate floor. Block it and the government shuts down. Your own party's Senate leader is about to wave it through.",
+    "prompt": "The base is refreshing your feed to see what you do. How do you vote, and what do you say?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Shut it down. A fight you lose still tells people who you are.",
+        "effects": {
+          "style": 1.2,
+          "system": 0.8
+        },
+        "cand": {
+          "aoc": 2,
+          "pritzker": 1
+        }
+      },
+      {
+        "id": "b",
+        "label": "Vote yes. A shutdown hands him the keys to the building.",
+        "effects": {
+          "style": -1,
+          "system": -1
+        },
+        "cand": {
+          "harris": 1
+        }
+      },
+      {
+        "id": "c",
+        "label": "Vote no, quietly, and keep the leader's number.",
+        "effects": {
+          "mach": 1,
+          "style": -0.3
+        },
+        "cand": {
+          "kelly": 1
+        }
+      },
+      {
+        "id": "d",
+        "label": "Vote no and call for a new leader by name.",
+        "effects": {
+          "system": 1.2,
+          "loyalty": -1,
+          "style": 1
+        },
+        "cand": {
+          "khanna": 2
+        }
+      }
+    ],
+    "signature": [
+      "aoc"
+    ],
+    "facts": "March 14, 2025: Senate Minority Leader Chuck Schumer and nine other Democratic caucus members voted to advance the Republican continuing resolution, setting off a revolt in the party. Ocasio-Cortez led the criticism.",
+    "discrimination": 3
+  },
+  {
+    "id": "D-002",
+    "chapter": "primary",
+    "route": "dem",
+    "type": "hold",
+    "tier": "core",
+    "topic": "shutdown",
+    "context": "Day 40 of the shutdown. Eight of your colleagues are ready to reopen the government without the health-care subsidies you shut it down for.",
+    "prompt": "Do you keep the government shut, or take the deal?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Stay shut. No subsidies, no votes.",
+        "effects": {
+          "style": 1,
+          "econ": -0.8
+        },
+        "cand": {
+          "newsom": 1,
+          "pritzker": 1
+        }
+      },
+      {
+        "id": "b",
+        "label": "Take the deal. People are missing paychecks.",
+        "effects": {
+          "style": -1,
+          "system": -0.8,
+          "psych": -0.5
+        }
+      },
+      {
+        "id": "c",
+        "label": "Stay shut, and find primary challengers for the eight.",
+        "effects": {
+          "system": 1.2,
+          "psych": 0.8,
+          "style": 1
+        },
+        "cand": {
+          "khanna": 1
+        }
+      }
+    ],
+    "measure": [
+      "holdStrength"
+    ],
+    "facts": "The federal shutdown ran from October 1 to November 12, 2025, the longest on record. It ended after eight members of the Senate Democratic caucus voted for a funding deal that did not extend the Affordable Care Act subsidies.",
+    "discrimination": 2
+  },
+  {
+    "id": "D-003",
+    "chapter": "announcement",
+    "route": "dem",
+    "type": "slider",
+    "tier": "core",
+    "topic": "age-question",
+    "context": "The last Democratic President quit the race at 81, weeks after one debate. Now the age question gets asked out loud.",
+    "prompt": "Should the party refuse to nominate anyone over 70?",
+    "slider": {
+      "left": "No. Experience is the point",
+      "right": "Yes. Hard cap at 70. Pass the torch.",
+      "centre": "No cap. Let the primary voters do it",
+      "effects": {
+        "system": 1,
+        "dynasty": -0.6,
+        "loyalty": -0.6
+      },
+      "steps": 5
+    },
+    "candRight": {
+      "buttigieg": 1,
+      "ossoff": 1
+    },
+    "candLeft": {
+      "harris": 1
+    },
+    "signature": [
+      "ossoff",
+      "buttigieg"
+    ],
+    "facts": "President Biden, then 81, withdrew from the race on July 21, 2024 after the June 27, 2024 debate.",
+    "discrimination": 2
+  },
+  {
+    "id": "D-004",
+    "chapter": "scandal",
+    "route": "dem",
+    "type": "dilemma",
+    "tier": "bombshell",
+    "topic": "presidents-decline",
+    "excludes": [
+      "C-078"
+    ],
+    "context": "A new book says aides hid the last Democratic President's decline from the public. You were in those rooms.",
+    "prompt": "Reporters are waiting in your driveway. What do you tell them?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Say it plainly: we saw it, and we should have spoken.",
+        "effects": {
+          "loyalty": -1.2,
+          "mach": -0.8,
+          "system": 0.5
+        },
+        "cand": {
+          "buttigieg": 1
+        }
+      },
+      {
+        "id": "b",
+        "label": "Defend him. You do not knife the man who made you.",
+        "effects": {
+          "loyalty": 1.5,
+          "system": -0.5
+        },
+        "cand": {
+          "harris": 2
+        }
+      }
+    ],
+    "signature": [
+      "harris"
+    ],
+    "fx": [
+      "breaking",
+      "typewriter"
+    ],
+    "measure": [
+      "hesitation"
+    ],
+    "facts": "Original Sin by Jake Tapper and Alex Thompson was published on May 20, 2025.",
+    "discrimination": 3
+  },
+  {
+    "id": "D-005",
+    "chapter": "backroom",
+    "route": "dem",
+    "type": "rank",
+    "tier": "core",
+    "topic": "2024-autopsy",
+    "excludes": [
+      "F-013"
+    ],
+    "context": "The party's report on why it lost in 2024 will never be published. You are asked to write the first page.",
+    "prompt": "Rank the causes of the 2024 defeat, most to blame at the top.",
+    "options": [
+      {
+        "id": "a",
+        "label": "A President who stayed in too long",
+        "effects": {
+          "loyalty": -1,
+          "system": 0.5
+        },
+        "cand": {
+          "buttigieg": 1
+        }
+      },
+      {
+        "id": "b",
+        "label": "A campaign that had 107 days and played it safe",
+        "effects": {
+          "loyalty": -0.8,
+          "style": 0.8
+        },
+        "cand": {
+          "newsom": 1
+        }
+      },
+      {
+        "id": "c",
+        "label": "Consultants who have lost before and billed anyway",
+        "effects": {
+          "system": 1.2,
+          "online": 0.3
+        },
+        "cand": {
+          "aoc": 1
+        }
+      },
+      {
+        "id": "d",
+        "label": "A vocabulary written by activists, not neighbors",
+        "effects": {
+          "social": -1,
+          "online": -0.5
+        },
+        "cand": {
+          "slotkin": 1
+        }
+      },
+      {
+        "id": "e",
+        "label": "Inflation. Incumbents everywhere paid for it.",
+        "effects": {
+          "system": -0.8,
+          "econ": -0.4
+        },
+        "cand": {
+          "harris": 1
+        }
+      }
+    ],
+    "facts": "Harris became the nominee after Biden withdrew on July 21, 2024 and lost on November 5, 2024, a 107-day campaign.",
+    "discrimination": 2
+  },
+  {
+    "id": "D-006",
+    "chapter": "debate",
+    "route": "dem",
+    "type": "slider",
+    "tier": "core",
+    "topic": "oligarchy-vs-abundance",
+    "excludes": [
+      "A-011"
+    ],
+    "context": "Two camps are fighting over the party. One says build more, faster: housing, power, transit. The other says name the billionaires who are stopping you.",
+    "prompt": "Which way should the party go?",
+    "slider": {
+      "left": "Fight the oligarchs",
+      "right": "Build, build, build",
+      "centre": "Both: build, and tax them to pay for it",
+      "effects": {
+        "econ": 1,
+        "tech": 1,
+        "system": -0.8
+      },
+      "steps": 5
+    },
+    "candLeft": {
+      "aoc": 2
+    },
+    "candRight": {
+      "shapiro": 1,
+      "buttigieg": 1
+    },
+    "signature": [
+      "aoc"
+    ],
+    "facts": "Abundance by Ezra Klein and Derek Thompson was published on March 18, 2025. Bernie Sanders began the Fighting Oligarchy tour in February 2025 and Ocasio-Cortez joined it in March 2025.",
+    "discrimination": 3
+  },
+  {
+    "id": "D-007",
+    "chapter": "primary",
+    "route": "dem",
+    "type": "pin",
+    "tier": "core",
+    "topic": "oligarchy-vs-abundance",
+    "context": "A union hall in Iowa, the night before the caucus. The room is empty for another ten minutes.",
+    "prompt": "Where are you standing when the voters walk in? Each spot is a different pitch. Tap one.",
+    "art": "D-UNION-HALL-IOWA",
+    "artNote": "Empty union hall at night, snow against the windows, folding chairs in rows. No people. Left wall: a stack of hand-painted picket signs. Center: a trestle table with rolled blueprints and a hard hat. Right foreground: a steel coffee urn and paper cups. Back right: a press riser with two tripods. Far back: a side door with a green exit sign.",
+    "regions": [
+      {
+        "id": "signs",
+        "label": "The picket signs — name the villains",
+        "where": "left wall, the leaning stack of picket signs",
+        "effects": {
+          "econ": -1.2,
+          "system": 0.8,
+          "style": 0.8
+        },
+        "cand": {
+          "aoc": 1,
+          "ossoff": 1
+        },
+        "poly": { "wide": [[3,32],[8,29],[16,32],[18,45],[18,63],[5,63],[3,50]], "tall": [[4,74],[12,70],[25,72],[38,80],[38,98],[8,98]] }
+      },
+      {
+        "id": "blueprints",
+        "label": "The blueprint table — show what you will build",
+        "where": "center, the trestle table with blueprints and hard hat",
+        "effects": {
+          "tech": 1,
+          "econ": 0.5,
+          "system": -0.5
+        },
+        "cand": {
+          "shapiro": 2
+        },
+        "poly": { "wide": [[21,60],[30,55],[55,52],[62,53],[68,57],[70,66],[60,70],[24,70]], "tall": [[16,50],[25,46],[60,45.5],[68,48],[82,50],[83,56],[15,56]] }
+      },
+      {
+        "id": "urn",
+        "label": "The coffee urn — shake every hand",
+        "where": "right foreground, the coffee urn and paper cups",
+        "effects": {
+          "style": -1,
+          "narc": -0.8,
+          "online": -0.8
+        },
+        "cand": {
+          "beshear": 2
+        },
+        "poly": { "wide": [[80,67],[86,62],[88,53],[98,53],[100,62],[100,88],[80,88]], "tall": [[66,72],[78,68],[96,70],[98,80],[99,98],[51,98],[51,81],[64,79]] }
+      },
+      {
+        "id": "riser",
+        "label": "The press riser — play to the cameras, not the room",
+        "where": "back right, the riser with tripods",
+        "effects": {
+          "online": 1,
+          "narc": 1,
+          "mach": 0.5
+        },
+        "cand": {
+          "newsom": 1
+        },
+        "poly": { "wide": [[70,16],[98,16],[98,47],[70,47]], "tall": [[58,13],[99,13],[99,34],[58,34]] }
+      },
+      {
+        "id": "door",
+        "label": "The side door — step out and work the phones",
+        "where": "far back, the door under the green exit lamp",
+        "effects": {
+          "mach": 1.2,
+          "style": -0.5
+        },
+        "poly": { "wide": [[36.5,19],[48.5,19],[48.5,42],[36.5,42]], "tall": [[6,16],[25,16],[25,33],[6,33]] }
+      }
+    ],
+    "discrimination": 2
+  },
+  {
+    "id": "D-008",
+    "chapter": "primary",
+    "route": "dem",
+    "type": "choice",
+    "tier": "core",
+    "topic": "israel-arms",
+    "excludes": [
+      "A-027"
+    ],
+    "context": "A delegate stops you on the rope line with one question about Gaza.",
+    "prompt": "Will you keep sending offensive weapons to Israel with no conditions?",
+    "options": [
+      {
+        "id": "a",
+        "label": "No more offensive weapons. Full stop.",
+        "effects": {
+          "world": -1.5,
+          "system": 0.8
+        },
+        "cand": {
+          "khanna": 2,
+          "aoc": 1
+        }
+      },
+      {
+        "id": "b",
+        "label": "Conditions, using the law already on the books.",
+        "effects": {
+          "world": -0.6,
+          "system": -0.3
+        },
+        "cand": {
+          "ossoff": 1
+        }
+      },
+      {
+        "id": "c",
+        "label": "The alliance holds. Disagreements stay private.",
+        "effects": {
+          "world": 1.2,
+          "system": -0.8
+        },
+        "cand": {
+          "shapiro": 2
+        }
+      },
+      {
+        "id": "d",
+        "label": "Dodge it. Pivot to rent, every time.",
+        "effects": {
+          "mach": 1,
+          "style": -0.6
+        }
+      }
+    ],
+    "facts": "On July 30, 2025 a majority of Senate Democrats voted for Bernie Sanders's resolutions to block certain arms sales to Israel. A ceasefire in Gaza took effect on October 10, 2025.",
+    "discrimination": 3
+  },
+  {
+    "id": "D-009",
+    "chapter": "announcement",
+    "route": "dem",
+    "type": "swipe",
+    "tier": "core",
+    "topic": "media-bookings",
+    "context": "Your media booker has seven interview invitations and no patience.",
+    "prompt": "Do you take each booking? Yes or no, four seconds apiece.",
+    "cards": [
+      {
+        "id": "s1",
+        "text": "Three hours, no notes, with a comedian who voted for the other guy",
+        "yes": {
+          "online": 1,
+          "libertine": 0.5
+        },
+        "no": {
+          "online": -0.8,
+          "mach": 0.3
+        }
+      },
+      {
+        "id": "s2",
+        "text": "A sit-down on the cable channel your base boycotts",
+        "yes": {
+          "style": 0.8,
+          "system": -0.3
+        },
+        "no": {
+          "style": -0.5,
+          "loyalty": 0.3
+        },
+        "candYes": {
+          "buttigieg": 1
+        }
+      },
+      {
+        "id": "s3",
+        "text": "A livestream with a gamer who has never read a bill",
+        "yes": {
+          "online": 1,
+          "tech": 0.5
+        },
+        "no": {
+          "online": -1
+        }
+      },
+      {
+        "id": "s4",
+        "text": "Six minutes on a legacy Sunday show",
+        "yes": {
+          "online": -0.8,
+          "system": -0.5
+        },
+        "no": {
+          "online": 0.6,
+          "system": 0.5
+        }
+      },
+      {
+        "id": "s5",
+        "text": "Start your own podcast and book the other side's stars",
+        "yes": {
+          "mach": 1,
+          "narc": 0.8,
+          "online": 0.8
+        },
+        "no": {
+          "mach": -0.5,
+          "loyalty": 0.5
+        },
+        "candYes": {
+          "newsom": 1
+        }
+      },
+      {
+        "id": "s6",
+        "text": "A hunting show. You will be handed a shotgun.",
+        "yes": {
+          "social": -0.5,
+          "style": 0.3
+        },
+        "no": {
+          "social": 0.4
+        }
+      },
+      {
+        "id": "s7",
+        "text": "Nine thousand words on zoning for a newsletter",
+        "yes": {
+          "tech": 0.5,
+          "econ": 0.5,
+          "online": -0.3
+        },
+        "no": {
+          "style": 0.4
+        }
+      }
+    ],
+    "signature": [
+      "buttigieg",
+      "newsom"
+    ],
+    "measure": [
+      "speed"
+    ],
+    "facts": "Donald Trump appeared on The Joe Rogan Experience on October 25, 2024; Kamala Harris did not appear before the election. Gavin Newsom launched his podcast on March 6, 2025 with Charlie Kirk as first guest. Pete Buttigieg appeared on the Flagrant podcast in April 2025.",
+    "discrimination": 2
+  },
+  {
+    "id": "D-010",
+    "chapter": "debate",
+    "route": "dem",
+    "type": "dilemma",
+    "tier": "core",
+    "topic": "trans-athletes",
+    "excludes": [
+      "A-017"
+    ],
+    "context": "You host your own podcast. A conservative guest asks whether trans girls competing in girls' sports is fair. Either answer gets clipped.",
+    "prompt": "Three seconds of dead air. What do you say?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Say it is a fairness problem and take the heat from your side.",
+        "effects": {
+          "social": -1,
+          "mach": 0.8,
+          "loyalty": -0.5
+        },
+        "cand": {
+          "newsom": 2
+        }
+      },
+      {
+        "id": "b",
+        "label": "Say you will not trade kids for swing voters.",
+        "effects": {
+          "social": 1.5,
+          "style": 0.5
+        },
+        "cand": {
+          "aoc": 1,
+          "pritzker": 1
+        }
+      }
+    ],
+    "signature": [
+      "newsom"
+    ],
+    "facts": "On the first episode of his podcast, released March 6, 2025, Gavin Newsom told Charlie Kirk that trans athletes competing in women's sports was deeply unfair.",
+    "discrimination": 3
+  },
+  {
+    "id": "D-011",
+    "chapter": "backroom",
+    "route": "dem",
+    "type": "sign",
+    "tier": "core",
+    "topic": "trans-minors-care",
+    "excludes": [
+      "B-062"
+    ],
+    "context": "You govern a state your party lost by 26 points. A bill restricting medical care for trans minors reaches your desk. Your election is eight months out, and they have the votes to override you anyway.",
+    "prompt": "Do you sign the bill restricting medical care for trans minors, or veto it?",
+    "options": [
+      {
+        "id": "sign",
+        "label": "Sign. You cannot help anyone from retirement.",
+        "effects": {
+          "social": -1.5,
+          "mach": 0.8
+        }
+      },
+      {
+        "id": "veto",
+        "label": "Veto. Lose the vote, keep the conscience.",
+        "effects": {
+          "social": 1.2,
+          "psych": -0.8,
+          "mach": -0.6
+        },
+        "cand": {
+          "beshear": 2
+        }
+      }
+    ],
+    "signature": [
+      "beshear"
+    ],
+    "facts": "Andy Beshear vetoed Kentucky Senate Bill 150 on March 24, 2023; the legislature overrode the veto on March 29, 2023. He was re-elected on November 7, 2023. Trump carried Kentucky by about 26 points in 2020.",
+    "discrimination": 3
+  },
+  {
+    "id": "D-012",
+    "chapter": "debate",
+    "route": "dem",
+    "type": "hold",
+    "tier": "core",
+    "topic": "trans-athletes",
+    "context": "The other side's attack ad is coming back in October: one old clip of you on trans rights, one line about they and them, in every ad break of every game.",
+    "prompt": "How do you answer the ad?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Answer it with your own ad. Never let a hit stand.",
+        "effects": {
+          "social": 1.2,
+          "style": 1
+        },
+        "cand": {
+          "pritzker": 1
+        }
+      },
+      {
+        "id": "b",
+        "label": "Ignore it and talk about prices.",
+        "effects": {
+          "mach": 0.8,
+          "social": -0.3,
+          "style": -0.8
+        },
+        "cand": {
+          "harris": 1
+        }
+      },
+      {
+        "id": "c",
+        "label": "Give ground on trans athletes, hold firm on health care.",
+        "effects": {
+          "social": -0.8,
+          "mach": 0.8
+        },
+        "cand": {
+          "slotkin": 1,
+          "newsom": 1
+        }
+      }
+    ],
+    "measure": [
+      "holdStrength"
+    ],
+    "facts": "The Trump campaign's Kamala is for they/them ad ran heavily in fall 2024, including during televised football games.",
+    "discrimination": 2
+  },
+  {
+    "id": "D-013",
+    "chapter": "backroom",
+    "route": "dem",
+    "type": "budget",
+    "tier": "core",
+    "topic": "texas-map",
+    "excludes": [
+      "A-095",
+      "B-013",
+      "E-019"
+    ],
+    "context": "Texas Republicans redrew their congressional map mid-decade to take five more House seats. You have 100 points of political capital for the reply.",
+    "prompt": "How do Democrats hit back? Split your 100 points.",
+    "options": [
+      {
+        "id": "a",
+        "label": "A ballot measure to redraw your own state in answer",
+        "effects": {
+          "style": 1.2,
+          "mach": 1,
+          "system": 0.5
+        },
+        "cand": {
+          "newsom": 2
+        }
+      },
+      {
+        "id": "b",
+        "label": "Lawsuits, and independent commissions everywhere",
+        "effects": {
+          "system": -1.2,
+          "mach": -0.8
+        }
+      },
+      {
+        "id": "c",
+        "label": "Shelter the lawmakers who fled to break quorum",
+        "effects": {
+          "style": 0.8,
+          "loyalty": 0.5
+        },
+        "cand": {
+          "pritzker": 2
+        }
+      },
+      {
+        "id": "d",
+        "label": "A federal gerrymandering ban, for when you next hold power",
+        "effects": {
+          "system": -0.6,
+          "style": -0.6
+        }
+      }
+    ],
+    "signature": [
+      "newsom",
+      "pritzker"
+    ],
+    "facts": "Texas Democrats left the state on August 3, 2025, many for Illinois, to deny a quorum. Governor Abbott signed the new Texas map on August 29, 2025. California voters approved Proposition 50 on November 4, 2025.",
+    "discrimination": 3
+  },
+  {
+    "id": "D-014",
+    "chapter": "convention",
+    "route": "dem",
+    "type": "choice",
+    "tier": "core",
+    "topic": "party-rules",
+    "context": "The convention opens with no candidate holding a majority. On a second ballot the superdelegates, the party insiders, get to vote.",
+    "prompt": "What should happen to the superdelegates?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Abolish them. The voters or nothing.",
+        "effects": {
+          "system": 1.2,
+          "dynasty": -0.5
+        },
+        "cand": {
+          "aoc": 1,
+          "khanna": 1
+        }
+      },
+      {
+        "id": "b",
+        "label": "Keep them for the second ballot. A safety valve.",
+        "effects": {
+          "system": -1
+        },
+        "cand": {
+          "shapiro": 1
+        }
+      },
+      {
+        "id": "c",
+        "label": "Give them back the first ballot. Parties should pick nominees.",
+        "effects": {
+          "system": -1.5,
+          "dynasty": 0.5
+        }
+      },
+      {
+        "id": "d",
+        "label": "Denounce them on stage and court them by text.",
+        "effects": {
+          "mach": 1.5
+        },
+        "cand": {
+          "newsom": 1
+        }
+      }
+    ],
+    "facts": "On August 25, 2018 the Democratic National Committee voted to bar superdelegates from the first presidential ballot at a contested convention.",
+    "discrimination": 2
+  },
+  {
+    "id": "D-015",
+    "chapter": "announcement",
+    "route": "dem",
+    "type": "rank",
+    "tier": "core",
+    "topic": "candidate-resume",
+    "context": "Governors say senators only talk. Senators say governors have never voted on a war.",
+    "prompt": "Rank what you most want on a nominee's résumé.",
+    "options": [
+      {
+        "id": "a",
+        "label": "Ran a state through a crisis",
+        "effects": {
+          "system": -0.6,
+          "style": -0.3
+        },
+        "cand": {
+          "shapiro": 1,
+          "pritzker": 1
+        }
+      },
+      {
+        "id": "b",
+        "label": "Won where the party usually loses",
+        "effects": {
+          "social": -0.6,
+          "style": -0.6
+        },
+        "cand": {
+          "beshear": 1,
+          "kelly": 1
+        }
+      },
+      {
+        "id": "c",
+        "label": "Sat on the committees that handle war and secrets",
+        "effects": {
+          "world": 1
+        },
+        "cand": {
+          "slotkin": 1
+        }
+      },
+      {
+        "id": "d",
+        "label": "Has never held a job in Washington",
+        "effects": {
+          "system": 1
+        }
+      },
+      {
+        "id": "e",
+        "label": "Can command attention without buying it",
+        "effects": {
+          "online": 1.2,
+          "narc": 0.5
+        },
+        "cand": {
+          "aoc": 1,
+          "newsom": 1
+        }
+      }
+    ],
+    "signature": [
+      "kelly",
+      "beshear"
+    ],
+    "discrimination": 2
+  },
+  {
+    "id": "D-016",
+    "chapter": "backroom",
+    "route": "dem",
+    "type": "choice",
+    "tier": "core",
+    "topic": "age-question",
+    "context": "House Democrats pick their lead on the Oversight Committee. A 74-year-old veteran beats a 35-year-old with the biggest audience in the party, 131 to 84.",
+    "prompt": "What do you make of the vote?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Seniority over talent. This is how you end up with 2024.",
+        "effects": {
+          "system": 1.2,
+          "loyalty": -0.5
+        },
+        "cand": {
+          "aoc": 2
+        }
+      },
+      {
+        "id": "b",
+        "label": "She did not count her votes. That is the job.",
+        "effects": {
+          "mach": 1,
+          "psych": 0.6
+        }
+      },
+      {
+        "id": "c",
+        "label": "Wait your turn. The institution outlasts you.",
+        "effects": {
+          "system": -1.2,
+          "loyalty": 0.8
+        }
+      },
+      {
+        "id": "d",
+        "label": "Fine. Build power outside the building instead.",
+        "effects": {
+          "system": 1.5,
+          "online": 1
+        },
+        "cand": {
+          "aoc": 1,
+          "khanna": 1
+        }
+      }
+    ],
+    "signature": [
+      "aoc"
+    ],
+    "facts": "On December 17, 2024 House Democrats chose Gerry Connolly, 74, over Alexandria Ocasio-Cortez, 35, as ranking member of the Oversight Committee by 131 to 84.",
+    "discrimination": 2
+  },
+  {
+    "id": "D-017",
+    "chapter": "primary",
+    "route": "dem",
+    "type": "slider",
+    "tier": "core",
+    "topic": "primary-challengers",
+    "context": "A party officer wants to spend millions on primary challenges to safe-seat incumbents who have stopped trying.",
+    "prompt": "Should the party fund challengers against its own coasting incumbents?",
+    "slider": {
+      "left": "Protect every incumbent",
+      "right": "Primary the sleepers",
+      "centre": "Only the ones who have stopped showing up",
+      "effects": {
+        "system": 1.5,
+        "style": 0.5,
+        "loyalty": -0.8
+      },
+      "steps": 5
+    },
+    "candLeft": {
+      "harris": 1
+    },
+    "candRight": {
+      "khanna": 1
+    },
+    "facts": "In April 2025 David Hogg, then a vice chair of the Democratic National Committee, announced a plan to fund primary challenges to incumbent House Democrats in safe seats.",
+    "discrimination": 2
+  },
+  {
+    "id": "D-018",
+    "chapter": "convention",
+    "route": "dem",
+    "type": "draft",
+    "tier": "core",
+    "topic": "drafts-running-mate",
+    "excludes": [
+      "A-097",
+      "A-098",
+      "B-040",
+      "B-041",
+      "B-095",
+      "D-067",
+      "D-077"
+    ],
+    "context": "You have the delegates. The vetting binders are stacked on the hotel bed.",
+    "prompt": "Draft your running mate.",
+    "pool": [
+      "beshear",
+      "kelly",
+      "slotkin",
+      "shapiro",
+      "aoc",
+      "ossoff",
+      "khanna",
+      "buttigieg"
+    ],
+    "options": [
+      {
+        "id": "beshear",
+        "label": "Andy Beshear: a deacon who wins in a red state",
+        "effects": {
+          "faith": 0.8,
+          "style": -1
+        },
+        "cand": {
+          "beshear": 2
+        }
+      },
+      {
+        "id": "kelly",
+        "label": "Mark Kelly: astronaut, combat pilot, border-state senator",
+        "effects": {
+          "border": -0.6,
+          "world": 0.6,
+          "narc": -0.5
+        },
+        "cand": {
+          "kelly": 2
+        }
+      },
+      {
+        "id": "slotkin",
+        "label": "Elissa Slotkin: ex-CIA, wins Michigan",
+        "effects": {
+          "world": 1,
+          "trade": -0.5
+        },
+        "cand": {
+          "slotkin": 2
+        }
+      },
+      {
+        "id": "shapiro",
+        "label": "Josh Shapiro: Pennsylvania and its electoral votes",
+        "effects": {
+          "system": -1,
+          "mach": 0.6
+        },
+        "cand": {
+          "shapiro": 2
+        }
+      },
+      {
+        "id": "aoc",
+        "label": "Alexandria Ocasio-Cortez: the base, all of it",
+        "effects": {
+          "econ": -1.2,
+          "system": 1,
+          "online": 0.8
+        },
+        "cand": {
+          "aoc": 2
+        }
+      },
+      {
+        "id": "ossoff",
+        "label": "Jon Ossoff: Georgia, and a generation younger",
+        "effects": {
+          "econ": -0.6,
+          "dynasty": -0.6
+        },
+        "cand": {
+          "ossoff": 2
+        }
+      },
+      {
+        "id": "khanna",
+        "label": "Ro Khanna: anti-war and fluent in Silicon Valley",
+        "effects": {
+          "world": -1,
+          "tech": 1
+        },
+        "cand": {
+          "khanna": 2
+        }
+      },
+      {
+        "id": "buttigieg",
+        "label": "Pete Buttigieg: can win any argument on any channel",
+        "effects": {
+          "online": 0.6,
+          "style": 0.6
+        },
+        "cand": {
+          "buttigieg": 2
+        }
+      }
+    ],
+    "discrimination": 3
+  },
+  {
+    "id": "D-019",
+    "chapter": "primary",
+    "route": "dem",
+    "type": "choice",
+    "tier": "core",
+    "topic": "socialist-mayor",
+    "excludes": [
+      "A-004"
+    ],
+    "context": "A 34-year-old democratic socialist has just won the mayoralty of the country's biggest city on a rent freeze and free buses.",
+    "prompt": "What should the party learn from his win?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Copy the platform. All of it.",
+        "effects": {
+          "econ": -1.5,
+          "system": 0.8
+        },
+        "cand": {
+          "aoc": 2
+        }
+      },
+      {
+        "id": "b",
+        "label": "Copy the energy and the videos. Leave the label.",
+        "effects": {
+          "mach": 0.8,
+          "online": 0.8
+        },
+        "cand": {
+          "buttigieg": 1,
+          "newsom": 1
+        }
+      },
+      {
+        "id": "c",
+        "label": "It is one city. Win a swing county first.",
+        "effects": {
+          "econ": 0.6,
+          "social": -0.5,
+          "system": -0.5
+        },
+        "cand": {
+          "slotkin": 1,
+          "shapiro": 1
+        }
+      },
+      {
+        "id": "d",
+        "label": "Affordability won. The ideology was along for the ride.",
+        "effects": {
+          "econ": -0.5,
+          "system": -0.3
+        },
+        "cand": {
+          "beshear": 1
+        }
+      }
+    ],
+    "facts": "Zohran Mamdani won the New York City Democratic mayoral primary on June 24, 2025 and the general election on November 4, 2025.",
+    "discrimination": 2
+  },
+  {
+    "id": "D-020",
+    "chapter": "primary",
+    "route": "dem",
+    "type": "budget",
+    "tier": "core",
+    "topic": "closing-message",
+    "context": "The last 100 million of ad money. The pollster and the organizer are not speaking to each other.",
+    "prompt": "Split the ad budget by message.",
+    "options": [
+      {
+        "id": "a",
+        "label": "Prices, rent and the cost of a doctor",
+        "effects": {
+          "econ": -0.6,
+          "style": -0.5
+        },
+        "cand": {
+          "beshear": 1
+        }
+      },
+      {
+        "id": "b",
+        "label": "Democracy and the rule of law",
+        "effects": {
+          "system": -1.2
+        },
+        "cand": {
+          "harris": 1
+        }
+      },
+      {
+        "id": "c",
+        "label": "Corruption: who is getting rich in office",
+        "effects": {
+          "system": 1,
+          "econ": -0.8
+        },
+        "cand": {
+          "ossoff": 2
+        }
+      },
+      {
+        "id": "d",
+        "label": "Abortion and personal freedom",
+        "effects": {
+          "social": 1.2
+        },
+        "cand": {
+          "pritzker": 1
+        }
+      },
+      {
+        "id": "e",
+        "label": "A secure border, said by a Democrat",
+        "effects": {
+          "border": -1.2
+        },
+        "cand": {
+          "kelly": 1
+        }
+      }
+    ],
+    "discrimination": 2
+  },
+  {
+    "id": "D-021",
+    "chapter": "primary",
+    "route": "dem",
+    "type": "pin",
+    "tier": "core",
+    "topic": "age-question",
+    "context": "A New Hampshire town hall. The first question will be about age, yours or someone else's.",
+    "prompt": "How do you answer the age question? Tap the spot you answer it from.",
+    "art": "D-NH-TOWNHALL-AGE",
+    "artNote": "Empty white clapboard town hall interior, winter light, wooden floor. No people. Center back: a plain lectern with one microphone. Front left: a single folding chair pulled into the audience rows. Right: a trestle table with a birthday cake crowded with far too many candles. Back wall: a row of framed portraits shown only as dark silhouettes in gilt frames. Far right: a door standing ajar with snow light behind it.",
+    "regions": [
+      {
+        "id": "lectern",
+        "label": "The lectern — answer with a full speech",
+        "where": "center back, the lectern",
+        "effects": {
+          "system": -0.8,
+          "narc": 0.5
+        },
+        "cand": {
+          "harris": 1
+        },
+        "poly": { "wide": [[43,36],[56,36],[56,61],[43,61]], "tall": [[39,31],[61,31],[61,52],[39,52]] }
+      },
+      {
+        "id": "chair",
+        "label": "The folding chair — sit down among them and talk",
+        "where": "front left, the lone folding chair in the rows",
+        "effects": {
+          "style": -1,
+          "narc": -1
+        },
+        "cand": {
+          "beshear": 1,
+          "kelly": 1
+        },
+        "poly": { "wide": [[5,63],[10,61],[17,66],[21,80],[21,96],[4,96],[3,80]], "tall": [[5,72],[12,70],[25,76],[35,82],[35,97],[5,97]] }
+      },
+      {
+        "id": "cake",
+        "label": "The cake — say it: your rivals are too old",
+        "where": "right, the cake with too many candles",
+        "effects": {
+          "style": 1.2,
+          "psych": 0.8,
+          "system": 0.8
+        },
+        "cand": {
+          "ossoff": 1,
+          "buttigieg": 1
+        },
+        "poly": { "wide": [[69,45],[72,38],[82,38],[86,48],[86,66],[69,66]], "tall": [[57,74],[70,64],[94,66],[95,78],[99,82],[99,97],[57,97]] }
+      },
+      {
+        "id": "portraits",
+        "label": "The portraits — defend age: experience built this",
+        "where": "back wall, the row of gilt frames",
+        "effects": {
+          "system": -1.2,
+          "dynasty": 0.5
+        },
+        "poly": { "wide": [[28.5,18],[79,18],[79,35],[28.5,35]], "tall": [[21,13],[91,13],[91,26],[21,26]] }
+      },
+      {
+        "id": "door",
+        "label": "The open door — promise one term, then go",
+        "where": "far right, the door ajar",
+        "effects": {
+          "narc": -1.2,
+          "loyalty": -0.5
+        },
+        "poly": { "wide": [[88,17],[96,16],[100,17],[100,64],[88,64]], "tall": [[80,28],[98,26],[98,54],[80,54]] }
+      }
+    ],
+    "discrimination": 2
+  },
+  {
+    "id": "D-022",
+    "chapter": "scandal",
+    "route": "dem",
+    "type": "hold",
+    "tier": "bombshell",
+    "topic": "guard-in-cities",
+    "excludes": [
+      "B-054",
+      "E-001"
+    ],
+    "context": "The President orders federal agents and National Guard troops into your largest city over your objection.",
+    "prompt": "You are the governor. How do you respond?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Sue within the hour and tell residents to film everything.",
+        "effects": {
+          "style": 1,
+          "border": 1,
+          "system": -0.3,
+          "federal": 0.8
+        },
+        "cand": {
+          "pritzker": 2
+        }
+      },
+      {
+        "id": "b",
+        "label": "Negotiate terms quietly and lower the temperature.",
+        "effects": {
+          "style": -1.2,
+          "mach": 0.5
+        },
+        "cand": {
+          "shapiro": 1
+        }
+      },
+      {
+        "id": "c",
+        "label": "Call for mass peaceful protest and mock him in all caps.",
+        "effects": {
+          "style": 1.5,
+          "online": 1,
+          "system": 0.8
+        },
+        "cand": {
+          "newsom": 2
+        }
+      }
+    ],
+    "signature": [
+      "pritzker"
+    ],
+    "fx": [
+      "breaking",
+      "shake",
+      "buzz_heavy"
+    ],
+    "measure": [
+      "holdStrength"
+    ],
+    "facts": "National Guard troops were sent to Los Angeles from June 7, 2025. Federal immigration agents began Operation Midway Blitz in the Chicago area in September 2025; Illinois sued over a Guard deployment on October 6, 2025. Newsom's press office began posting all-caps parodies in August 2025.",
+    "discrimination": 3
+  },
+  {
+    "id": "D-023",
+    "chapter": "scandal",
+    "route": "dem",
+    "type": "choice",
+    "tier": "bombshell",
+    "topic": "illegal-orders",
+    "excludes": [
+      "B-011",
+      "E-026"
+    ],
+    "context": "You are a veteran in Congress. You record a video reminding troops they may refuse illegal orders. The President calls it seditious. The Pentagon opens a review of you.",
+    "prompt": "What is your next move?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Repost it and take every interview offered.",
+        "effects": {
+          "style": 1.2,
+          "online": 0.8
+        },
+        "cand": {
+          "slotkin": 2,
+          "kelly": 2
+        }
+      },
+      {
+        "id": "b",
+        "label": "Say little. Let the service record answer.",
+        "effects": {
+          "style": -0.5,
+          "narc": -0.8,
+          "system": -0.5
+        },
+        "cand": {
+          "kelly": 1
+        }
+      },
+      {
+        "id": "c",
+        "label": "Regret the framing, keep the principle.",
+        "effects": {
+          "style": -1,
+          "mach": 0.6
+        }
+      },
+      {
+        "id": "d",
+        "label": "Have the fundraising email out before lunch.",
+        "effects": {
+          "mach": 1.2,
+          "narc": 0.6
+        }
+      }
+    ],
+    "signature": [
+      "kelly",
+      "slotkin"
+    ],
+    "fx": [
+      "breaking",
+      "buzz_heavy"
+    ],
+    "facts": "On November 18, 2025 six Democratic lawmakers with military or intelligence backgrounds, including Elissa Slotkin and Mark Kelly, released a video telling service members they can refuse illegal orders. President Trump called it seditious behavior on November 20, 2025; the Pentagon announced a review of Kelly on November 24, 2025.",
+    "discrimination": 3
+  },
+  {
+    "id": "D-024",
+    "chapter": "debate",
+    "route": "dem",
+    "type": "slider",
+    "tier": "core",
+    "topic": "oligarchy-vs-abundance",
+    "excludes": [
+      "B-039"
+    ],
+    "context": "A senator from a swing state tells the party to stop saying oligarchy, because nobody outside a seminar knows what it means.",
+    "prompt": "Which word should Democrats campaign on?",
+    "slider": {
+      "left": "Say oligarchy, louder",
+      "right": "Say kings. Say prices.",
+      "centre": "Say corruption. Everybody knows that word.",
+      "effects": {
+        "social": -0.6,
+        "system": -0.8,
+        "online": -0.6
+      },
+      "steps": 5
+    },
+    "candLeft": {
+      "aoc": 1,
+      "khanna": 1
+    },
+    "candRight": {
+      "slotkin": 2
+    },
+    "signature": [
+      "slotkin"
+    ],
+    "facts": "In April 2025 Elissa Slotkin said Democrats should stop using the word oligarchy and say the country does not want kings.",
+    "discrimination": 3
+  },
+  {
+    "id": "D-025",
+    "chapter": "backroom",
+    "route": "dem",
+    "type": "dilemma",
+    "tier": "core",
+    "topic": "school-vouchers",
+    "excludes": [
+      "A-103",
+      "B-055",
+      "C-091"
+    ],
+    "context": "You are a governor. Your budget needs one more vote from the other party. Their price: public money for private-school scholarships. The teachers' union is in the lobby.",
+    "prompt": "Do you take the deal?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Take it. A kid in a failing school cannot wait for your coalition.",
+        "effects": {
+          "econ": 1,
+          "loyalty": -0.8,
+          "system": -0.3
+        },
+        "cand": {
+          "shapiro": 2
+        }
+      },
+      {
+        "id": "b",
+        "label": "Kill it. Public money stays in public schools.",
+        "effects": {
+          "econ": -1,
+          "loyalty": 0.8
+        },
+        "cand": {
+          "pritzker": 1,
+          "aoc": 1
+        }
+      }
+    ],
+    "signature": [
+      "shapiro"
+    ],
+    "facts": "Josh Shapiro backed a 100 million dollar private-school scholarship program in the 2023 Pennsylvania budget talks, then line-item vetoed it on August 3, 2023 to end the impasse with House Democrats.",
+    "discrimination": 3
+  },
+  {
+    "id": "D-026",
+    "chapter": "scandal",
+    "route": "dem",
+    "type": "choice",
+    "tier": "core",
+    "topic": "last-nominee-memoir",
+    "excludes": [
+      "B-025"
+    ],
+    "context": "The last nominee's memoir says you were passed over for running mate partly because you seemed to want the top job a little too much.",
+    "prompt": "A reporter reads you the page. How do you respond?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Laugh. I did want the job. I still do.",
+        "effects": {
+          "narc": 1,
+          "style": 0.5
+        },
+        "cand": {
+          "shapiro": 1
+        }
+      },
+      {
+        "id": "b",
+        "label": "Return fire, chapter and verse.",
+        "effects": {
+          "style": 1.5,
+          "loyalty": -1
+        },
+        "cand": {
+          "shapiro": 2
+        }
+      },
+      {
+        "id": "c",
+        "label": "Praise the book and never mention it again.",
+        "effects": {
+          "mach": 1.2,
+          "style": -1
+        },
+        "cand": {
+          "buttigieg": 1
+        }
+      },
+      {
+        "id": "d",
+        "label": "Ask why anyone is still relitigating a 107-day campaign.",
+        "effects": {
+          "system": 0.6,
+          "loyalty": -0.5
+        },
+        "cand": {
+          "ossoff": 1
+        }
+      }
+    ],
+    "signature": [
+      "shapiro"
+    ],
+    "facts": "Kamala Harris's memoir 107 Days was published on September 23, 2025 and describes her 2024 running-mate search, including her reservations about Josh Shapiro, who disputed her account. She chose Tim Walz on August 6, 2024.",
+    "discrimination": 2
+  },
+  {
+    "id": "D-027",
+    "chapter": "announcement",
+    "route": "dem",
+    "type": "rank",
+    "tier": "core",
+    "topic": "party-rules",
+    "context": "The calendar fight. Every state wants to go first and none of them agrees on why.",
+    "prompt": "Rank who should vote first in the primary.",
+    "options": [
+      {
+        "id": "a",
+        "label": "Iowa: caucus gyms, snow, tradition",
+        "effects": {
+          "system": -0.6,
+          "online": -0.5
+        }
+      },
+      {
+        "id": "b",
+        "label": "New Hampshire: town halls and awkward questions",
+        "effects": {
+          "loyalty": -0.6,
+          "style": 0.3
+        },
+        "cand": {
+          "buttigieg": 1
+        }
+      },
+      {
+        "id": "c",
+        "label": "South Carolina: the voters who decide your primaries",
+        "effects": {
+          "loyalty": 0.8,
+          "faith": 0.6
+        },
+        "cand": {
+          "harris": 1
+        }
+      },
+      {
+        "id": "d",
+        "label": "Nevada: casino workers and a real union machine",
+        "effects": {
+          "econ": -0.6,
+          "border": 0.6
+        }
+      },
+      {
+        "id": "e",
+        "label": "Michigan: a swing state with factories in it",
+        "effects": {
+          "trade": -1,
+          "econ": -0.3
+        },
+        "cand": {
+          "slotkin": 1
+        }
+      }
+    ],
+    "facts": "On February 4, 2023 the Democratic National Committee approved a 2024 calendar putting South Carolina first, displacing Iowa and New Hampshire.",
+    "discrimination": 1
+  },
+  {
+    "id": "D-028",
+    "chapter": "scandal",
+    "route": "dem",
+    "type": "choice",
+    "tier": "bombshell",
+    "topic": "epstein-files",
+    "excludes": [
+      "B-027"
+    ],
+    "context": "A libertarian Republican asks you to co-lead a petition forcing a House vote to release the Epstein files. Some on your side say never share a stage with him.",
+    "prompt": "He is waiting by the elevator. Do you join him?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Co-lead it. Transparency has no party.",
+        "effects": {
+          "system": 1.2,
+          "loyalty": -1.2
+        },
+        "cand": {
+          "khanna": 2
+        }
+      },
+      {
+        "id": "b",
+        "label": "Sign it, but let him carry the cameras.",
+        "effects": {
+          "mach": 0.8,
+          "narc": -0.5
+        }
+      },
+      {
+        "id": "c",
+        "label": "Decline. It is their mess; let them sit in it.",
+        "effects": {
+          "mach": 1,
+          "psych": 0.6,
+          "loyalty": 0.5
+        }
+      },
+      {
+        "id": "d",
+        "label": "Demand every name, your own donors included.",
+        "effects": {
+          "system": 1.5,
+          "libertine": -1
+        },
+        "cand": {
+          "ossoff": 1
+        }
+      }
+    ],
+    "signature": [
+      "khanna"
+    ],
+    "fx": [
+      "breaking",
+      "typewriter"
+    ],
+    "facts": "Ro Khanna and Republican Thomas Massie led a discharge petition on the Epstein files, filed in summer 2025; it stalled at 216 signatures in September and reached 218 on November 12, 2025, when Adelita Grijalva was sworn in. The House passed the Epstein Files Transparency Act 427 to 1 on November 18, 2025.",
+    "discrimination": 3
+  },
+  {
+    "id": "D-029",
+    "chapter": "debate",
+    "route": "dem",
+    "type": "slider",
+    "tier": "core",
+    "topic": "big-tech",
+    "context": "The Silicon Valley donors who left the party in 2024 would like a meeting.",
+    "prompt": "What is the party's posture toward Big Tech?",
+    "slider": {
+      "left": "Break them up",
+      "right": "Win them back",
+      "centre": "Take the meeting, keep the lawsuits",
+      "effects": {
+        "econ": 1.2,
+        "system": -0.8
+      },
+      "steps": 5
+    },
+    "candLeft": {
+      "aoc": 1
+    },
+    "candRight": {
+      "khanna": 1,
+      "newsom": 1
+    },
+    "signature": [
+      "khanna"
+    ],
+    "discrimination": 2
+  },
+  {
+    "id": "D-030",
+    "chapter": "backroom",
+    "route": "dem",
+    "type": "hold",
+    "tier": "core",
+    "topic": "stock-trading",
+    "excludes": [
+      "A-088",
+      "B-061",
+      "C-098"
+    ],
+    "context": "Your bill would ban members of Congress from trading stocks. Several of your own party leaders' portfolios would be caught by it.",
+    "prompt": "What do you do with your bill?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Force the vote and read the trades into the record.",
+        "effects": {
+          "system": 1,
+          "style": 1,
+          "libertine": -0.5
+        },
+        "cand": {
+          "ossoff": 2
+        }
+      },
+      {
+        "id": "b",
+        "label": "Exempt sitting members so it can pass.",
+        "effects": {
+          "mach": 0.8,
+          "system": -0.6
+        }
+      },
+      {
+        "id": "c",
+        "label": "Shelve it until the primary is over.",
+        "effects": {
+          "mach": 1.2,
+          "loyalty": 0.8
+        }
+      }
+    ],
+    "signature": [
+      "ossoff"
+    ],
+    "measure": [
+      "holdStrength"
+    ],
+    "facts": "Jon Ossoff first introduced the Ban Congressional Stock Trading Act in January 2022 and has reintroduced it since.",
+    "discrimination": 2
+  },
+  {
+    "id": "D-031",
+    "chapter": "debate",
+    "route": "dem",
+    "type": "swipe",
+    "tier": "core",
+    "topic": "platform",
+    "context": "You chair the committee writing the party platform. It has a red pen and a deadline.",
+    "prompt": "Does each plank stay in the platform? Yes keeps it, no cuts it. Four seconds each.",
+    "cards": [
+      {
+        "id": "s1",
+        "text": "Medicare for All",
+        "yes": {
+          "econ": -1.2
+        },
+        "no": {
+          "econ": 0.8
+        }
+      },
+      {
+        "id": "s2",
+        "text": "End the filibuster",
+        "yes": {
+          "system": 1
+        },
+        "no": {
+          "system": -1
+        }
+      },
+      {
+        "id": "s3",
+        "text": "Add seats to the Supreme Court",
+        "yes": {
+          "system": 1.2
+        },
+        "no": {
+          "system": -0.8
+        }
+      },
+      {
+        "id": "s4",
+        "text": "A wealth tax on billionaires",
+        "yes": {
+          "econ": -1.2
+        },
+        "no": {
+          "econ": 1
+        }
+      },
+      {
+        "id": "s5",
+        "text": "More border agents and faster removals",
+        "yes": {
+          "border": -1
+        },
+        "no": {
+          "border": 0.8
+        }
+      },
+      {
+        "id": "s6",
+        "text": "A nuclear power build-out",
+        "yes": {
+          "tech": 1
+        },
+        "no": {
+          "tech": -0.8
+        }
+      },
+      {
+        "id": "s7",
+        "text": "No corporate PAC money, ever",
+        "yes": {
+          "system": 0.8,
+          "econ": -0.5
+        },
+        "no": {
+          "mach": 0.6
+        }
+      }
+    ],
+    "measure": [
+      "speed"
+    ],
+    "discrimination": 2
+  },
+  {
+    "id": "D-032",
+    "chapter": "backroom",
+    "route": "dem",
+    "type": "dilemma",
+    "tier": "core",
+    "topic": "last-nominee-returns",
+    "context": "The party's losing 2024 nominee calls. She says she is not done, and she would like your endorsement before the field forms.",
+    "prompt": "She is still on the line. Do you endorse her?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Endorse early. She earned the rematch.",
+        "effects": {
+          "loyalty": 1.5,
+          "system": -0.8
+        },
+        "cand": {
+          "harris": 2
+        }
+      },
+      {
+        "id": "b",
+        "label": "Decline. The party needs a clean break.",
+        "effects": {
+          "loyalty": -1.2,
+          "system": 0.8,
+          "psych": 0.5
+        }
+      }
+    ],
+    "signature": [
+      "harris"
+    ],
+    "measure": [
+      "hesitation"
+    ],
+    "facts": "In a BBC interview with Laura Kuenssberg, excerpted on October 25 and broadcast on October 26, 2025, Kamala Harris said she was not done and might possibly run for president again.",
+    "discrimination": 3
+  },
+  {
+    "id": "D-033",
+    "chapter": "debate",
+    "route": "dem",
+    "type": "choice",
+    "tier": "core",
+    "topic": "other-sides-network",
+    "excludes": [
+      "B-019",
+      "C-085"
+    ],
+    "context": "You accept an interview on the other side's cable network. The host opens with the worst week you ever had in office.",
+    "prompt": "You are live. How do you handle it?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Take the hit, then turn it into three minutes of your best material.",
+        "effects": {
+          "style": 1,
+          "mach": 0.8,
+          "online": 0.5
+        },
+        "cand": {
+          "buttigieg": 2
+        }
+      },
+      {
+        "id": "b",
+        "label": "Refuse the premise and go after the network.",
+        "effects": {
+          "style": 1.5,
+          "system": 0.5
+        },
+        "cand": {
+          "newsom": 1
+        }
+      },
+      {
+        "id": "c",
+        "label": "Say you were slow, and mean it.",
+        "effects": {
+          "narc": -1,
+          "psych": -0.8
+        },
+        "cand": {
+          "beshear": 1
+        }
+      },
+      {
+        "id": "d",
+        "label": "Unclip the microphone and walk. Away games are for losing.",
+        "effects": {
+          "style": -0.8,
+          "online": -0.6
+        }
+      }
+    ],
+    "signature": [
+      "buttigieg"
+    ],
+    "facts": "Pete Buttigieg visited East Palestine, Ohio on February 23, 2023, twenty days after the February 3, 2023 derailment, and said he could have spoken out sooner. He has appeared regularly on Fox News.",
+    "discrimination": 2
+  },
+  {
+    "id": "D-034",
+    "chapter": "primary",
+    "route": "dem",
+    "type": "budget",
+    "tier": "core",
+    "topic": "coalition-targets",
+    "context": "You have one hundred field organizers left to place among five groups of voters. Every state director is reading over your shoulder.",
+    "prompt": "Split the organizers. The group that gets the fewest will read about it in the morning.",
+    "options": [
+      {
+        "id": "a",
+        "label": "Young men who left for the podcasts",
+        "effects": {
+          "online": 0.8,
+          "social": -0.4
+        },
+        "cand": {
+          "buttigieg": 1
+        }
+      },
+      {
+        "id": "b",
+        "label": "Suburban moderates who want to be asked nicely",
+        "effects": {
+          "system": -0.8,
+          "econ": 0.5
+        },
+        "cand": {
+          "shapiro": 1
+        }
+      },
+      {
+        "id": "c",
+        "label": "Black voters in the South, taken for granted again",
+        "effects": {
+          "loyalty": 0.5,
+          "faith": 0.5
+        },
+        "cand": {
+          "ossoff": 1
+        }
+      },
+      {
+        "id": "d",
+        "label": "Latino voters in the Southwest who moved right",
+        "effects": {
+          "border": -0.5,
+          "econ": -0.3
+        },
+        "cand": {
+          "kelly": 2
+        }
+      },
+      {
+        "id": "e",
+        "label": "Union households in the Midwest who like the tariffs",
+        "effects": {
+          "trade": -1,
+          "econ": -0.8
+        },
+        "cand": {
+          "slotkin": 1
+        }
+      }
+    ],
+    "discrimination": 2
+  },
+  {
+    "id": "D-035",
+    "chapter": "backroom",
+    "route": "dem",
+    "type": "sign",
+    "tier": "core",
+    "topic": "permitting",
+    "context": "A permitting bill reaches your desk. It fast-tracks housing and power lines, and pipelines with them. Environmental groups call it a betrayal. Builders call it overdue.",
+    "prompt": "Do you sign the fast-track permitting bill, or veto it?",
+    "options": [
+      {
+        "id": "sign",
+        "label": "Sign. A party that cannot build cannot govern.",
+        "effects": {
+          "tech": 1,
+          "econ": 0.8,
+          "system": -0.3
+        },
+        "cand": {
+          "shapiro": 1,
+          "newsom": 1
+        }
+      },
+      {
+        "id": "veto",
+        "label": "Veto. Not with the pipelines in it.",
+        "effects": {
+          "tech": -0.8,
+          "econ": -0.8
+        },
+        "cand": {
+          "aoc": 1
+        }
+      }
+    ],
+    "facts": "On June 30, 2025 Gavin Newsom signed bills rolling back parts of the California Environmental Quality Act to speed housing construction.",
+    "discrimination": 2
+  },
+  {
+    "id": "D-036",
+    "chapter": "convention",
+    "route": "dem",
+    "type": "draft",
+    "tier": "core",
+    "topic": "drafts-chief-of-staff",
+    "excludes": [
+      "D-079"
+    ],
+    "context": "You beat them all. Now one of them has to run your White House, and know every grudge in it.",
+    "prompt": "Draft a chief of staff from the rivals you just defeated.",
+    "pool": [
+      "newsom",
+      "pritzker",
+      "buttigieg",
+      "harris",
+      "khanna",
+      "slotkin"
+    ],
+    "options": [
+      {
+        "id": "newsom",
+        "label": "Gavin Newsom: plays offense and never logs off",
+        "effects": {
+          "mach": 1,
+          "online": 0.8
+        },
+        "cand": {
+          "newsom": 2
+        }
+      },
+      {
+        "id": "pritzker",
+        "label": "JB Pritzker: a brawler who signs his own checks",
+        "effects": {
+          "style": 1,
+          "dynasty": 0.8
+        },
+        "cand": {
+          "pritzker": 2
+        }
+      },
+      {
+        "id": "buttigieg",
+        "label": "Pete Buttigieg: the briefing-book mind",
+        "effects": {
+          "system": -0.8,
+          "mach": 0.5
+        },
+        "cand": {
+          "buttigieg": 2
+        }
+      },
+      {
+        "id": "harris",
+        "label": "Kamala Harris: has already seen the building",
+        "effects": {
+          "loyalty": 1,
+          "system": -1
+        },
+        "cand": {
+          "harris": 2
+        }
+      },
+      {
+        "id": "khanna",
+        "label": "Ro Khanna: will tell you no, in public",
+        "effects": {
+          "loyalty": -1,
+          "system": 0.8
+        },
+        "cand": {
+          "khanna": 2
+        }
+      },
+      {
+        "id": "slotkin",
+        "label": "Elissa Slotkin: runs it like a watch floor",
+        "effects": {
+          "world": 0.8,
+          "psych": 0.5
+        },
+        "cand": {
+          "slotkin": 2
+        }
+      }
+    ],
+    "discrimination": 2
+  },
+  {
+    "id": "D-037",
+    "chapter": "primary",
+    "route": "dem",
+    "type": "choice",
+    "tier": "core",
+    "topic": "church-campaign-stop",
+    "context": "A South Carolina church has given you ten minutes on Sunday morning.",
+    "prompt": "Do you talk about your own faith?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Yes, from the heart. It is why I am in this.",
+        "effects": {
+          "faith": 1.5,
+          "style": -0.5
+        },
+        "cand": {
+          "beshear": 2
+        }
+      },
+      {
+        "id": "b",
+        "label": "Yes, briefly, as the way into policy.",
+        "effects": {
+          "faith": 0.6,
+          "mach": 0.5
+        },
+        "cand": {
+          "shapiro": 1,
+          "buttigieg": 1
+        }
+      },
+      {
+        "id": "c",
+        "label": "No. Sit in the pew and let the pastor preach.",
+        "effects": {
+          "faith": -0.3,
+          "narc": -1
+        },
+        "cand": {
+          "kelly": 1
+        }
+      },
+      {
+        "id": "d",
+        "label": "No. A pulpit is not a podium.",
+        "effects": {
+          "faith": -1.5
+        }
+      }
+    ],
+    "signature": [
+      "beshear"
+    ],
+    "discrimination": 2
+  },
+  {
+    "id": "D-038",
+    "chapter": "convention",
+    "route": "dem",
+    "type": "rank",
+    "tier": "core",
+    "topic": "who-you-owe",
+    "context": "You clinched the nomination an hour ago. The phone has 212 missed calls.",
+    "prompt": "Rank who you call back first.",
+    "options": [
+      {
+        "id": "a",
+        "label": "The rival who came second",
+        "effects": {
+          "style": -1,
+          "psych": -0.5
+        }
+      },
+      {
+        "id": "b",
+        "label": "The donor who bankrolled your rival",
+        "effects": {
+          "mach": 1.2,
+          "econ": 0.5
+        }
+      },
+      {
+        "id": "c",
+        "label": "The union president who stayed neutral",
+        "effects": {
+          "econ": -1,
+          "trade": -0.5
+        }
+      },
+      {
+        "id": "d",
+        "label": "The former President",
+        "effects": {
+          "loyalty": 1,
+          "system": -0.8
+        }
+      },
+      {
+        "id": "e",
+        "label": "The podcaster who spent a year trashing you",
+        "effects": {
+          "online": 1.2,
+          "narc": 0.5
+        }
+      }
+    ],
+    "discrimination": 1
+  },
+  {
+    "id": "D-039",
+    "chapter": "announcement",
+    "route": "gop",
+    "type": "choice",
+    "tier": "core",
+    "topic": "heir-apparent",
+    "excludes": [
+      "C-046",
+      "C-047",
+      "D-041"
+    ],
+    "context": "The President says it is too early to name an heir. Months later he says the Vice President is most likely.",
+    "prompt": "Who should his movement belong to once he is gone?",
+    "options": [
+      {
+        "id": "a",
+        "label": "The Vice President. Succession should be orderly.",
+        "effects": {
+          "loyalty": 1.2,
+          "system": -0.3
+        },
+        "cand": {
+          "vance": 2
+        }
+      },
+      {
+        "id": "b",
+        "label": "His family. The name is the brand.",
+        "effects": {
+          "dynasty": 1.5,
+          "loyalty": 1
+        },
+        "cand": {
+          "trumpjr": 2
+        }
+      },
+      {
+        "id": "c",
+        "label": "Whoever wins an open primary. Nobody is owed it.",
+        "effects": {
+          "loyalty": -1,
+          "dynasty": -1
+        },
+        "cand": {
+          "desantis": 1,
+          "cruz": 1
+        }
+      },
+      {
+        "id": "d",
+        "label": "Nobody. It is over; rebuild the party that came before.",
+        "effects": {
+          "loyalty": -1.5,
+          "system": -1
+        },
+        "cand": {
+          "christie": 1,
+          "pence": 1
+        }
+      }
+    ],
+    "signature": [
+      "vance",
+      "trumpjr"
+    ],
+    "facts": "In a Fox News interview with Bret Baier aired February 9 to 10, 2025, President Trump answered no when asked if he saw JD Vance as his successor, adding that it was too early. On August 5, 2025 he said Vance was most likely the heir to the movement.",
+    "discrimination": 3
+  },
+  {
+    "id": "D-040",
+    "chapter": "backroom",
+    "route": "gop",
+    "type": "dilemma",
+    "tier": "core",
+    "topic": "heir-apparent",
+    "context": "The President has mused aloud about a ticket made of his Vice President and his Secretary of State. He did not say in which order.",
+    "prompt": "Who should lead that ticket?",
+    "options": [
+      {
+        "id": "a",
+        "label": "The populist Vice President. The base already chose.",
+        "effects": {
+          "world": -1,
+          "trade": -0.8,
+          "online": 0.5
+        },
+        "cand": {
+          "vance": 2
+        }
+      },
+      {
+        "id": "b",
+        "label": "The Secretary of State, diplomat with all the jobs. Wins suburbs.",
+        "effects": {
+          "world": 1,
+          "system": -0.5,
+          "online": -0.5
+        },
+        "cand": {
+          "rubio": 2
+        }
+      }
+    ],
+    "signature": [
+      "rubio",
+      "vance"
+    ],
+    "facts": "On August 5, 2025 President Trump said Marco Rubio might get together with JD Vance in some form, without saying who would lead. Rubio has served as Secretary of State since January 2025 and also as national security adviser (acting at first) since May 1, 2025.",
+    "discrimination": 3
+  },
+  {
+    "id": "D-041",
+    "chapter": "announcement",
+    "route": "gop",
+    "type": "hold",
+    "tier": "bombshell",
+    "topic": "heir-apparent",
+    "excludes": [
+      "C-046",
+      "C-047",
+      "D-039"
+    ],
+    "context": "The President's eldest son is asked whether he will run for President and says maybe one day. A committee set up to draft him into the 2028 race wants your name on its letter tonight.",
+    "prompt": "Do you sign the letter urging the President's son to run in 2028?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Sign it. The voters want the name.",
+        "effects": {
+          "dynasty": 1.5,
+          "loyalty": 1
+        },
+        "cand": {
+          "trumpjr": 2
+        }
+      },
+      {
+        "id": "b",
+        "label": "Refuse. A republic is not a family business.",
+        "effects": {
+          "dynasty": -1.5,
+          "loyalty": -1
+        },
+        "cand": {
+          "christie": 1,
+          "pence": 1
+        }
+      },
+      {
+        "id": "c",
+        "label": "Sign nothing. Tell his camp and his rivals you are with them.",
+        "effects": {
+          "mach": 1.5
+        },
+        "cand": {
+          "cruz": 1
+        }
+      }
+    ],
+    "signature": [
+      "trumpjr"
+    ],
+    "fx": [
+      "breaking",
+      "buzz_heavy"
+    ],
+    "measure": [
+      "holdStrength",
+      "hesitation"
+    ],
+    "facts": "At the Qatar Economic Forum on May 21, 2025 Donald Trump Jr. said of a future presidential run: maybe one day.",
+    "discrimination": 3
+  },
+  {
+    "id": "D-042",
+    "chapter": "debate",
+    "route": "gop",
+    "type": "slider",
+    "tier": "core",
+    "topic": "tariffs",
+    "excludes": [
+      "A-037"
+    ],
+    "context": "Liberation Day: the President's name for the day he put tariffs on nearly every country on earth, with a chart in the Rose Garden.",
+    "prompt": "Where should the party stand on trade?",
+    "slider": {
+      "left": "Tariffs on everyone",
+      "right": "Free trade",
+      "centre": "Tariffs on China, trade with friends",
+      "effects": {
+        "trade": 2
+      },
+      "steps": 5
+    },
+    "candLeft": {
+      "hawley": 1,
+      "vance": 1
+    },
+    "candRight": {
+      "randpaul": 1,
+      "pence": 1
+    },
+    "facts": "President Trump announced sweeping tariffs on April 2, 2025, which he called Liberation Day.",
+    "discrimination": 3
+  },
+  {
+    "id": "D-043",
+    "chapter": "debate",
+    "route": "gop",
+    "type": "choice",
+    "tier": "core",
+    "topic": "tariff-power",
+    "context": "Two days after the President's worldwide tariffs, the stock market has lost a tenth of its value. You are a Republican senator with a microphone.",
+    "prompt": "What do you do with it?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Warn on your podcast that the midterms could be a bloodbath.",
+        "effects": {
+          "trade": 1,
+          "loyalty": -0.5,
+          "online": 0.6
+        },
+        "cand": {
+          "cruz": 2
+        }
+      },
+      {
+        "id": "b",
+        "label": "Force a Senate vote to cancel them.",
+        "effects": {
+          "trade": 1.5,
+          "loyalty": -1.5
+        },
+        "cand": {
+          "randpaul": 2
+        }
+      },
+      {
+        "id": "c",
+        "label": "Hold the line. Short pain, long gain.",
+        "effects": {
+          "trade": -1.5,
+          "loyalty": 1
+        },
+        "cand": {
+          "vance": 1
+        }
+      },
+      {
+        "id": "d",
+        "label": "Turn the tariff money into rebate checks for workers.",
+        "effects": {
+          "trade": -1,
+          "econ": -1
+        },
+        "cand": {
+          "hawley": 2
+        }
+      }
+    ],
+    "signature": [
+      "cruz",
+      "randpaul"
+    ],
+    "facts": "Ted Cruz warned on his Verdict podcast in early April 2025, days after the tariff announcement, that a tariff-driven recession could make the 2026 midterms a bloodbath. On April 2, 2025 the Senate passed 51 to 48 a resolution, co-sponsored by Rand Paul, against the Canada tariffs. Josh Hawley introduced the American Worker Rebate Act on July 28, 2025.",
+    "discrimination": 3
+  },
+  {
+    "id": "D-044",
+    "chapter": "primary",
+    "route": "gop",
+    "type": "pin",
+    "tier": "core",
+    "topic": "tech-right",
+    "context": "A Nevada casino floor at 4 a.m., an hour before your rally in the ballroom. The tech money and the nationalists are both in the building.",
+    "prompt": "You have one free hour. Who gets it? Tap where you spend it.",
+    "art": "D-NEVADA-CASINO-FLOOR",
+    "artNote": "Casino floor before dawn, carpet patterned, lights on, nobody there. No people. Left: a roped-off high-limit table with stacked chips and a velvet rope. Center: a long row of slot machines glowing. Right: a wall of sportsbook screens showing only numbers and tickers. Back: a low stage with flag bunting and a lone microphone stand. Far left corner: a plain service door propped open with a cleaning cart.",
+    "regions": [
+      {
+        "id": "highroller",
+        "label": "The high-limit table — court the tech donors",
+        "where": "left, the roped-off table with chip stacks",
+        "effects": {
+          "tech": 1.2,
+          "econ": 0.8
+        },
+        "cand": {
+          "ramaswamy": 2
+        },
+        "poly": { "wide": [[0,52],[8,51],[30,54],[36,62],[36,85],[25,97],[0,97]], "tall": [[0,74],[20,72.5],[45,75],[62,76],[62,97],[0,98]] }
+      },
+      {
+        "id": "slots",
+        "label": "The slot machines — talk to the regulars",
+        "where": "center, the row of slot machines",
+        "effects": {
+          "econ": -0.8,
+          "trade": -0.8
+        },
+        "cand": {
+          "hawley": 1,
+          "vance": 1
+        },
+        "poly": { "wide": [[40,50],[43,43],[50,39],[60,38.5],[75,38.5],[75,76],[40,76]], "tall": [[11,58],[18,48],[86,51],[91,66],[55,70],[42,72],[31,73],[11,71]] }
+      },
+      {
+        "id": "sportsbook",
+        "label": "The sportsbook screens — post for the very online",
+        "where": "right, the wall of screens and tickers",
+        "effects": {
+          "online": 1.2,
+          "libertine": 1
+        },
+        "cand": {
+          "trumpjr": 2
+        },
+        "poly": { "wide": [[76,13],[99,5],[99,60],[76,52]], "tall": [[55,27],[90,22],[98,25],[98,47],[55,47]] }
+      },
+      {
+        "id": "stage",
+        "label": "The stage — rehearse the speech again",
+        "where": "back, the stage with bunting and microphone",
+        "effects": {
+          "narc": 1,
+          "style": 0.5
+        },
+        "cand": {
+          "cruz": 1
+        },
+        "poly": { "wide": [[21,12],[53,12],[53,37.5],[21,37.5]], "tall": [[28,6],[72,6],[72,24],[28,24]] }
+      },
+      {
+        "id": "service",
+        "label": "The service door — meet the night-shift workers",
+        "where": "far left corner, the propped service door and cart",
+        "effects": {
+          "narc": -1,
+          "econ": -0.5,
+          "style": -0.5
+        },
+        "cand": {
+          "kemp": 1
+        },
+        "poly": { "wide": [[5,15],[13,14],[20,22],[20,46],[5,46]], "tall": [[7,28],[22,27],[35,34],[35,45],[7,45]] }
+      }
+    ],
+    "discrimination": 2
+  },
+  {
+    "id": "D-045",
+    "chapter": "debate",
+    "route": "gop",
+    "type": "slider",
+    "tier": "core",
+    "topic": "ukraine",
+    "excludes": [
+      "A-025"
+    ],
+    "context": "Ukraine, year four. The party has two answers and they cannot both be the platform.",
+    "prompt": "Where should the party stand on arming Ukraine?",
+    "slider": {
+      "left": "Not our war. Cut them off.",
+      "right": "Arm them until Russia leaves",
+      "centre": "Arm them just enough to get a deal",
+      "effects": {
+        "world": 2
+      },
+      "steps": 5
+    },
+    "candLeft": {
+      "vance": 1,
+      "trumpjr": 1
+    },
+    "candRight": {
+      "pence": 1,
+      "christie": 1
+    },
+    "facts": "Russia's full-scale invasion of Ukraine began on February 24, 2022. US support became an open dispute inside the Republican Party after the February 28, 2025 Oval Office meeting.",
+    "discrimination": 3
+  },
+  {
+    "id": "D-046",
+    "chapter": "scandal",
+    "route": "gop",
+    "type": "choice",
+    "tier": "bombshell",
+    "topic": "oval-office-ambush",
+    "excludes": [
+      "B-001"
+    ],
+    "context": "The leader of an ally at war is in the Oval Office, and the meeting is coming apart on live television. You are sitting four feet away.",
+    "prompt": "What do you do?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Ask him whether he has once said thank you.",
+        "effects": {
+          "world": -1.5,
+          "style": 1.5,
+          "loyalty": 1
+        },
+        "cand": {
+          "vance": 2
+        }
+      },
+      {
+        "id": "b",
+        "label": "Say nothing. The cameras do not need a third voice.",
+        "effects": {
+          "mach": 1,
+          "loyalty": 1,
+          "style": -1
+        },
+        "cand": {
+          "rubio": 2
+        }
+      },
+      {
+        "id": "c",
+        "label": "Cut in and drag it back to the deal on the table.",
+        "effects": {
+          "style": -0.8,
+          "world": 0.8
+        },
+        "cand": {
+          "youngkin": 1,
+          "kemp": 1
+        }
+      },
+      {
+        "id": "d",
+        "label": "Tell reporters afterward it was a disgrace.",
+        "effects": {
+          "loyalty": -1.5,
+          "world": 1.5
+        },
+        "cand": {
+          "christie": 1,
+          "pence": 1
+        }
+      }
+    ],
+    "signature": [
+      "vance",
+      "rubio"
+    ],
+    "fx": [
+      "breaking",
+      "shake"
+    ],
+    "facts": "On February 28, 2025 President Zelensky's Oval Office meeting with President Trump and Vice President Vance broke down on camera; Vance asked whether he had said thank you. Secretary of State Rubio was seated in the room.",
+    "discrimination": 3
+  },
+  {
+    "id": "D-047",
+    "chapter": "debate",
+    "route": "gop",
+    "type": "rank",
+    "tier": "core",
+    "topic": "threat-ranking",
+    "context": "You get one foreign-policy speech and one headline. The hawks and the bring-them-home wing have each sent a draft.",
+    "prompt": "Rank where America's attention should go.",
+    "options": [
+      {
+        "id": "a",
+        "label": "China, and nothing but China",
+        "effects": {
+          "world": 0.8,
+          "trade": -0.8
+        },
+        "cand": {
+          "hawley": 1
+        }
+      },
+      {
+        "id": "b",
+        "label": "Iran's nuclear program",
+        "effects": {
+          "world": 1.2,
+          "faith": 0.3
+        },
+        "cand": {
+          "cruz": 1
+        }
+      },
+      {
+        "id": "c",
+        "label": "The cartels and the hemisphere",
+        "effects": {
+          "world": 0.5,
+          "border": -1
+        },
+        "cand": {
+          "rubio": 1,
+          "desantis": 1
+        }
+      },
+      {
+        "id": "d",
+        "label": "Russia",
+        "effects": {
+          "world": 1.2,
+          "loyalty": -0.5
+        },
+        "cand": {
+          "pence": 1,
+          "christie": 1
+        }
+      },
+      {
+        "id": "e",
+        "label": "Home. Bring everyone back.",
+        "effects": {
+          "world": -1.5,
+          "econ": 0.5
+        },
+        "cand": {
+          "randpaul": 2
+        }
+      }
+    ],
+    "facts": "The United States struck Iranian nuclear sites on June 21 to 22, 2025 and began military strikes on alleged drug boats in the Caribbean on September 2, 2025.",
+    "discrimination": 2
+  },
+  {
+    "id": "D-048",
+    "chapter": "debate",
+    "route": "gop",
+    "type": "dilemma",
+    "tier": "core",
+    "topic": "iran",
+    "context": "On the President's order, American bombers are in the air toward Iran's nuclear sites. The online right calls it a betrayal of America First. The hawks say finish the job.",
+    "prompt": "You have to say something before they land. Do you back the strike?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Back the strike. Strength is how you avoid wars.",
+        "effects": {
+          "world": 1.5,
+          "loyalty": 0.5
+        },
+        "cand": {
+          "cruz": 1,
+          "rubio": 1
+        }
+      },
+      {
+        "id": "b",
+        "label": "Oppose it. No new wars meant no new wars.",
+        "effects": {
+          "world": -1.5,
+          "loyalty": -0.8
+        },
+        "cand": {
+          "randpaul": 1
+        }
+      }
+    ],
+    "facts": "US aircraft struck Iranian nuclear facilities at Fordow, Natanz and Isfahan on June 21 to 22, 2025.",
+    "discrimination": 2
+  },
+  {
+    "id": "D-049",
+    "chapter": "scandal",
+    "route": "gop",
+    "type": "choice",
+    "tier": "core",
+    "topic": "iran",
+    "excludes": [
+      "B-063"
+    ],
+    "context": "A host with a vast audience asks you the population of the country you want to bomb. You do not know it.",
+    "prompt": "Your blank face is being clipped as you sit there. What do you do?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Say it does not matter and hit back harder.",
+        "effects": {
+          "style": 1.5,
+          "narc": 1
+        },
+        "cand": {
+          "cruz": 2
+        }
+      },
+      {
+        "id": "b",
+        "label": "Admit it, laugh, move on.",
+        "effects": {
+          "narc": -1,
+          "style": -0.5
+        },
+        "cand": {
+          "kemp": 1
+        }
+      },
+      {
+        "id": "c",
+        "label": "Never again do an interview you do not control.",
+        "effects": {
+          "mach": 1,
+          "online": -1
+        },
+        "cand": {
+          "youngkin": 1
+        }
+      },
+      {
+        "id": "d",
+        "label": "Go back next week with the number and a grudge.",
+        "effects": {
+          "online": 0.8,
+          "narc": 0.5,
+          "psych": 0.5
+        },
+        "cand": {
+          "ramaswamy": 1
+        }
+      }
+    ],
+    "signature": [
+      "cruz"
+    ],
+    "facts": "In an interview released on June 18, 2025 Tucker Carlson asked Ted Cruz the population of Iran; Cruz said he did not know it.",
+    "discrimination": 2
+  },
+  {
+    "id": "D-050",
+    "chapter": "scandal",
+    "route": "gop",
+    "type": "hold",
+    "tier": "bombshell",
+    "topic": "epstein-files",
+    "excludes": [
+      "A-087"
+    ],
+    "context": "Your own party's Justice Department says there is no Epstein client list and nothing more to release. The base is not buying it.",
+    "prompt": "What do you say about the Epstein files?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Demand every file, whoever is in them.",
+        "effects": {
+          "system": 1.2,
+          "loyalty": -1.2,
+          "libertine": -1
+        },
+        "cand": {
+          "hawley": 2,
+          "randpaul": 1
+        }
+      },
+      {
+        "id": "b",
+        "label": "Tell the base it is time to move on.",
+        "effects": {
+          "loyalty": 1.5,
+          "libertine": 0.8
+        }
+      },
+      {
+        "id": "c",
+        "label": "Say release it all, then vote to bury it.",
+        "effects": {
+          "mach": 1.5,
+          "loyalty": 0.5
+        }
+      }
+    ],
+    "signature": [
+      "hawley"
+    ],
+    "fx": [
+      "breaking",
+      "typewriter",
+      "night"
+    ],
+    "measure": [
+      "holdStrength"
+    ],
+    "facts": "A Justice Department and FBI memo dated July 7, 2025 said there was no Epstein client list and no further disclosure was warranted. On September 10, 2025 the Senate voted 51 to 49 to table Chuck Schumer's amendment to the defense bill to release the files; Josh Hawley and Rand Paul were the only Republicans voting against tabling.",
+    "discrimination": 3
+  },
+  {
+    "id": "D-051",
+    "chapter": "debate",
+    "route": "gop",
+    "type": "swipe",
+    "tier": "core",
+    "topic": "loyalty-test",
+    "context": "The loyalty test. A man from the President's movement reads statements off a clipboard. You nod or you do not.",
+    "prompt": "Do you agree with each statement? Yes or no, four seconds each.",
+    "cards": [
+      {
+        "id": "s1",
+        "text": "The 2020 election was stolen",
+        "yes": {
+          "loyalty": 1.2,
+          "system": 1,
+          "democracy": -0.8
+        },
+        "no": {
+          "loyalty": -1.2,
+          "system": -1,
+          "democracy": 0.8
+        }
+      },
+      {
+        "id": "s2",
+        "text": "Pardon every January 6 defendant, violent or not",
+        "yes": {
+          "loyalty": 1,
+          "psych": 0.5
+        },
+        "no": {
+          "loyalty": -0.8,
+          "system": -0.5
+        }
+      },
+      {
+        "id": "s3",
+        "text": "A third term is worth discussing",
+        "yes": {
+          "loyalty": 1.5,
+          "system": 1.5,
+          "democracy": -1
+        },
+        "no": {
+          "system": -1,
+          "loyalty": -0.5,
+          "democracy": 1
+        }
+      },
+      {
+        "id": "s4",
+        "text": "The Vice President was right to certify the 2020 result",
+        "yes": {
+          "system": -1.2,
+          "loyalty": -1,
+          "democracy": 1
+        },
+        "no": {
+          "loyalty": 1,
+          "system": 0.8,
+          "democracy": -0.8
+        },
+        "candYes": {
+          "pence": 1
+        }
+      },
+      {
+        "id": "s5",
+        "text": "Primary any senator who votes against the President",
+        "yes": {
+          "loyalty": 1,
+          "style": 1
+        },
+        "no": {
+          "loyalty": -0.8
+        }
+      },
+      {
+        "id": "s6",
+        "text": "The party is bigger than any one man",
+        "yes": {
+          "loyalty": -1.2
+        },
+        "no": {
+          "loyalty": 1.2,
+          "dynasty": 0.5
+        }
+      }
+    ],
+    "signature": [
+      "pence"
+    ],
+    "measure": [
+      "speed",
+      "hesitation"
+    ],
+    "facts": "Mike Pence presided over certification of the 2020 result on January 6 to 7, 2021. President Trump pardoned or commuted nearly all January 6 defendants on January 20, 2025, and told NBC on March 30, 2025 he was not joking about a third term.",
+    "discrimination": 3
+  },
+  {
+    "id": "D-052",
+    "chapter": "backroom",
+    "route": "gop",
+    "type": "dilemma",
+    "tier": "core",
+    "topic": "overturn-your-state",
+    "excludes": [
+      "B-005",
+      "C-076",
+      "E-015"
+    ],
+    "context": "You are a governor. The President lost your state, and he is on the phone. He wants a special session of your legislature to find a way to change the result.",
+    "prompt": "He is waiting. Do you call the session?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Refuse. The law says certify, so you certify.",
+        "effects": {
+          "loyalty": -1.5,
+          "system": -1.2,
+          "mach": -0.5,
+          "democracy": 1
+        },
+        "cand": {
+          "kemp": 2
+        }
+      },
+      {
+        "id": "b",
+        "label": "Call the session. He made you; you owe him the try.",
+        "effects": {
+          "loyalty": 1.5,
+          "system": 1.2,
+          "democracy": -1
+        }
+      }
+    ],
+    "signature": [
+      "kemp"
+    ],
+    "measure": [
+      "hesitation"
+    ],
+    "facts": "On December 5, 2020 President Trump phoned Georgia Governor Brian Kemp and urged him to call a special legislative session over the state's result; Kemp declined.",
+    "discrimination": 3
+  },
+  {
+    "id": "D-053",
+    "chapter": "debate",
+    "route": "gop",
+    "type": "choice",
+    "tier": "core",
+    "topic": "fist-and-run",
+    "excludes": [
+      "B-033"
+    ],
+    "context": "Debate night. The moderator rolls two clips of you from January 6: saluting the crowd outside the Capitol, then leaving the building at speed.",
+    "prompt": "You have thirty seconds. What do you say?",
+    "options": [
+      {
+        "id": "a",
+        "label": "I objected to the count lawfully, and I would again.",
+        "effects": {
+          "loyalty": 1,
+          "system": 0.8
+        },
+        "cand": {
+          "hawley": 1,
+          "cruz": 1
+        }
+      },
+      {
+        "id": "b",
+        "label": "It was a mistake. I am saying so now.",
+        "effects": {
+          "loyalty": -1,
+          "narc": -1
+        }
+      },
+      {
+        "id": "c",
+        "label": "Pivot: ask who was right about Big Tech all along.",
+        "effects": {
+          "mach": 1,
+          "tech": -1
+        },
+        "cand": {
+          "hawley": 2
+        }
+      },
+      {
+        "id": "d",
+        "label": "Mock the clip before anyone else can.",
+        "effects": {
+          "online": 1,
+          "narc": 0.5,
+          "style": 0.5
+        }
+      }
+    ],
+    "signature": [
+      "hawley"
+    ],
+    "facts": "Josh Hawley raised a fist to protesters outside the Capitol on January 6, 2021. The House select committee showed footage on July 21, 2022 of him running through the building later that day.",
+    "discrimination": 2
+  },
+  {
+    "id": "D-054",
+    "chapter": "debate",
+    "route": "gop",
+    "type": "slider",
+    "tier": "core",
+    "topic": "pardons",
+    "context": "On his first day back, the President pardoned about 1,500 people charged over the January 6 attack on the Capitol.",
+    "prompt": "Were the January 6 pardons right?",
+    "slider": {
+      "left": "All of them, yes",
+      "right": "Not the violent ones",
+      "centre": "Case by case, not by the thousand",
+      "effects": {
+        "loyalty": -1.5,
+        "system": -0.8,
+        "democracy": 0.8
+      },
+      "steps": 5
+    },
+    "candLeft": {
+      "trumpjr": 1
+    },
+    "candRight": {
+      "pence": 1,
+      "christie": 1
+    },
+    "facts": "On January 20, 2025 President Trump granted clemency to about 1,500 people charged over the January 6, 2021 attack on the Capitol.",
+    "discrimination": 2
+  },
+  {
+    "id": "D-055",
+    "chapter": "convention",
+    "route": "gop",
+    "type": "rank",
+    "tier": "core",
+    "topic": "convention-lineup",
+    "excludes": [
+      "A-057"
+    ],
+    "context": "One prime-time slot left on the convention's final night, and five factions who think it is theirs.",
+    "prompt": "Rank who gets the speaking slot, first choice at the top.",
+    "options": [
+      {
+        "id": "a",
+        "label": "A megachurch pastor",
+        "effects": {
+          "faith": 1.2,
+          "online": -0.5
+        },
+        "cand": {
+          "pence": 1
+        }
+      },
+      {
+        "id": "b",
+        "label": "A streamer with five million subscribers",
+        "effects": {
+          "online": 1.2,
+          "faith": -0.3
+        },
+        "cand": {
+          "trumpjr": 1,
+          "vance": 1
+        }
+      },
+      {
+        "id": "c",
+        "label": "A tech billionaire",
+        "effects": {
+          "tech": 1.2,
+          "econ": 0.5
+        },
+        "cand": {
+          "ramaswamy": 1
+        }
+      },
+      {
+        "id": "d",
+        "label": "A union president who crossed over",
+        "effects": {
+          "econ": -1,
+          "trade": -0.6
+        },
+        "cand": {
+          "hawley": 1
+        }
+      },
+      {
+        "id": "e",
+        "label": "A border-county sheriff",
+        "effects": {
+          "border": -1.2,
+          "style": 0.3
+        },
+        "cand": {
+          "desantis": 1,
+          "cruz": 1
+        }
+      }
+    ],
+    "facts": "Teamsters president Sean O'Brien addressed the Republican National Convention on July 15, 2024.",
+    "discrimination": 2
+  },
+  {
+    "id": "D-056",
+    "chapter": "scandal",
+    "route": "gop",
+    "type": "choice",
+    "tier": "core",
+    "topic": "big-tent",
+    "context": "A famous conservative host gives a friendly interview to an open antisemite. The head of the movement's biggest think tank defends the host. Donors want your statement by noon.",
+    "prompt": "What does your statement say?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Denounce it by name. There are enemies on the right too.",
+        "effects": {
+          "style": 1,
+          "loyalty": -0.5,
+          "online": -0.5
+        },
+        "cand": {
+          "cruz": 2
+        }
+      },
+      {
+        "id": "b",
+        "label": "No purity tests. We do not cancel our own.",
+        "effects": {
+          "online": 1,
+          "system": 1,
+          "loyalty": 0.5
+        },
+        "cand": {
+          "vance": 1
+        }
+      },
+      {
+        "id": "c",
+        "label": "Say nothing and quietly pull out of their gala.",
+        "effects": {
+          "mach": 1.2,
+          "style": -0.8
+        },
+        "cand": {
+          "youngkin": 1,
+          "rubio": 1
+        }
+      },
+      {
+        "id": "d",
+        "label": "Call on the think tank's board to replace its head.",
+        "effects": {
+          "system": -1,
+          "faith": 0.5
+        },
+        "cand": {
+          "pence": 1
+        }
+      }
+    ],
+    "signature": [
+      "cruz"
+    ],
+    "facts": "Tucker Carlson's interview with Nick Fuentes was released on October 27, 2025. Heritage Foundation president Kevin Roberts defended Carlson in a video on October 30, 2025. Ted Cruz condemned the interview and Roberts at the Republican Jewish Coalition summit in Las Vegas on October 30 to 31, 2025. JD Vance told Turning Point's AmericaFest on December 21, 2025 that the movement should not run its supporters through purity tests.",
+    "discrimination": 3
+  },
+  {
+    "id": "D-057",
+    "chapter": "debate",
+    "route": "gop",
+    "type": "budget",
+    "tier": "core",
+    "topic": "skilled-visas",
+    "excludes": [
+      "A-063"
+    ],
+    "context": "The fight over visas for skilled foreign workers: the tech right wants the engineers, the nationalists want the door shut.",
+    "prompt": "What should the policy be? Split 100 points between the options.",
+    "options": [
+      {
+        "id": "a",
+        "label": "More skilled visas. Recruit the world's best.",
+        "effects": {
+          "border": 1,
+          "tech": 1.2
+        },
+        "cand": {
+          "ramaswamy": 2
+        }
+      },
+      {
+        "id": "b",
+        "label": "Keep the program but charge 100,000 dollars a visa",
+        "effects": {
+          "border": -0.8,
+          "trade": -0.5
+        },
+        "cand": {
+          "vance": 1
+        }
+      },
+      {
+        "id": "c",
+        "label": "End it. Hire and train Americans.",
+        "effects": {
+          "border": -1.5,
+          "tech": -1
+        },
+        "cand": {
+          "desantis": 1,
+          "hawley": 1
+        }
+      },
+      {
+        "id": "d",
+        "label": "Staple a green card to every science degree",
+        "effects": {
+          "border": 1.5,
+          "tech": 1
+        }
+      }
+    ],
+    "signature": [
+      "ramaswamy"
+    ],
+    "facts": "Vivek Ramaswamy's post defending skilled immigration on December 26, 2024 set off a public fight on the right. On September 19, 2025 President Trump signed a proclamation imposing a 100,000 dollar fee on new H-1B petitions.",
+    "discrimination": 3
+  },
+  {
+    "id": "D-058",
+    "chapter": "scandal",
+    "route": "gop",
+    "type": "dilemma",
+    "tier": "bombshell",
+    "topic": "skilled-visas",
+    "excludes": [
+      "A-102",
+      "B-006"
+    ],
+    "context": "At midnight you defend hiring foreign engineers by posting that the culture has prized the prom queen over the math champion. By dawn the nationalist wing wants your head.",
+    "prompt": "The replies are at 40,000 and climbing. Do you stand by the post?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Double down with a longer post.",
+        "effects": {
+          "narc": 1.2,
+          "online": 1,
+          "tech": 1,
+          "style": 1
+        },
+        "cand": {
+          "ramaswamy": 2
+        }
+      },
+      {
+        "id": "b",
+        "label": "Delete it and say the base is right about visas.",
+        "effects": {
+          "loyalty": 1,
+          "border": -1,
+          "mach": 0.8
+        }
+      }
+    ],
+    "signature": [
+      "ramaswamy"
+    ],
+    "fx": [
+      "breaking",
+      "buzz_light"
+    ],
+    "facts": "On December 26, 2024 Vivek Ramaswamy posted that American culture had venerated mediocrity over excellence, in defense of hiring foreign engineers. He left the DOGE project on January 20, 2025.",
+    "discrimination": 3
+  },
+  {
+    "id": "D-059",
+    "chapter": "debate",
+    "route": "gop",
+    "type": "slider",
+    "tier": "core",
+    "topic": "big-tech",
+    "context": "Silicon Valley's right wing paid for the last campaign. The populists say it is now buying the next one.",
+    "prompt": "What should the party do with Silicon Valley?",
+    "slider": {
+      "left": "Break it up. Guard the kids.",
+      "right": "Unleash it. Win the AI race.",
+      "centre": "Unleash the AI, keep it away from kids",
+      "effects": {
+        "tech": 2
+      },
+      "steps": 5
+    },
+    "candLeft": {
+      "hawley": 2
+    },
+    "candRight": {
+      "ramaswamy": 1,
+      "vance": 1
+    },
+    "discrimination": 3
+  },
+  {
+    "id": "D-060",
+    "chapter": "backroom",
+    "route": "gop",
+    "type": "sign",
+    "tier": "core",
+    "topic": "big-bill",
+    "excludes": [
+      "B-042",
+      "B-073"
+    ],
+    "context": "The Big Beautiful Bill is the President's whole agenda in one binding: tax cuts, border money, Medicaid cuts and trillions in new debt. The Senate passed it 51 to 50, on the Vice President's vote.",
+    "prompt": "The pen is yours. Do you sign the whole package into law, or veto it?",
+    "options": [
+      {
+        "id": "sign",
+        "label": "Sign. The agenda is the agenda.",
+        "effects": {
+          "loyalty": 1.2,
+          "econ": 0.5
+        },
+        "cand": {
+          "vance": 1,
+          "cruz": 1
+        }
+      },
+      {
+        "id": "veto",
+        "label": "Veto. Conservatives do not add trillions to the debt.",
+        "effects": {
+          "loyalty": -1.5,
+          "econ": 1,
+          "system": 0.5
+        },
+        "cand": {
+          "randpaul": 2
+        }
+      }
+    ],
+    "signature": [
+      "randpaul"
+    ],
+    "facts": "The One Big Beautiful Bill Act passed the Senate 51 to 50 on July 1, 2025 on Vice President Vance's tie-breaking vote; Rand Paul was one of three Republican senators voting no. It was signed on July 4, 2025. The Congressional Budget Office estimated it would add about 3.4 trillion dollars to deficits over ten years.",
+    "discrimination": 3
+  },
+  {
+    "id": "D-061",
+    "chapter": "debate",
+    "route": "gop",
+    "type": "budget",
+    "tier": "core",
+    "topic": "deficit",
+    "context": "The deficit is among the largest ever run outside a war or a crisis. Somebody has to carry 100 points of pain.",
+    "prompt": "Who pays to close the deficit? Split the 100 points of pain.",
+    "options": [
+      {
+        "id": "a",
+        "label": "Cut Medicaid and welfare",
+        "effects": {
+          "econ": 1.5,
+          "psych": 0.8
+        },
+        "cand": {
+          "pence": 1
+        }
+      },
+      {
+        "id": "b",
+        "label": "Cut the Pentagon",
+        "effects": {
+          "world": -1.2,
+          "econ": 0.5
+        },
+        "cand": {
+          "randpaul": 2
+        }
+      },
+      {
+        "id": "c",
+        "label": "Raise taxes on the highest earners",
+        "effects": {
+          "econ": -1.2
+        },
+        "cand": {
+          "hawley": 1
+        }
+      },
+      {
+        "id": "d",
+        "label": "Tariff revenue will cover it",
+        "effects": {
+          "trade": -1.5
+        },
+        "cand": {
+          "vance": 1
+        }
+      },
+      {
+        "id": "e",
+        "label": "Nobody. Growth pays for everything.",
+        "effects": {
+          "narc": 0.5,
+          "mach": 0.5,
+          "econ": 0.3
+        },
+        "cand": {
+          "ramaswamy": 1
+        }
+      }
+    ],
+    "discrimination": 2
+  },
+  {
+    "id": "D-062",
+    "chapter": "backroom",
+    "route": "gop",
+    "type": "swipe",
+    "tier": "core",
+    "topic": "big-tent",
+    "context": "Big tent or burn list. The party chair wants to know who is still welcome in the Republican Party.",
+    "prompt": "Is each one still welcome? Yes keeps them in, no throws them out.",
+    "cards": [
+      {
+        "id": "s1",
+        "text": "The billionaire who called your big bill an abomination",
+        "yes": {
+          "tech": 1,
+          "mach": 0.5
+        },
+        "no": {
+          "tech": -0.8,
+          "loyalty": 0.5
+        }
+      },
+      {
+        "id": "s2",
+        "text": "The governor who certified the 2020 result",
+        "yes": {
+          "system": -0.8,
+          "loyalty": -0.8
+        },
+        "no": {
+          "loyalty": 1
+        }
+      },
+      {
+        "id": "s3",
+        "text": "The host who interviews extremists",
+        "yes": {
+          "online": 1,
+          "system": 1
+        },
+        "no": {
+          "online": -0.5,
+          "faith": 0.3
+        }
+      },
+      {
+        "id": "s4",
+        "text": "The senator who votes no on everything",
+        "yes": {
+          "econ": 0.8,
+          "loyalty": -0.5
+        },
+        "no": {
+          "loyalty": 0.8
+        }
+      },
+      {
+        "id": "s5",
+        "text": "The congresswoman who quit over the Epstein files",
+        "yes": {
+          "system": 0.8,
+          "loyalty": -0.5
+        },
+        "no": {
+          "loyalty": 0.8
+        }
+      },
+      {
+        "id": "s6",
+        "text": "The former Vice President",
+        "yes": {
+          "faith": 0.8,
+          "loyalty": -1
+        },
+        "no": {
+          "loyalty": 1,
+          "psych": 0.5
+        }
+      }
+    ],
+    "measure": [
+      "speed"
+    ],
+    "facts": "Elon Musk called the One Big Beautiful Bill a disgusting abomination on June 3, 2025. Marjorie Taylor Greene announced on November 21, 2025 that she would resign from Congress, after breaking with the President over the Epstein files.",
+    "discrimination": 2
+  },
+  {
+    "id": "D-063",
+    "chapter": "backroom",
+    "route": "gop",
+    "type": "hold",
+    "tier": "core",
+    "topic": "loyalty-to-the-leader",
+    "context": "You are a term-limited governor. The President endorses someone else to succeed you, in your own state, without calling first.",
+    "prompt": "Do you fight the President's pick for your job?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Back your own candidate against his.",
+        "effects": {
+          "loyalty": -1.5,
+          "style": 1.2,
+          "mach": 0.8
+        },
+        "cand": {
+          "desantis": 2
+        }
+      },
+      {
+        "id": "b",
+        "label": "Fall in line and endorse.",
+        "effects": {
+          "loyalty": 1.5,
+          "style": -0.8
+        }
+      },
+      {
+        "id": "c",
+        "label": "Stay neutral and start visiting Iowa.",
+        "effects": {
+          "mach": 1.2,
+          "narc": 0.8
+        },
+        "cand": {
+          "youngkin": 1
+        }
+      }
+    ],
+    "signature": [
+      "desantis"
+    ],
+    "measure": [
+      "holdStrength"
+    ],
+    "facts": "On February 20, 2025 President Trump endorsed Byron Donalds for Governor of Florida; Ron DeSantis declined to back him.",
+    "discrimination": 2
+  },
+  {
+    "id": "D-064",
+    "chapter": "primary",
+    "route": "gop",
+    "type": "choice",
+    "tier": "core",
+    "topic": "petty-revenge",
+    "excludes": [
+      "B-036"
+    ],
+    "context": "You are a governor. The biggest employer in your state publicly attacks your schools law.",
+    "prompt": "How do you answer the company?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Strip its special tax district. Make an example.",
+        "effects": {
+          "style": 1.5,
+          "psych": 1,
+          "social": -1,
+          "econ": -0.5
+        },
+        "cand": {
+          "desantis": 2
+        }
+      },
+      {
+        "id": "b",
+        "label": "Call the chief executive and settle it quietly.",
+        "effects": {
+          "style": -1,
+          "econ": 1
+        },
+        "cand": {
+          "kemp": 1
+        }
+      },
+      {
+        "id": "c",
+        "label": "Leave it. Government does not punish speech.",
+        "effects": {
+          "econ": 1,
+          "system": -0.5,
+          "liberty": 0.8
+        },
+        "cand": {
+          "randpaul": 1,
+          "pence": 1
+        }
+      },
+      {
+        "id": "d",
+        "label": "Out-message them. The parents are with you.",
+        "effects": {
+          "social": -0.8,
+          "style": -0.3,
+          "mach": 0.5
+        },
+        "cand": {
+          "youngkin": 2
+        }
+      }
+    ],
+    "signature": [
+      "desantis",
+      "youngkin"
+    ],
+    "facts": "On April 22, 2022 Ron DeSantis signed a law dissolving Walt Disney World's Reedy Creek special district after the company criticized Florida's Parental Rights in Education Act.",
+    "discrimination": 3
+  },
+  {
+    "id": "D-065",
+    "chapter": "primary",
+    "route": "gop",
+    "type": "pin",
+    "tier": "core",
+    "topic": "church-campaign-stop",
+    "excludes": [
+      "A-054"
+    ],
+    "context": "A South Carolina church on the Sunday before the primary. The pews want one thing from you; the phones on tripods want another.",
+    "prompt": "Tap where you put yourself.",
+    "art": "D-SC-CHURCH-SUNDAY",
+    "artNote": "Interior of a white wooden Southern church, empty, morning light through plain windows. No people. Front center: the pulpit with an open Bible. Front right: a brass collection plate on a small table. Middle: the back pew with a folded program left on it. Left aisle: a phone on a tripod with a ring light, livestream icon glowing. Rear: open double doors onto a gravel parking lot with pickup trucks.",
+    "regions": [
+      {
+        "id": "pulpit",
+        "label": "The pulpit — give your testimony",
+        "where": "front center, the pulpit and open Bible",
+        "effects": {
+          "faith": 1.5,
+          "narc": 0.5
+        },
+        "cand": {
+          "pence": 2
+        },
+        "poly": { "wide": [[22,79],[28,68],[40,64],[50,64],[57,72],[57,100],[22,100]], "tall": [[2,79],[12,69],[34,68],[35,59],[44,59],[47,68],[61,71],[62,100],[2,100]] }
+      },
+      {
+        "id": "pew",
+        "label": "The back pew — worship, say nothing",
+        "where": "middle, the back pew with the program",
+        "effects": {
+          "faith": 0.8,
+          "narc": -1,
+          "style": -0.8
+        },
+        "cand": {
+          "kemp": 2
+        },
+        "poly": { "wide": [[21,47],[66,48],[66,63],[50,63],[40,63],[28,66],[21,66]], "tall": [[58,42],[100,41],[100,61],[59,61]] }
+      },
+      {
+        "id": "tripod",
+        "label": "The phone on the tripod — go live",
+        "where": "left aisle, the tripod and ring light",
+        "effects": {
+          "online": 1.5,
+          "faith": -0.5
+        },
+        "cand": {
+          "trumpjr": 1,
+          "vance": 1
+        },
+        "poly": { "wide": [[8,28],[13,25],[20,28],[20,60],[21,86],[5,86],[8,60]], "tall": [[10,31],[25,30],[26,40],[29,64],[1,66],[8,40]] }
+      },
+      {
+        "id": "plate",
+        "label": "The collection plate — meet the donors after",
+        "where": "front right, the brass plate on its table",
+        "effects": {
+          "mach": 1,
+          "econ": 0.6
+        },
+        "cand": {
+          "youngkin": 1
+        },
+        "poly": { "wide": [[70,76],[76,72],[93,72],[100,78],[100,100],[70,100]], "tall": [[63,80],[70,74],[94,74],[100,79],[100,100],[63,100]] }
+      },
+      {
+        "id": "carpark",
+        "label": "The parking lot — talk to those who did not come in",
+        "where": "rear, through the open doors to the trucks",
+        "effects": {
+          "faith": -0.8,
+          "system": 0.8,
+          "style": 0.5
+        },
+        "cand": {
+          "desantis": 1
+        },
+        "poly": { "wide": [[70,29],[88,29],[88,50],[73,50],[70,45]], "tall": [[33,16],[67,16],[67,35],[33,35]] }
+      }
+    ],
+    "discrimination": 2
+  },
+  {
+    "id": "D-066",
+    "chapter": "primary",
+    "route": "gop",
+    "type": "rank",
+    "tier": "core",
+    "topic": "closing-message",
+    "context": "You are running for governor of a purple state in an off-year. The suburban voters who decide it do not want to be shouted at.",
+    "prompt": "Rank your closing ads, the one you air most at the top.",
+    "options": [
+      {
+        "id": "a",
+        "label": "Parents get a say in what schools teach",
+        "effects": {
+          "social": -0.8,
+          "style": -0.3
+        },
+        "cand": {
+          "youngkin": 2
+        }
+      },
+      {
+        "id": "b",
+        "label": "Cut the grocery tax",
+        "effects": {
+          "econ": 1,
+          "style": -0.5
+        },
+        "cand": {
+          "kemp": 1
+        }
+      },
+      {
+        "id": "c",
+        "label": "Crime, with sirens",
+        "effects": {
+          "psych": 0.6,
+          "style": 0.8
+        },
+        "cand": {
+          "cruz": 1
+        }
+      },
+      {
+        "id": "d",
+        "label": "The border, a thousand miles away",
+        "effects": {
+          "border": -1.2,
+          "loyalty": 0.5
+        },
+        "cand": {
+          "desantis": 1
+        }
+      },
+      {
+        "id": "e",
+        "label": "Your life story, told in a fleece vest",
+        "effects": {
+          "narc": 0.5,
+          "online": -0.8
+        }
+      }
+    ],
+    "signature": [
+      "youngkin"
+    ],
+    "facts": "Glenn Youngkin was elected Governor of Virginia on November 2, 2021 after a campaign centered on parents' rights in schools.",
+    "discrimination": 2
+  },
+  {
+    "id": "D-067",
+    "chapter": "convention",
+    "route": "gop",
+    "type": "draft",
+    "tier": "core",
+    "topic": "drafts-running-mate",
+    "excludes": [
+      "A-097",
+      "A-098",
+      "B-040",
+      "B-041",
+      "B-095",
+      "D-018",
+      "D-077"
+    ],
+    "context": "The nomination is yours. The ballroom wants a name by Thursday.",
+    "prompt": "Draft your running mate.",
+    "pool": [
+      "rubio",
+      "desantis",
+      "youngkin",
+      "kemp",
+      "ramaswamy",
+      "hawley",
+      "cruz",
+      "trumpjr"
+    ],
+    "options": [
+      {
+        "id": "rubio",
+        "label": "Marco Rubio: already doing every other job",
+        "effects": {
+          "world": 1,
+          "mach": 0.6
+        },
+        "cand": {
+          "rubio": 2
+        }
+      },
+      {
+        "id": "desantis",
+        "label": "Ron DeSantis: a governor who likes a fight",
+        "effects": {
+          "style": 1,
+          "social": -0.8,
+          "loyalty": -0.5
+        },
+        "cand": {
+          "desantis": 2
+        }
+      },
+      {
+        "id": "youngkin",
+        "label": "Glenn Youngkin: the vest, the suburbs, the donors",
+        "effects": {
+          "econ": 1,
+          "style": -1
+        },
+        "cand": {
+          "youngkin": 2
+        }
+      },
+      {
+        "id": "kemp",
+        "label": "Brian Kemp: Georgia, and proof you can say no",
+        "effects": {
+          "system": -1,
+          "loyalty": -0.8
+        },
+        "cand": {
+          "kemp": 2
+        }
+      },
+      {
+        "id": "ramaswamy",
+        "label": "Vivek Ramaswamy: talks faster than the fact-checkers",
+        "effects": {
+          "tech": 1,
+          "online": 1,
+          "narc": 0.5
+        },
+        "cand": {
+          "ramaswamy": 2
+        }
+      },
+      {
+        "id": "hawley",
+        "label": "Josh Hawley: a populist the unions will hear out",
+        "effects": {
+          "econ": -0.8,
+          "tech": -1
+        },
+        "cand": {
+          "hawley": 2
+        }
+      },
+      {
+        "id": "cruz",
+        "label": "Ted Cruz: knows the rules and how to bend them",
+        "effects": {
+          "mach": 1,
+          "faith": 0.6
+        },
+        "cand": {
+          "cruz": 2
+        }
+      },
+      {
+        "id": "trumpjr",
+        "label": "Donald Trump Jr.: the name on the hat",
+        "effects": {
+          "dynasty": 1.5,
+          "loyalty": 1
+        },
+        "cand": {
+          "trumpjr": 2
+        }
+      }
+    ],
+    "discrimination": 3
+  },
+  {
+    "id": "D-068",
+    "chapter": "convention",
+    "route": "gop",
+    "type": "draft",
+    "tier": "bombshell",
+    "topic": "drafts-attorney-general",
+    "excludes": [
+      "B-084"
+    ],
+    "context": "Your pick for Attorney General has just withdrawn. The Senate will confirm one of its own, or a former prosecutor, by morning.",
+    "prompt": "Draft a new Attorney General, the country's top lawyer.",
+    "pool": [
+      "cruz",
+      "hawley",
+      "christie",
+      "desantis",
+      "pence",
+      "randpaul"
+    ],
+    "options": [
+      {
+        "id": "cruz",
+        "label": "Ted Cruz: argued nine cases at the Supreme Court",
+        "effects": {
+          "mach": 1,
+          "loyalty": 0.5
+        },
+        "cand": {
+          "cruz": 2
+        }
+      },
+      {
+        "id": "hawley",
+        "label": "Josh Hawley: investigated Google as Missouri attorney general",
+        "effects": {
+          "tech": -1.2,
+          "econ": -0.5
+        },
+        "cand": {
+          "hawley": 2
+        }
+      },
+      {
+        "id": "christie",
+        "label": "Chris Christie: a prosecutor who owes you nothing",
+        "effects": {
+          "loyalty": -1.5,
+          "system": -1
+        },
+        "cand": {
+          "christie": 2
+        }
+      },
+      {
+        "id": "desantis",
+        "label": "Ron DeSantis: Navy lawyer, no patience",
+        "effects": {
+          "style": 1,
+          "psych": 0.8
+        },
+        "cand": {
+          "desantis": 2
+        }
+      },
+      {
+        "id": "pence",
+        "label": "Mike Pence: will read the Constitution to you, aloud",
+        "effects": {
+          "system": -1.2,
+          "faith": 0.8
+        },
+        "cand": {
+          "pence": 2
+        }
+      },
+      {
+        "id": "randpaul",
+        "label": "Rand Paul: would rather abolish half the department",
+        "effects": {
+          "econ": 1,
+          "system": 0.8,
+          "world": -0.5
+        },
+        "cand": {
+          "randpaul": 2
+        }
+      }
+    ],
+    "fx": [
+      "breaking",
+      "buzz_light"
+    ],
+    "facts": "Ted Cruz argued nine cases before the Supreme Court, all but one as Texas solicitor general (2003 to 2008). Josh Hawley was Missouri attorney general 2017 to 2019 and opened an investigation into Google in November 2017. Chris Christie was US Attorney for New Jersey 2002 to 2008. Ron DeSantis served as a Navy JAG officer.",
+    "discrimination": 2
+  },
+  {
+    "id": "D-069",
+    "chapter": "backroom",
+    "route": "gop",
+    "type": "choice",
+    "tier": "core",
+    "topic": "certifying-2020",
+    "context": "You certified the 2020 election and the President's movement cast you out for it. An offer arrives through a friend: say certifying was a mistake and you can come back.",
+    "prompt": "What is your reply?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Never. I kept my oath.",
+        "effects": {
+          "loyalty": -1.5,
+          "system": -1.2,
+          "faith": 0.5,
+          "democracy": 1
+        },
+        "cand": {
+          "pence": 2
+        }
+      },
+      {
+        "id": "b",
+        "label": "Say you would handle it differently today.",
+        "effects": {
+          "loyalty": 1.2,
+          "mach": 1,
+          "democracy": -0.5
+        }
+      },
+      {
+        "id": "c",
+        "label": "Say history will judge, and take the invitation.",
+        "effects": {
+          "mach": 1.5,
+          "style": -0.5
+        }
+      },
+      {
+        "id": "d",
+        "label": "Decline, and say the party left you.",
+        "effects": {
+          "loyalty": -1.5,
+          "system": 0.8,
+          "style": 1
+        },
+        "cand": {
+          "christie": 2
+        }
+      }
+    ],
+    "signature": [
+      "pence"
+    ],
+    "measure": [
+      "hesitation"
+    ],
+    "facts": "Mike Pence certified the 2020 electoral count in the early hours of January 7, 2021. He received the John F. Kennedy Profile in Courage Award on May 4, 2025.",
+    "discrimination": 3
+  },
+  {
+    "id": "D-070",
+    "chapter": "debate",
+    "route": "gop",
+    "type": "swipe",
+    "tier": "core",
+    "topic": "party-lightning-round",
+    "context": "The party's populists keep filing bills that sound like Democrats wrote them.",
+    "prompt": "Would you call each idea conservative? Yes or no, four seconds each.",
+    "cards": [
+      {
+        "id": "s1",
+        "text": "A 15 dollar federal minimum wage",
+        "yes": {
+          "econ": -1.2
+        },
+        "no": {
+          "econ": 1
+        },
+        "candYes": {
+          "hawley": 1
+        }
+      },
+      {
+        "id": "s2",
+        "text": "Abolish the Department of Education",
+        "yes": {
+          "econ": 1,
+          "system": 1,
+          "federal": 0.8
+        },
+        "no": {
+          "system": -0.8,
+          "federal": -0.5
+        }
+      },
+      {
+        "id": "s3",
+        "text": "The government buys a stake in a chipmaker",
+        "yes": {
+          "econ": -1,
+          "trade": -1
+        },
+        "no": {
+          "econ": 1.2,
+          "trade": 0.5
+        }
+      },
+      {
+        "id": "s4",
+        "text": "A national limit on abortion",
+        "yes": {
+          "social": -1.2,
+          "faith": 1
+        },
+        "no": {
+          "social": 0.5,
+          "system": -0.3
+        }
+      },
+      {
+        "id": "s5",
+        "text": "Cap credit-card interest at 10 percent",
+        "yes": {
+          "econ": -1.2
+        },
+        "no": {
+          "econ": 1
+        },
+        "candYes": {
+          "hawley": 1
+        }
+      },
+      {
+        "id": "s6",
+        "text": "Legal sports betting in every state",
+        "yes": {
+          "libertine": 1
+        },
+        "no": {
+          "libertine": -1,
+          "faith": 0.5
+        }
+      },
+      {
+        "id": "s7",
+        "text": "Ban members of Congress from trading stocks",
+        "yes": {
+          "system": 0.8,
+          "libertine": -0.5
+        },
+        "no": {
+          "econ": 0.5,
+          "mach": 0.5
+        }
+      }
+    ],
+    "signature": [
+      "hawley"
+    ],
+    "measure": [
+      "speed"
+    ],
+    "facts": "Josh Hawley introduced a credit-card interest cap with Bernie Sanders on February 4, 2025 and a 15 dollar minimum wage bill with Peter Welch on June 10, 2025. The US government took a roughly 10 percent stake in Intel on August 22, 2025.",
+    "discrimination": 3
+  },
+  {
+    "id": "D-071",
+    "chapter": "primary",
+    "route": "gop",
+    "type": "slider",
+    "tier": "core",
+    "topic": "extremely-online",
+    "context": "The party has two congregations now: churchgoers on Sunday morning, and the very online in a group chat at 3 a.m.",
+    "prompt": "Which one do you write the speech for?",
+    "slider": {
+      "left": "The pews",
+      "right": "The group chat",
+      "centre": "One speech, clipped for both",
+      "effects": {
+        "online": 1.5,
+        "faith": -1,
+        "libertine": 0.8
+      },
+      "steps": 5
+    },
+    "candLeft": {
+      "pence": 1,
+      "kemp": 1
+    },
+    "candRight": {
+      "trumpjr": 1,
+      "vance": 1
+    },
+    "discrimination": 3
+  },
+  {
+    "id": "D-072",
+    "chapter": "debate",
+    "route": "gop",
+    "type": "choice",
+    "tier": "core",
+    "topic": "debate-takedown",
+    "excludes": [
+      "B-053"
+    ],
+    "context": "New Hampshire, debate night. The rising star beside you has just delivered the same memorized 25 seconds for the second time.",
+    "prompt": "You have the floor. What do you do with it?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Point it out, live, and wait for him to do it again.",
+        "effects": {
+          "style": 1.5,
+          "psych": 1
+        },
+        "cand": {
+          "christie": 2
+        }
+      },
+      {
+        "id": "b",
+        "label": "Say nothing. Let him sink on his own.",
+        "effects": {
+          "mach": 1,
+          "style": -0.5
+        },
+        "cand": {
+          "cruz": 1
+        }
+      },
+      {
+        "id": "c",
+        "label": "Rise above it and make your own case.",
+        "effects": {
+          "style": -1,
+          "narc": -0.3
+        },
+        "cand": {
+          "kemp": 1,
+          "youngkin": 1
+        }
+      },
+      {
+        "id": "d",
+        "label": "Clip it and post it before he finishes.",
+        "effects": {
+          "online": 1.5,
+          "style": 0.8
+        },
+        "cand": {
+          "ramaswamy": 1
+        }
+      }
+    ],
+    "signature": [
+      "christie"
+    ],
+    "facts": "At the February 6, 2016 Republican debate in New Hampshire, Chris Christie attacked Marco Rubio for repeating a memorized 25-second speech.",
+    "discrimination": 2
+  },
+  {
+    "id": "D-073",
+    "chapter": "primary",
+    "route": "gop",
+    "type": "hold",
+    "tier": "core",
+    "topic": "dropping-out",
+    "context": "You are the only candidate in the primary saying out loud that the front-runner is unfit. You cannot win. New Hampshire votes in thirteen days.",
+    "prompt": "Do you stay in the race?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Stay in. Someone has to keep saying it.",
+        "effects": {
+          "loyalty": -1.5,
+          "narc": 0.8,
+          "style": 1
+        },
+        "cand": {
+          "christie": 1
+        }
+      },
+      {
+        "id": "b",
+        "label": "Drop out and endorse the strongest alternative.",
+        "effects": {
+          "mach": 0.8,
+          "narc": -1
+        }
+      },
+      {
+        "id": "c",
+        "label": "Drop out and endorse nobody.",
+        "effects": {
+          "loyalty": -1,
+          "psych": 0.6,
+          "style": 0.5
+        },
+        "cand": {
+          "christie": 2
+        }
+      }
+    ],
+    "signature": [
+      "christie"
+    ],
+    "measure": [
+      "holdStrength"
+    ],
+    "facts": "Chris Christie ended his presidential campaign on January 10, 2024, thirteen days before the New Hampshire primary, without endorsing another candidate.",
+    "discrimination": 2
+  },
+  {
+    "id": "D-074",
+    "chapter": "backroom",
+    "route": "gop",
+    "type": "sign",
+    "tier": "core",
+    "topic": "abortion",
+    "context": "You are President. A national limit on abortion at fifteen weeks reaches your desk. The pastors are praying outside. The pollster is praying inside.",
+    "prompt": "Do you sign the national fifteen-week abortion limit, or veto it?",
+    "options": [
+      {
+        "id": "sign",
+        "label": "Sign. Some things are not left to a map.",
+        "effects": {
+          "social": -1.5,
+          "faith": 1.2
+        },
+        "cand": {
+          "pence": 2,
+          "hawley": 1
+        }
+      },
+      {
+        "id": "veto",
+        "label": "Veto. The court sent it to the states; leave it there.",
+        "effects": {
+          "social": 0.5,
+          "mach": 0.8,
+          "faith": -0.5
+        },
+        "cand": {
+          "trumpjr": 1,
+          "christie": 1
+        }
+      }
+    ],
+    "facts": "The Supreme Court overturned Roe v. Wade in Dobbs v. Jackson on June 24, 2022. Mike Pence called for a national minimum standard of 15 weeks during his 2023 presidential campaign.",
+    "discrimination": 3
+  },
+  {
+    "id": "D-075",
+    "chapter": "convention",
+    "route": "gop",
+    "type": "budget",
+    "tier": "core",
+    "topic": "platform",
+    "context": "The platform has 100 lines. Every faction has sent a lobbyist and a list.",
+    "prompt": "How much of the platform does each faction get? Split the 100 lines.",
+    "options": [
+      {
+        "id": "a",
+        "label": "Evangelicals",
+        "effects": {
+          "faith": 1.2,
+          "social": -0.8
+        },
+        "cand": {
+          "pence": 1
+        }
+      },
+      {
+        "id": "b",
+        "label": "The online right",
+        "effects": {
+          "online": 1.2,
+          "system": 0.8
+        },
+        "cand": {
+          "trumpjr": 1,
+          "vance": 1
+        }
+      },
+      {
+        "id": "c",
+        "label": "Chamber of Commerce donors",
+        "effects": {
+          "econ": 1.2,
+          "trade": 0.8
+        },
+        "cand": {
+          "youngkin": 1,
+          "kemp": 2
+        }
+      },
+      {
+        "id": "d",
+        "label": "Working-class voters new to the party",
+        "effects": {
+          "econ": -1,
+          "trade": -1
+        },
+        "cand": {
+          "hawley": 1
+        }
+      },
+      {
+        "id": "e",
+        "label": "Libertarians",
+        "effects": {
+          "econ": 1,
+          "world": -1
+        },
+        "cand": {
+          "randpaul": 1
+        }
+      }
+    ],
+    "discrimination": 3
+  },
+  {
+    "id": "D-076",
+    "chapter": "scandal",
+    "route": "gop",
+    "type": "choice",
+    "tier": "core",
+    "topic": "serving-your-insulter",
+    "excludes": [
+      "B-049"
+    ],
+    "context": "You once called the President a con artist on a debate stage. You now hold several of his most important jobs at once. A reporter reads your old quotes back to you.",
+    "prompt": "What do you say?",
+    "options": [
+      {
+        "id": "a",
+        "label": "People change. So did the party.",
+        "effects": {
+          "mach": 1.2,
+          "loyalty": 1
+        },
+        "cand": {
+          "rubio": 2
+        }
+      },
+      {
+        "id": "b",
+        "label": "I was wrong then, and I have said so.",
+        "effects": {
+          "loyalty": 1.5,
+          "narc": -0.8
+        },
+        "cand": {
+          "vance": 1
+        }
+      },
+      {
+        "id": "c",
+        "label": "I meant it then. I am useful now.",
+        "effects": {
+          "mach": 1.5,
+          "psych": 0.6,
+          "loyalty": -0.5
+        },
+        "cand": {
+          "cruz": 1
+        }
+      },
+      {
+        "id": "d",
+        "label": "Smile, reach for the water, next question.",
+        "effects": {
+          "style": -1,
+          "narc": -0.5
+        },
+        "cand": {
+          "rubio": 1
+        }
+      }
+    ],
+    "signature": [
+      "rubio"
+    ],
+    "facts": "Marco Rubio called Donald Trump a con artist in February 2016. His reach for a water bottle came during the Republican response to the State of the Union on February 12, 2013. In 2025 he held the posts of Secretary of State and national security adviser, among others.",
+    "discrimination": 2
+  },
+  {
+    "id": "D-077",
+    "chapter": "convention",
+    "route": "both",
+    "type": "draft",
+    "tier": "bombshell",
+    "topic": "drafts-running-mate",
+    "excludes": [
+      "A-097",
+      "A-098",
+      "B-040",
+      "B-041",
+      "B-095",
+      "D-018",
+      "D-067"
+    ],
+    "context": "The convention is deadlocked and the country is tired. Your pollster slides over one page: a unity ticket.",
+    "prompt": "Draft a running mate from across the aisle.",
+    "pool": [
+      "kemp",
+      "christie",
+      "youngkin",
+      "randpaul",
+      "pence",
+      "hawley",
+      "beshear",
+      "shapiro",
+      "kelly",
+      "khanna",
+      "slotkin",
+      "buttigieg"
+    ],
+    "options": [
+      {
+        "id": "kemp",
+        "label": "Brian Kemp: said no when it counted",
+        "effects": {
+          "system": -1.2,
+          "loyalty": -0.8
+        },
+        "cand": {
+          "kemp": 2
+        }
+      },
+      {
+        "id": "christie",
+        "label": "Chris Christie: will say anything to anyone's face",
+        "effects": {
+          "style": 1.2,
+          "loyalty": -1
+        },
+        "cand": {
+          "christie": 2
+        }
+      },
+      {
+        "id": "youngkin",
+        "label": "Glenn Youngkin: boardroom calm in a fleece",
+        "effects": {
+          "econ": 1,
+          "style": -1
+        },
+        "cand": {
+          "youngkin": 2
+        }
+      },
+      {
+        "id": "randpaul",
+        "label": "Rand Paul: against the wars and the spending",
+        "effects": {
+          "world": -1.2,
+          "econ": 1
+        },
+        "cand": {
+          "randpaul": 2
+        }
+      },
+      {
+        "id": "pence",
+        "label": "Mike Pence: counted the votes and paid for it",
+        "effects": {
+          "system": -1.2,
+          "faith": 0.8
+        },
+        "cand": {
+          "pence": 2
+        }
+      },
+      {
+        "id": "hawley",
+        "label": "Josh Hawley: a Republican the picket line will hear out",
+        "effects": {
+          "econ": -0.8,
+          "tech": -0.8
+        },
+        "cand": {
+          "hawley": 2
+        }
+      },
+      {
+        "id": "beshear",
+        "label": "Andy Beshear: a Democrat red counties vote for",
+        "effects": {
+          "style": -1.2,
+          "faith": 0.8
+        },
+        "cand": {
+          "beshear": 2
+        }
+      },
+      {
+        "id": "shapiro",
+        "label": "Josh Shapiro: a dealmaker with a swing state",
+        "effects": {
+          "system": -1,
+          "mach": 0.6
+        },
+        "cand": {
+          "shapiro": 2
+        }
+      },
+      {
+        "id": "kelly",
+        "label": "Mark Kelly: nobody boos an astronaut",
+        "effects": {
+          "narc": -0.8,
+          "tech": 0.8,
+          "border": -0.5
+        },
+        "cand": {
+          "kelly": 2
+        }
+      },
+      {
+        "id": "khanna",
+        "label": "Ro Khanna: works with populists on either side",
+        "effects": {
+          "system": 1,
+          "world": -1
+        },
+        "cand": {
+          "khanna": 2
+        }
+      },
+      {
+        "id": "slotkin",
+        "label": "Elissa Slotkin: ex-CIA, sounds like a Republican's neighbor",
+        "effects": {
+          "world": 1,
+          "system": -0.8
+        },
+        "cand": {
+          "slotkin": 2
+        }
+      },
+      {
+        "id": "buttigieg",
+        "label": "Pete Buttigieg: has talked round every hostile studio",
+        "effects": {
+          "style": -0.8,
+          "online": 0.6
+        },
+        "cand": {
+          "buttigieg": 2
+        }
+      }
+    ],
+    "fx": [
+      "breaking",
+      "candles"
+    ],
+    "discrimination": 3,
+    "poolRoute": "other"
+  },
+  {
+    "id": "D-078",
+    "chapter": "convention",
+    "route": "both",
+    "type": "draft",
+    "tier": "core",
+    "topic": "drafts-defense",
+    "context": "The transition office, a hotel suite with the curtains shut. The first box on the whiteboard is the Pentagon.",
+    "prompt": "Draft a Secretary of Defense.",
+    "pool": [
+      "kelly",
+      "slotkin",
+      "buttigieg",
+      "rubio",
+      "desantis",
+      "vance"
+    ],
+    "options": [
+      {
+        "id": "kelly",
+        "label": "Mark Kelly: 39 combat missions, four spaceflights",
+        "effects": {
+          "world": 0.8,
+          "tech": 0.8,
+          "narc": -0.5
+        },
+        "cand": {
+          "kelly": 2
+        }
+      },
+      {
+        "id": "slotkin",
+        "label": "Elissa Slotkin: three tours in Iraq with the CIA",
+        "effects": {
+          "world": 1.2,
+          "mach": 0.5
+        },
+        "cand": {
+          "slotkin": 2
+        }
+      },
+      {
+        "id": "buttigieg",
+        "label": "Pete Buttigieg: Navy reservist, Afghanistan",
+        "effects": {
+          "system": -0.6,
+          "online": 0.5
+        },
+        "cand": {
+          "buttigieg": 2
+        }
+      },
+      {
+        "id": "rubio",
+        "label": "Marco Rubio: one more job will not hurt",
+        "effects": {
+          "world": 1,
+          "loyalty": 0.8
+        },
+        "cand": {
+          "rubio": 2
+        }
+      },
+      {
+        "id": "desantis",
+        "label": "Ron DeSantis: Navy lawyer at Guantanamo and in Iraq",
+        "effects": {
+          "style": 1,
+          "psych": 0.8
+        },
+        "cand": {
+          "desantis": 2
+        }
+      },
+      {
+        "id": "vance",
+        "label": "JD Vance: a Marine who wants fewer wars",
+        "effects": {
+          "world": -1.5,
+          "system": 0.8
+        },
+        "cand": {
+          "vance": 2
+        }
+      }
+    ],
+    "signature": [
+      "kelly"
+    ],
+    "facts": "Mark Kelly flew 39 combat missions in the 1991 Gulf War and four Space Shuttle missions. Elissa Slotkin served three tours in Iraq as a CIA analyst. Pete Buttigieg deployed to Afghanistan in 2014. Ron DeSantis served as a Navy JAG officer at Guantanamo Bay and in Iraq. JD Vance served in the Marine Corps, deploying to Iraq in 2005.",
+    "discrimination": 2
+  },
+  {
+    "id": "D-079",
+    "chapter": "convention",
+    "route": "both",
+    "type": "draft",
+    "tier": "core",
+    "topic": "drafts-chief-of-staff",
+    "excludes": [
+      "D-036"
+    ],
+    "context": "You need a chief of staff who knows where everything is buried, because they did some of the digging.",
+    "prompt": "Draft the gatekeeper.",
+    "pool": [
+      "christie",
+      "cruz",
+      "newsom",
+      "pritzker",
+      "rubio",
+      "harris"
+    ],
+    "options": [
+      {
+        "id": "christie",
+        "label": "Chris Christie: ran a transition, then got fired from it",
+        "effects": {
+          "style": 1.2,
+          "psych": 0.8
+        },
+        "cand": {
+          "christie": 2
+        }
+      },
+      {
+        "id": "cruz",
+        "label": "Ted Cruz: reads the fine print for weapons",
+        "effects": {
+          "mach": 1.5
+        },
+        "cand": {
+          "cruz": 2
+        }
+      },
+      {
+        "id": "newsom",
+        "label": "Gavin Newsom: wins the news cycle before breakfast",
+        "effects": {
+          "online": 1,
+          "narc": 0.8,
+          "mach": 0.5
+        },
+        "cand": {
+          "newsom": 2
+        }
+      },
+      {
+        "id": "pritzker",
+        "label": "JB Pritzker: cannot be bought, for obvious reasons",
+        "effects": {
+          "dynasty": 1,
+          "style": 0.8
+        },
+        "cand": {
+          "pritzker": 2
+        }
+      },
+      {
+        "id": "rubio",
+        "label": "Marco Rubio: survives every reshuffle",
+        "effects": {
+          "mach": 1,
+          "loyalty": 1
+        },
+        "cand": {
+          "rubio": 2
+        }
+      },
+      {
+        "id": "harris",
+        "label": "Kamala Harris: a prosecutor's eye for the room",
+        "effects": {
+          "system": -1,
+          "loyalty": 0.8
+        },
+        "cand": {
+          "harris": 2
+        }
+      }
+    ],
+    "facts": "Chris Christie chaired Donald Trump's 2016 transition team and was removed on November 11, 2016.",
+    "discrimination": 2
+  },
+  {
+    "id": "D-080",
+    "chapter": "convention",
+    "route": "both",
+    "type": "draft",
+    "tier": "core",
+    "topic": "drafts-treasury",
+    "excludes": [
+      "A-099"
+    ],
+    "context": "The bond market opens in nine hours and would like to know who is in charge of the money.",
+    "prompt": "Draft a Treasury Secretary.",
+    "pool": [
+      "youngkin",
+      "pritzker",
+      "ramaswamy",
+      "randpaul",
+      "khanna",
+      "hawley",
+      "aoc"
+    ],
+    "options": [
+      {
+        "id": "youngkin",
+        "label": "Glenn Youngkin: ran one of the biggest buyout firms",
+        "effects": {
+          "econ": 1.5,
+          "system": -0.6
+        },
+        "cand": {
+          "youngkin": 2
+        }
+      },
+      {
+        "id": "pritzker",
+        "label": "JB Pritzker: inherited a fortune, taxes his own class",
+        "effects": {
+          "econ": -0.8,
+          "dynasty": 1
+        },
+        "cand": {
+          "pritzker": 2
+        }
+      },
+      {
+        "id": "ramaswamy",
+        "label": "Vivek Ramaswamy: would cut first and count after",
+        "effects": {
+          "econ": 1.2,
+          "system": 1.2
+        },
+        "cand": {
+          "ramaswamy": 2
+        }
+      },
+      {
+        "id": "randpaul",
+        "label": "Rand Paul: audit everything, the Fed included",
+        "effects": {
+          "econ": 1.5,
+          "trade": 1
+        },
+        "cand": {
+          "randpaul": 2
+        }
+      },
+      {
+        "id": "khanna",
+        "label": "Ro Khanna: an economic patriot from Silicon Valley",
+        "effects": {
+          "trade": -1,
+          "tech": 1
+        },
+        "cand": {
+          "khanna": 2
+        }
+      },
+      {
+        "id": "hawley",
+        "label": "Josh Hawley: tariffs, rebates and a grudge against banks",
+        "effects": {
+          "trade": -1.5,
+          "econ": -1
+        },
+        "cand": {
+          "hawley": 2
+        }
+      },
+      {
+        "id": "aoc",
+        "label": "Alexandria Ocasio-Cortez: tax the rich, in writing",
+        "effects": {
+          "econ": -2,
+          "system": 1
+        },
+        "cand": {
+          "aoc": 2
+        }
+      }
+    ],
+    "discrimination": 3
+  },
+  {
+    "id": "D-081",
+    "chapter": "convention",
+    "route": "both",
+    "type": "slider",
+    "tier": "core",
+    "topic": "acceptance-speech",
+    "context": "You have the nomination. Two drafts of your acceptance speech are on the lectern in the empty arena, and somebody has left you a pair of scissors.",
+    "prompt": "You get one speech. How much of each draft goes into it?",
+    "slider": {
+      "left": "Heal the country",
+      "right": "Name the enemies",
+      "centre": "Half and half. Nobody quotes it.",
+      "effects": {
+        "style": 2,
+        "psych": 0.6
+      },
+      "steps": 5
+    },
+    "candLeft": {
+      "beshear": 1,
+      "kemp": 1
+    },
+    "candRight": {
+      "trumpjr": 1,
+      "newsom": 1
+    },
+    "discrimination": 2
+  },
+  {
+    "id": "D-082",
+    "chapter": "convention",
+    "route": "both",
+    "type": "budget",
+    "tier": "core",
+    "topic": "convention-lineup",
+    "context": "Your convention has four nights of prime time and about 100 minutes that anyone will actually watch.",
+    "prompt": "What fills the 100 minutes? Split them.",
+    "options": [
+      {
+        "id": "a",
+        "label": "The film about your life",
+        "effects": {
+          "narc": 1.5
+        }
+      },
+      {
+        "id": "b",
+        "label": "Ordinary people telling their own stories",
+        "effects": {
+          "narc": -1,
+          "psych": -0.6
+        }
+      },
+      {
+        "id": "c",
+        "label": "Going after the other ticket",
+        "effects": {
+          "style": 1.5,
+          "psych": 0.5
+        }
+      },
+      {
+        "id": "d",
+        "label": "Policy, with actual numbers",
+        "effects": {
+          "online": -0.8,
+          "mach": -0.6
+        }
+      },
+      {
+        "id": "e",
+        "label": "Celebrities and a surprise musical guest",
+        "effects": {
+          "online": 0.8,
+          "libertine": 0.6
+        }
+      }
+    ],
+    "discrimination": 1
+  },
+  {
+    "id": "D-083",
+    "chapter": "election_night",
+    "phase": "count",
+    "route": "both",
+    "type": "pin",
+    "tier": "bombshell",
+    "topic": "election-night-count",
+    "excludes": [
+      "E-024"
+    ],
+    "context": "Election night, 2 a.m. in your war room. The race is down to one state, one county and a warehouse of uncounted ballots.",
+    "prompt": "What do you do while the count hangs? Tap what you reach for.",
+    "art": "D-WARROOM-2AM",
+    "artNote": "The war room at night, empty, lit by screens. No people. Back wall: a huge electoral map with one state blinking amber. Left: a bank of desk phones with one receiver off the hook, legal pads beside them. Right: a row of muted televisions showing only tickers and percentages. Front right: a cot with a folded suit jacket. Center back: a door edged in bright light and the sound of a ballroom crowd beyond it. Front left: a paper shredder with a full bin.",
+    "regions": [
+      {
+        "id": "map",
+        "label": "The map — wait for the last county",
+        "where": "back wall, the blinking amber state",
+        "effects": {
+          "system": -1,
+          "style": -0.6
+        },
+        "cand": {
+          "kemp": 1,
+          "kelly": 1
+        },
+        "poly": { "wide": [[10,4],[42,4],[42,34],[10,34]], "tall": [[15,4],[84,4],[84,27],[15,27]] }
+      },
+      {
+        "id": "phones",
+        "label": "The phones — wake up the lawyers",
+        "where": "left, the phone bank and legal pads",
+        "effects": {
+          "mach": 1.2,
+          "psych": 0.6
+        },
+        "cand": {
+          "cruz": 1,
+          "shapiro": 1
+        },
+        "poly": { "wide": [[7,40],[17,36],[36,35],[41,38],[40,47],[22,54],[8,52]], "tall": [[3,46],[15,43],[30,42],[40,47],[38,52],[24,60],[6,58]] }
+      },
+      {
+        "id": "tvs",
+        "label": "The televisions — call a network and spin it",
+        "where": "right, the row of muted televisions",
+        "effects": {
+          "online": 0.8,
+          "narc": 0.6,
+          "mach": 0.6
+        },
+        "cand": {
+          "newsom": 1,
+          "vance": 1
+        },
+        "poly": { "wide": [[68,9],[98,9],[98,38],[68,38]], "tall": [[67,28],[99,27],[99,50],[67,50]] }
+      },
+      {
+        "id": "bed",
+        "label": "The cot — sleep; it will be the same at 7",
+        "where": "front right, the cot and jacket",
+        "effects": {
+          "narc": -1,
+          "psych": -0.5
+        },
+        "cand": {
+          "beshear": 1,
+          "pence": 1
+        },
+        "poly": { "wide": [[54,72],[62,63],[80,58],[86,53],[97,55],[99,62],[99,85],[75,97],[55,95]], "tall": [[39,77],[50,72],[76,64],[96,63],[99,72],[99,85],[80,95],[40,94]] }
+      },
+      {
+        "id": "door",
+        "label": "The ballroom door — walk out and declare victory now",
+        "where": "center back, the bright-edged door",
+        "effects": {
+          "system": 1.5,
+          "narc": 1.2,
+          "style": 1
+        },
+        "cand": {
+          "trumpjr": 2
+        },
+        "poly": { "wide": [[47,7],[61,7],[61,52],[47,52]], "tall": [[41,29],[59,29],[59,55],[41,55]] }
+      },
+      {
+        "id": "shredder",
+        "label": "The shredder — destroy the awkward memos",
+        "where": "front left, the shredder and full bin",
+        "effects": {
+          "mach": 1.5,
+          "libertine": 0.5
+        },
+        "poly": { "wide": [[0,57],[5,55],[20,55],[21,70],[27,72],[27,97],[0,96]], "tall": [[1,68],[7,64],[27,65],[28,72],[36,76],[36,95],[1,95]] }
+      }
+    ],
+    "fx": [
+      "breaking",
+      "night",
+      "buzz_heavy"
+    ],
+    "measure": [
+      "hesitation"
+    ],
+    "discrimination": 3
+  },
+  {
+    "id": "D-084",
+    "chapter": "election_night",
+    "phase": "loss",
+    "route": "both",
+    "type": "hold",
+    "tier": "core",
+    "topic": "concession",
+    "excludes": [
+      "C-015",
+      "C-080"
+    ],
+    "context": "Election night. The networks call it against you. The decisive state went by under 12,000 votes.",
+    "prompt": "The country is watching the podium. Do you concede?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Concede tonight, in person, by name.",
+        "effects": {
+          "system": -1.5,
+          "narc": -1,
+          "style": -0.8,
+          "democracy": 1
+        },
+        "cand": {
+          "kemp": 2,
+          "pence": 2,
+          "harris": 1
+        }
+      },
+      {
+        "id": "b",
+        "label": "Wait for every lawful recount. Then concede.",
+        "effects": {
+          "system": -0.5,
+          "mach": 0.5
+        },
+        "cand": {
+          "slotkin": 1
+        }
+      },
+      {
+        "id": "c",
+        "label": "Never concede. Say it was taken.",
+        "effects": {
+          "system": 1.5,
+          "narc": 1.2,
+          "psych": 0.8,
+          "democracy": -1
+        },
+        "cand": {
+          "trumpjr": 1
+        }
+      }
+    ],
+    "signature": [
+      "kemp",
+      "pence"
+    ],
+    "measure": [
+      "holdStrength",
+      "hesitation"
+    ],
+    "facts": "Georgia's certified 2020 presidential margin was 11,779 votes. Kamala Harris conceded the 2024 election on November 6, 2024.",
+    "discrimination": 3
+  },
+  {
+    "id": "D-085",
+    "chapter": "election_night",
+    "phase": "count",
+    "route": "both",
+    "type": "swipe",
+    "tier": "core",
+    "topic": "election-night-count",
+    "context": "The deciding state is split by 537 votes and headed for a recount. Your lawyers need answers faster than you can think.",
+    "prompt": "Do you approve each move? Yes or no, four seconds each.",
+    "cards": [
+      {
+        "id": "s1",
+        "text": "Sue to stop the count in the counties where you lead",
+        "yes": {
+          "mach": 1.2,
+          "psych": 0.8,
+          "democracy": -0.8
+        },
+        "no": {
+          "mach": -0.8,
+          "system": -0.5
+        }
+      },
+      {
+        "id": "s2",
+        "text": "Ask supporters to gather outside the counting center",
+        "yes": {
+          "style": 1,
+          "system": 1
+        },
+        "no": {
+          "system": -0.8
+        }
+      },
+      {
+        "id": "s3",
+        "text": "Agree to a full hand recount of the state",
+        "yes": {
+          "system": -0.8,
+          "mach": -0.5
+        },
+        "no": {
+          "mach": 0.8
+        }
+      },
+      {
+        "id": "s4",
+        "text": "Phone the state's top election official yourself",
+        "yes": {
+          "mach": 1,
+          "psych": 0.5
+        },
+        "no": {
+          "system": -0.6
+        }
+      },
+      {
+        "id": "s5",
+        "text": "Go on television and say you have already won",
+        "yes": {
+          "narc": 1.2,
+          "system": 1
+        },
+        "no": {
+          "narc": -0.8
+        }
+      },
+      {
+        "id": "s6",
+        "text": "Promise in writing to accept the certified result",
+        "yes": {
+          "system": -1.2,
+          "democracy": 0.8
+        },
+        "no": {
+          "system": 1,
+          "mach": 0.5
+        }
+      }
+    ],
+    "measure": [
+      "speed"
+    ],
+    "fx": [
+      "night"
+    ],
+    "facts": "Florida's certified margin in the 2000 presidential election was 537 votes; the Supreme Court ended the recount in Bush v. Gore on December 12, 2000.",
+    "discrimination": 2
+  },
+  {
+    "id": "D-086",
+    "chapter": "convention",
+    "route": "both",
+    "type": "pin",
+    "tier": "core",
+    "topic": "convention-lineup",
+    "context": "Your convention hall, an hour before the doors. Thousands of balloons hang in a net over an empty floor, and everything in here is a lever.",
+    "prompt": "What kind of night do you run? Tap the thing you take charge of.",
+    "art": "D-CONVENTION-FLOOR-EMPTY",
+    "artNote": "Vast empty convention arena, house lights half up, balloons netted in the rafters. No people. Center: the podium with two glass teleprompter panels. Stage left wing: a heavy curtain with a strip of light under it. Upper right: a glass-fronted skybox with a bar cart. Floor, front left: a delegate microphone on a stand beside a blank state placard. Far right wall: a big red lever on a control box labeled DROP.",
+    "regions": [
+      {
+        "id": "prompter",
+        "label": "The teleprompter — stick to the script",
+        "where": "center, the podium and glass panels",
+        "effects": {
+          "system": -0.8,
+          "style": -0.6,
+          "mach": 0.3
+        },
+        "cand": {
+          "harris": 1,
+          "youngkin": 1
+        },
+        "poly": { "wide": [[34,35],[40,31],[58,31],[64,35],[64,59],[34,59]], "tall": [[32,41],[42,40],[60,40],[69,41],[69,61],[32,61]] }
+      },
+      {
+        "id": "curtain",
+        "label": "The curtain — bring the family on stage",
+        "where": "stage left wing, the heavy curtain",
+        "effects": {
+          "dynasty": 1.5,
+          "narc": 0.5
+        },
+        "cand": {
+          "trumpjr": 1,
+          "pritzker": 1
+        },
+        "poly": { "wide": [[0,0],[17,0],[16,30],[12,50],[11.5,71],[0,71]], "tall": [[0,11],[25,15],[22,30],[17,45],[17,58],[0,58]] }
+      },
+      {
+        "id": "skybox",
+        "label": "The skybox — go up and thank the donors",
+        "where": "upper right, the glass skybox and trolley",
+        "effects": {
+          "mach": 1,
+          "econ": 0.8
+        },
+        "poly": { "wide": [[70,10],[92,4],[93,30],[70,30]], "tall": [[60,15],[75,9],[98,6],[98,30],[60,30]] }
+      },
+      {
+        "id": "floormic",
+        "label": "The floor microphone — let delegates fight it out",
+        "where": "floor front left, the delegate microphone and placard",
+        "effects": {
+          "system": 1.2,
+          "loyalty": -0.8
+        },
+        "cand": {
+          "aoc": 1,
+          "randpaul": 1
+        },
+        "poly": { "wide": [[12,66],[18,66],[18,72],[25,72],[29,79],[29,97],[12,97]], "tall": [[8,73],[17,73],[17,78],[28,78],[35,90],[35,96],[8,96]] }
+      },
+      {
+        "id": "lever",
+        "label": "The balloon lever — drop them early, own the moment",
+        "where": "far right wall, the red lever marked DROP",
+        "effects": {
+          "narc": 1.2,
+          "online": 0.8,
+          "style": 0.5
+        },
+        "cand": {
+          "ramaswamy": 1,
+          "newsom": 1
+        },
+        "poly": { "wide": [[88,34],[99.5,34],[99.5,64],[88,64]], "tall": [[80,68],[99.5,68],[99.5,90],[80,90]] }
+      }
+    ],
+    "discrimination": 2
+  },
+  {
+    "id": "D-087",
+    "chapter": "election_night",
+    "phase": "victory",
+    "route": "both",
+    "type": "rank",
+    "tier": "core",
+    "topic": "who-you-owe",
+    "excludes": [
+      "C-089"
+    ],
+    "context": "You won the election. The victory speech is four minutes and the thank-yous are in no order yet.",
+    "prompt": "Rank who gets thanked first.",
+    "options": [
+      {
+        "id": "a",
+        "label": "Your family, on stage with you",
+        "effects": {
+          "dynasty": 1,
+          "narc": 0.3
+        }
+      },
+      {
+        "id": "b",
+        "label": "The volunteers who knocked on the doors",
+        "effects": {
+          "narc": -1,
+          "psych": -0.5
+        }
+      },
+      {
+        "id": "c",
+        "label": "God",
+        "effects": {
+          "faith": 1.5
+        }
+      },
+      {
+        "id": "d",
+        "label": "The people who voted for your opponent",
+        "effects": {
+          "style": -1.2,
+          "system": -0.5
+        }
+      },
+      {
+        "id": "e",
+        "label": "Yourself, for never quitting",
+        "effects": {
+          "narc": 1.5
+        }
+      }
+    ],
+    "discrimination": 2
+  },
+  {
+    "id": "D-088",
+    "chapter": "election_night",
+    "phase": "victory",
+    "route": "both",
+    "type": "hold",
+    "tier": "core",
+    "topic": "victory-night",
+    "context": "Victory night. Halfway through your speech the crowd starts a chant about locking up your opponent.",
+    "prompt": "Every second you wait is an answer too. What do you do about the chant?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Stop it. Not tonight, not ever.",
+        "effects": {
+          "style": -1.2,
+          "psych": -1,
+          "system": -0.8,
+          "democracy": 0.8
+        },
+        "cand": {
+          "beshear": 1,
+          "kemp": 1
+        }
+      },
+      {
+        "id": "b",
+        "label": "Let it run ten seconds. Smile. Move on.",
+        "effects": {
+          "mach": 1.2,
+          "psych": 0.6
+        },
+        "cand": {
+          "rubio": 1,
+          "newsom": 1
+        }
+      },
+      {
+        "id": "c",
+        "label": "Lead it.",
+        "effects": {
+          "style": 1.5,
+          "psych": 1.5,
+          "system": 1,
+          "democracy": -1
+        },
+        "cand": {
+          "trumpjr": 1
+        }
+      }
+    ],
+    "measure": [
+      "holdStrength",
+      "hesitation"
+    ],
+    "fx": [
+      "night"
+    ],
+    "discrimination": 3
+  },
+  {
+    "id": "D-089",
+    "chapter": "election_night",
+    "phase": "victory",
+    "route": "both",
+    "type": "budget",
+    "tier": "core",
+    "topic": "first-hundred-days",
+    "excludes": [
+      "A-093"
+    ],
+    "context": "Dawn after your win. You have a mandate, give or take. It will be worth 100 points for about 100 days.",
+    "prompt": "What do you spend your mandate on? Split the 100 points.",
+    "options": [
+      {
+        "id": "a",
+        "label": "Reward the people who were loyal",
+        "effects": {
+          "loyalty": 1.2,
+          "dynasty": 0.5
+        }
+      },
+      {
+        "id": "b",
+        "label": "Bring your rivals inside",
+        "effects": {
+          "style": -1,
+          "loyalty": -0.5,
+          "mach": 0.5
+        }
+      },
+      {
+        "id": "c",
+        "label": "Investigate the last administration",
+        "effects": {
+          "psych": 1.2,
+          "style": 1
+        }
+      },
+      {
+        "id": "d",
+        "label": "Pass one big bill before the mood changes",
+        "effects": {
+          "system": -0.6,
+          "mach": 0.5
+        }
+      },
+      {
+        "id": "e",
+        "label": "Rewrite the rules: the filibuster, the courts",
+        "effects": {
+          "system": 1.5
+        }
+      }
+    ],
+    "discrimination": 2
+  },
+  {
+    "id": "D-090",
+    "chapter": "election_night",
+    "phase": "count",
+    "finale": true,
+    "route": "both",
+    "type": "slider",
+    "tier": "core",
+    "topic": "principles-or-winning",
+    "context": "The last question. The war room is empty, the map is dark and there is nobody left to perform for.",
+    "prompt": "One trade, offered to every candidate exactly once: lose with clean hands, or win with dirty ones. Which do you take?",
+    "slider": {
+      "left": "Lose clean: a concession speech you can read to your kids",
+      "right": "Win dirty: the oath of office and a list of people to avoid",
+      "centre": "Win, and bend only the rules nobody checks",
+      "effects": {
+        "mach": 2,
+        "psych": 0.6
+      },
+      "steps": 5
+    },
+    "candLeft": {
+      "pence": 1,
+      "randpaul": 1
+    },
+    "candRight": {
+      "cruz": 1,
+      "newsom": 1
+    },
+    "fx": [
+      "candles",
+      "night"
+    ],
+    "discrimination": 3
+  }
+]

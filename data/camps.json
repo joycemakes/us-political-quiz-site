@@ -1,0 +1,203 @@
+{
+  "_note": "Ideology camps: neutral groupings drawn on the quiz's own axes (-2..+2). A camp lists only the axes that define it; the player's camp is the nearest centroid (RMS over those axes) inside the route's party. fit % = 100 x (1 - rms / 3), floored at 0.",
+  "camps": [
+    {
+      "id": "dem-insurgent",
+      "party": "dem",
+      "short": "Insurgent Left",
+      "name": "Insurgent left",
+      "blurb": "Tax the rich, primary the cautious, post through it.",
+      "centroid": {
+        "econ": -2,
+        "social": 2,
+        "system": 1.5,
+        "online": 1.5,
+        "world": -1,
+        "style": 1.5,
+        "dynasty": -1.5
+      }
+    },
+    {
+      "id": "dem-kitchen",
+      "party": "dem",
+      "short": "Kitchen Table",
+      "name": "Kitchen-table populists",
+      "blurb": "Wages, rent and drug prices first; culture war a distant second.",
+      "centroid": {
+        "econ": -1.25,
+        "social": 1,
+        "trade": -0.75,
+        "world": -0.5,
+        "system": 0.25,
+        "tech": 1,
+        "loyalty": -0.5,
+        "online": 0.5,
+        "style": 0.75
+      }
+    },
+    {
+      "id": "dem-bigtent",
+      "party": "dem",
+      "short": "Big Tent",
+      "name": "Big-tent liberals",
+      "blurb": "Blue-state confidence, a camera ready, a fight picked daily.",
+      "centroid": {
+        "econ": -0.5,
+        "social": 1.5,
+        "system": 0.5,
+        "online": 1.25,
+        "style": 1.5,
+        "border": 0.75,
+        "federal": 0.5
+      }
+    },
+    {
+      "id": "dem-institution",
+      "party": "dem",
+      "short": "Institutionalists",
+      "name": "Party institutionalists",
+      "blurb": "Wait your turn, trust the process, never say anything clippable.",
+      "centroid": {
+        "econ": -0.5,
+        "social": 1.5,
+        "world": 1,
+        "system": -1.5,
+        "loyalty": 1,
+        "federal": -1,
+        "online": 0
+      }
+    },
+    {
+      "id": "dem-centrist",
+      "party": "dem",
+      "short": "Centrists",
+      "name": "Governing centrists",
+      "blurb": "Fix the road, win the swing county, keep the base at arm's length.",
+      "centroid": {
+        "econ": 0,
+        "social": 0.5,
+        "world": 1.25,
+        "system": -1,
+        "faith": 0.5,
+        "online": -0.75,
+        "style": -0.5,
+        "democracy": 2,
+        "border": -0.5
+      }
+    },
+    {
+      "id": "gop-populist",
+      "party": "gop",
+      "short": "Populists",
+      "name": "National populists",
+      "blurb": "Tariffs, a hard border, no more wars and absolute loyalty to the leader.",
+      "centroid": {
+        "econ": -0.5,
+        "social": -1.5,
+        "world": -2,
+        "system": 1.5,
+        "trade": -2,
+        "border": -2,
+        "loyalty": 2,
+        "democracy": -1.25,
+        "online": 1.5,
+        "tech": 0.5
+      }
+    },
+    {
+      "id": "gop-disruptor",
+      "party": "gop",
+      "short": "Disruptors",
+      "name": "Disruptor right",
+      "blurb": "Fire the bureaucracy, deregulate everything, launch it from a podcast.",
+      "centroid": {
+        "econ": 1.5,
+        "tech": 2,
+        "online": 2,
+        "system": 2,
+        "world": -1.5,
+        "narc": 1,
+        "trade": 0
+      }
+    },
+    {
+      "id": "gop-movement",
+      "party": "gop",
+      "short": "Movement",
+      "name": "Movement conservatives",
+      "blurb": "Culture war as governing program, run from the statehouse.",
+      "centroid": {
+        "econ": 1.5,
+        "social": -1.75,
+        "faith": 1.25,
+        "border": -2,
+        "federal": 1.5,
+        "style": 1.75,
+        "system": 0.75
+      }
+    },
+    {
+      "id": "gop-libertarian",
+      "party": "gop",
+      "short": "Libertarians",
+      "name": "Libertarian right",
+      "blurb": "Audit the Fed, end the wars, leave me alone.",
+      "centroid": {
+        "econ": 2,
+        "world": -2,
+        "federal": 2,
+        "liberty": 2,
+        "trade": 1.5,
+        "loyalty": -2
+      }
+    },
+    {
+      "id": "gop-governor",
+      "party": "gop",
+      "short": "Statehouse",
+      "name": "Statehouse conservatives",
+      "blurb": "Low taxes, quiet competence, a fleece vest and no tweets.",
+      "centroid": {
+        "econ": 1.5,
+        "social": -1,
+        "system": -0.75,
+        "democracy": 1,
+        "online": -1.25,
+        "style": -1,
+        "world": 0.5,
+        "loyalty": -0.5,
+        "federal": 1,
+        "faith": 0.75
+      }
+    },
+    {
+      "id": "gop-defense",
+      "party": "gop",
+      "short": "Defense Hawks",
+      "name": "Defense hawks",
+      "blurb": "Peace through strength, sanctions by Friday, a carrier group for every crisis.",
+      "centroid": {
+        "world": 1.75,
+        "econ": 1,
+        "border": -1.25,
+        "liberty": -1,
+        "trade": 0,
+        "system": -0.5
+      }
+    },
+    {
+      "id": "gop-faith",
+      "party": "gop",
+      "short": "Faith First",
+      "name": "Faith-first conservatives",
+      "blurb": "Scripture before strategy, and a long memory for who kept their vows.",
+      "centroid": {
+        "faith": 2,
+        "social": -2,
+        "libertine": -1.5,
+        "world": 1,
+        "democracy": 1.5
+      }
+    }
+  ]
+}

@@ -1,0 +1,5067 @@
+[
+  {
+    "id": "A-001",
+    "chapter": "announcement",
+    "route": "both",
+    "type": "choice",
+    "tier": "core",
+    "topic": "health-care",
+    "prompt": "Launch week. A nurse at your first town hall asks what you will do about her insurance premiums. What is your first line on health care?",
+    "context": "The extra Obamacare subsidies lapsed at the end of 2025, after the longest shutdown on record.",
+    "options": [
+      {
+        "id": "a",
+        "label": "Medicare for All. No more half measures",
+        "effects": {
+          "econ": -1.5,
+          "system": 0.5
+        }
+      },
+      {
+        "id": "b",
+        "label": "Bring the subsidies back and add a public option",
+        "effects": {
+          "econ": -0.8
+        }
+      },
+      {
+        "id": "c",
+        "label": "Send the money to families' own health accounts",
+        "effects": {
+          "econ": 0.8
+        }
+      },
+      {
+        "id": "d",
+        "label": "Get Washington out and let insurers compete",
+        "effects": {
+          "econ": 1.5
+        }
+      }
+    ],
+    "facts": "Federal shutdown October 1 to November 12, 2025 (43 days, longest on record) turned on the enhanced ACA premium tax credits, which expired December 31, 2025. The Senate rejected an extension on December 11, 2025; the House passed a three-year extension 230-196 on January 8, 2026, but Senate talks collapsed in February 2026.",
+    "discrimination": 3
+  },
+  {
+    "id": "A-002",
+    "chapter": "primary",
+    "route": "both",
+    "type": "slider",
+    "tier": "core",
+    "topic": "wealth-tax",
+    "prompt": "California put a one-time tax on billionaires' fortunes in front of voters, and the fight went national. Where do you land?",
+    "slider": {
+      "left": "Tax the fortunes themselves",
+      "right": "No wealth taxes, ever",
+      "centre": "Higher rates on income, not on fortunes",
+      "effects": {
+        "econ": 2
+      },
+      "steps": 5,
+      "candLeft": {
+        "khanna": 1
+      }
+    },
+    "signature": [
+      "khanna"
+    ],
+    "facts": "California Billionaire Tax Act (SEIU-UHW-backed initiative, one-time 5% tax on net worth over $1bn). Ro Khanna publicly backed it from late December 2025; Gavin Newsom opposed it. It qualified on June 17, 2026 for the November 3, 2026 ballot as Proposition 40. Do not state the result.",
+    "discrimination": 3
+  },
+  {
+    "id": "A-003",
+    "chapter": "announcement",
+    "route": "both",
+    "type": "slider",
+    "tier": "core",
+    "topic": "minimum-wage",
+    "prompt": "The federal minimum wage has sat at $7.25 since 2009. Set your number.",
+    "slider": {
+      "left": "$17 an hour, rising with prices",
+      "right": "No federal minimum at all",
+      "centre": "Around $10, and states can go higher",
+      "effects": {
+        "econ": 2
+      },
+      "steps": 5
+    },
+    "facts": "Federal minimum wage $7.25 since July 24, 2009. Hawley and Welch introduced the Higher Wages for American Workers Act ($15 an hour, S. 2013) on June 10, 2025.",
+    "discrimination": 2
+  },
+  {
+    "id": "A-004",
+    "chapter": "primary",
+    "route": "dem",
+    "type": "choice",
+    "tier": "core",
+    "topic": "socialist-mayor",
+    "excludes": [
+      "D-019"
+    ],
+    "prompt": "New York elected a mayor on a rent freeze, free buses and city-run grocery stores. A reporter asks if you would take that national.",
+    "options": [
+      {
+        "id": "a",
+        "label": "Yes. Public options for the basics, everywhere",
+        "effects": {
+          "econ": -1.5,
+          "system": 0.5
+        }
+      },
+      {
+        "id": "b",
+        "label": "Good for New York. Not a national plan",
+        "effects": {
+          "econ": -0.5,
+          "system": -0.3
+        }
+      },
+      {
+        "id": "c",
+        "label": "Wrong tool. Cut the rules and let people build",
+        "effects": {
+          "econ": 1,
+          "tech": 0.5
+        }
+      },
+      {
+        "id": "d",
+        "label": "It is socialism and it will sink us in Ohio",
+        "effects": {
+          "econ": 1.2,
+          "style": 0.5
+        }
+      }
+    ],
+    "facts": "Zohran Mamdani elected New York City mayor November 4, 2025 on a platform including a rent freeze on rent-stabilized apartments, fare-free buses and city-owned grocery stores.",
+    "discrimination": 2
+  },
+  {
+    "id": "A-005",
+    "chapter": "debate",
+    "route": "both",
+    "type": "hold",
+    "tier": "core",
+    "topic": "credit-card-cap",
+    "prompt": "Credit card interest is running above 20 percent. A cap at 10 percent has fans on the left and the populist right. Should the law cap it?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Cap it at 10 percent",
+        "effects": {
+          "econ": -1.2,
+          "system": 0.5
+        }
+      },
+      {
+        "id": "b",
+        "label": "Let the market set the rate",
+        "effects": {
+          "econ": 1.2
+        }
+      }
+    ],
+    "measure": [
+      "holdStrength"
+    ],
+    "facts": "Sanders and Hawley introduced a 10% credit card interest cap bill on February 4, 2025; on January 9, 2026 President Trump called for a one-year 10% cap starting January 20, 2026.",
+    "discrimination": 2
+  },
+  {
+    "id": "A-006",
+    "chapter": "primary",
+    "route": "both",
+    "type": "dilemma",
+    "tier": "core",
+    "topic": "big-bill",
+    "prompt": "The 2025 tax law kept the tax cuts and paid for part of them by cutting Medicaid, the health cover for the poor. You get one stroke of the pen. Which do you protect?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Restore the Medicaid money, even if taxes rise",
+        "effects": {
+          "econ": -1.3
+        }
+      },
+      {
+        "id": "b",
+        "label": "Keep the tax cuts, even if coverage shrinks",
+        "effects": {
+          "econ": 1.3
+        }
+      }
+    ],
+    "facts": "One Big Beautiful Bill Act signed July 4, 2025: extended the 2017 tax cuts and cut projected Medicaid spending by roughly $900bn or more over ten years (CBO).",
+    "discrimination": 3
+  },
+  {
+    "id": "A-007",
+    "chapter": "convention",
+    "route": "both",
+    "type": "budget",
+    "tier": "core",
+    "topic": "windfall-budget",
+    "excludes": [
+      "A-108"
+    ],
+    "prompt": "The platform committee hands you 100 points of new money. How do you split it?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Child tax credit and child care",
+        "effects": {
+          "econ": -1,
+          "social": 0.3
+        }
+      },
+      {
+        "id": "b",
+        "label": "Tax cuts across the board",
+        "effects": {
+          "econ": 1.5
+        }
+      },
+      {
+        "id": "c",
+        "label": "Pay down the national debt",
+        "effects": {
+          "econ": 0.8,
+          "system": -0.3
+        }
+      },
+      {
+        "id": "d",
+        "label": "Housing, roads and power lines",
+        "effects": {
+          "econ": -0.5,
+          "tech": 0.5
+        }
+      },
+      {
+        "id": "e",
+        "label": "Dental, vision and hearing on Medicare",
+        "effects": {
+          "econ": -1.2
+        }
+      }
+    ],
+    "facts": "Invented scenario; no factual claim.",
+    "discrimination": 3
+  },
+  {
+    "id": "A-008",
+    "chapter": "primary",
+    "route": "both",
+    "type": "rank",
+    "tier": "core",
+    "topic": "cost-of-living",
+    "prompt": "Groceries, rent, insurance: everything costs more. Rank who gets the blame in your stump speech, most to least.",
+    "options": [
+      {
+        "id": "a",
+        "label": "Corporate greed and monopolies",
+        "effects": {
+          "econ": -1.2,
+          "system": 0.3
+        }
+      },
+      {
+        "id": "b",
+        "label": "Government spending and deficits",
+        "effects": {
+          "econ": 1.2
+        }
+      },
+      {
+        "id": "c",
+        "label": "Tariffs",
+        "effects": {
+          "trade": 1.2
+        }
+      },
+      {
+        "id": "d",
+        "label": "Zoning, permits and red tape",
+        "effects": {
+          "econ": 0.6,
+          "tech": 0.6
+        }
+      },
+      {
+        "id": "e",
+        "label": "The Federal Reserve",
+        "effects": {
+          "system": 1,
+          "econ": 0.3
+        }
+      }
+    ],
+    "facts": "Invented scenario; no factual claim.",
+    "discrimination": 2
+  },
+  {
+    "id": "A-009",
+    "chapter": "announcement",
+    "route": "both",
+    "type": "pin",
+    "tier": "core",
+    "topic": "cost-of-living",
+    "prompt": "A family's kitchen table, late. The month's bills are spread across it. Which cost would you fix first? Tap the bill.",
+    "art": "SC-KITCHEN-BILLS",
+    "artNote": "Pixel-art kitchen table seen from above and slightly behind an empty chair, one lamp, night outside the window. No people. Six paper items laid out clearly apart: rent notice top left, long grocery receipt curling at center left, electricity bill top right, hospital bill at center, pay stub bottom left, day-care invoice bottom right with a crayon drawing beside it.",
+    "regions": [
+      {
+        "id": "rent",
+        "label": "The rent notice — cap rent rises",
+        "where": "top left of the table, a notice with a red stripe",
+        "effects": {
+          "econ": -1
+        },
+        "poly": { "wide": [[11,24],[30,24],[30,40.5],[11,40.5]], "tall": [[12,24],[40,24],[40,39],[12,39]] }
+      },
+      {
+        "id": "grocery",
+        "label": "The grocery receipt — drop the tariffs on food",
+        "where": "center left, a long curling till receipt",
+        "effects": {
+          "trade": 1.2
+        },
+        "poly": { "wide": [[12,47],[18,42],[26,42.5],[25,54],[19,59.5],[12,58]], "tall": [[13,50],[23,40],[36,41],[35,48],[26,57],[13,56]] }
+      },
+      {
+        "id": "power",
+        "label": "The electricity bill — build more power, fast",
+        "where": "top right, a bill with a lightning-bolt logo",
+        "effects": {
+          "tech": 1,
+          "econ": 0.3
+        },
+        "poly": { "wide": [[67,26],[87,26],[88,43],[68,43]], "tall": [[53,24],[87,24],[87,39],[53,39]] }
+      },
+      {
+        "id": "hospital",
+        "label": "The hospital bill — public insurance for all",
+        "where": "dead center, the thickest envelope, stamped overdue",
+        "effects": {
+          "econ": -1.3
+        },
+        "poly": { "wide": [[35,42],[62,40],[64,58],[35,59]], "tall": [[45,43],[90,41],[91,56],[45,56]] }
+      },
+      {
+        "id": "paystub",
+        "label": "The pay stub — cut the taxes taken out",
+        "where": "bottom left, a pay stub with the deductions column circled",
+        "effects": {
+          "econ": 1.3
+        },
+        "poly": { "wide": [[8,62.5],[31,61],[31,81],[8,80]], "tall": [[7,58],[43,58],[43,74],[7,74]] }
+      },
+      {
+        "id": "daycare",
+        "label": "The day-care invoice — subsidize child care",
+        "where": "bottom right, an invoice beside a child's crayon drawing",
+        "effects": {
+          "econ": -0.8,
+          "social": 0.4
+        },
+        "poly": { "wide": [[62,61],[93,60],[93,81],[62,81]], "tall": [[50,58],[93,58],[93,75],[50,75]] }
+      }
+    ],
+    "facts": "Invented scenario; no factual claim.",
+    "discrimination": 2
+  },
+  {
+    "id": "A-010",
+    "chapter": "primary",
+    "route": "both",
+    "type": "sign",
+    "tier": "core",
+    "topic": "housing",
+    "prompt": "On your desk: the Homes for Families Act. It bars big investment funds from buying single-family houses.",
+    "options": [
+      {
+        "id": "sign",
+        "label": "Sign: houses are for families, not funds",
+        "effects": {
+          "econ": -1,
+          "system": 0.4
+        }
+      },
+      {
+        "id": "veto",
+        "label": "Veto: build more houses, do not ban buyers",
+        "effects": {
+          "econ": 1,
+          "tech": 0.3
+        }
+      }
+    ],
+    "facts": "Bill name invented. On January 7, 2026 President Trump said he was taking steps to ban large institutional investors from buying single-family homes and asked Congress to codify it; an executive order followed. Similar bills exist in both parties.",
+    "discrimination": 2
+  },
+  {
+    "id": "A-011",
+    "chapter": "primary",
+    "route": "dem",
+    "type": "choice",
+    "tier": "core",
+    "topic": "oligarchy-vs-abundance",
+    "excludes": [
+      "D-006"
+    ],
+    "prompt": "Two tents at the Democratic picnic. The abundance people say build more of everything. The fighting-oligarchy people say billionaires are the problem. Which tent do you sit in?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Abundance: build, permit, deliver",
+        "effects": {
+          "econ": 0.5,
+          "tech": 1,
+          "system": -0.3
+        }
+      },
+      {
+        "id": "b",
+        "label": "Oligarchy: concentrated wealth is the problem",
+        "effects": {
+          "econ": -1.5,
+          "system": 1
+        },
+        "cand": {
+          "aoc": 1
+        }
+      },
+      {
+        "id": "c",
+        "label": "Both: build more and tax billionaires to do it",
+        "effects": {
+          "econ": -0.8,
+          "tech": 0.5
+        }
+      },
+      {
+        "id": "d",
+        "label": "Neither. Lower costs and skip the seminar",
+        "effects": {
+          "online": -0.8,
+          "system": -0.5,
+          "econ": 0.2
+        }
+      }
+    ],
+    "signature": [
+      "aoc"
+    ],
+    "facts": "Abundance by Ezra Klein and Derek Thompson published March 2025. Bernie Sanders began the Fighting Oligarchy tour in February 2025; Alexandria Ocasio-Cortez joined it from March 20, 2025.",
+    "discrimination": 2
+  },
+  {
+    "id": "A-012",
+    "chapter": "primary",
+    "route": "gop",
+    "type": "choice",
+    "tier": "core",
+    "topic": "gop-and-unions",
+    "prompt": "A union president wants a speaking slot at your biggest rally. The donors on your finance call are not pleased. Does he get it?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Give him the mic. A workers' party means it",
+        "effects": {
+          "econ": -1.2,
+          "trade": -0.5
+        },
+        "cand": {
+          "hawley": 1
+        }
+      },
+      {
+        "id": "b",
+        "label": "He can speak, but the laws that let workers skip dues stay",
+        "effects": {
+          "econ": 0.6
+        }
+      },
+      {
+        "id": "c",
+        "label": "No. We are the party of free enterprise",
+        "effects": {
+          "econ": 1.5
+        }
+      }
+    ],
+    "signature": [
+      "hawley"
+    ],
+    "facts": "Teamsters president Sean O'Brien addressed the Republican convention on July 15, 2024. Josh Hawley has backed labor measures including a $15 minimum wage bill (June 10, 2025).",
+    "discrimination": 3
+  },
+  {
+    "id": "A-013",
+    "chapter": "debate",
+    "route": "both",
+    "type": "choice",
+    "tier": "core",
+    "topic": "trans-athletes",
+    "prompt": "The moderator wants one sentence on who plays in girls' school sports.",
+    "context": "In June 2026 the Supreme Court ruled 6 to 3 that states may keep trans girls off girls' teams.",
+    "options": [
+      {
+        "id": "a",
+        "label": "Sex at birth decides, in every state",
+        "effects": {
+          "social": -1.5
+        }
+      },
+      {
+        "id": "b",
+        "label": "States and leagues set their own rules",
+        "effects": {
+          "social": -0.4,
+          "system": -0.4
+        }
+      },
+      {
+        "id": "c",
+        "label": "Case by case: by sport, age and level",
+        "effects": {
+          "social": 0.8
+        }
+      },
+      {
+        "id": "d",
+        "label": "Trans girls play. Inclusion is the rule",
+        "effects": {
+          "social": 1.5
+        }
+      }
+    ],
+    "facts": "Little v. Hecox and West Virginia v. B.P.J. argued January 13, 2026 and decided June 30, 2026 (6-3, Kavanaugh): state bans upheld under Title IX and Equal Protection. Executive order on women's sports signed February 5, 2025.",
+    "discrimination": 3
+  },
+  {
+    "id": "A-014",
+    "chapter": "primary",
+    "route": "both",
+    "type": "slider",
+    "tier": "core",
+    "topic": "abortion",
+    "prompt": "Since Dobbs, the ruling that overturned Roe, abortion law changes at the state line. What should Washington do?",
+    "slider": {
+      "left": "A national ban, few exceptions",
+      "right": "A federal right in every state",
+      "centre": "Leave it to the states",
+      "effects": {
+        "social": 2
+      },
+      "steps": 5
+    },
+    "facts": "Dobbs v. Jackson Women's Health Organization decided June 24, 2022, returning abortion law to the states.",
+    "discrimination": 3
+  },
+  {
+    "id": "A-015",
+    "chapter": "primary",
+    "route": "gop",
+    "type": "choice",
+    "tier": "core",
+    "topic": "abortion",
+    "prompt": "Pro-life groups want your pledge: no abortion pills by mail, starting day one. The suburbs are listening. Do you sign it?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Pledge it. Day one, no pills by mail",
+        "effects": {
+          "social": -1.5,
+          "faith": 0.8
+        },
+        "cand": {
+          "pence": 1
+        }
+      },
+      {
+        "id": "b",
+        "label": "Tighter rules: a doctor's visit first",
+        "effects": {
+          "social": -0.8
+        }
+      },
+      {
+        "id": "c",
+        "label": "Leave it to the states. That was the point",
+        "effects": {
+          "social": -0.2,
+          "system": -0.5
+        }
+      },
+      {
+        "id": "d",
+        "label": "Leave it alone. This is how we lose",
+        "effects": {
+          "social": 0.7,
+          "mach": 0.5
+        }
+      }
+    ],
+    "signature": [
+      "pence"
+    ],
+    "facts": "Mifepristone has been available by telehealth and mail since FDA rule changes in 2021-2023. Mike Pence's group Advancing American Freedom has pressed the FDA to restore earlier safety rules (records lawsuit, coalition letters in 2025). The FDA said in 2025 it would review the drug's safety.",
+    "discrimination": 3
+  },
+  {
+    "id": "A-016",
+    "chapter": "debate",
+    "route": "both",
+    "type": "hold",
+    "tier": "core",
+    "topic": "trans-minors-care",
+    "prompt": "Puberty blockers and hormones for under-18s. The Supreme Court has said states may ban them. Should they be banned for minors?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Ban them for minors",
+        "effects": {
+          "social": -1.3
+        }
+      },
+      {
+        "id": "b",
+        "label": "Families and doctors decide",
+        "effects": {
+          "social": 1.3
+        }
+      }
+    ],
+    "measure": [
+      "holdStrength"
+    ],
+    "facts": "United States v. Skrmetti, decided June 18, 2025, upheld Tennessee's ban on gender-transition treatment for minors.",
+    "discrimination": 2
+  },
+  {
+    "id": "A-017",
+    "chapter": "primary",
+    "route": "dem",
+    "type": "dilemma",
+    "tier": "core",
+    "topic": "trans-athletes",
+    "excludes": [
+      "D-010"
+    ],
+    "prompt": "A Democratic governor says on his own podcast that trans athletes in girls' sports is deeply unfair. Activists want you to condemn him. What do you say?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Say he has a point",
+        "effects": {
+          "social": -0.9,
+          "system": -0.2
+        },
+        "cand": {
+          "newsom": 1
+        }
+      },
+      {
+        "id": "b",
+        "label": "Say this party does not trade kids for polls",
+        "effects": {
+          "social": 1.3,
+          "style": 0.5
+        }
+      }
+    ],
+    "signature": [
+      "newsom"
+    ],
+    "facts": "Gavin Newsom called trans athletes' participation in girls' sports deeply unfair on the first episode of his podcast, with guest Charlie Kirk, March 6, 2025.",
+    "discrimination": 2
+  },
+  {
+    "id": "A-018",
+    "chapter": "convention",
+    "route": "both",
+    "type": "rank",
+    "tier": "core",
+    "topic": "family-policy",
+    "prompt": "The platform needs a paragraph on the family. Rank the drafts, favorite first.",
+    "options": [
+      {
+        "id": "a",
+        "label": "Marriage and children, with tax breaks to match",
+        "effects": {
+          "social": -1,
+          "faith": 0.5
+        }
+      },
+      {
+        "id": "b",
+        "label": "Paid leave and child care for everyone",
+        "effects": {
+          "social": 0.8,
+          "econ": -0.8
+        }
+      },
+      {
+        "id": "c",
+        "label": "Government out of the bedroom and the nursery",
+        "effects": {
+          "social": 0.5,
+          "econ": 0.8
+        }
+      },
+      {
+        "id": "d",
+        "label": "Every kind of family, equal before the law",
+        "effects": {
+          "social": 1.3
+        }
+      }
+    ],
+    "facts": "Invented scenario; no factual claim.",
+    "discrimination": 2
+  },
+  {
+    "id": "A-019",
+    "chapter": "primary",
+    "route": "both",
+    "type": "swipe",
+    "tier": "core",
+    "topic": "culture-war",
+    "prompt": "Lightning round. Four seconds a card. Agree or disagree, no speeches.",
+    "cards": [
+      {
+        "id": "c1",
+        "text": "Same-sex marriage is settled. Move on",
+        "yes": {
+          "social": 1
+        },
+        "no": {
+          "social": -1.3
+        }
+      },
+      {
+        "id": "c2",
+        "text": "Schools must tell parents about a pronoun change",
+        "yes": {
+          "social": -1
+        },
+        "no": {
+          "social": 1
+        }
+      },
+      {
+        "id": "c3",
+        "text": "Close diversity, equity and inclusion offices",
+        "yes": {
+          "social": -1
+        },
+        "no": {
+          "social": 1
+        }
+      },
+      {
+        "id": "c4",
+        "text": "Legalize marijuana federally",
+        "yes": {
+          "social": 0.8,
+          "econ": 0.3
+        },
+        "no": {
+          "social": -0.8
+        }
+      },
+      {
+        "id": "c5",
+        "text": "Protect IVF in federal law",
+        "yes": {
+          "social": 0.6
+        },
+        "no": {
+          "social": -0.8,
+          "faith": 0.5
+        }
+      },
+      {
+        "id": "c6",
+        "text": "Pull sexually explicit books from school libraries",
+        "yes": {
+          "social": -1
+        },
+        "no": {
+          "social": 1
+        }
+      },
+      {
+        "id": "c7",
+        "text": "Keep the death penalty",
+        "yes": {
+          "social": -0.6,
+          "psych": 0.4
+        },
+        "no": {
+          "social": 0.6,
+          "psych": -0.3
+        }
+      }
+    ],
+    "measure": [
+      "speed"
+    ],
+    "facts": "Invented scenario; no factual claim.",
+    "discrimination": 3
+  },
+  {
+    "id": "A-020",
+    "chapter": "primary",
+    "route": "both",
+    "type": "sign",
+    "tier": "core",
+    "topic": "dei-offices",
+    "prompt": "On your desk: the Equal Treatment in Education Act. Any college that keeps a diversity office loses its federal money.",
+    "options": [
+      {
+        "id": "sign",
+        "label": "Sign: one standard for every student",
+        "effects": {
+          "social": -1.2,
+          "system": 0.4,
+          "federal": -0.5
+        }
+      },
+      {
+        "id": "veto",
+        "label": "Veto: campuses are not Washington's to run",
+        "effects": {
+          "social": 1,
+          "system": -0.3,
+          "federal": 0.5
+        }
+      }
+    ],
+    "facts": "Bill name invented. Executive orders of January 20-21, 2025 ended federal DEI programs; the administration froze funds at several universities during 2025.",
+    "discrimination": 2
+  },
+  {
+    "id": "A-021",
+    "chapter": "convention",
+    "route": "both",
+    "type": "budget",
+    "tier": "core",
+    "topic": "closing-message",
+    "prompt": "You have 100 points of culture-war airtime for the fall. Where does it go?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Keeping kids safe from phones and porn",
+        "effects": {
+          "tech": -1,
+          "social": -0.4
+        }
+      },
+      {
+        "id": "b",
+        "label": "Getting ideology out of classrooms",
+        "effects": {
+          "social": -1.5
+        }
+      },
+      {
+        "id": "c",
+        "label": "Defending LGBTQ rights",
+        "effects": {
+          "social": 1.5
+        }
+      },
+      {
+        "id": "d",
+        "label": "Abortion rights",
+        "effects": {
+          "social": 1.3
+        }
+      },
+      {
+        "id": "e",
+        "label": "None of it. Talk about prices",
+        "effects": {
+          "style": -0.6,
+          "online": -0.6
+        }
+      }
+    ],
+    "facts": "Invented scenario; no factual claim.",
+    "discrimination": 2
+  },
+  {
+    "id": "A-022",
+    "chapter": "announcement",
+    "route": "both",
+    "type": "slider",
+    "tier": "core",
+    "topic": "guns",
+    "prompt": "Guns come up at your very first town hall. How far should gun laws go?",
+    "slider": {
+      "left": "The Second Amendment is not negotiable",
+      "right": "Ban assault weapons and buy them back",
+      "centre": "Background checks and red-flag laws, no bans",
+      "effects": {
+        "social": 1.5,
+        "econ": -0.3
+      },
+      "steps": 5
+    },
+    "facts": "No specific event referenced.",
+    "discrimination": 2
+  },
+  {
+    "id": "A-023",
+    "chapter": "primary",
+    "route": "both",
+    "type": "slider",
+    "tier": "core",
+    "topic": "parents-vs-schools",
+    "prompt": "Who decides what a ten-year-old reads in a public school?",
+    "slider": {
+      "left": "Parents hold the veto",
+      "right": "Teachers and librarians decide",
+      "centre": "Elected school boards decide",
+      "effects": {
+        "social": 1.5,
+        "system": -0.3
+      },
+      "steps": 5,
+      "candLeft": {
+        "youngkin": 1
+      }
+    },
+    "signature": [
+      "youngkin"
+    ],
+    "facts": "Glenn Youngkin won the Virginia governorship in November 2021 on a parents' rights in schools message.",
+    "discrimination": 2
+  },
+  {
+    "id": "A-024",
+    "chapter": "convention",
+    "route": "both",
+    "type": "choice",
+    "tier": "core",
+    "topic": "same-sex-marriage",
+    "prompt": "A convention delegate wants the platform to take a line on same-sex marriage. The Supreme Court has just declined to reopen it. Which plank do you back?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Plank: marriage is one man and one woman",
+        "effects": {
+          "social": -1.5,
+          "faith": 1
+        }
+      },
+      {
+        "id": "b",
+        "label": "No plank. The country has moved on",
+        "effects": {
+          "social": 0.3,
+          "mach": 0.4
+        }
+      },
+      {
+        "id": "c",
+        "label": "Plank: lock marriage equality into statute",
+        "effects": {
+          "social": 1.3
+        }
+      },
+      {
+        "id": "d",
+        "label": "Plank: get the state out of marriage entirely",
+        "effects": {
+          "social": 0.5,
+          "econ": 0.8
+        }
+      }
+    ],
+    "facts": "On November 10, 2025 the Supreme Court declined to hear Kim Davis's petition asking it to revisit Obergefell v. Hodges (2015).",
+    "discrimination": 2
+  },
+  {
+    "id": "A-025",
+    "chapter": "debate",
+    "route": "both",
+    "type": "choice",
+    "tier": "core",
+    "topic": "ukraine",
+    "excludes": [
+      "D-045"
+    ],
+    "prompt": "Ukraine, another winter. The peace plan on the table asks Kyiv to give up land. What is your policy?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Arm Ukraine until Russia is pushed back",
+        "effects": {
+          "world": 1.5
+        }
+      },
+      {
+        "id": "b",
+        "label": "Keep the aid flowing and push both to the table",
+        "effects": {
+          "world": 0.7
+        }
+      },
+      {
+        "id": "c",
+        "label": "Take the deal now, even if Kyiv loses land",
+        "effects": {
+          "world": -1
+        }
+      },
+      {
+        "id": "d",
+        "label": "Not our war. End the aid and let Europe pay",
+        "effects": {
+          "world": -1.5
+        },
+        "cand": {
+          "vance": 1
+        }
+      }
+    ],
+    "signature": [
+      "vance"
+    ],
+    "facts": "Oval Office meeting between Trump, Vance and Zelensky February 28, 2025. A 28-point US peace plan involving territorial concessions was reported in November 2025. Vance has long opposed further Ukraine aid.",
+    "discrimination": 3
+  },
+  {
+    "id": "A-026",
+    "chapter": "primary",
+    "route": "both",
+    "type": "slider",
+    "tier": "core",
+    "topic": "americas-role",
+    "prompt": "What is America's job in the world?",
+    "slider": {
+      "left": "Come home and fix our own country",
+      "right": "Lead the free world, whatever it costs",
+      "centre": "Lead where it pays, skip the rest",
+      "effects": {
+        "world": 2
+      },
+      "steps": 5
+    },
+    "facts": "Invented scenario; no factual claim.",
+    "discrimination": 3
+  },
+  {
+    "id": "A-027",
+    "chapter": "primary",
+    "route": "both",
+    "type": "choice",
+    "tier": "core",
+    "topic": "israel-arms",
+    "excludes": [
+      "D-008"
+    ],
+    "prompt": "The Gaza ceasefire is holding, more or less. A reporter asks what you would do with the next arms package for Israel.",
+    "options": [
+      {
+        "id": "a",
+        "label": "No conditions. Israel is our closest ally",
+        "effects": {
+          "world": 1.2,
+          "faith": 0.5
+        }
+      },
+      {
+        "id": "b",
+        "label": "Keep it going, with quiet pressure",
+        "effects": {
+          "world": 0.5,
+          "system": -0.3
+        }
+      },
+      {
+        "id": "c",
+        "label": "Every dollar tied to human-rights law",
+        "effects": {
+          "world": -0.5,
+          "social": 0.5
+        }
+      },
+      {
+        "id": "d",
+        "label": "End sales of offensive weapons",
+        "effects": {
+          "world": -1.2,
+          "system": 0.5
+        }
+      },
+      {
+        "id": "e",
+        "label": "No foreign aid to anyone, Israel included",
+        "effects": {
+          "world": -1.5,
+          "econ": 1
+        }
+      }
+    ],
+    "facts": "Israel-Hamas ceasefire took effect October 10, 2025 under a US-brokered 20-point plan.",
+    "discrimination": 3
+  },
+  {
+    "id": "A-028",
+    "chapter": "debate",
+    "route": "both",
+    "type": "hold",
+    "tier": "core",
+    "topic": "use-of-force",
+    "prompt": "Three in the morning. China has blockaded Taiwan. Do you send American forces?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Send the fleet. America defends Taiwan",
+        "effects": {
+          "world": 1.5
+        }
+      },
+      {
+        "id": "b",
+        "label": "Not with American lives",
+        "effects": {
+          "world": -1.3
+        }
+      }
+    ],
+    "fx": [
+      "night"
+    ],
+    "measure": [
+      "holdStrength"
+    ],
+    "facts": "Invented scenario; no factual claim.",
+    "discrimination": 3
+  },
+  {
+    "id": "A-029",
+    "chapter": "primary",
+    "route": "both",
+    "type": "dilemma",
+    "tier": "core",
+    "topic": "war-powers",
+    "prompt": "January 2026: American forces seize Venezuela's president in Caracas and fly him to New York. No vote in Congress. Was it right?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Yes. A dictator is gone and it took one night",
+        "effects": {
+          "world": 1.2,
+          "psych": 0.4
+        }
+      },
+      {
+        "id": "b",
+        "label": "No. No vote, no plan, not our business",
+        "effects": {
+          "world": -1.2,
+          "system": -0.3
+        }
+      }
+    ],
+    "facts": "US forces captured Nicolas Maduro in Caracas on January 3, 2026; he was flown to New York to face federal charges. No prior congressional authorization.",
+    "discrimination": 2
+  },
+  {
+    "id": "A-030",
+    "chapter": "convention",
+    "route": "both",
+    "type": "budget",
+    "tier": "core",
+    "topic": "defense-budget",
+    "prompt": "Split 100 points of the security budget. The joint chiefs are pretending not to watch.",
+    "options": [
+      {
+        "id": "a",
+        "label": "Ships and missiles for the Pacific",
+        "effects": {
+          "world": 1.3
+        }
+      },
+      {
+        "id": "b",
+        "label": "The border and the homeland",
+        "effects": {
+          "border": -1,
+          "world": -0.5
+        }
+      },
+      {
+        "id": "c",
+        "label": "Diplomats and foreign aid",
+        "effects": {
+          "world": 0.8,
+          "econ": -0.3
+        }
+      },
+      {
+        "id": "d",
+        "label": "Drones, cyber and military AI",
+        "effects": {
+          "tech": 1,
+          "world": 0.5
+        }
+      },
+      {
+        "id": "e",
+        "label": "Hand it back to taxpayers",
+        "effects": {
+          "world": -1.2,
+          "econ": 1
+        }
+      }
+    ],
+    "facts": "Invented scenario; no factual claim.",
+    "discrimination": 2
+  },
+  {
+    "id": "A-031",
+    "chapter": "primary",
+    "route": "both",
+    "type": "rank",
+    "tier": "core",
+    "topic": "threat-ranking",
+    "prompt": "Rank the threats for your first security briefing, gravest first.",
+    "options": [
+      {
+        "id": "a",
+        "label": "China",
+        "effects": {
+          "world": 0.8,
+          "trade": -0.6
+        }
+      },
+      {
+        "id": "b",
+        "label": "Russia",
+        "effects": {
+          "world": 1.2
+        }
+      },
+      {
+        "id": "c",
+        "label": "Jihadist terror",
+        "effects": {
+          "world": 0.5,
+          "border": -0.5
+        }
+      },
+      {
+        "id": "d",
+        "label": "A warming climate",
+        "effects": {
+          "social": 0.8,
+          "econ": -0.6
+        }
+      },
+      {
+        "id": "e",
+        "label": "Our own forever-war establishment",
+        "effects": {
+          "world": -1.5,
+          "system": 1
+        }
+      }
+    ],
+    "facts": "Invented scenario; no factual claim.",
+    "discrimination": 2
+  },
+  {
+    "id": "A-032",
+    "chapter": "debate",
+    "route": "both",
+    "type": "swipe",
+    "tier": "core",
+    "topic": "americas-role",
+    "prompt": "Foreign policy, speed round. Yes or no to each, four seconds apiece.",
+    "cards": [
+      {
+        "id": "c1",
+        "text": "Stay in NATO, no conditions",
+        "yes": {
+          "world": 1,
+          "system": -0.3
+        },
+        "no": {
+          "world": -1
+        }
+      },
+      {
+        "id": "c2",
+        "text": "Strike Iran again if it rebuilds",
+        "yes": {
+          "world": 1
+        },
+        "no": {
+          "world": -1
+        }
+      },
+      {
+        "id": "c3",
+        "text": "Bring back USAID, the foreign aid agency",
+        "yes": {
+          "world": 0.8,
+          "econ": -0.5
+        },
+        "no": {
+          "world": -0.8,
+          "econ": 0.5
+        }
+      },
+      {
+        "id": "c4",
+        "text": "Keep troops in Korea and Japan",
+        "yes": {
+          "world": 1
+        },
+        "no": {
+          "world": -1
+        }
+      },
+      {
+        "id": "c5",
+        "text": "Raise the defense budget",
+        "yes": {
+          "world": 1
+        },
+        "no": {
+          "world": -1
+        }
+      },
+      {
+        "id": "c6",
+        "text": "Congress votes before any new war",
+        "yes": {
+          "world": -0.6,
+          "system": -0.5,
+          "democracy": 0.5
+        },
+        "no": {
+          "world": 0.6,
+          "narc": 0.3,
+          "democracy": -0.5
+        }
+      }
+    ],
+    "measure": [
+      "speed"
+    ],
+    "facts": "US strikes on Iranian nuclear sites June 22, 2025. USAID wound down and folded into the State Department by July 1, 2025.",
+    "discrimination": 2
+  },
+  {
+    "id": "A-033",
+    "chapter": "primary",
+    "route": "both",
+    "type": "sign",
+    "tier": "core",
+    "topic": "war-powers",
+    "prompt": "On your desk: the War Powers Restoration Act. Any strike abroad ends in 30 days unless Congress votes for it.",
+    "options": [
+      {
+        "id": "sign",
+        "label": "Sign: no more wars by press release",
+        "effects": {
+          "world": -1,
+          "system": -0.6
+        }
+      },
+      {
+        "id": "veto",
+        "label": "Veto: a president cannot fight on a timer",
+        "effects": {
+          "world": 1,
+          "narc": 0.3
+        }
+      }
+    ],
+    "facts": "Bill name invented. Senate war powers resolutions on the Caribbean boat strikes and Venezuela failed narrowly in Oct and November 2025.",
+    "discrimination": 2
+  },
+  {
+    "id": "A-034",
+    "chapter": "announcement",
+    "route": "gop",
+    "type": "choice",
+    "tier": "core",
+    "topic": "americas-role",
+    "prompt": "Your party has two foreign policies and one nomination. Which one opens your first big speech?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Peace through strength, allies first",
+        "effects": {
+          "world": 1.5
+        },
+        "cand": {
+          "pence": 1
+        }
+      },
+      {
+        "id": "b",
+        "label": "Strength, but the allies pay their way",
+        "effects": {
+          "world": 0.4
+        }
+      },
+      {
+        "id": "c",
+        "label": "China, yes. Europe and the Gulf, no",
+        "effects": {
+          "world": -0.8,
+          "trade": -0.3
+        }
+      },
+      {
+        "id": "d",
+        "label": "Come home, America. No more foreign wars",
+        "effects": {
+          "world": -1.5
+        },
+        "cand": {
+          "randpaul": 1
+        }
+      }
+    ],
+    "signature": [
+      "pence",
+      "randpaul"
+    ],
+    "facts": "Editorial framing. Pence has defended a Reaganite foreign policy and Ukraine aid; Rand Paul is a long-standing non-interventionist.",
+    "discrimination": 3
+  },
+  {
+    "id": "A-035",
+    "chapter": "primary",
+    "route": "dem",
+    "type": "choice",
+    "tier": "core",
+    "topic": "defense-budget",
+    "excludes": [
+      "E-042"
+    ],
+    "prompt": "The Pentagon's budget has crossed a trillion dollars. A Democratic forum wants to know what you would do with it.",
+    "options": [
+      {
+        "id": "a",
+        "label": "Cut a tenth and spend it at home",
+        "effects": {
+          "world": -1.3,
+          "econ": -0.8
+        },
+        "cand": {
+          "khanna": 1
+        }
+      },
+      {
+        "id": "b",
+        "label": "Freeze it and audit every contract",
+        "effects": {
+          "world": -0.5,
+          "system": 0.4
+        }
+      },
+      {
+        "id": "c",
+        "label": "Keep it, but buy drones and shipyards",
+        "effects": {
+          "world": 0.8,
+          "tech": 0.5
+        }
+      },
+      {
+        "id": "d",
+        "label": "Raise it. Deterrence is cheaper than war",
+        "effects": {
+          "world": 1.5
+        }
+      }
+    ],
+    "signature": [
+      "khanna"
+    ],
+    "facts": "The FY2026 defense request reached about $1.01 trillion including reconciliation money. Ro Khanna has repeatedly backed amendments to cut Pentagon spending.",
+    "discrimination": 2
+  },
+  {
+    "id": "A-036",
+    "chapter": "debate",
+    "route": "both",
+    "type": "slider",
+    "tier": "core",
+    "topic": "allies",
+    "prompt": "NATO allies have pledged 5 percent of GDP to defense and security by 2035. How do you see the allies?",
+    "slider": {
+      "left": "Freeloaders until proven otherwise",
+      "right": "The best asset America has",
+      "centre": "Allies, once the check clears",
+      "effects": {
+        "world": 1.8,
+        "system": -0.3
+      },
+      "steps": 5
+    },
+    "facts": "NATO members agreed at The Hague summit, June 25, 2025, to spend 5% of GDP by 2035 (3.5% core defense plus 1.5% related security).",
+    "discrimination": 2
+  },
+  {
+    "id": "A-037",
+    "chapter": "announcement",
+    "route": "both",
+    "type": "slider",
+    "tier": "core",
+    "topic": "tariffs",
+    "excludes": [
+      "D-042"
+    ],
+    "prompt": "Since Liberation Day, the April 2025 day tariffs went on nearly everything, every price in the store has a tariff story. How much tariff do you want?",
+    "slider": {
+      "left": "A tariff wall around American industry",
+      "right": "Zero tariffs, free trade",
+      "centre": "Tariffs on China and little else",
+      "effects": {
+        "trade": 2
+      },
+      "steps": 5
+    },
+    "facts": "Sweeping reciprocal tariffs announced April 2, 2025 (Liberation Day).",
+    "discrimination": 3
+  },
+  {
+    "id": "A-038",
+    "chapter": "primary",
+    "route": "both",
+    "type": "choice",
+    "tier": "core",
+    "topic": "tariff-power",
+    "prompt": "The Supreme Court struck down the President's emergency tariffs in February 2026, and the fight over who sets tariffs goes on. Who should?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Congress. Taxes start in the House",
+        "effects": {
+          "trade": 0.5,
+          "system": -1,
+          "democracy": 0.5
+        }
+      },
+      {
+        "id": "b",
+        "label": "The president. He needs the stick to bargain",
+        "effects": {
+          "trade": -1,
+          "loyalty": 0.5,
+          "democracy": -0.5
+        }
+      },
+      {
+        "id": "c",
+        "label": "Congress, and it should aim them at China",
+        "effects": {
+          "trade": -0.5,
+          "world": 0.5
+        }
+      },
+      {
+        "id": "d",
+        "label": "Nobody. Repeal them and refund importers",
+        "effects": {
+          "trade": 1.5,
+          "econ": 0.5
+        }
+      }
+    ],
+    "facts": "Learning Resources, Inc. v. Trump (with Trump v. V.O.S. Selections), argued November 5, 2025, decided February 20, 2026: 6-3, IEEPA does not authorize tariffs.",
+    "discrimination": 3
+  },
+  {
+    "id": "A-039",
+    "chapter": "debate",
+    "route": "both",
+    "type": "choice",
+    "tier": "core",
+    "topic": "tariffs",
+    "prompt": "A shopper in the front row holds up a grocery receipt and asks: did the tariffs do this?",
+    "context": "Beef, coffee and bananas were quietly taken off the tariff list in November 2025.",
+    "options": [
+      {
+        "id": "a",
+        "label": "Yes, and I would scrap them",
+        "effects": {
+          "trade": 1.5
+        }
+      },
+      {
+        "id": "b",
+        "label": "Partly. Keep China's, drop the ones on food",
+        "effects": {
+          "trade": 0.5
+        }
+      },
+      {
+        "id": "c",
+        "label": "Short-term pain. Factories take time",
+        "effects": {
+          "trade": -1
+        }
+      },
+      {
+        "id": "d",
+        "label": "No. Blame the middlemen, not the tariff",
+        "effects": {
+          "trade": -1.2,
+          "econ": -0.5
+        }
+      }
+    ],
+    "facts": "On November 14, 2025 the administration exempted beef, coffee, bananas, tomatoes and other foods from reciprocal tariffs.",
+    "discrimination": 2
+  },
+  {
+    "id": "A-040",
+    "chapter": "primary",
+    "route": "both",
+    "type": "hold",
+    "tier": "core",
+    "topic": "tariff-revenue",
+    "excludes": [
+      "A-045"
+    ],
+    "prompt": "The pitch: a $2,000 check to most households, paid out of tariff money. Do you mail the checks?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Mail the checks",
+        "effects": {
+          "trade": -1,
+          "econ": -0.6
+        }
+      },
+      {
+        "id": "b",
+        "label": "Scrap the tariffs instead",
+        "effects": {
+          "trade": 1.3
+        }
+      }
+    ],
+    "measure": [
+      "holdStrength"
+    ],
+    "facts": "President Trump floated a $2,000 tariff dividend for most Americans on November 9, 2025.",
+    "discrimination": 2
+  },
+  {
+    "id": "A-041",
+    "chapter": "debate",
+    "route": "both",
+    "type": "dilemma",
+    "tier": "core",
+    "topic": "tariffs",
+    "prompt": "A 50 percent steel tariff reopens a mill: 600 jobs. The truck plant downriver, paying more for steel, lays off 800. Same district. Do you keep the tariff?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Keep the tariff. Steel is strategy",
+        "effects": {
+          "trade": -1.5
+        }
+      },
+      {
+        "id": "b",
+        "label": "Lift it. You cannot tax your way to jobs",
+        "effects": {
+          "trade": 1.5
+        }
+      }
+    ],
+    "facts": "Steel and aluminum tariffs were doubled to 50% on June 4, 2025. The mill and plant are invented.",
+    "discrimination": 3
+  },
+  {
+    "id": "A-042",
+    "chapter": "primary",
+    "route": "both",
+    "type": "pin",
+    "tier": "core",
+    "topic": "factory-jobs",
+    "prompt": "A factory floor, half the lights off. How do you bring the second shift back? Tap your answer.",
+    "art": "SC-FACTORY-FLOOR",
+    "artNote": "Pixel-art factory interior, wide, one production line lit and one dark. No people; hard hats on hooks. Left: an open loading dock with stacked import crates. Center: an idle orange robot arm over the dark line. Right wall: a cork union noticeboard. Upper right mezzanine: a glass manager's office with shelves of fat rule binders. Far back: a classroom door with a training sign.",
+    "regions": [
+      {
+        "id": "dock",
+        "label": "The import crates — tariff the competition",
+        "where": "left third, open loading dock with stacked crates",
+        "effects": {
+          "trade": -1.5
+        },
+        "poly": { "wide": [[4,22],[22,22],[23,50],[22,80],[4,82]], "tall": [[5,64],[10,61],[44,67],[46,75],[47,97],[5,97]] }
+      },
+      {
+        "id": "robot",
+        "label": "The robot arm — automate and out-compete",
+        "where": "center, idle orange robot arm over the dark line",
+        "effects": {
+          "tech": 1.2,
+          "trade": 0.8
+        },
+        "poly": { "wide": [[36,60],[41,51],[42,41],[47,36],[58,39],[58.5,53],[56,57],[56,70],[36,70]], "tall": [[24,51],[36,46],[42,35],[50,33],[66,38],[67,46],[65,58],[24,59]] }
+      },
+      {
+        "id": "union",
+        "label": "The union board — Buy American, union contracts",
+        "where": "right wall, cork noticeboard with pinned papers",
+        "effects": {
+          "trade": -1,
+          "econ": -1
+        },
+        "poly": { "wide": [[81,37],[99,35],[99,62],[81,62]], "tall": [[60,66],[96,66],[96,85],[60,85]] }
+      },
+      {
+        "id": "office",
+        "label": "The binders — cut the taxes and the rules",
+        "where": "upper right mezzanine office, shelves of binders",
+        "effects": {
+          "econ": 1.3
+        },
+        "poly": { "wide": [[71,10],[78,0],[99,0],[99,33],[71,33]], "tall": [[55,10],[70,4],[99,4],[99,28],[55,28]] }
+      },
+      {
+        "id": "classroom",
+        "label": "The training room — retrain, then sell abroad",
+        "where": "far back, a door with a training sign",
+        "effects": {
+          "trade": 1,
+          "econ": -0.4
+        },
+        "poly": { "wide": [[59,42],[68,42],[68,60],[59,60]], "tall": [[13,16],[26,16],[26,31],[13,31]] }
+      }
+    ],
+    "facts": "Invented scenario; no factual claim.",
+    "discrimination": 2
+  },
+  {
+    "id": "A-043",
+    "chapter": "convention",
+    "route": "both",
+    "type": "rank",
+    "tier": "core",
+    "topic": "trade-policy",
+    "prompt": "What is trade policy actually for? Rank them, most important first.",
+    "options": [
+      {
+        "id": "a",
+        "label": "The lowest prices for shoppers",
+        "effects": {
+          "trade": 1.5
+        }
+      },
+      {
+        "id": "b",
+        "label": "Factory jobs at home",
+        "effects": {
+          "trade": -1.3
+        }
+      },
+      {
+        "id": "c",
+        "label": "Beating China",
+        "effects": {
+          "trade": -0.5,
+          "world": 0.8
+        }
+      },
+      {
+        "id": "d",
+        "label": "Leverage over other governments",
+        "effects": {
+          "trade": -1,
+          "mach": 0.4
+        }
+      },
+      {
+        "id": "e",
+        "label": "Open markets as a reward for allies",
+        "effects": {
+          "trade": 1,
+          "world": 0.8
+        }
+      }
+    ],
+    "facts": "Invented scenario; no factual claim.",
+    "discrimination": 2
+  },
+  {
+    "id": "A-044",
+    "chapter": "primary",
+    "route": "both",
+    "type": "swipe",
+    "tier": "core",
+    "topic": "trade-policy",
+    "prompt": "Trade, speed round. Agree or disagree with each, four seconds apiece.",
+    "cards": [
+      {
+        "id": "c1",
+        "text": "A tariff is a tax on Americans",
+        "yes": {
+          "trade": 1
+        },
+        "no": {
+          "trade": -1
+        }
+      },
+      {
+        "id": "c2",
+        "text": "Join a Pacific trade pact to box in China",
+        "yes": {
+          "trade": 1.2,
+          "world": 0.5
+        },
+        "no": {
+          "trade": -1
+        }
+      },
+      {
+        "id": "c3",
+        "text": "Buy American on every federal contract",
+        "yes": {
+          "trade": -1
+        },
+        "no": {
+          "trade": 1
+        }
+      },
+      {
+        "id": "c4",
+        "text": "Keep Chinese electric cars off our roads",
+        "yes": {
+          "trade": -1
+        },
+        "no": {
+          "trade": 1,
+          "tech": 0.3
+        }
+      },
+      {
+        "id": "c5",
+        "text": "Renew the trade deal with Canada and Mexico as it is",
+        "yes": {
+          "trade": 0.8,
+          "system": -0.3
+        },
+        "no": {
+          "trade": -0.8
+        }
+      },
+      {
+        "id": "c6",
+        "text": "Washington should own stakes in key companies",
+        "yes": {
+          "econ": -1,
+          "trade": -0.5
+        },
+        "no": {
+          "econ": 1
+        }
+      }
+    ],
+    "measure": [
+      "speed"
+    ],
+    "facts": "USMCA joint review due July 2026. US took a roughly 10% stake in Intel in August 2025. A January 2025 Commerce rule effectively bars Chinese connected vehicles.",
+    "discrimination": 2
+  },
+  {
+    "id": "A-045",
+    "chapter": "convention",
+    "route": "both",
+    "type": "budget",
+    "tier": "core",
+    "topic": "tariff-revenue",
+    "excludes": [
+      "A-040"
+    ],
+    "prompt": "The tariffs have raised real money. Split 100 points of it.",
+    "options": [
+      {
+        "id": "a",
+        "label": "Checks to households",
+        "effects": {
+          "econ": -0.8,
+          "trade": -0.6
+        }
+      },
+      {
+        "id": "b",
+        "label": "Refund it and end the tariffs",
+        "effects": {
+          "trade": 1.5
+        }
+      },
+      {
+        "id": "c",
+        "label": "Subsidies for new factories",
+        "effects": {
+          "trade": -1,
+          "econ": -0.8
+        }
+      },
+      {
+        "id": "d",
+        "label": "Relief for farmers hit by retaliation",
+        "effects": {
+          "trade": -0.8
+        }
+      },
+      {
+        "id": "e",
+        "label": "Income tax cuts",
+        "effects": {
+          "econ": 1,
+          "trade": -0.5
+        }
+      }
+    ],
+    "facts": "A $12bn farm aid package tied to trade disruption was announced in December 2025.",
+    "discrimination": 2
+  },
+  {
+    "id": "A-046",
+    "chapter": "primary",
+    "route": "gop",
+    "type": "choice",
+    "tier": "core",
+    "topic": "tariff-power",
+    "prompt": "The Senate votes on ending the national emergency the President declared to impose his tariffs. You are a Republican who wants the next nomination. How do you vote?",
+    "options": [
+      {
+        "id": "a",
+        "label": "End it. Tariffs are taxes and I do not raise taxes",
+        "effects": {
+          "trade": 1.5,
+          "loyalty": -1
+        },
+        "cand": {
+          "randpaul": 2
+        }
+      },
+      {
+        "id": "b",
+        "label": "End it quietly and praise the president loudly",
+        "effects": {
+          "trade": 0.5,
+          "mach": 1
+        }
+      },
+      {
+        "id": "c",
+        "label": "Keep it. The deals depend on the threat",
+        "effects": {
+          "trade": -1,
+          "loyalty": 0.6
+        }
+      },
+      {
+        "id": "d",
+        "label": "Keep it, and build the wall higher",
+        "effects": {
+          "trade": -1.5,
+          "loyalty": 0.5
+        }
+      }
+    ],
+    "signature": [
+      "randpaul"
+    ],
+    "facts": "The Senate passed resolutions to end tariff emergencies on April 2, 2025 (Canada) and October 28-30, 2025 (Brazil, Canada, global), with Rand Paul among the few Republican yes votes.",
+    "discrimination": 3
+  },
+  {
+    "id": "A-047",
+    "chapter": "primary",
+    "route": "dem",
+    "type": "choice",
+    "tier": "core",
+    "topic": "tariffs",
+    "prompt": "Awkward truth at a union hall in Michigan: plenty of Democrats like some of these tariffs. What do you tell the room?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Tariffs on China, steel and cars. I own it",
+        "effects": {
+          "trade": -1.2
+        }
+      },
+      {
+        "id": "b",
+        "label": "Only alongside allies, never against them",
+        "effects": {
+          "trade": -0.3,
+          "world": 0.6
+        }
+      },
+      {
+        "id": "c",
+        "label": "Trade deals with labor rules built in",
+        "effects": {
+          "trade": 0.6,
+          "econ": -0.5
+        }
+      },
+      {
+        "id": "d",
+        "label": "Free trade made this country rich. Say so",
+        "effects": {
+          "trade": 1.5
+        }
+      }
+    ],
+    "facts": "Invented scenario; no factual claim.",
+    "discrimination": 2
+  },
+  {
+    "id": "A-048",
+    "chapter": "primary",
+    "route": "both",
+    "type": "slider",
+    "tier": "core",
+    "topic": "china-decoupling",
+    "prompt": "China makes the phone, the pills and the batteries. How far should America cut itself off?",
+    "slider": {
+      "left": "Cut China out of every supply chain",
+      "right": "Keep trading: cheap goods, fewer wars",
+      "centre": "Bring home chips and medicine, trade the rest",
+      "effects": {
+        "trade": 1.6,
+        "world": -0.5
+      },
+      "steps": 5
+    },
+    "facts": "Invented scenario; no factual claim.",
+    "discrimination": 2
+  },
+  {
+    "id": "A-049",
+    "chapter": "announcement",
+    "route": "both",
+    "type": "slider",
+    "tier": "core",
+    "topic": "church-and-state",
+    "prompt": "God and government. How far apart should they be?",
+    "slider": {
+      "left": "Faith is private. Keep it out of the state",
+      "right": "The country needs more God in public life",
+      "centre": "Faith welcome in public, not in law",
+      "effects": {
+        "faith": 2
+      },
+      "steps": 5
+    },
+    "facts": "Invented scenario; no factual claim.",
+    "discrimination": 3
+  },
+  {
+    "id": "A-050",
+    "chapter": "primary",
+    "route": "both",
+    "type": "choice",
+    "tier": "core",
+    "topic": "church-and-state",
+    "prompt": "A state orders the Ten Commandments onto every classroom wall and gets sued by lunchtime. You are asked where you stand.",
+    "options": [
+      {
+        "id": "a",
+        "label": "Good. My Justice Department would defend it",
+        "effects": {
+          "faith": 1.5,
+          "social": -0.5
+        }
+      },
+      {
+        "id": "b",
+        "label": "A matter for the state and the courts",
+        "effects": {
+          "faith": 0.3,
+          "system": -0.5
+        }
+      },
+      {
+        "id": "c",
+        "label": "Faith belongs at home and in church",
+        "effects": {
+          "faith": -1
+        }
+      },
+      {
+        "id": "d",
+        "label": "I would join the suit to take them down",
+        "effects": {
+          "faith": -1.5,
+          "social": 0.5
+        }
+      }
+    ],
+    "facts": "Louisiana (June 2024) and Texas (SB 10, signed June 2025) passed laws requiring Ten Commandments displays in public classrooms; both drew federal lawsuits.",
+    "discrimination": 3
+  },
+  {
+    "id": "A-051",
+    "chapter": "debate",
+    "route": "both",
+    "type": "choice",
+    "tier": "core",
+    "topic": "personal-faith",
+    "excludes": [
+      "E-050"
+    ],
+    "prompt": "The moderator, gently: how much does your faith decide your politics?",
+    "options": [
+      {
+        "id": "a",
+        "label": "All of it. I answer to God before voters",
+        "effects": {
+          "faith": 1.5
+        },
+        "cand": {
+          "pence": 1
+        }
+      },
+      {
+        "id": "b",
+        "label": "It made me. The Constitution makes policy",
+        "effects": {
+          "faith": 0.6,
+          "system": -0.3
+        }
+      },
+      {
+        "id": "c",
+        "label": "That is between me and my pew",
+        "effects": {
+          "faith": -0.5
+        }
+      },
+      {
+        "id": "d",
+        "label": "I am not religious, and that should be fine",
+        "effects": {
+          "faith": -1.5
+        }
+      }
+    ],
+    "signature": [
+      "pence"
+    ],
+    "facts": "Mike Pence has long described himself as a Christian, a conservative and a Republican, in that order.",
+    "discrimination": 2
+  },
+  {
+    "id": "A-052",
+    "chapter": "primary",
+    "route": "both",
+    "type": "hold",
+    "tier": "core",
+    "topic": "church-and-state",
+    "prompt": "The IRS now says a pastor may endorse a candidate from the pulpit and keep the church's tax break. Should that be allowed?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Yes. Let them preach politics",
+        "effects": {
+          "faith": 1.3
+        }
+      },
+      {
+        "id": "b",
+        "label": "No. Put the wall back up",
+        "effects": {
+          "faith": -1.3
+        }
+      }
+    ],
+    "measure": [
+      "holdStrength"
+    ],
+    "facts": "In a July 7, 2025 court filing the IRS said churches may endorse candidates to their congregations without losing tax-exempt status, narrowing the Johnson Amendment.",
+    "discrimination": 2
+  },
+  {
+    "id": "A-053",
+    "chapter": "primary",
+    "route": "both",
+    "type": "dilemma",
+    "tier": "core",
+    "topic": "school-vouchers",
+    "prompt": "A Catholic diocese wants to open an online charter school, fully paid for by taxpayers. The Supreme Court split four to four on it. Should the public fund it?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Fund it. Faith schools are schools",
+        "effects": {
+          "faith": 1.3,
+          "econ": 0.5
+        }
+      },
+      {
+        "id": "b",
+        "label": "Refuse. Public money, public schools",
+        "effects": {
+          "faith": -1.3,
+          "econ": -0.3
+        }
+      }
+    ],
+    "facts": "Oklahoma Statewide Charter School Board v. Drummond (St. Isidore of Seville): the Supreme Court divided 4-4 on May 22, 2025, leaving the state ruling against the school in place.",
+    "discrimination": 2
+  },
+  {
+    "id": "A-054",
+    "chapter": "announcement",
+    "route": "both",
+    "type": "pin",
+    "tier": "core",
+    "topic": "church-campaign-stop",
+    "excludes": [
+      "D-065"
+    ],
+    "prompt": "Sunday, a church fellowship hall, coffee still warm. Your aide wants one photograph of you here. What should it show? Tap where you stand.",
+    "art": "SC-FELLOWSHIP-HALL",
+    "artNote": "Pixel-art church fellowship hall, folding chairs, noon light through plain windows. No people; coats on chair backs, steam off a coffee urn. Left: a low stage with a lectern and a live microphone. Center: a long potluck table of covered dishes. Back wall: food-pantry shelves of cans and boxes. Right, by the double doors: a card table with clipboards and pens. Through the right-hand window: the parking lot.",
+    "regions": [
+      {
+        "id": "lectern",
+        "label": "The lectern — give your testimony",
+        "where": "left, low stage with lectern and microphone",
+        "effects": {
+          "faith": 1.5,
+          "narc": 0.4
+        },
+        "poly": { "wide": [[5,38],[12,35],[16,40],[17,53],[23,54],[23,64],[0,66],[0,53],[5,53]], "tall": [[1,42],[11,40],[13,34],[20,33],[26,36],[27,49],[24,55],[14,57],[1,57]] }
+      },
+      {
+        "id": "potluck",
+        "label": "The potluck table — eat, listen, no speech",
+        "where": "center, long table of covered dishes",
+        "effects": {
+          "faith": 0.6,
+          "style": -0.6
+        },
+        "poly": { "wide": [[24,47],[26,41],[34,41],[35,46.5],[76,46.5],[76,58],[74,68],[24,68]], "tall": [[28,47],[38,44],[40,49],[92,48],[98,56],[98,64],[25,64],[25,56]] }
+      },
+      {
+        "id": "pantry",
+        "label": "The food pantry — talk about feeding the poor",
+        "where": "back wall, shelves of cans and boxes",
+        "effects": {
+          "faith": 0.8,
+          "econ": -0.8
+        },
+        "poly": { "wide": [[37,18],[63,18],[63,45.5],[37,45.5]], "tall": [[12,11],[53,11],[53,28],[12,28]] }
+      },
+      {
+        "id": "cardtable",
+        "label": "The clipboards — sign up volunteers",
+        "where": "right, card table with clipboards by the doors",
+        "effects": {
+          "faith": 0.4,
+          "mach": 0.8
+        },
+        "poly": { "wide": [[77,52],[83,49],[95,49],[98,52],[98,67],[78,67]], "tall": [[52,88],[66,85],[90,85],[98,90],[98,100],[52,100]] }
+      },
+      {
+        "id": "carpark",
+        "label": "The parking lot — stay outside; church is no campaign stop",
+        "where": "seen through the right-hand window, parked cars",
+        "effects": {
+          "faith": -1.3
+        },
+        "poly": { "wide": [[88,8],[99,6],[99,47],[88,47]], "tall": [[66,8],[93,8],[93,36],[66,36]] }
+      }
+    ],
+    "facts": "Invented scenario; no factual claim.",
+    "discrimination": 2
+  },
+  {
+    "id": "A-055",
+    "chapter": "primary",
+    "route": "both",
+    "type": "swipe",
+    "tier": "core",
+    "topic": "church-and-state",
+    "prompt": "Church and state, speed round. Yes or no to each.",
+    "cards": [
+      {
+        "id": "c1",
+        "text": "Allow teacher-led prayer in public schools",
+        "yes": {
+          "faith": 1.2
+        },
+        "no": {
+          "faith": -1
+        }
+      },
+      {
+        "id": "c2",
+        "text": "A baker may refuse a same-sex wedding cake",
+        "yes": {
+          "faith": 1,
+          "social": -0.8
+        },
+        "no": {
+          "faith": -0.8,
+          "social": 0.8
+        }
+      },
+      {
+        "id": "c3",
+        "text": "Put chaplains in public schools",
+        "yes": {
+          "faith": 1
+        },
+        "no": {
+          "faith": -1
+        }
+      },
+      {
+        "id": "c4",
+        "text": "America is a Christian nation",
+        "yes": {
+          "faith": 1.5
+        },
+        "no": {
+          "faith": -1
+        }
+      },
+      {
+        "id": "c5",
+        "text": "Churches should pay tax like everyone else",
+        "yes": {
+          "faith": -1.2
+        },
+        "no": {
+          "faith": 0.8
+        }
+      },
+      {
+        "id": "c6",
+        "text": "Teach creation beside evolution",
+        "yes": {
+          "faith": 1.2,
+          "social": -0.5
+        },
+        "no": {
+          "faith": -1
+        }
+      }
+    ],
+    "measure": [
+      "speed"
+    ],
+    "facts": "Texas allowed chaplains in public schools by a 2023 law (SB 763).",
+    "discrimination": 2
+  },
+  {
+    "id": "A-056",
+    "chapter": "primary",
+    "route": "both",
+    "type": "sign",
+    "tier": "core",
+    "topic": "conscience-exemptions",
+    "prompt": "On your desk: the Conscience Protection Act. Employers with religious objections may drop birth control from staff health plans.",
+    "options": [
+      {
+        "id": "sign",
+        "label": "Sign: nobody pays for what they call sin",
+        "effects": {
+          "faith": 1.3,
+          "social": -0.8
+        }
+      },
+      {
+        "id": "veto",
+        "label": "Veto: the boss's faith is not your doctor",
+        "effects": {
+          "faith": -1.1,
+          "social": 0.8
+        }
+      }
+    ],
+    "facts": "Bill name invented. Echoes Burwell v. Hobby Lobby (2014) and Little Sisters of the Poor (2020).",
+    "discrimination": 2
+  },
+  {
+    "id": "A-057",
+    "chapter": "convention",
+    "route": "both",
+    "type": "rank",
+    "tier": "core",
+    "topic": "convention-lineup",
+    "excludes": [
+      "D-055"
+    ],
+    "prompt": "Night one of your convention needs an opening. Rank who walks out first.",
+    "options": [
+      {
+        "id": "a",
+        "label": "A megachurch pastor with a prayer",
+        "effects": {
+          "faith": 1.3,
+          "social": -0.3
+        }
+      },
+      {
+        "id": "b",
+        "label": "A rabbi, an imam and a priest together",
+        "effects": {
+          "faith": 0.6,
+          "social": 0.5
+        }
+      },
+      {
+        "id": "c",
+        "label": "A Gold Star mother",
+        "effects": {
+          "world": 0.6,
+          "faith": 0.2
+        }
+      },
+      {
+        "id": "d",
+        "label": "A union electrician",
+        "effects": {
+          "econ": -0.8,
+          "faith": -0.3
+        }
+      },
+      {
+        "id": "e",
+        "label": "Nobody. Straight to the roll call",
+        "effects": {
+          "faith": -1.1
+        }
+      }
+    ],
+    "facts": "Invented scenario; no factual claim.",
+    "discrimination": 2
+  },
+  {
+    "id": "A-058",
+    "chapter": "primary",
+    "route": "gop",
+    "type": "choice",
+    "tier": "core",
+    "topic": "church-and-state",
+    "prompt": "A rival calls your movement Christian nationalist on the debate stage. The clip is already everywhere. How do you answer?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Wear it. This is a Christian country",
+        "effects": {
+          "faith": 1.5,
+          "system": 0.5
+        }
+      },
+      {
+        "id": "b",
+        "label": "Reject the label, keep the values",
+        "effects": {
+          "faith": 0.8
+        }
+      },
+      {
+        "id": "c",
+        "label": "Say the party is for every faith and none",
+        "effects": {
+          "faith": -0.4,
+          "social": 0.4
+        }
+      },
+      {
+        "id": "d",
+        "label": "Say the state should leave every church alone",
+        "effects": {
+          "faith": -0.5,
+          "econ": 0.8
+        }
+      }
+    ],
+    "facts": "Invented scenario; no factual claim.",
+    "discrimination": 2
+  },
+  {
+    "id": "A-059",
+    "chapter": "primary",
+    "route": "dem",
+    "type": "choice",
+    "tier": "core",
+    "topic": "faith-talk",
+    "prompt": "Democratic strategists are arguing again about whether the party should talk about God. You are on stage in Louisville. Should it?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Yes. Quote scripture and mean it",
+        "effects": {
+          "faith": 1.3
+        },
+        "cand": {
+          "beshear": 1
+        }
+      },
+      {
+        "id": "b",
+        "label": "Talk values, not verses",
+        "effects": {
+          "faith": 0.4
+        }
+      },
+      {
+        "id": "c",
+        "label": "Only if somebody asks",
+        "effects": {
+          "faith": -0.4
+        }
+      },
+      {
+        "id": "d",
+        "label": "No. A secular party should be proud of it",
+        "effects": {
+          "faith": -1.3
+        }
+      }
+    ],
+    "signature": [
+      "beshear"
+    ],
+    "facts": "Andy Beshear, a church deacon, cited his faith when vetoing Kentucky's SB 150 in March 2023.",
+    "discrimination": 2
+  },
+  {
+    "id": "A-060",
+    "chapter": "debate",
+    "route": "both",
+    "type": "slider",
+    "tier": "core",
+    "topic": "school-vouchers",
+    "prompt": "School choice: should a family's public education money be spendable at a religious school?",
+    "slider": {
+      "left": "Public money, public schools only",
+      "right": "The money follows the child anywhere",
+      "centre": "Choice among public and charter schools only",
+      "effects": {
+        "faith": 1.1,
+        "econ": 1
+      },
+      "steps": 5
+    },
+    "facts": "Texas enacted a $1bn education savings account program (SB 2) on May 3, 2025; the 2025 federal tax law created a tax-credit scholarship.",
+    "discrimination": 2
+  },
+  {
+    "id": "A-061",
+    "chapter": "announcement",
+    "route": "both",
+    "type": "choice",
+    "tier": "core",
+    "topic": "deportations",
+    "prompt": "Roughly fourteen million people are in the country without papers, and ICE, the deportation agency, has never had more money. What is your policy?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Everyone here illegally goes. No exceptions",
+        "effects": {
+          "border": -1.5
+        }
+      },
+      {
+        "id": "b",
+        "label": "Criminals first, and then keep going",
+        "effects": {
+          "border": -0.8
+        }
+      },
+      {
+        "id": "c",
+        "label": "Criminals out, legal status for settled workers",
+        "effects": {
+          "border": 0.6
+        }
+      },
+      {
+        "id": "d",
+        "label": "A path to citizenship for nearly everyone",
+        "effects": {
+          "border": 1.5
+        }
+      }
+    ],
+    "facts": "The 2025 tax and spending law (July 4, 2025) gave ICE roughly $75bn over four years. Pew estimated 14 million unauthorized immigrants in 2023.",
+    "discrimination": 3
+  },
+  {
+    "id": "A-062",
+    "chapter": "primary",
+    "route": "both",
+    "type": "slider",
+    "tier": "core",
+    "topic": "legal-immigration",
+    "prompt": "Forget the illegal kind for a second. How much legal immigration do you want?",
+    "slider": {
+      "left": "Close to none for a decade",
+      "right": "Double it",
+      "centre": "About what we have now",
+      "effects": {
+        "border": 2
+      },
+      "steps": 5
+    },
+    "facts": "Invented scenario; no factual claim.",
+    "discrimination": 3
+  },
+  {
+    "id": "A-063",
+    "chapter": "debate",
+    "route": "both",
+    "type": "choice",
+    "tier": "core",
+    "topic": "skilled-visas",
+    "excludes": [
+      "D-057"
+    ],
+    "prompt": "An H-1B visa, the kind that brings in skilled foreign workers, now costs an employer $100,000. Tech bosses hate it; plenty of laid-off coders do not. What do you do with it?",
+    "options": [
+      {
+        "id": "a",
+        "label": "End the program outright",
+        "effects": {
+          "border": -1.5,
+          "system": 0.5
+        }
+      },
+      {
+        "id": "b",
+        "label": "Keep the fee. Hire Americans",
+        "effects": {
+          "border": -1.1,
+          "tech": -0.5
+        }
+      },
+      {
+        "id": "c",
+        "label": "Fix it: fewer outsourcing mills, more real talent",
+        "effects": {
+          "border": 0.3
+        }
+      },
+      {
+        "id": "d",
+        "label": "A green card stapled to every science degree",
+        "effects": {
+          "border": 1.3,
+          "tech": 1
+        }
+      }
+    ],
+    "facts": "Presidential proclamation of September 19, 2025 imposed a $100,000 fee on new H-1B petitions.",
+    "discrimination": 3
+  },
+  {
+    "id": "A-064",
+    "chapter": "debate",
+    "route": "both",
+    "type": "hold",
+    "tier": "core",
+    "topic": "ice-masks",
+    "excludes": [
+      "E-027"
+    ],
+    "prompt": "Immigration agents work in masks and unmarked cars. One state has banned the masks. Should agents have to show their faces?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Masks off. Police show their faces",
+        "effects": {
+          "border": 0.9,
+          "system": -0.3,
+          "liberty": 0.8
+        }
+      },
+      {
+        "id": "b",
+        "label": "Masks stay. Agents have families too",
+        "effects": {
+          "border": -1.1,
+          "liberty": -0.8
+        }
+      }
+    ],
+    "measure": [
+      "holdStrength"
+    ],
+    "facts": "California's No Secret Police Act (SB 627), signed September 20, 2025, bars most law enforcement including federal agents from wearing face coverings; the administration sued.",
+    "discrimination": 3
+  },
+  {
+    "id": "A-065",
+    "chapter": "primary",
+    "route": "both",
+    "type": "dilemma",
+    "tier": "core",
+    "topic": "birthright-citizenship",
+    "prompt": "A baby is born in Phoenix to parents with no papers. Should that child be an American?",
+    "context": "In June 2026 the Supreme Court struck down the order ending birthright citizenship.",
+    "options": [
+      {
+        "id": "a",
+        "label": "No. Change the law or the Constitution to end it",
+        "effects": {
+          "border": -1.5,
+          "system": 0.5
+        }
+      },
+      {
+        "id": "b",
+        "label": "Yes. The 14th Amendment says what it says",
+        "effects": {
+          "border": 1.1,
+          "system": -0.5
+        }
+      }
+    ],
+    "facts": "Executive Order 14160 (January 20, 2025) sought to end birthright citizenship for children of unlawfully present or temporary parents. Trump v. Barbara, decided June 30, 2026, held the order unconstitutional (reported 6-3).",
+    "discrimination": 3
+  },
+  {
+    "id": "A-066",
+    "chapter": "primary",
+    "route": "both",
+    "type": "pin",
+    "tier": "core",
+    "topic": "border-security",
+    "prompt": "Main street of a border town, early. You decide where the next federal immigration dollar goes. Tap what you fund.",
+    "art": "SC-BORDER-TOWN",
+    "artNote": "Pixel-art desert border town main street at dawn, looking down the road toward a steel fence on the horizon. No people; vehicles empty. Far end of the street: the border fence with a gap under construction. Right foreground: a port-of-entry booth with a line of trucks. Left midground: a small courthouse with a rope line outside. Left foreground: a white unmarked van. Right midground: a mission church with cots visible through open doors. Far right: a produce packing shed with a help-wanted sign.",
+    "regions": [
+      {
+        "id": "fence",
+        "label": "The fence — finish the wall",
+        "where": "far end of the street, steel fence with an unfinished gap",
+        "effects": {
+          "border": -1.5
+        },
+        "poly": { "wide": [[27,33],[53.5,33],[53.5,42],[27,42]], "tall": [[37,16],[52,11],[60,10],[68,15],[76,16],[76,22],[66,28],[50,29],[37,26]] }
+      },
+      {
+        "id": "port",
+        "label": "The port of entry — more lanes and scanners",
+        "where": "right foreground, inspection booth and line of trucks",
+        "effects": {
+          "border": 0.3,
+          "trade": 0.8,
+          "tech": 0.3
+        },
+        "poly": { "wide": [[58,62],[70,57],[70,50],[100,50],[100,85],[78,88],[75,97],[58,85]], "tall": [[49.5,62],[63,61],[63,55],[100,55],[100,77],[78,77],[78,88],[52,88],[49.5,80]] }
+      },
+      {
+        "id": "court",
+        "label": "The courthouse — more asylum judges",
+        "where": "left midground, small courthouse with a rope line",
+        "effects": {
+          "border": 0.5,
+          "system": -0.5
+        },
+        "poly": { "wide": [[2,28],[10,17],[14,10],[17,10],[20,20],[26.5,30],[26.5,52],[2,52]], "tall": [[0,22],[10,18],[15,9],[18,9],[22,17],[36,24],[37,43],[0,43]] }
+      },
+      {
+        "id": "van",
+        "label": "The unmarked van — more deportation agents",
+        "where": "left foreground, white van with dark windows",
+        "effects": {
+          "border": -1.2,
+          "psych": 0.4
+        },
+        "poly": { "wide": [[1,64],[10,61],[26,62],[33,73],[33,88],[1,88]], "tall": [[1,78],[8,75],[38,76],[46,80],[49,85],[49,95],[1,95]] }
+      },
+      {
+        "id": "mission",
+        "label": "The mission — shelter beds and legal aid",
+        "where": "right midground, church doors open on rows of cots",
+        "effects": {
+          "border": 1.2,
+          "faith": 0.3
+        },
+        "poly": { "wide": [[54,20],[64,20],[67,12],[69,9],[71,12],[73,19],[79,28],[79,47],[54,47]], "tall": [[61,30],[77,24],[78,20],[86,20],[87,24],[98,30],[98,42],[61,42]] }
+      },
+      {
+        "id": "shed",
+        "label": "The packing shed — more guest-worker visas",
+        "where": "far right, produce shed with a help-wanted sign",
+        "effects": {
+          "border": 0.8,
+          "econ": 0.5
+        },
+        "poly": { "wide": [[80,33],[90,25],[100,25],[100,49],[80,49]], "tall": [[0,52],[10,45],[30,45],[47,52],[47,66],[0,66]] }
+      }
+    ],
+    "facts": "Invented scenario; no factual claim.",
+    "discrimination": 2
+  },
+  {
+    "id": "A-067",
+    "chapter": "convention",
+    "route": "both",
+    "type": "budget",
+    "tier": "core",
+    "topic": "border-security",
+    "prompt": "Split 100 points of the immigration budget.",
+    "options": [
+      {
+        "id": "a",
+        "label": "Wall and Border Patrol",
+        "effects": {
+          "border": -1
+        }
+      },
+      {
+        "id": "b",
+        "label": "Deportations from the interior",
+        "effects": {
+          "border": -1.5
+        }
+      },
+      {
+        "id": "c",
+        "label": "Judges to clear the asylum backlog",
+        "effects": {
+          "border": 0.3,
+          "system": -0.5
+        }
+      },
+      {
+        "id": "d",
+        "label": "Work visas and legal pathways",
+        "effects": {
+          "border": 1.3
+        }
+      },
+      {
+        "id": "e",
+        "label": "Aid to Central America to slow the flow",
+        "effects": {
+          "border": 0.5,
+          "world": 0.8
+        }
+      }
+    ],
+    "facts": "Invented scenario; no factual claim.",
+    "discrimination": 2
+  },
+  {
+    "id": "A-068",
+    "chapter": "primary",
+    "route": "both",
+    "type": "swipe",
+    "tier": "core",
+    "topic": "border-security",
+    "prompt": "Immigration, speed round. Yes or no to each. No nuance available.",
+    "cards": [
+      {
+        "id": "c1",
+        "text": "Send the National Guard into cities to back up ICE",
+        "yes": {
+          "border": -1,
+          "system": 0.4,
+          "federal": -0.8,
+          "liberty": -0.5
+        },
+        "no": {
+          "border": 0.8,
+          "federal": 0.5,
+          "liberty": 0.5
+        }
+      },
+      {
+        "id": "c2",
+        "text": "Citizenship for Dreamers, brought here illegally as children",
+        "yes": {
+          "border": 1
+        },
+        "no": {
+          "border": -1
+        }
+      },
+      {
+        "id": "c3",
+        "text": "Make every employer check workers' legal status",
+        "yes": {
+          "border": -0.8
+        },
+        "no": {
+          "border": 0.5,
+          "econ": 0.5
+        }
+      },
+      {
+        "id": "c4",
+        "text": "Sanctuary cities lose federal money",
+        "yes": {
+          "border": -1,
+          "federal": -0.8
+        },
+        "no": {
+          "border": 1,
+          "federal": 0.8
+        }
+      },
+      {
+        "id": "c5",
+        "text": "Raise the refugee cap back above 100,000",
+        "yes": {
+          "border": 1.2,
+          "world": 0.3
+        },
+        "no": {
+          "border": -1
+        }
+      },
+      {
+        "id": "c6",
+        "text": "Deport people to countries they never lived in",
+        "yes": {
+          "border": -1.2,
+          "psych": 0.5
+        },
+        "no": {
+          "border": 0.8,
+          "psych": -0.3
+        }
+      },
+      {
+        "id": "c7",
+        "text": "Make English the official language",
+        "yes": {
+          "border": -0.6,
+          "social": -0.4
+        },
+        "no": {
+          "border": 0.5
+        }
+      }
+    ],
+    "measure": [
+      "speed"
+    ],
+    "facts": "Guard deployed to Los Angeles June 2025 and ordered to Chicago October 2025. Refugee ceiling for FY2026 set at 7,500. Supreme Court allowed third-country removals to proceed June 23, 2025. English declared official language by executive order March 1, 2025.",
+    "discrimination": 3
+  },
+  {
+    "id": "A-069",
+    "chapter": "primary",
+    "route": "both",
+    "type": "sign",
+    "tier": "core",
+    "topic": "deportations",
+    "prompt": "On your desk: the Earned Status Act. Legal status, not citizenship, for people here five years who pay a fine. Every employer must check workers' papers.",
+    "options": [
+      {
+        "id": "sign",
+        "label": "Sign: half a loaf, finally",
+        "effects": {
+          "border": 0.9,
+          "style": -0.5
+        }
+      },
+      {
+        "id": "veto",
+        "label": "Veto: amnesty by another name",
+        "effects": {
+          "border": -1.1,
+          "style": 0.3
+        }
+      }
+    ],
+    "facts": "Bill name invented. Resembles the bipartisan Dignity Act reintroduced by Reps. Salazar and Escobar in July 2025.",
+    "discrimination": 2
+  },
+  {
+    "id": "A-070",
+    "chapter": "primary",
+    "route": "gop",
+    "type": "choice",
+    "tier": "core",
+    "topic": "deportations",
+    "prompt": "Your donors who own farms and hotels want the immigration raids kept away from their workers. They ask nicely, then less nicely. What do you do?",
+    "options": [
+      {
+        "id": "a",
+        "label": "No carve-outs. The law is the law",
+        "effects": {
+          "border": -1.5,
+          "econ": -0.3
+        }
+      },
+      {
+        "id": "b",
+        "label": "Quietly point the agents somewhere else",
+        "effects": {
+          "border": -0.3,
+          "mach": 1
+        }
+      },
+      {
+        "id": "c",
+        "label": "Guest-worker visas, so the work is legal",
+        "effects": {
+          "border": 0.6,
+          "econ": 0.5
+        }
+      },
+      {
+        "id": "d",
+        "label": "Legal status for long-time workers. Out loud",
+        "effects": {
+          "border": 1.1,
+          "loyalty": -0.5
+        }
+      }
+    ],
+    "facts": "In mid-June 2025 the administration paused, then within days resumed, immigration raids on farms, hotels and restaurants.",
+    "discrimination": 2
+  },
+  {
+    "id": "A-071",
+    "chapter": "primary",
+    "route": "dem",
+    "type": "choice",
+    "tier": "core",
+    "topic": "ice-masks",
+    "prompt": "The chant is back at Democratic rallies: abolish ICE, the deportation agency. The microphone is in your hand. What do you say?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Abolish it and start again",
+        "effects": {
+          "border": 1.5,
+          "system": 1
+        },
+        "cand": {
+          "aoc": 1
+        }
+      },
+      {
+        "id": "b",
+        "label": "Keep it, fire the leadership, ban the masks",
+        "effects": {
+          "border": 0.8
+        }
+      },
+      {
+        "id": "c",
+        "label": "Fund it, and aim it at traffickers",
+        "effects": {
+          "border": -0.3
+        }
+      },
+      {
+        "id": "d",
+        "label": "Say it plainly: secure the border first",
+        "effects": {
+          "border": -1
+        },
+        "cand": {
+          "kelly": 1
+        }
+      }
+    ],
+    "signature": [
+      "aoc",
+      "kelly"
+    ],
+    "facts": "Alexandria Ocasio-Cortez campaigned on abolishing ICE in 2018. Mark Kelly, a border-state senator, backed the 2024 bipartisan border security bill.",
+    "discrimination": 3
+  },
+  {
+    "id": "A-072",
+    "chapter": "announcement",
+    "route": "both",
+    "type": "slider",
+    "tier": "core",
+    "topic": "border-security",
+    "prompt": "Asylum at the southern border has been all but shut since January 2025. What next?",
+    "slider": {
+      "left": "Keep it shut",
+      "right": "Restore full asylum rights",
+      "centre": "Reopen it with caps and fast hearings",
+      "effects": {
+        "border": 1.8,
+        "system": -0.2
+      },
+      "steps": 5
+    },
+    "facts": "A January 20, 2025 proclamation suspended entry and asylum processing at the southern border; litigation continues.",
+    "discrimination": 2
+  },
+  {
+    "id": "A-073",
+    "chapter": "announcement",
+    "route": "both",
+    "type": "slider",
+    "tier": "core",
+    "topic": "ai-speed",
+    "prompt": "Artificial intelligence. One dial for your whole administration: how fast should America build it?",
+    "slider": {
+      "left": "Slow it down until it is proven safe",
+      "right": "Build as fast as we can and win",
+      "centre": "Build, with safety tests before release",
+      "effects": {
+        "tech": 2
+      },
+      "steps": 5
+    },
+    "facts": "Invented scenario; no factual claim.",
+    "discrimination": 3
+  },
+  {
+    "id": "A-074",
+    "chapter": "primary",
+    "route": "both",
+    "type": "choice",
+    "tier": "core",
+    "topic": "ai-jobs",
+    "prompt": "Graduate hiring has fallen off a cliff and every CEO blames, or credits, AI. A 23-year-old asks what you will do.",
+    "options": [
+      {
+        "id": "a",
+        "label": "Tax firms that swap workers for software",
+        "effects": {
+          "tech": -1.2,
+          "econ": -1
+        }
+      },
+      {
+        "id": "b",
+        "label": "A basic income, paid from AI profits",
+        "effects": {
+          "tech": 0.5,
+          "econ": -1.5
+        }
+      },
+      {
+        "id": "c",
+        "label": "Retrain. New tech has always made new jobs",
+        "effects": {
+          "tech": 1,
+          "econ": 0.5
+        }
+      },
+      {
+        "id": "d",
+        "label": "Pause it in whole industries until we know",
+        "effects": {
+          "tech": -1.5
+        }
+      }
+    ],
+    "facts": "Invented scenario; no factual claim.",
+    "discrimination": 3
+  },
+  {
+    "id": "A-075",
+    "chapter": "debate",
+    "route": "both",
+    "type": "choice",
+    "tier": "core",
+    "topic": "ai-state-laws",
+    "excludes": [
+      "E-005"
+    ],
+    "prompt": "Who writes the rules for AI: fifty state capitols or one federal desk?",
+    "context": "The Senate killed a ban on state AI laws 99 to 1. Then the White House tried by executive order.",
+    "options": [
+      {
+        "id": "a",
+        "label": "One light federal rule. No patchwork",
+        "effects": {
+          "tech": 1.2,
+          "federal": -0.8
+        },
+        "cand": {
+          "cruz": 1
+        }
+      },
+      {
+        "id": "b",
+        "label": "States may protect their own people",
+        "effects": {
+          "tech": -0.8,
+          "system": 0.3,
+          "federal": 1
+        },
+        "cand": {
+          "desantis": 1
+        }
+      },
+      {
+        "id": "c",
+        "label": "One federal rule, and a tough one",
+        "effects": {
+          "tech": -0.6,
+          "system": -0.4,
+          "federal": -0.8
+        }
+      },
+      {
+        "id": "d",
+        "label": "No new rules at all",
+        "effects": {
+          "tech": 1.5,
+          "econ": 1
+        }
+      }
+    ],
+    "signature": [
+      "cruz",
+      "desantis"
+    ],
+    "facts": "Senate voted 99-1 on July 1, 2025 to strip a moratorium on state AI laws, which Ted Cruz had championed. An executive order of December 11, 2025 sought to pre-empt state AI laws; Ron DeSantis publicly opposed federal pre-emption.",
+    "discrimination": 3
+  },
+  {
+    "id": "A-076",
+    "chapter": "debate",
+    "route": "both",
+    "type": "hold",
+    "tier": "core",
+    "topic": "big-tech",
+    "prompt": "Google, Meta, Amazon, Apple. The courts have mostly let them be. Should the government break them up?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Break them up",
+        "effects": {
+          "econ": -1,
+          "system": 0.8
+        },
+        "cand": {
+          "hawley": 1
+        }
+      },
+      {
+        "id": "b",
+        "label": "Hands off America's winners",
+        "effects": {
+          "tech": 1.3,
+          "econ": 0.8
+        }
+      }
+    ],
+    "signature": [
+      "hawley"
+    ],
+    "measure": [
+      "holdStrength"
+    ],
+    "facts": "A judge declined to order Google to sell Chrome (September 2, 2025); Meta won the FTC's monopoly case (November 18, 2025). Josh Hawley has long called for breaking up Big Tech.",
+    "discrimination": 2
+  },
+  {
+    "id": "A-077",
+    "chapter": "primary",
+    "route": "both",
+    "type": "dilemma",
+    "tier": "core",
+    "topic": "data-centers",
+    "prompt": "A data center wants a thousand acres in a swing county. It brings tax money, forty permanent jobs and higher power bills. Do you let it in?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Welcome it. This is the new steel mill",
+        "effects": {
+          "tech": 1.3,
+          "econ": 0.5
+        }
+      },
+      {
+        "id": "b",
+        "label": "Block it. The county is not a battery",
+        "effects": {
+          "tech": -1.3
+        }
+      }
+    ],
+    "facts": "Invented county. Data-center power demand and household electricity prices were a live fight in the 2025 Virginia, New Jersey and Georgia elections.",
+    "discrimination": 2
+  },
+  {
+    "id": "A-078",
+    "chapter": "primary",
+    "route": "both",
+    "type": "pin",
+    "tier": "core",
+    "topic": "data-centers",
+    "prompt": "A server farm on the edge of town, humming. You are here to announce one AI policy. Tap what it is about.",
+    "art": "SC-SERVER-FARM",
+    "artNote": "Pixel-art cutaway of a data center at dusk, no people. Center: long aisles of server racks with blue status lights. Left exterior: an electrical substation with pylons. Bottom left: fat cooling pipes running to a river. Right: a loading bay with one sealed crate marked as chips under a security camera. Upper right: a glass control room with a single empty chair and many screens.",
+    "regions": [
+      {
+        "id": "racks",
+        "label": "The racks — build ten more of these",
+        "where": "center, aisles of server racks with blue lights",
+        "effects": {
+          "tech": 1.5
+        },
+        "poly": { "wide": [[29,33],[65,33],[65,75],[29,75]], "tall": [[11,36],[90,36],[90,65],[11,65]] }
+      },
+      {
+        "id": "substation",
+        "label": "The substation — make them pay for the power",
+        "where": "left exterior, substation and pylons",
+        "effects": {
+          "tech": -0.6,
+          "econ": -0.6
+        },
+        "poly": { "wide": [[0,20],[8,15],[12,15],[22,25],[23,58],[0,58]], "tall": [[4,15],[13,6],[17,6],[36,14],[40,20],[40,31],[4,31]] }
+      },
+      {
+        "id": "pipes",
+        "label": "The cooling pipes — water and climate limits",
+        "where": "bottom left, pipes running to the river",
+        "effects": {
+          "tech": -1,
+          "social": 0.5
+        },
+        "poly": { "wide": [[3,72],[8,69],[23,69],[23,78],[18,87],[3,88]], "tall": [[5,76],[12,72],[35,72],[35,95],[5,95]] }
+      },
+      {
+        "id": "crate",
+        "label": "The chip crate — no advanced chips for China",
+        "where": "right, loading bay with a sealed crate under a camera",
+        "effects": {
+          "world": 1,
+          "trade": -0.8
+        },
+        "poly": { "wide": [[73,42],[97,42],[97,76],[73,76]], "tall": [[52,70],[95,70],[95,97],[52,97]] }
+      },
+      {
+        "id": "chair",
+        "label": "The empty chair — protect the jobs AI replaces",
+        "where": "upper right, control room with one empty chair",
+        "effects": {
+          "tech": -1.2,
+          "econ": -0.8
+        },
+        "poly": { "wide": [[69,13],[97,13],[97,35],[69,35]], "tall": [[50,9],[97,9],[97,29],[50,29]] }
+      }
+    ],
+    "facts": "Scene invented. Sales of some advanced Nvidia chips to China were permitted again in December 2025.",
+    "discrimination": 2
+  },
+  {
+    "id": "A-079",
+    "chapter": "convention",
+    "route": "both",
+    "type": "budget",
+    "tier": "core",
+    "topic": "big-tech",
+    "prompt": "Split 100 points of your tech agenda.",
+    "options": [
+      {
+        "id": "a",
+        "label": "Antitrust cases against the giants",
+        "effects": {
+          "econ": -1,
+          "system": 0.6
+        }
+      },
+      {
+        "id": "b",
+        "label": "Age checks and kids' online safety",
+        "effects": {
+          "tech": -1,
+          "social": -0.5
+        }
+      },
+      {
+        "id": "c",
+        "label": "AI research and chip factories",
+        "effects": {
+          "tech": 1.5
+        }
+      },
+      {
+        "id": "d",
+        "label": "Reactors and power lines for data centers",
+        "effects": {
+          "tech": 1.2
+        }
+      },
+      {
+        "id": "e",
+        "label": "Friendly rules for crypto",
+        "effects": {
+          "tech": 1,
+          "econ": 0.8
+        }
+      }
+    ],
+    "facts": "Invented scenario; no factual claim.",
+    "discrimination": 2
+  },
+  {
+    "id": "A-080",
+    "chapter": "primary",
+    "route": "both",
+    "type": "rank",
+    "tier": "core",
+    "topic": "ai-speed",
+    "prompt": "Rank your tech nightmares, worst first.",
+    "options": [
+      {
+        "id": "a",
+        "label": "AI takes the jobs",
+        "effects": {
+          "tech": -1,
+          "econ": -0.5
+        }
+      },
+      {
+        "id": "b",
+        "label": "China wins the AI race",
+        "effects": {
+          "tech": 1.2,
+          "world": 0.8
+        }
+      },
+      {
+        "id": "c",
+        "label": "Children raised by an algorithm",
+        "effects": {
+          "tech": -1.2,
+          "social": -0.3
+        }
+      },
+      {
+        "id": "d",
+        "label": "Regulators strangle the next big thing",
+        "effects": {
+          "tech": 1.2,
+          "econ": 0.8
+        }
+      },
+      {
+        "id": "e",
+        "label": "Five companies end up owning everything",
+        "effects": {
+          "tech": -1,
+          "econ": -0.8
+        }
+      }
+    ],
+    "facts": "Invented scenario; no factual claim.",
+    "discrimination": 2
+  },
+  {
+    "id": "A-081",
+    "chapter": "primary",
+    "route": "both",
+    "type": "swipe",
+    "tier": "core",
+    "topic": "big-tech",
+    "prompt": "Tech, speed round. Yes or no to each. Thumbs ready.",
+    "cards": [
+      {
+        "id": "c1",
+        "text": "No social media under sixteen",
+        "yes": {
+          "tech": -1
+        },
+        "no": {
+          "tech": 0.8
+        }
+      },
+      {
+        "id": "c2",
+        "text": "A national Bitcoin reserve",
+        "yes": {
+          "tech": 1,
+          "system": 0.5
+        },
+        "no": {
+          "tech": -0.8
+        }
+      },
+      {
+        "id": "c3",
+        "text": "Driverless trucks on the interstates",
+        "yes": {
+          "tech": 1
+        },
+        "no": {
+          "tech": -1,
+          "econ": -0.3
+        }
+      },
+      {
+        "id": "c4",
+        "text": "Repeal Section 230, the platforms' legal shield",
+        "yes": {
+          "tech": -1
+        },
+        "no": {
+          "tech": 0.8
+        }
+      },
+      {
+        "id": "c5",
+        "text": "Sell advanced AI chips to China",
+        "yes": {
+          "trade": 1,
+          "world": -0.6,
+          "tech": 0.4
+        },
+        "no": {
+          "world": 0.8,
+          "trade": -0.5
+        }
+      },
+      {
+        "id": "c6",
+        "text": "Nuclear reactors beside data centers",
+        "yes": {
+          "tech": 1
+        },
+        "no": {
+          "tech": -1
+        }
+      },
+      {
+        "id": "c7",
+        "text": "Facial recognition for police",
+        "yes": {
+          "tech": 0.5,
+          "psych": 0.5,
+          "liberty": -0.8
+        },
+        "no": {
+          "tech": -0.8,
+          "liberty": 0.8
+        }
+      }
+    ],
+    "measure": [
+      "speed"
+    ],
+    "facts": "Australia's under-16 social media ban took effect December 10, 2025. Strategic Bitcoin Reserve created by executive order March 6, 2025.",
+    "discrimination": 2
+  },
+  {
+    "id": "A-082",
+    "chapter": "primary",
+    "route": "both",
+    "type": "slider",
+    "tier": "core",
+    "topic": "crypto",
+    "prompt": "Crypto went from fringe to federal law in a year. Your view?",
+    "slider": {
+      "left": "A casino. Regulate it hard",
+      "right": "Freedom money. Get out of its way",
+      "centre": "Legal, taxed and supervised like a bank",
+      "effects": {
+        "tech": 1.5,
+        "econ": 0.6
+      },
+      "steps": 5
+    },
+    "facts": "GENIUS Act on stablecoins signed July 18, 2025.",
+    "discrimination": 2
+  },
+  {
+    "id": "A-083",
+    "chapter": "primary",
+    "route": "dem",
+    "type": "choice",
+    "tier": "core",
+    "topic": "tech-donor-money",
+    "excludes": [
+      "C-097"
+    ],
+    "prompt": "A tech billionaire offers to bankroll your whole AI operation. He voted the other way last time and says he regrets it. Do you take the money?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Take it. We lost the builders and need them",
+        "effects": {
+          "tech": 1.2,
+          "mach": 0.5
+        }
+      },
+      {
+        "id": "b",
+        "label": "Take it, and promise workers a share of AI",
+        "effects": {
+          "tech": 1,
+          "econ": -1
+        },
+        "cand": {
+          "khanna": 1
+        }
+      },
+      {
+        "id": "c",
+        "label": "Refuse. We are the ones who regulate him",
+        "effects": {
+          "tech": -1.2,
+          "system": 0.5
+        }
+      },
+      {
+        "id": "d",
+        "label": "Refuse, and make the ad about refusing",
+        "effects": {
+          "tech": -1,
+          "style": 0.8,
+          "online": 0.5
+        }
+      }
+    ],
+    "signature": [
+      "khanna"
+    ],
+    "facts": "Invented scenario. Ro Khanna represents Silicon Valley and argues for pairing tech growth with gains for workers.",
+    "discrimination": 2
+  },
+  {
+    "id": "A-084",
+    "chapter": "primary",
+    "route": "gop",
+    "type": "choice",
+    "tier": "core",
+    "topic": "tech-right",
+    "prompt": "The tech right and the populist right both think the Republican Party is theirs. At some point you have to pick a table. Whose do you sit at?",
+    "options": [
+      {
+        "id": "a",
+        "label": "The builders: AI, rockets, crypto",
+        "effects": {
+          "tech": 1.5
+        },
+        "cand": {
+          "ramaswamy": 1
+        }
+      },
+      {
+        "id": "b",
+        "label": "The populists: Big Tech is the enemy",
+        "effects": {
+          "tech": -1.5
+        },
+        "cand": {
+          "hawley": 1
+        }
+      },
+      {
+        "id": "c",
+        "label": "Money from one, votes from the other",
+        "effects": {
+          "mach": 1.2,
+          "tech": 0.3
+        }
+      },
+      {
+        "id": "d",
+        "label": "Neither. This is a church and family party",
+        "effects": {
+          "faith": 1,
+          "tech": -0.5
+        }
+      }
+    ],
+    "signature": [
+      "ramaswamy",
+      "hawley"
+    ],
+    "facts": "Editorial framing of the split visible in the December 2024 H-1B row and the 2025 fights over AI pre-emption.",
+    "discrimination": 2
+  },
+  {
+    "id": "A-085",
+    "chapter": "announcement",
+    "route": "both",
+    "type": "slider",
+    "tier": "core",
+    "topic": "burn-it-down",
+    "prompt": "A federal office takes eleven months to answer a letter and has outlived nine presidents who swore to fix it. What does Washington need?",
+    "slider": {
+      "left": "A wrench. Fix it from inside",
+      "right": "A match. Burn it down and start again",
+      "centre": "Fire the people, keep the buildings",
+      "effects": {
+        "system": 2
+      },
+      "steps": 5
+    },
+    "facts": "Invented scenario; no factual claim.",
+    "discrimination": 3
+  },
+  {
+    "id": "A-086",
+    "chapter": "primary",
+    "route": "both",
+    "type": "choice",
+    "tier": "core",
+    "topic": "doge",
+    "prompt": "DOGE, the White House cost-cutting squad, promised $2 trillion in cuts, claimed about a tenth of that on math its own website kept correcting, gutted USAID, and left a chainsaw and a docket. Your verdict?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Right idea. Pick the chainsaw back up",
+        "effects": {
+          "system": 1.5,
+          "econ": 1.2
+        },
+        "cand": {
+          "ramaswamy": 1
+        }
+      },
+      {
+        "id": "b",
+        "label": "Right idea, wrong people. Do it by law",
+        "effects": {
+          "system": 0.3,
+          "econ": 0.8
+        }
+      },
+      {
+        "id": "c",
+        "label": "Reckless. Rehire and rebuild the service",
+        "effects": {
+          "system": -1.2,
+          "econ": -0.5
+        }
+      },
+      {
+        "id": "d",
+        "label": "Illegal. Prosecute whoever broke the law",
+        "effects": {
+          "system": -0.6,
+          "style": 1,
+          "econ": -0.5
+        }
+      }
+    ],
+    "signature": [
+      "ramaswamy"
+    ],
+    "facts": "DOGE created by executive order January 20, 2025; Vivek Ramaswamy was named co-lead and left before it began. Elon Musk waved a chainsaw at CPAC on February 20, 2025 and left government in late May 2025. USAID was dismantled in 2025. Musk floated at least $2 trillion in cuts in October 2024; DOGE's own site claimed roughly $200 billion in savings, figures that were repeatedly corrected and are disputed by outside analyses. Courts ruled both against and for DOGE in 2025.",
+    "discrimination": 3
+  },
+  {
+    "id": "A-087",
+    "chapter": "primary",
+    "route": "both",
+    "type": "choice",
+    "tier": "core",
+    "topic": "epstein-files",
+    "excludes": [
+      "D-050"
+    ],
+    "prompt": "The law ordering the release of the Epstein files passed almost unanimously, and the pages still arrive covered in black ink. What do you say?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Release all of it, whoever falls",
+        "effects": {
+          "system": 1.5
+        },
+        "cand": {
+          "khanna": 1
+        }
+      },
+      {
+        "id": "b",
+        "label": "Release it properly, with victims protected",
+        "effects": {
+          "system": -0.4
+        }
+      },
+      {
+        "id": "c",
+        "label": "Enough. It is a distraction from prices",
+        "effects": {
+          "system": -1,
+          "online": -0.6
+        }
+      },
+      {
+        "id": "d",
+        "label": "Use it. Subpoena the other side's names first",
+        "effects": {
+          "mach": 1.5,
+          "style": 1,
+          "system": 0.5
+        }
+      }
+    ],
+    "signature": [
+      "khanna"
+    ],
+    "facts": "Epstein Files Transparency Act passed the House 427-1 on November 18, 2025 and was signed November 19, 2025, after a discharge petition led by Ro Khanna and Thomas Massie. Releases since have been heavily redacted.",
+    "discrimination": 3
+  },
+  {
+    "id": "A-088",
+    "chapter": "debate",
+    "route": "both",
+    "type": "hold",
+    "tier": "core",
+    "topic": "stock-trading",
+    "excludes": [
+      "B-061",
+      "C-098",
+      "D-030"
+    ],
+    "prompt": "Members of Congress keep beating the market. Funny, that. Should they be banned from trading stocks?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Ban them from trading. Spouses too",
+        "effects": {
+          "system": 1.1
+        },
+        "cand": {
+          "ossoff": 1,
+          "hawley": 1
+        }
+      },
+      {
+        "id": "b",
+        "label": "Disclosure is enough",
+        "effects": {
+          "system": -1.1,
+          "econ": 0.5
+        }
+      }
+    ],
+    "signature": [
+      "ossoff",
+      "hawley"
+    ],
+    "measure": [
+      "holdStrength"
+    ],
+    "facts": "Jon Ossoff has introduced the Ban Congressional Stock Trading Act; Josh Hawley's stock-trading ban cleared a Senate committee on July 30, 2025.",
+    "discrimination": 3
+  },
+  {
+    "id": "A-089",
+    "chapter": "primary",
+    "route": "both",
+    "type": "dilemma",
+    "tier": "core",
+    "topic": "filibuster",
+    "excludes": [
+      "E-017"
+    ],
+    "prompt": "Say you win, and your party holds 51 Senate seats. The filibuster, which lets 41 senators block a bill, stands between you and everything you promised. Do you scrap it?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Kill the filibuster",
+        "effects": {
+          "system": 1.3,
+          "psych": 0.3
+        }
+      },
+      {
+        "id": "b",
+        "label": "Keep it. The other side wins elections too",
+        "effects": {
+          "system": -1.3
+        }
+      }
+    ],
+    "facts": "President Trump urged Senate Republicans to abolish the filibuster on October 30, 2025 during the shutdown; Democrats debated the same step in 2021-22.",
+    "discrimination": 3
+  },
+  {
+    "id": "A-090",
+    "chapter": "convention",
+    "route": "both",
+    "type": "pin",
+    "tier": "core",
+    "topic": "state-fair",
+    "prompt": "A state fair at dusk, the week before the convention. You get one campaign event here. What kind? Tap where you hold it.",
+    "art": "SC-STATE-FAIR",
+    "artNote": "Pixel-art state fair midway at dusk, string lights, no people; empty stalls and parked strollers. Left: a grandstand stage dressed in bunting. Center foreground: a wooden soapbox beside a corn-dog stand. Right: a Ferris wheel, lit. Back left: a livestock barn with open doors and hay. Far right edge: the fairground gate from outside, with hand-painted signs leaning on the fence.",
+    "regions": [
+      {
+        "id": "grandstand",
+        "label": "The grandstand — the classic rally, bunting and band",
+        "where": "left, stage dressed in bunting",
+        "effects": {
+          "system": -1,
+          "online": -0.5
+        },
+        "poly": { "wide": [[0,6],[16,5],[25,12],[25,30],[29.5,30],[29.5,60],[10,66],[0,66]], "tall": [[0,36],[25,28.5],[48,36],[50,46],[55,52],[55,62],[0,62]] }
+      },
+      {
+        "id": "soapbox",
+        "label": "The soapbox — take hostile questions",
+        "where": "center foreground, soapbox by the corn-dog stand",
+        "effects": {
+          "system": 0.5,
+          "style": 0.8
+        },
+        "poly": { "wide": [[33,72],[40,63],[53,63],[53,52],[57,52],[57,63],[65,63],[65,85],[32,85]], "tall": [[1,90],[6,85],[20,84],[21,77],[26,77],[26,84],[44,84],[45,97],[1,97]] }
+      },
+      {
+        "id": "wheel",
+        "label": "The Ferris wheel — livestream from the top",
+        "where": "right, lit Ferris wheel",
+        "effects": {
+          "online": 1.2,
+          "narc": 0.8
+        },
+        "poly": { "wide": [[70,10],[80,5],[87,10],[88,20],[84,30],[84,42],[73,42],[70,25]], "tall": [[60,15],[68,6],[78,4],[88,7],[93,15],[92,27],[60,27]] }
+      },
+      {
+        "id": "barn",
+        "label": "The livestock barn — a quiet word with farmers",
+        "where": "back left, barn with open doors and hay",
+        "effects": {
+          "system": -0.5,
+          "style": -0.8
+        },
+        "poly": { "wide": [[25.5,22],[31,14],[37,13],[44,22],[44,46],[30,46],[30,29],[25.5,29]], "tall": [[6,22],[15,15],[25,10],[35,15],[47,20],[53,22],[53,27.5],[6,27.5]] }
+      },
+      {
+        "id": "gate",
+        "label": "Outside the gate — rally against the whole show",
+        "where": "far right edge, fairground gate with hand-painted signs",
+        "effects": {
+          "system": 1.5
+        },
+        "poly": { "wide": [[85,30],[89,19],[100,13],[100,70],[83.5,70],[84.5,43]], "tall": [[66,70],[70,64],[94,61],[100,70],[100,93],[80,93],[66,90]] }
+      }
+    ],
+    "facts": "Invented scenario; no factual claim.",
+    "discrimination": 2
+  },
+  {
+    "id": "A-091",
+    "chapter": "primary",
+    "route": "both",
+    "type": "rank",
+    "tier": "core",
+    "topic": "burn-it-down",
+    "prompt": "Rank what is most broken in America, worst first.",
+    "options": [
+      {
+        "id": "a",
+        "label": "The permanent bureaucracy",
+        "effects": {
+          "system": 1.2,
+          "econ": 0.8
+        }
+      },
+      {
+        "id": "b",
+        "label": "Big money in politics",
+        "effects": {
+          "system": 0.8,
+          "econ": -0.8
+        }
+      },
+      {
+        "id": "c",
+        "label": "The courts",
+        "effects": {
+          "system": 1.1
+        }
+      },
+      {
+        "id": "d",
+        "label": "The media",
+        "effects": {
+          "system": 1,
+          "online": 0.5
+        }
+      },
+      {
+        "id": "e",
+        "label": "Nothing an election cannot fix",
+        "effects": {
+          "system": -1.5
+        }
+      }
+    ],
+    "facts": "Invented scenario; no factual claim.",
+    "discrimination": 2
+  },
+  {
+    "id": "A-092",
+    "chapter": "primary",
+    "route": "both",
+    "type": "sign",
+    "tier": "core",
+    "topic": "supreme-court",
+    "prompt": "On your desk: the Supreme Court Term Limits Act. Eighteen years and out, one new justice every two years.",
+    "options": [
+      {
+        "id": "sign",
+        "label": "Sign: nobody should rule for forty years",
+        "effects": {
+          "system": 1.1
+        }
+      },
+      {
+        "id": "veto",
+        "label": "Veto: leave the Court alone",
+        "effects": {
+          "system": -1.1
+        }
+      }
+    ],
+    "facts": "Bill name generic. President Biden endorsed 18-year Supreme Court terms on July 29, 2024; versions have been introduced in Congress.",
+    "discrimination": 2
+  },
+  {
+    "id": "A-093",
+    "chapter": "convention",
+    "route": "both",
+    "type": "budget",
+    "tier": "core",
+    "topic": "first-hundred-days",
+    "excludes": [
+      "D-089"
+    ],
+    "prompt": "First hundred days. You have 100 points of political capital and it does not roll over. How do you spend it?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Bills through Congress, the slow way",
+        "effects": {
+          "system": -1.2
+        }
+      },
+      {
+        "id": "b",
+        "label": "Executive orders. Sue me later",
+        "effects": {
+          "system": 1.2,
+          "psych": 0.3
+        }
+      },
+      {
+        "id": "c",
+        "label": "Clearing out the top of every agency",
+        "effects": {
+          "system": 1.2,
+          "loyalty": 0.5
+        }
+      },
+      {
+        "id": "d",
+        "label": "Investigating the last administration",
+        "effects": {
+          "system": 0.8,
+          "style": 1.2
+        }
+      },
+      {
+        "id": "e",
+        "label": "A unity cabinet with the other party in it",
+        "effects": {
+          "system": -1,
+          "style": -1.2
+        }
+      }
+    ],
+    "facts": "Invented scenario; no factual claim.",
+    "discrimination": 2
+  },
+  {
+    "id": "A-094",
+    "chapter": "debate",
+    "route": "both",
+    "type": "choice",
+    "tier": "core",
+    "topic": "the-fed",
+    "prompt": "The White House has leaned on the Federal Reserve all year: cut interest rates, or else. Who should be in charge of the Fed?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Hands off. Independence is the whole point",
+        "effects": {
+          "system": -1.5
+        }
+      },
+      {
+        "id": "b",
+        "label": "Independent, but audit it",
+        "effects": {
+          "system": 0.4,
+          "econ": 0.5
+        },
+        "cand": {
+          "randpaul": 1
+        }
+      },
+      {
+        "id": "c",
+        "label": "An elected president should have a say",
+        "effects": {
+          "system": 1,
+          "loyalty": 0.5
+        }
+      },
+      {
+        "id": "d",
+        "label": "End the Fed",
+        "effects": {
+          "system": 1.5,
+          "econ": 1.5
+        }
+      }
+    ],
+    "signature": [
+      "randpaul"
+    ],
+    "facts": "President Trump moved to fire Fed governor Lisa Cook on August 25, 2025 and repeatedly attacked chair Jerome Powell over rates. Rand Paul sponsors the Audit the Fed bill.",
+    "discrimination": 2
+  },
+  {
+    "id": "A-095",
+    "chapter": "primary",
+    "route": "dem",
+    "type": "choice",
+    "tier": "core",
+    "topic": "texas-map",
+    "excludes": [
+      "B-013",
+      "D-013",
+      "E-019"
+    ],
+    "prompt": "Texas Republicans redrew their House map mid-decade to take seats. California Democrats answered in kind. Democrats elsewhere now ask you whether to keep going.",
+    "options": [
+      {
+        "id": "a",
+        "label": "Fire with fire, in every blue state",
+        "effects": {
+          "system": 1,
+          "style": 1
+        },
+        "cand": {
+          "newsom": 1
+        }
+      },
+      {
+        "id": "b",
+        "label": "Only until gerrymanders are banned nationally",
+        "effects": {
+          "system": 0.3
+        }
+      },
+      {
+        "id": "c",
+        "label": "No. Fair maps, even when it costs us seats",
+        "effects": {
+          "system": -1.2,
+          "mach": -0.5
+        }
+      },
+      {
+        "id": "d",
+        "label": "Go bigger: new states and a larger Court",
+        "effects": {
+          "system": 1.5
+        }
+      }
+    ],
+    "signature": [
+      "newsom"
+    ],
+    "facts": "Texas enacted a mid-decade congressional map in August 2025; California voters passed Proposition 50, championed by Gavin Newsom, on November 4, 2025.",
+    "discrimination": 2
+  },
+  {
+    "id": "A-096",
+    "chapter": "primary",
+    "route": "gop",
+    "type": "choice",
+    "tier": "core",
+    "topic": "certifying-2020",
+    "excludes": [
+      "B-018"
+    ],
+    "prompt": "It never goes away. A voter in Iowa asks: in January 2021, would you have certified the 2020 election result?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Yes. The Constitution left no choice",
+        "effects": {
+          "system": -1.5,
+          "loyalty": -1.5,
+          "democracy": 1
+        },
+        "cand": {
+          "pence": 2,
+          "kemp": 1
+        }
+      },
+      {
+        "id": "b",
+        "label": "Yes. Next question",
+        "effects": {
+          "system": -0.5,
+          "mach": 0.8,
+          "democracy": 0.5
+        }
+      },
+      {
+        "id": "c",
+        "label": "I would have sent it back to the states first",
+        "effects": {
+          "system": 1,
+          "loyalty": 1,
+          "democracy": -0.8
+        },
+        "cand": {
+          "vance": 1
+        }
+      },
+      {
+        "id": "d",
+        "label": "No",
+        "effects": {
+          "system": 1.5,
+          "loyalty": 1.5,
+          "democracy": -1
+        }
+      }
+    ],
+    "signature": [
+      "pence",
+      "kemp",
+      "vance"
+    ],
+    "facts": "Mike Pence presided over certification on January 6-7, 2021. Brian Kemp certified Georgia's 2020 result. JD Vance said in February 2024 he would have wanted states to submit alternative slates for Congress to consider.",
+    "discrimination": 3
+  },
+  {
+    "id": "A-097",
+    "chapter": "convention",
+    "route": "dem",
+    "type": "draft",
+    "tier": "core",
+    "topic": "drafts-running-mate",
+    "excludes": [
+      "A-098",
+      "B-040",
+      "B-041",
+      "B-095",
+      "D-018",
+      "D-067",
+      "D-077"
+    ],
+    "prompt": "The nomination is yours. The ticket needs a second name, and each one says something different about you.",
+    "pool": [
+      "aoc",
+      "shapiro",
+      "beshear",
+      "khanna",
+      "slotkin",
+      "kelly"
+    ],
+    "options": [
+      {
+        "id": "aoc",
+        "label": "Ocasio-Cortez: thrill the left, write the GOP's ads for it",
+        "effects": {
+          "econ": -1,
+          "system": 0.8
+        },
+        "cand": {
+          "aoc": 2
+        }
+      },
+      {
+        "id": "shapiro",
+        "label": "Shapiro: wins Pennsylvania, loses the group chat",
+        "effects": {
+          "system": -0.8,
+          "world": 0.5
+        },
+        "cand": {
+          "shapiro": 2
+        }
+      },
+      {
+        "id": "beshear",
+        "label": "Beshear: red-state deacon, famous in up to one state",
+        "effects": {
+          "faith": 0.8,
+          "style": -0.8
+        },
+        "cand": {
+          "beshear": 2
+        }
+      },
+      {
+        "id": "khanna",
+        "label": "Khanna: populism, as told by Silicon Valley's congressman",
+        "effects": {
+          "tech": 1,
+          "world": -0.8
+        },
+        "cand": {
+          "khanna": 2
+        }
+      },
+      {
+        "id": "slotkin",
+        "label": "Slotkin: ex-CIA, Michigan, the left's least favorite résumé",
+        "effects": {
+          "world": 1,
+          "trade": -0.5
+        },
+        "cand": {
+          "slotkin": 2
+        }
+      },
+      {
+        "id": "kelly",
+        "label": "Kelly: astronaut, border senator, charisma left in orbit",
+        "effects": {
+          "border": -0.5,
+          "tech": 0.8
+        },
+        "cand": {
+          "kelly": 2
+        }
+      }
+    ],
+    "signature": [
+      "aoc",
+      "shapiro",
+      "beshear",
+      "khanna",
+      "slotkin",
+      "kelly"
+    ],
+    "facts": "Descriptions are editorial shorthand drawn from candidates.json.",
+    "discrimination": 3
+  },
+  {
+    "id": "A-098",
+    "chapter": "convention",
+    "route": "gop",
+    "type": "draft",
+    "tier": "core",
+    "topic": "drafts-running-mate",
+    "excludes": [
+      "A-097",
+      "B-040",
+      "B-041",
+      "B-095",
+      "D-018",
+      "D-067",
+      "D-077"
+    ],
+    "prompt": "The nomination is yours. Pick the running mate; the choice tells the party which party it is.",
+    "pool": [
+      "vance",
+      "rubio",
+      "randpaul",
+      "hawley",
+      "kemp",
+      "ramaswamy"
+    ],
+    "options": [
+      {
+        "id": "vance",
+        "label": "Vance: called him America's Hitler, then took the job",
+        "effects": {
+          "world": -1,
+          "trade": -1
+        },
+        "cand": {
+          "vance": 2
+        }
+      },
+      {
+        "id": "rubio",
+        "label": "Rubio: the hawk who learned the new hymn and sings it loudest",
+        "effects": {
+          "world": 0.8,
+          "loyalty": 0.5
+        },
+        "cand": {
+          "rubio": 2
+        }
+      },
+      {
+        "id": "randpaul",
+        "label": "Paul: no tariffs, no wars, no friends in the Senate",
+        "effects": {
+          "econ": 1.2,
+          "trade": 1
+        },
+        "cand": {
+          "randpaul": 2
+        }
+      },
+      {
+        "id": "hawley",
+        "label": "Hawley: a populist by way of Stanford and Yale Law",
+        "effects": {
+          "tech": -1,
+          "econ": -0.8
+        },
+        "cand": {
+          "hawley": 2
+        }
+      },
+      {
+        "id": "kemp",
+        "label": "Kemp: held the line in 2020, endorsed him anyway in 2024",
+        "effects": {
+          "system": -1,
+          "econ": 0.8
+        },
+        "cand": {
+          "kemp": 2
+        }
+      },
+      {
+        "id": "ramaswamy",
+        "label": "Ramaswamy: co-led DOGE for zero days, has notes anyway",
+        "effects": {
+          "tech": 1,
+          "system": 1
+        },
+        "cand": {
+          "ramaswamy": 2
+        }
+      }
+    ],
+    "signature": [
+      "vance",
+      "rubio",
+      "randpaul",
+      "hawley",
+      "kemp",
+      "ramaswamy"
+    ],
+    "facts": "Descriptions are editorial shorthand drawn from candidates.json.",
+    "discrimination": 3
+  },
+  {
+    "id": "A-099",
+    "chapter": "primary",
+    "route": "both",
+    "type": "draft",
+    "tier": "core",
+    "topic": "drafts-treasury",
+    "excludes": [
+      "D-080"
+    ],
+    "prompt": "Fantasy cabinet, party lines off. Who writes your economic plan?",
+    "pool": [
+      "aoc",
+      "randpaul",
+      "hawley",
+      "youngkin",
+      "pritzker",
+      "buttigieg"
+    ],
+    "options": [
+      {
+        "id": "aoc",
+        "label": "Ocasio-Cortez: tax the top, spend it, ask the bond market later",
+        "effects": {
+          "econ": -1.5
+        },
+        "cand": {
+          "aoc": 2
+        }
+      },
+      {
+        "id": "randpaul",
+        "label": "Paul: cut everything, then vote no on what's left",
+        "effects": {
+          "econ": 1.5,
+          "trade": 1
+        },
+        "cand": {
+          "randpaul": 2
+        }
+      },
+      {
+        "id": "hawley",
+        "label": "Hawley: tariffs, unions, trustbusting, a Republican on paper",
+        "effects": {
+          "econ": -0.8,
+          "trade": -1.2
+        },
+        "cand": {
+          "hawley": 2
+        }
+      },
+      {
+        "id": "youngkin",
+        "label": "Youngkin: buyout-firm discipline. You are the portfolio company",
+        "effects": {
+          "econ": 1.2,
+          "system": -0.3
+        },
+        "cand": {
+          "youngkin": 2
+        }
+      },
+      {
+        "id": "pritzker",
+        "label": "Pritzker: the Hyatt heir will now tax the rich",
+        "effects": {
+          "econ": -0.8,
+          "dynasty": 0.5
+        },
+        "cand": {
+          "pritzker": 2
+        }
+      },
+      {
+        "id": "buttigieg",
+        "label": "Buttigieg: McKinsey slides, now with bridges",
+        "effects": {
+          "tech": 0.8,
+          "system": -0.5
+        },
+        "cand": {
+          "buttigieg": 2
+        }
+      }
+    ],
+    "signature": [
+      "aoc",
+      "randpaul",
+      "hawley",
+      "youngkin",
+      "pritzker",
+      "buttigieg"
+    ],
+    "facts": "Descriptions are editorial shorthand drawn from candidates.json. Youngkin was co-CEO of the Carlyle Group.",
+    "discrimination": 2
+  },
+  {
+    "id": "A-100",
+    "chapter": "debate",
+    "route": "both",
+    "type": "draft",
+    "tier": "core",
+    "topic": "drafts-secretary-of-state",
+    "prompt": "The cabinet comes before the confetti. Who is your Secretary of State?",
+    "pool": [
+      "rubio",
+      "christie",
+      "slotkin",
+      "vance",
+      "khanna",
+      "pence"
+    ],
+    "options": [
+      {
+        "id": "rubio",
+        "label": "Rubio: he had the office, and three other jobs with it",
+        "effects": {
+          "world": 0.8,
+          "border": -0.3
+        },
+        "cand": {
+          "rubio": 2
+        }
+      },
+      {
+        "id": "christie",
+        "label": "Christie: hugs allies, insults autocrats, polls at a rounding error",
+        "effects": {
+          "world": 1.2,
+          "loyalty": -0.5
+        },
+        "cand": {
+          "christie": 2
+        }
+      },
+      {
+        "id": "slotkin",
+        "label": "Slotkin: ex-CIA. She has read your file and theirs",
+        "effects": {
+          "world": 1.2,
+          "system": -0.3
+        },
+        "cand": {
+          "slotkin": 2
+        }
+      },
+      {
+        "id": "vance",
+        "label": "Vance: lectures Europe in Munich, invoices it after",
+        "effects": {
+          "world": -1.5
+        },
+        "cand": {
+          "vance": 2
+        }
+      },
+      {
+        "id": "khanna",
+        "label": "Khanna: restraint, diplomacy and a strongly worded thread",
+        "effects": {
+          "world": -1.2,
+          "social": 0.3
+        },
+        "cand": {
+          "khanna": 2
+        }
+      },
+      {
+        "id": "pence",
+        "label": "Pence: Reagan with a prayer breakfast and no party left to host it",
+        "effects": {
+          "world": 1.2,
+          "faith": 0.5
+        },
+        "cand": {
+          "pence": 2
+        }
+      }
+    ],
+    "signature": [
+      "rubio",
+      "christie",
+      "slotkin",
+      "vance",
+      "khanna",
+      "pence"
+    ],
+    "facts": "Marco Rubio has been Secretary of State since January 2025. Other descriptions are editorial shorthand.",
+    "discrimination": 2
+  },
+  {
+    "id": "A-101",
+    "chapter": "announcement",
+    "route": "both",
+    "type": "choice",
+    "tier": "core",
+    "topic": "campaign-branding",
+    "prompt": "The banner behind your podium has room for one line. The printer needs it in an hour. Which slogan?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Tax the rich. Build the future.",
+        "effects": {
+          "econ": -1.3,
+          "system": 0.5
+        }
+      },
+      {
+        "id": "b",
+        "label": "Secure the border. Bring the jobs home.",
+        "effects": {
+          "border": -1.1,
+          "trade": -1
+        }
+      },
+      {
+        "id": "c",
+        "label": "Freedom works. Government doesn't.",
+        "effects": {
+          "econ": 1.5,
+          "system": 0.3
+        }
+      },
+      {
+        "id": "d",
+        "label": "Faith. Family. Country.",
+        "effects": {
+          "faith": 1.2,
+          "social": -1
+        }
+      },
+      {
+        "id": "e",
+        "label": "Normal again.",
+        "effects": {
+          "system": -1.5,
+          "style": -0.8
+        }
+      }
+    ],
+    "fx": [
+      "typewriter"
+    ],
+    "facts": "Invented scenario; no factual claim.",
+    "discrimination": 3
+  },
+  {
+    "id": "A-102",
+    "chapter": "primary",
+    "route": "both",
+    "type": "choice",
+    "tier": "core",
+    "topic": "skilled-visas",
+    "excludes": [
+      "B-006",
+      "D-058"
+    ],
+    "prompt": "A viral post says America imports engineers because its culture cheers the prom queen over the math champion. Your reply?",
+    "options": [
+      {
+        "id": "a",
+        "label": "He is right. Raise the bar, recruit the best",
+        "effects": {
+          "border": 1,
+          "tech": 1
+        },
+        "cand": {
+          "ramaswamy": 2
+        }
+      },
+      {
+        "id": "b",
+        "label": "Wrong. American workers are not the problem",
+        "effects": {
+          "border": -1.1,
+          "style": 0.4
+        }
+      },
+      {
+        "id": "c",
+        "label": "Train Americans first, then top up with visas",
+        "effects": {
+          "border": -0.3,
+          "econ": -0.4
+        }
+      },
+      {
+        "id": "d",
+        "label": "Both sides are posting. I am going to bed",
+        "effects": {
+          "online": -1,
+          "style": -0.5
+        }
+      }
+    ],
+    "signature": [
+      "ramaswamy"
+    ],
+    "facts": "Paraphrase of Vivek Ramaswamy's post of December 26, 2024 defending skilled visas and criticizing a culture that venerates mediocrity over excellence.",
+    "discrimination": 2
+  },
+  {
+    "id": "A-103",
+    "chapter": "debate",
+    "route": "both",
+    "type": "hold",
+    "tier": "core",
+    "topic": "school-vouchers",
+    "excludes": [
+      "B-055",
+      "D-025"
+    ],
+    "prompt": "A child is stuck in a school that fails year after year. A voucher would let her leave, with the money. Where should the money go?",
+    "options": [
+      {
+        "id": "a",
+        "label": "With the child, to any school",
+        "effects": {
+          "econ": 1,
+          "faith": 0.5
+        },
+        "cand": {
+          "shapiro": 1
+        }
+      },
+      {
+        "id": "b",
+        "label": "To the school, to fix it",
+        "effects": {
+          "econ": -1,
+          "faith": -0.3
+        }
+      }
+    ],
+    "signature": [
+      "shapiro"
+    ],
+    "measure": [
+      "holdStrength"
+    ],
+    "facts": "Josh Shapiro backed Lifeline Scholarships for students in low-performing schools in 2023, unusual for a Democrat, then said on July 5, 2023 he would line-item veto the $100m and did so on August 3, 2023 to end a budget impasse.",
+    "discrimination": 2
+  },
+  {
+    "id": "A-104",
+    "chapter": "primary",
+    "route": "both",
+    "type": "hold",
+    "tier": "core",
+    "topic": "housing",
+    "prompt": "A new law lets the state overrule a town's zoning to put apartments near train stations. The neighbors have lawyers. Who should win?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Build, and overrule the neighbors",
+        "effects": {
+          "econ": 0.8,
+          "tech": 0.8
+        }
+      },
+      {
+        "id": "b",
+        "label": "The neighborhood decides",
+        "effects": {
+          "econ": -0.5,
+          "tech": -0.6,
+          "social": -0.3
+        }
+      }
+    ],
+    "measure": [
+      "holdStrength"
+    ],
+    "facts": "California's SB 79, allowing denser housing near transit stops over local zoning, was signed October 10, 2025.",
+    "discrimination": 2
+  },
+  {
+    "id": "A-105",
+    "chapter": "debate",
+    "route": "gop",
+    "type": "hold",
+    "tier": "core",
+    "topic": "troops-vs-cartels",
+    "prompt": "The drug cartels are now on the terror list. A rival on the Republican stage dares you to say it: American troops into Mexico. Do you send them?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Send them",
+        "effects": {
+          "world": 0.8,
+          "border": -1,
+          "psych": 0.5
+        }
+      },
+      {
+        "id": "b",
+        "label": "Never without Mexico's consent",
+        "effects": {
+          "world": -0.6,
+          "border": 0.3,
+          "system": -0.5
+        }
+      }
+    ],
+    "measure": [
+      "holdStrength"
+    ],
+    "facts": "Several Mexican cartels were designated foreign terrorist organizations on February 20, 2025.",
+    "discrimination": 3
+  },
+  {
+    "id": "A-106",
+    "chapter": "primary",
+    "route": "both",
+    "type": "dilemma",
+    "tier": "core",
+    "topic": "state-owned-stakes",
+    "prompt": "Washington now owns a tenth of Intel. No nationalization, the White House says, just a good deal. Is it?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Yes. Taxpayers should own what they rescue",
+        "effects": {
+          "econ": -1.2,
+          "trade": -0.8
+        }
+      },
+      {
+        "id": "b",
+        "label": "No. The state should not own companies",
+        "effects": {
+          "econ": 1.2,
+          "trade": 0.5
+        }
+      }
+    ],
+    "facts": "The US government took a roughly 10% equity stake in Intel, announced August 22, 2025.",
+    "discrimination": 3
+  },
+  {
+    "id": "A-107",
+    "chapter": "debate",
+    "route": "both",
+    "type": "dilemma",
+    "tier": "core",
+    "topic": "conscience-exemptions",
+    "prompt": "The only hospital for three counties is church-run. It will not perform abortions or gender care. It runs on federal money. What should Washington do?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Protect its conscience",
+        "effects": {
+          "faith": 1.3,
+          "social": -1
+        }
+      },
+      {
+        "id": "b",
+        "label": "Provide the care or lose the money",
+        "effects": {
+          "faith": -1.3,
+          "social": 1
+        }
+      }
+    ],
+    "facts": "Invented scenario; no factual claim.",
+    "discrimination": 3
+  },
+  {
+    "id": "A-108",
+    "chapter": "convention",
+    "route": "both",
+    "type": "budget",
+    "tier": "core",
+    "topic": "windfall-budget",
+    "excludes": [
+      "A-007"
+    ],
+    "prompt": "A $100 billion windfall lands in the Treasury. Split 100 points before Congress notices.",
+    "options": [
+      {
+        "id": "a",
+        "label": "Rebate checks to taxpayers",
+        "effects": {
+          "econ": 1.2
+        }
+      },
+      {
+        "id": "b",
+        "label": "Border security",
+        "effects": {
+          "border": -1.3
+        }
+      },
+      {
+        "id": "c",
+        "label": "Clean energy and public transport",
+        "effects": {
+          "econ": -1,
+          "social": 0.5
+        }
+      },
+      {
+        "id": "d",
+        "label": "The armed forces",
+        "effects": {
+          "world": 1.3
+        }
+      },
+      {
+        "id": "e",
+        "label": "AI and science research",
+        "effects": {
+          "tech": 1.3
+        }
+      }
+    ],
+    "facts": "Invented scenario; no factual claim.",
+    "discrimination": 3
+  },
+  {
+    "id": "A-109",
+    "chapter": "convention",
+    "route": "both",
+    "type": "rank",
+    "tier": "core",
+    "topic": "platform",
+    "prompt": "Five planks, one front page. Rank the order they appear in your platform.",
+    "options": [
+      {
+        "id": "a",
+        "label": "Secure the border",
+        "effects": {
+          "border": -1.3
+        }
+      },
+      {
+        "id": "b",
+        "label": "Tax the rich",
+        "effects": {
+          "econ": -1.3
+        }
+      },
+      {
+        "id": "c",
+        "label": "Cut the government down",
+        "effects": {
+          "econ": 1.3
+        }
+      },
+      {
+        "id": "d",
+        "label": "Protect abortion rights",
+        "effects": {
+          "social": 1.3
+        }
+      },
+      {
+        "id": "e",
+        "label": "Bring manufacturing home",
+        "effects": {
+          "trade": -1.3
+        }
+      }
+    ],
+    "facts": "Invented scenario; no factual claim.",
+    "discrimination": 3
+  },
+  {
+    "id": "A-110",
+    "chapter": "convention",
+    "route": "both",
+    "type": "sign",
+    "tier": "core",
+    "topic": "kids-online-safety",
+    "prompt": "On your desk: the Kids Online Safety Act. Age checks for social media, and a duty of care the platforms swear will break the internet.",
+    "options": [
+      {
+        "id": "sign",
+        "label": "Sign: childhood is not a business model",
+        "effects": {
+          "tech": -1.1,
+          "social": -0.3
+        }
+      },
+      {
+        "id": "veto",
+        "label": "Veto: parents, not Washington, hold the phone",
+        "effects": {
+          "tech": 0.9,
+          "econ": 0.6
+        }
+      }
+    ],
+    "facts": "The Kids Online Safety Act passed the Senate 91-3 on July 30, 2024, stalled in the House and was reintroduced in May 2025.",
+    "discrimination": 2
+  }
+]

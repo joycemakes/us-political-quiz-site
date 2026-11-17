@@ -1,0 +1,2575 @@
+[
+  {
+    "id": "E-001",
+    "chapter": "primary",
+    "route": "both",
+    "type": "choice",
+    "tier": "core",
+    "topic": "guard-in-cities",
+    "excludes": [
+      "B-054",
+      "D-022"
+    ],
+    "context": "The President federalizes a state's National Guard and sends it into that state's biggest city. The governor says: not in my name.",
+    "prompt": "Who should decide whether troops go into that city?",
+    "options": [
+      {
+        "id": "a",
+        "label": "The President's. Governors don't get a veto on orders.",
+        "effects": {
+          "federal": -1.5,
+          "liberty": -1,
+          "loyalty": 0.5
+        },
+        "cand": {
+          "vance": 1
+        }
+      },
+      {
+        "id": "b",
+        "label": "The governor's. No invitation, no troops.",
+        "effects": {
+          "federal": 1.5,
+          "liberty": 0.5,
+          "democracy": 0.5
+        },
+        "cand": {
+          "pritzker": 2,
+          "newsom": 2
+        }
+      },
+      {
+        "id": "c",
+        "label": "Nobody's. Soldiers don't police Americans, ever.",
+        "effects": {
+          "liberty": 1.5,
+          "federal": 0.5,
+          "world": -0.5
+        },
+        "cand": {
+          "randpaul": 1
+        }
+      },
+      {
+        "id": "d",
+        "label": "The President's. And the next city should start packing.",
+        "effects": {
+          "federal": -2,
+          "liberty": -1.5,
+          "psych": 1
+        },
+        "cand": {
+          "trumpjr": 1
+        }
+      }
+    ],
+    "signature": [
+      "pritzker",
+      "newsom"
+    ],
+    "facts": "June 7, 2025: Trump federalized the California National Guard and sent it to Los Angeles over Gov. Newsom's objection (Newsom v. Trump followed). October 2025: Guard deployment to the Chicago area opposed by Gov. Pritzker; on December 23, 2025 the Supreme Court declined to let that deployment go ahead (Trump v. Illinois).",
+    "discrimination": 3
+  },
+  {
+    "id": "E-002",
+    "chapter": "election_night",
+    "phase": "count",
+    "route": "both",
+    "type": "pin",
+    "tier": "core",
+    "topic": "guard-in-cities",
+    "context": "You are the governor. Another state's Guard convoy, sent on the President's orders, has just reached your state line.",
+    "prompt": "What is your first move against the convoy? Tap it.",
+    "art": "E-PIN-STATELINE",
+    "artNote": "A two-lane highway at dusk at a state line, no people anywhere. Center: a line of plain olive trucks with headlights on, stopped at a big wooden WELCOME TO sign (state name left blank). Left foreground: an empty state trooper cruiser parked sideways across one lane, light bar lit. Right lane: open road, empty, running off to the horizon. Top right, on a hill: a small domed courthouse with one lit window. Bottom right: a TV satellite van with its dish raised and a camera on a tripod pointing at the road. Bottom left: a roadside payphone with the receiver hanging off the hook.",
+    "regions": [
+      {
+        "id": "cruiser",
+        "label": "The cruiser — block the road with state police",
+        "where": "left foreground, the cruiser parked across the lane",
+        "effects": {
+          "federal": 1.5,
+          "style": 1.5,
+          "system": 0.5
+        },
+        "poly": { "wide": [[14,47],[17,43],[28,43],[36,48],[44,54],[49.5,56],[49.5,69],[40,72],[28,74],[14.5,71]], "tall": [[3,46],[13,41],[30,40],[42,44],[57,47],[60,53],[60,56],[40,58],[10,57],[3,54]] }
+      },
+      {
+        "id": "courthouse",
+        "label": "The courthouse — sue before breakfast",
+        "where": "top right, the domed building on the hill",
+        "effects": {
+          "federal": 1,
+          "democracy": 1,
+          "system": -1
+        },
+        "cand": {
+          "pritzker": 1
+        },
+        "poly": { "wide": [[83,24],[83,12],[88,9],[89.5,3],[92,3],[94,9],[98,13],[98,24]], "tall": [[74,17],[75,9],[83,7],[84,2],[87,2],[88,7],[97,8],[97,17]] }
+      },
+      {
+        "id": "openlane",
+        "label": "The open lane — wave them through",
+        "where": "right lane, the empty road past the sign",
+        "effects": {
+          "federal": -1.5,
+          "liberty": -1,
+          "loyalty": 1
+        },
+        "poly": { "wide": [[70,48],[76,42],[84,35],[92,35],[87,44],[84.5,52],[82,59.5],[70,59.5]], "tall": [[72,47],[78,36],[80,27],[90,27],[94,32],[92,45],[86,54],[74,54]] }
+      },
+      {
+        "id": "tvvan",
+        "label": "The TV van — go live and make it a show",
+        "where": "bottom right, the satellite van and tripod camera",
+        "effects": {
+          "online": 1,
+          "narc": 1,
+          "style": 1,
+          "federal": 0.5
+        },
+        "cand": {
+          "newsom": 1
+        },
+        "poly": { "wide": [[65,67],[74,63],[84,61],[86,52],[88,45],[93,42],[99,44],[100,90],[86,95],[66,96]], "tall": [[44,72],[56,70],[76,60],[88,55.5],[93,57],[98,67],[98,90],[75,93],[45,92]] }
+      },
+      {
+        "id": "payphone",
+        "label": "The payphone — call the White House, cut a deal",
+        "where": "bottom left, the payphone with the receiver off the hook",
+        "effects": {
+          "mach": 1.5,
+          "style": -1,
+          "federal": -0.5
+        },
+        "poly": { "wide": [[0,28],[17.5,28],[17.5,42],[13.5,46],[14,98],[0,98]], "tall": [[2,59],[32,59],[32,65],[29,67],[29,98],[2,98]] }
+      }
+    ],
+    "facts": "About 200 federalized Texas National Guard troops arrived at Elwood, Illinois, on October 6-7, 2025 on federal orders, over Gov. Pritzker's objection. Scene is invented; no real people shown.",
+    "discrimination": 2
+  },
+  {
+    "id": "E-003",
+    "chapter": "debate",
+    "route": "both",
+    "type": "slider",
+    "tier": "core",
+    "topic": "states-rights",
+    "prompt": "Fifty states, fifty opinions. On the big questions, who should make the rules?",
+    "slider": {
+      "left": "One rule, coast to coast",
+      "right": "Fifty rules, pick your state",
+      "centre": "A national floor, and states build on it",
+      "effects": {
+        "federal": 2
+      },
+      "steps": 5,
+      "candLeft": {
+        "harris": 1
+      },
+      "candRight": {
+        "randpaul": 1,
+        "desantis": 1
+      }
+    },
+    "lev12": "federal",
+    "discrimination": 3
+  },
+  {
+    "id": "E-004",
+    "chapter": "primary",
+    "route": "both",
+    "type": "swipe",
+    "tier": "core",
+    "topic": "states-rights",
+    "context": "States' rights, speed round. Everyone loves them until the other side's state uses them.",
+    "prompt": "Swipe right to leave it to the states. Left for one national rule.",
+    "cards": [
+      {
+        "id": "abortion",
+        "text": "Abortion law",
+        "yes": {
+          "federal": 1
+        },
+        "no": {
+          "federal": -1
+        }
+      },
+      {
+        "id": "weed",
+        "text": "Legal marijuana",
+        "yes": {
+          "federal": 1,
+          "liberty": 0.5
+        },
+        "no": {
+          "federal": -1
+        }
+      },
+      {
+        "id": "wage",
+        "text": "The minimum wage",
+        "yes": {
+          "federal": 1,
+          "econ": 0.5
+        },
+        "no": {
+          "federal": -1,
+          "econ": -0.5
+        }
+      },
+      {
+        "id": "guns",
+        "text": "Who can carry a gun",
+        "yes": {
+          "federal": 1
+        },
+        "no": {
+          "federal": -1
+        }
+      },
+      {
+        "id": "ai",
+        "text": "Rules for AI companies",
+        "yes": {
+          "federal": 1,
+          "tech": -0.5
+        },
+        "no": {
+          "federal": -1,
+          "tech": 0.5
+        }
+      },
+      {
+        "id": "schools",
+        "text": "What schools teach",
+        "yes": {
+          "federal": 1
+        },
+        "no": {
+          "federal": -1
+        }
+      },
+      {
+        "id": "ice",
+        "text": "Whether local police help deport people",
+        "yes": {
+          "federal": 1,
+          "border": 0.5
+        },
+        "no": {
+          "federal": -1,
+          "border": -0.5
+        }
+      },
+      {
+        "id": "votes",
+        "text": "How presidential elections are run",
+        "yes": {
+          "federal": 1
+        },
+        "no": {
+          "federal": -1
+        }
+      }
+    ],
+    "measure": [
+      "speed"
+    ],
+    "discrimination": 3
+  },
+  {
+    "id": "E-005",
+    "chapter": "backroom",
+    "route": "both",
+    "type": "choice",
+    "tier": "core",
+    "topic": "ai-state-laws",
+    "excludes": [
+      "A-075"
+    ],
+    "context": "Washington wants to wipe every state AI law off the books and write one of its own. The tech donors are in the lobby.",
+    "prompt": "Who should write the rules for AI?",
+    "options": [
+      {
+        "id": "a",
+        "label": "One rulebook. Nobody can obey fifty.",
+        "effects": {
+          "federal": -1.5,
+          "tech": 1.5
+        },
+        "cand": {
+          "cruz": 1
+        }
+      },
+      {
+        "id": "b",
+        "label": "Hands off. The states got there first.",
+        "effects": {
+          "federal": 1.5,
+          "tech": -1
+        },
+        "cand": {
+          "desantis": 2,
+          "hawley": 1
+        }
+      },
+      {
+        "id": "c",
+        "label": "One rulebook, and make it a strict one.",
+        "effects": {
+          "federal": -1,
+          "tech": -1.5,
+          "econ": -0.5
+        }
+      },
+      {
+        "id": "d",
+        "label": "No rulebook anywhere. Let it run.",
+        "effects": {
+          "tech": 2,
+          "econ": 1,
+          "liberty": 0.5
+        },
+        "cand": {
+          "ramaswamy": 1
+        }
+      }
+    ],
+    "signature": [
+      "desantis"
+    ],
+    "facts": "July 1, 2025: the Senate voted 99-1 to strip a moratorium on state AI laws (backed by Sen. Cruz) from the budget bill. December 11, 2025: Trump signed an executive order aimed at preempting state AI laws. Gov. DeSantis and Sen. Hawley publicly opposed preemption (late 2025).",
+    "discrimination": 2
+  },
+  {
+    "id": "E-006",
+    "chapter": "backroom",
+    "route": "both",
+    "type": "dilemma",
+    "tier": "core",
+    "topic": "state-defiance",
+    "context": "You are governor. Washington's offer: open your jails to immigration agents, or lose the highway money.",
+    "prompt": "No middle. Do you open the jails?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Open the jails. The roads need paving.",
+        "effects": {
+          "federal": -1,
+          "border": -1,
+          "mach": 0.5
+        }
+      },
+      {
+        "id": "b",
+        "label": "Keep them shut. See you in court.",
+        "effects": {
+          "federal": 1.5,
+          "border": 1,
+          "style": 1
+        },
+        "cand": {
+          "pritzker": 1,
+          "newsom": 1
+        }
+      }
+    ],
+    "measure": [
+      "hesitation"
+    ],
+    "facts": "April 28, 2025: executive order directing a list of sanctuary jurisdictions and threatening their federal funds; the Justice Department sued several states and cities over sanctuary policies during 2025.",
+    "discrimination": 2
+  },
+  {
+    "id": "E-007",
+    "chapter": "primary",
+    "route": "both",
+    "type": "hold",
+    "tier": "core",
+    "topic": "state-defiance",
+    "context": "A President you cannot stand sends federal agents to enforce, in your state, a law your state voted against.",
+    "prompt": "How hard does your state push back?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Comply. Federal law is federal law.",
+        "effects": {
+          "federal": -1.5,
+          "system": -1
+        }
+      },
+      {
+        "id": "b",
+        "label": "Stall. The paperwork keeps getting lost.",
+        "effects": {
+          "federal": 1,
+          "mach": 1.5
+        }
+      },
+      {
+        "id": "c",
+        "label": "Defy. State police will not lift a finger.",
+        "effects": {
+          "federal": 1.5,
+          "style": 1,
+          "system": 0.5
+        }
+      },
+      {
+        "id": "d",
+        "label": "Nullify. That law does not exist here.",
+        "effects": {
+          "federal": 2,
+          "system": 1.5,
+          "democracy": -0.5
+        }
+      }
+    ],
+    "measure": [
+      "holdStrength"
+    ],
+    "discrimination": 2
+  },
+  {
+    "id": "E-008",
+    "chapter": "debate",
+    "route": "both",
+    "type": "slider",
+    "tier": "core",
+    "topic": "education-department",
+    "context": "The moderator holds up a photo of the Department of Education building.",
+    "prompt": "What should happen to the Department of Education?",
+    "slider": {
+      "left": "Keep it and fund it properly",
+      "right": "Close it, send schools home",
+      "centre": "Shrink it to a check-writing office",
+      "effects": {
+        "federal": 1.5,
+        "econ": 1
+      },
+      "steps": 5,
+      "candRight": {
+        "ramaswamy": 1
+      }
+    },
+    "facts": "March 20, 2025: Trump signed an executive order directing the Education Secretary to begin closing the Department of Education.",
+    "discrimination": 2
+  },
+  {
+    "id": "E-009",
+    "chapter": "election_night",
+    "phase": "count",
+    "route": "both",
+    "type": "choice",
+    "tier": "core",
+    "topic": "election-rules",
+    "context": "Polls close in an hour. The oldest argument in the republic: who gets to write the rules of the vote?",
+    "prompt": "Who should run American elections?",
+    "options": [
+      {
+        "id": "a",
+        "label": "The states. The Constitution already said so.",
+        "effects": {
+          "federal": 1.5,
+          "democracy": 1
+        },
+        "cand": {
+          "kemp": 2
+        }
+      },
+      {
+        "id": "b",
+        "label": "Congress: the same rules in every state.",
+        "effects": {
+          "federal": -1.5,
+          "democracy": 0.5
+        },
+        "cand": {
+          "ossoff": 1
+        }
+      },
+      {
+        "id": "c",
+        "label": "The President, by order, when states fail.",
+        "effects": {
+          "federal": -2,
+          "democracy": -1.5,
+          "loyalty": 1
+        }
+      },
+      {
+        "id": "d",
+        "label": "Whoever helps my side tonight.",
+        "effects": {
+          "mach": 1.5,
+          "democracy": -1
+        }
+      }
+    ],
+    "signature": [
+      "kemp"
+    ],
+    "facts": "March 25, 2025: executive order on elections seeking documentary proof of citizenship to register (parts blocked in court). August 18, 2025: Trump said he would lead a movement to end mail-in ballots. Gov. Kemp certified Georgia's 2020 electors on November 20, 2020.",
+    "discrimination": 2
+  },
+  {
+    "id": "E-010",
+    "chapter": "primary",
+    "route": "both",
+    "type": "rank",
+    "tier": "core",
+    "topic": "disaster-response",
+    "context": "The power is out, the river is rising and the phones are jammed.",
+    "prompt": "Rank who you trust to run the crisis. Most trusted on top.",
+    "options": [
+      {
+        "id": "wh",
+        "label": "The White House",
+        "effects": {
+          "federal": -1.5
+        }
+      },
+      {
+        "id": "gov",
+        "label": "My governor",
+        "effects": {
+          "federal": 1.5
+        }
+      },
+      {
+        "id": "mayor",
+        "label": "My mayor",
+        "effects": {
+          "federal": 1,
+          "system": -0.5
+        }
+      },
+      {
+        "id": "army",
+        "label": "The Army",
+        "effects": {
+          "liberty": -1.5,
+          "world": 0.5
+        }
+      },
+      {
+        "id": "me",
+        "label": "Me, a generator and my neighbors",
+        "effects": {
+          "liberty": 1.5,
+          "system": 1
+        }
+      }
+    ],
+    "discrimination": 2
+  },
+  {
+    "id": "E-011",
+    "chapter": "backroom",
+    "route": "both",
+    "type": "sign",
+    "tier": "core",
+    "topic": "disaster-response",
+    "context": "On your desk: the Disaster Relief Devolution Act. FEMA, the federal disaster agency, is wound down; the money goes to the states as lump sums and they are on their own.",
+    "prompt": "Do you sign the bill closing FEMA, or veto it?",
+    "options": [
+      {
+        "id": "sign",
+        "label": "Sign: governors know their own floods.",
+        "effects": {
+          "federal": 1.5,
+          "econ": 1
+        }
+      },
+      {
+        "id": "veto",
+        "label": "Veto: a hurricane doesn't stop at a state line.",
+        "effects": {
+          "federal": -1.5,
+          "econ": -0.5
+        }
+      }
+    ],
+    "facts": "June 10, 2025: Trump said he wanted to phase out FEMA after the hurricane season and move disaster response to the states. The bill named here is invented.",
+    "discrimination": 2
+  },
+  {
+    "id": "E-012",
+    "chapter": "debate",
+    "route": "both",
+    "type": "choice",
+    "tier": "core",
+    "topic": "states-rights",
+    "context": "California writes tougher car rules than the rest of the country. Carmakers build to California. Washington steps in and cancels them.",
+    "prompt": "California versus Washington. Who's right?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Washington. One state can't steer the nation.",
+        "effects": {
+          "federal": -1,
+          "econ": 1
+        }
+      },
+      {
+        "id": "b",
+        "label": "California. That is what federalism means.",
+        "effects": {
+          "federal": 1.5
+        },
+        "cand": {
+          "newsom": 1
+        }
+      },
+      {
+        "id": "c",
+        "label": "California: and Texas gets the same freedom.",
+        "effects": {
+          "federal": 2,
+          "liberty": 0.5
+        },
+        "cand": {
+          "randpaul": 1
+        }
+      },
+      {
+        "id": "d",
+        "label": "Depends who the governor is. Honestly.",
+        "effects": {
+          "mach": 1.5,
+          "federal": -0.5
+        }
+      }
+    ],
+    "facts": "June 12, 2025: Trump signed resolutions revoking California's Clean Air Act waivers, including its 2035 phase-out of new gasoline car sales; California sued the same day.",
+    "discrimination": 2
+  },
+  {
+    "id": "E-013",
+    "chapter": "election_night",
+    "phase": "count",
+    "route": "both",
+    "type": "dilemma",
+    "tier": "core",
+    "topic": "election-rules",
+    "context": "Election night. The map on the wall is doing that thing again: you are ahead in votes and behind in states. Or the other way around.",
+    "prompt": "How should a President be chosen?",
+    "options": [
+      {
+        "id": "a",
+        "label": "The Electoral College. States pick presidents.",
+        "effects": {
+          "federal": 1.5,
+          "system": -0.5
+        }
+      },
+      {
+        "id": "b",
+        "label": "The national popular vote. Count people.",
+        "effects": {
+          "federal": -1.5,
+          "system": 0.5,
+          "democracy": 0.5
+        }
+      }
+    ],
+    "discrimination": 3
+  },
+  {
+    "id": "E-014",
+    "chapter": "debate",
+    "route": "both",
+    "type": "choice",
+    "tier": "core",
+    "topic": "executive-power",
+    "context": "The Constitution limits a President to two terms. His merchandise table is selling hats for a third run anyway.",
+    "prompt": "Should a President get a third term? Your answer on stage.",
+    "options": [
+      {
+        "id": "a",
+        "label": "Two terms. Twenty-second Amendment. Done.",
+        "effects": {
+          "democracy": 1.5,
+          "loyalty": -1
+        },
+        "cand": {
+          "pence": 1,
+          "christie": 1
+        }
+      },
+      {
+        "id": "b",
+        "label": "It's a joke. Watching you panic is the point.",
+        "effects": {
+          "online": 1,
+          "democracy": -0.5,
+          "loyalty": 0.5,
+          "style": 0.5
+        }
+      },
+      {
+        "id": "c",
+        "label": "Repeal the limit. Let the voters decide.",
+        "effects": {
+          "democracy": -1.5,
+          "loyalty": 1.5
+        },
+        "cand": {
+          "trumpjr": 1
+        }
+      },
+      {
+        "id": "d",
+        "label": "There's always a loophole. Find it.",
+        "effects": {
+          "democracy": -2,
+          "mach": 1.5,
+          "loyalty": 2
+        }
+      }
+    ],
+    "facts": "March 30, 2025: Trump told NBC News he was not joking about a third term. April 2025: the Trump Organization began selling Trump 2028 hats. Late October 2025: Trump said it was pretty clear he was not allowed to run again.",
+    "discrimination": 3
+  },
+  {
+    "id": "E-015",
+    "chapter": "election_night",
+    "phase": "count",
+    "route": "both",
+    "type": "dilemma",
+    "tier": "bombshell",
+    "topic": "overturn-your-state",
+    "excludes": [
+      "B-005",
+      "D-052"
+    ],
+    "context": "You are the official whose signature makes the result real. Your party's leader lost your state by under twelve thousand votes. He is on line one.",
+    "prompt": "The pen is in your hand. Do you certify the result?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Sign the certificate. The count is the count.",
+        "effects": {
+          "democracy": 2,
+          "loyalty": -1.5
+        },
+        "cand": {
+          "kemp": 2,
+          "pence": 2
+        }
+      },
+      {
+        "id": "b",
+        "label": "Find a reason to wait. Take the call.",
+        "effects": {
+          "democracy": -2,
+          "loyalty": 2,
+          "mach": 1
+        }
+      }
+    ],
+    "signature": [
+      "kemp",
+      "pence"
+    ],
+    "fx": [
+      "breaking",
+      "night",
+      "buzz_heavy"
+    ],
+    "measure": [
+      "hesitation"
+    ],
+    "facts": "Georgia's final 2020 margin was 11,779 votes after the recount; Gov. Kemp certified the electors on November 20, 2020 and recertified them after the recount on December 7, 2020. Vice President Pence presided over the certification of the 2020 electoral count on January 6-7, 2021.",
+    "discrimination": 3
+  },
+  {
+    "id": "E-016",
+    "chapter": "backroom",
+    "route": "both",
+    "type": "hold",
+    "tier": "core",
+    "topic": "executive-power",
+    "context": "You are President. A federal judge orders your deportation flight turned around. The plane is already over the Gulf.",
+    "prompt": "What is your order to the pilot?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Turn it around. A court order is an order.",
+        "effects": {
+          "democracy": 1.5,
+          "system": -1
+        }
+      },
+      {
+        "id": "b",
+        "label": "Land first. We can argue afterward.",
+        "effects": {
+          "democracy": -1,
+          "mach": 1.5
+        }
+      },
+      {
+        "id": "c",
+        "label": "Obey: then try to impeach the judge.",
+        "effects": {
+          "democracy": -0.5,
+          "style": 1.5,
+          "system": 1
+        }
+      },
+      {
+        "id": "d",
+        "label": "Fly on. Judges don't command the executive.",
+        "effects": {
+          "democracy": -2,
+          "system": 1.5,
+          "psych": 0.5
+        },
+        "cand": {
+          "vance": 1
+        }
+      }
+    ],
+    "measure": [
+      "holdStrength"
+    ],
+    "facts": "March 15, 2025: Judge James Boasberg ordered Alien Enemies Act deportation flights to El Salvador turned around; they were not. February 9, 2025: Vice President Vance posted that judges are not allowed to control the executive's legitimate power.",
+    "discrimination": 3
+  },
+  {
+    "id": "E-017",
+    "chapter": "debate",
+    "route": "both",
+    "type": "slider",
+    "tier": "core",
+    "topic": "filibuster",
+    "excludes": [
+      "A-089"
+    ],
+    "context": "Both parties have defended the Senate's 60-vote rule in opposition and cursed it in power. Now it is your majority.",
+    "prompt": "Do you keep the filibuster?",
+    "slider": {
+      "left": "Keep it. Slow is the point.",
+      "right": "Nuke it. Majorities govern.",
+      "centre": "Keep it, but make them talk all night",
+      "effects": {
+        "system": 1.5,
+        "style": 1,
+        "democracy": -0.5
+      },
+      "steps": 5
+    },
+    "facts": "January 19, 2022: Senate Democrats failed 48-52 to change the filibuster for voting rights bills. October 30, 2025: Trump urged Senate Republicans to end the filibuster during the shutdown; Majority Leader Thune declined.",
+    "discrimination": 2
+  },
+  {
+    "id": "E-018",
+    "chapter": "primary",
+    "route": "both",
+    "type": "swipe",
+    "tier": "core",
+    "topic": "executive-power",
+    "context": "You are President. Congress is stuck. The emergency powers drawer is right there, and it opens for either party.",
+    "prompt": "Swipe right to declare a national emergency over it. Left to wait for Congress.",
+    "cards": [
+      {
+        "id": "trade",
+        "text": "The trade deficit",
+        "yes": {
+          "democracy": -0.75,
+          "trade": -1
+        },
+        "no": {
+          "democracy": 0.75,
+          "trade": 0.5
+        }
+      },
+      {
+        "id": "climate",
+        "text": "Climate change",
+        "yes": {
+          "democracy": -0.75,
+          "econ": -0.5
+        },
+        "no": {
+          "democracy": 0.75
+        }
+      },
+      {
+        "id": "border",
+        "text": "The southern border",
+        "yes": {
+          "democracy": -0.75,
+          "border": -1
+        },
+        "no": {
+          "democracy": 0.75,
+          "border": 0.5
+        }
+      },
+      {
+        "id": "guns",
+        "text": "Gun deaths",
+        "yes": {
+          "democracy": -0.75,
+          "liberty": -0.5
+        },
+        "no": {
+          "democracy": 0.75
+        }
+      },
+      {
+        "id": "debt",
+        "text": "Student debt",
+        "yes": {
+          "democracy": -0.75,
+          "econ": -1
+        },
+        "no": {
+          "democracy": 0.75,
+          "econ": 0.5
+        }
+      },
+      {
+        "id": "crime",
+        "text": "Crime in a city you lost",
+        "yes": {
+          "democracy": -1,
+          "liberty": -1,
+          "federal": -0.5
+        },
+        "no": {
+          "democracy": 0.75,
+          "federal": 0.5
+        }
+      },
+      {
+        "id": "virus",
+        "text": "A new virus",
+        "yes": {
+          "liberty": -0.5,
+          "federal": -0.5
+        },
+        "no": {
+          "liberty": 1,
+          "federal": 0.5
+        }
+      }
+    ],
+    "measure": [
+      "speed"
+    ],
+    "facts": "April 2, 2025: Trump declared a national emergency over trade deficits to impose tariffs under IEEPA. June 30, 2023: the Supreme Court struck down Biden's student debt relief, which rested on the COVID emergency (Biden v. Nebraska). August 11, 2025: Trump declared a crime emergency in Washington DC. In 2022 Democrats in Congress urged Biden to declare a climate emergency.",
+    "discrimination": 3
+  },
+  {
+    "id": "E-019",
+    "chapter": "primary",
+    "route": "both",
+    "type": "choice",
+    "tier": "core",
+    "topic": "texas-map",
+    "excludes": [
+      "A-095",
+      "B-013",
+      "D-013"
+    ],
+    "context": "One big state redraws its congressional map mid-decade to grab seats. Another big state redraws to grab them back.",
+    "prompt": "Where do you stand?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Both wrong. Independent commissions, everywhere.",
+        "effects": {
+          "democracy": 1.5,
+          "system": -0.5,
+          "style": -1
+        }
+      },
+      {
+        "id": "b",
+        "label": "They started it. Fire with fire.",
+        "effects": {
+          "democracy": -0.5,
+          "style": 1.5,
+          "mach": 0.5
+        },
+        "cand": {
+          "newsom": 2
+        }
+      },
+      {
+        "id": "c",
+        "label": "Winners draw the maps. They always have.",
+        "effects": {
+          "democracy": -1,
+          "mach": 1,
+          "federal": 0.5
+        }
+      },
+      {
+        "id": "d",
+        "label": "Ban it by federal law, in every state.",
+        "effects": {
+          "democracy": 1,
+          "federal": -1
+        }
+      }
+    ],
+    "signature": [
+      "newsom"
+    ],
+    "facts": "August 29, 2025: Texas Gov. Abbott signed a mid-decade congressional map. November 4, 2025: California voters passed Proposition 50, Gov. Newsom's redistricting answer.",
+    "discrimination": 2
+  },
+  {
+    "id": "E-020",
+    "chapter": "debate",
+    "route": "both",
+    "type": "rank",
+    "tier": "core",
+    "topic": "executive-power",
+    "prompt": "A President goes too far. Rank what should stop him. The strongest brake on top.",
+    "options": [
+      {
+        "id": "courts",
+        "label": "The courts",
+        "effects": {
+          "democracy": 1.5,
+          "system": -1
+        }
+      },
+      {
+        "id": "congress",
+        "label": "Congress",
+        "effects": {
+          "democracy": 1,
+          "system": -0.5
+        }
+      },
+      {
+        "id": "states",
+        "label": "The governors",
+        "effects": {
+          "federal": 1.5,
+          "democracy": 0.5
+        }
+      },
+      {
+        "id": "voters",
+        "label": "The voters, next time",
+        "effects": {
+          "system": 0.5,
+          "democracy": 0.5,
+          "style": -0.5
+        }
+      },
+      {
+        "id": "nothing",
+        "label": "Nothing. He won.",
+        "effects": {
+          "democracy": -2,
+          "loyalty": 1.5
+        }
+      }
+    ],
+    "lev12": "democratic",
+    "discrimination": 3
+  },
+  {
+    "id": "E-021",
+    "chapter": "backroom",
+    "route": "both",
+    "type": "sign",
+    "tier": "core",
+    "topic": "term-limits",
+    "context": "On your desk: a constitutional amendment for the states. Two terms in the Senate, three in the House, then out. Half the people who would have to pass it have been here since the fax machine.",
+    "prompt": "Do you back term limits for Congress, or kill them?",
+    "options": [
+      {
+        "id": "sign",
+        "label": "Back it: nobody should grow old in that seat.",
+        "effects": {
+          "system": 1.5,
+          "democracy": 0.5,
+          "dynasty": -0.5
+        },
+        "cand": {
+          "cruz": 1,
+          "ramaswamy": 1,
+          "desantis": 1
+        }
+      },
+      {
+        "id": "veto",
+        "label": "Kill it: voters already have term limits.",
+        "effects": {
+          "system": -1.5,
+          "dynasty": 0.5
+        }
+      }
+    ],
+    "facts": "January 7, 2025: Sen. Ted Cruz reintroduced (S.J.Res. 1, with Rep. Ralph Norman in the House) a constitutional amendment limiting senators to two terms and House members to three. Presidents have no formal role in amendments; the scene is dramatized.",
+    "discrimination": 1
+  },
+  {
+    "id": "E-022",
+    "chapter": "backroom",
+    "route": "both",
+    "type": "choice",
+    "tier": "core",
+    "topic": "pardons",
+    "context": "Your last morning in office. The pardon pen, a stack of blank warrants and nobody left to tell you no.",
+    "prompt": "Who do you pardon?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Nobody I know. That is the whole point.",
+        "effects": {
+          "democracy": 1.5,
+          "mach": -1,
+          "dynasty": -1
+        }
+      },
+      {
+        "id": "b",
+        "label": "My family, in advance. They'll be hunted.",
+        "effects": {
+          "dynasty": 1.5,
+          "democracy": -1
+        }
+      },
+      {
+        "id": "c",
+        "label": "The people who broke the law for me.",
+        "effects": {
+          "loyalty": 1.5,
+          "democracy": -1.5,
+          "psych": 0.5
+        }
+      },
+      {
+        "id": "d",
+        "label": "Everyone above. And one for myself.",
+        "effects": {
+          "democracy": -2,
+          "narc": 1.5,
+          "mach": 1
+        }
+      }
+    ],
+    "facts": "December 1, 2024: Biden pardoned his son Hunter. January 20, 2025: Biden issued preemptive pardons to family members in his last minutes in office; the same day Trump pardoned or commuted roughly 1,500 January 6 defendants.",
+    "discrimination": 3
+  },
+  {
+    "id": "E-023",
+    "chapter": "primary",
+    "route": "both",
+    "type": "slider",
+    "tier": "core",
+    "topic": "executive-power",
+    "prompt": "What does this country need?",
+    "slider": {
+      "left": "One strong hand that gets it done",
+      "right": "Slow, maddening, accountable rules",
+      "centre": "A strong hand on a short leash",
+      "effects": {
+        "democracy": 2,
+        "system": -0.5
+      },
+      "steps": 7,
+      "candLeft": {
+        "trumpjr": 1
+      },
+      "candRight": {
+        "pence": 1,
+        "kelly": 1
+      }
+    },
+    "lev12": "democratic",
+    "discrimination": 3
+  },
+  {
+    "id": "E-024",
+    "chapter": "election_night",
+    "phase": "count",
+    "route": "both",
+    "type": "pin",
+    "tier": "core",
+    "topic": "election-night-count",
+    "excludes": [
+      "D-083"
+    ],
+    "context": "3:10 am on election night. You are behind by three tenths of a point with six counties still counting. The ballroom is waiting.",
+    "prompt": "What do you do now? Tap where you go.",
+    "art": "E-PIN-HOTEL-SUITE",
+    "artNote": "A campaign hotel suite at 3 am, no people. Center back: a doorway onto a ballroom stage with an empty podium and a wall of flags, lit bright. Left: a TV news camera on a tripod with its red light on, pointed at an empty chair. Right: a desk with a landline phone and a printed list of county phone numbers. Bottom left: a lawyer's open briefcase spilling filing papers. Bottom right: a couch with a folded blanket and a muted television showing a map with no names.",
+    "regions": [
+      {
+        "id": "podium",
+        "label": "The podium — concede, and mean it",
+        "where": "center back, the empty podium through the doorway",
+        "effects": {
+          "democracy": 1.5,
+          "narc": -1,
+          "style": -1
+        },
+        "poly": { "wide": [[48,4],[74,4],[74,37],[62,38],[48,37]], "tall": [[27,3],[75,3],[75,27.5],[27,27.5]] }
+      },
+      {
+        "id": "camera",
+        "label": "The camera — declare victory now",
+        "where": "left, the tripod camera with the red light",
+        "effects": {
+          "democracy": -2,
+          "narc": 1.5,
+          "style": 1
+        },
+        "poly": { "wide": [[3,15],[12,14],[20,17],[20,30],[19,61],[1,61],[1,30]], "tall": [[4,25],[20,25],[30,29.5],[30,40],[28,62],[1,62],[1,35]] }
+      },
+      {
+        "id": "phone",
+        "label": "The phone — call the county officials yourself",
+        "where": "right, the desk phone beside the list of numbers",
+        "effects": {
+          "democracy": -1.5,
+          "mach": 1.5,
+          "psych": 0.5
+        },
+        "poly": { "wide": [[76,30],[98,30],[98,50],[76,50],[73,44]], "tall": [[56,33],[90,33],[97,40],[97,49],[78,50],[56,46]] }
+      },
+      {
+        "id": "briefcase",
+        "label": "The briefcase — file for every recount you can",
+        "where": "bottom left, the open briefcase of papers",
+        "effects": {
+          "democracy": 0.5,
+          "mach": 0.5,
+          "style": 0.5
+        },
+        "poly": { "wide": [[1,63],[17,62],[20,70],[29,80],[29,95],[1,95]], "tall": [[1,76],[24,75],[28,85],[41,88],[41,97],[1,97]] }
+      },
+      {
+        "id": "sofa",
+        "label": "The couch — say nothing until it's counted",
+        "where": "bottom right, the couch and blanket",
+        "effects": {
+          "democracy": 1,
+          "style": -1,
+          "narc": -0.5
+        },
+        "poly": { "wide": [[50,70],[60,62],[80,59],[98,62],[100,70],[100,100],[55,100],[50,90]], "tall": [[49,84],[60,79],[70,78],[70,63],[99,63],[100,100],[49,100]] }
+      }
+    ],
+    "fx": [
+      "night"
+    ],
+    "discrimination": 3
+  },
+  {
+    "id": "E-025",
+    "chapter": "backroom",
+    "route": "both",
+    "type": "dilemma",
+    "tier": "core",
+    "topic": "supreme-court",
+    "context": "Your party holds the White House and both chambers. The Supreme Court's nine justices keep striking down what you pass. Your base wants four more chairs on that bench.",
+    "prompt": "No middle. Do you add the seats?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Add the seats. Power unused is power lost.",
+        "effects": {
+          "democracy": -1.5,
+          "system": 1.5,
+          "style": 1
+        }
+      },
+      {
+        "id": "b",
+        "label": "Leave the Court alone. Win the next one.",
+        "effects": {
+          "democracy": 1.5,
+          "system": -1.5
+        }
+      }
+    ],
+    "facts": "April 15, 2021: congressional Democrats introduced the Judiciary Act of 2021 to expand the Supreme Court from 9 to 13 justices; it did not pass.",
+    "discrimination": 2
+  },
+  {
+    "id": "E-026",
+    "chapter": "debate",
+    "route": "both",
+    "type": "choice",
+    "tier": "core",
+    "topic": "illegal-orders",
+    "excludes": [
+      "B-011",
+      "D-023"
+    ],
+    "context": "Six lawmakers who served in uniform post a video telling troops: you can refuse illegal orders. The President calls it sedition.",
+    "prompt": "The moderator wants one sentence. Were the six right?",
+    "options": [
+      {
+        "id": "a",
+        "label": "They were right. The oath is to the Constitution.",
+        "effects": {
+          "democracy": 1.5,
+          "loyalty": -1
+        },
+        "cand": {
+          "slotkin": 2,
+          "kelly": 2
+        }
+      },
+      {
+        "id": "b",
+        "label": "True, and reckless to say on camera.",
+        "effects": {
+          "democracy": 0.5,
+          "style": -1
+        }
+      },
+      {
+        "id": "c",
+        "label": "It tells soldiers to second-guess orders. Bad.",
+        "effects": {
+          "democracy": -0.5,
+          "loyalty": 1,
+          "liberty": -0.5
+        }
+      },
+      {
+        "id": "d",
+        "label": "It was sedition. Treat it that way.",
+        "effects": {
+          "democracy": -1.5,
+          "loyalty": 2,
+          "psych": 1
+        }
+      }
+    ],
+    "signature": [
+      "slotkin",
+      "kelly"
+    ],
+    "facts": "November 18, 2025: Sens. Slotkin and Kelly and four House Democrats, all military or intelligence veterans, released a video saying service members can refuse illegal orders. Trump called it seditious behavior on November 20, 2025; the Pentagon announced a review of Kelly on November 24, 2025.",
+    "discrimination": 3
+  },
+  {
+    "id": "E-027",
+    "chapter": "primary",
+    "route": "both",
+    "type": "choice",
+    "tier": "core",
+    "topic": "ice-masks",
+    "excludes": [
+      "A-064"
+    ],
+    "context": "Federal immigration agents are making arrests in masks, plain clothes and unmarked cars. One state passes a law: show your face.",
+    "prompt": "Should federal agents be allowed to wear masks?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Faces and badges. No secret police here.",
+        "effects": {
+          "liberty": 1.5,
+          "border": 0.5
+        },
+        "cand": {
+          "newsom": 1
+        }
+      },
+      {
+        "id": "b",
+        "label": "Masks stay. Agents' families get threatened.",
+        "effects": {
+          "liberty": -1.5,
+          "border": -1
+        }
+      },
+      {
+        "id": "c",
+        "label": "Mask if you must, with a visible ID number.",
+        "effects": {
+          "liberty": 0.5,
+          "style": -1
+        }
+      },
+      {
+        "id": "d",
+        "label": "Fine: no masks for agents or for protesters.",
+        "effects": {
+          "liberty": -0.5,
+          "system": -0.5,
+          "style": 0.5
+        }
+      }
+    ],
+    "facts": "September 20, 2025: Gov. Newsom signed California's No Secret Police Act (SB 627), barring most law enforcement, including federal agents, from covering their faces on duty; the federal government challenged it.",
+    "discrimination": 2
+  },
+  {
+    "id": "E-028",
+    "chapter": "primary",
+    "route": "both",
+    "type": "slider",
+    "tier": "core",
+    "topic": "surveillance",
+    "context": "A camera on every corner that can put a name to every face in under a second.",
+    "prompt": "Do you switch it on?",
+    "slider": {
+      "left": "On. The innocent have nothing to hide.",
+      "right": "Off. A free people walk unnamed.",
+      "centre": "On, with a warrant for every search",
+      "effects": {
+        "liberty": 2,
+        "tech": -0.5
+      },
+      "steps": 5,
+      "candRight": {
+        "randpaul": 1
+      }
+    },
+    "discrimination": 3
+  },
+  {
+    "id": "E-029",
+    "chapter": "debate",
+    "route": "both",
+    "type": "sign",
+    "tier": "core",
+    "topic": "surveillance",
+    "context": "On your desk: renewal of the law that lets intelligence agencies collect foreigners' messages without a warrant, and search what they sweep up from Americans along the way.",
+    "prompt": "Do you renew warrantless surveillance, or veto it?",
+    "options": [
+      {
+        "id": "sign",
+        "label": "Sign: it stops attacks you never hear about.",
+        "effects": {
+          "liberty": -1.5,
+          "world": 1
+        },
+        "cand": {
+          "rubio": 1
+        }
+      },
+      {
+        "id": "veto",
+        "label": "Veto: get a warrant, like the Fourth says.",
+        "effects": {
+          "liberty": 1.5,
+          "world": -0.5
+        },
+        "cand": {
+          "randpaul": 2
+        }
+      }
+    ],
+    "signature": [
+      "randpaul"
+    ],
+    "facts": "April 20, 2024: Biden signed the Reforming Intelligence and Securing America Act, renewing FISA Section 702 for two years; the Senate passed it 60-34 with Sen. Rand Paul voting no. A warrant amendment had failed in the House on a 212-212 tie on April 12, 2024.",
+    "discrimination": 3
+  },
+  {
+    "id": "E-030",
+    "chapter": "debate",
+    "route": "both",
+    "type": "choice",
+    "tier": "core",
+    "topic": "civil-liberties",
+    "context": "A man burns the American flag outside the debate hall. He owns the flag and the lighter.",
+    "prompt": "What happens to him?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Nothing. Ugly speech is still speech.",
+        "effects": {
+          "liberty": 1.5
+        }
+      },
+      {
+        "id": "b",
+        "label": "A year in jail.",
+        "effects": {
+          "liberty": -1.5,
+          "social": -1,
+          "loyalty": 0.5
+        }
+      },
+      {
+        "id": "c",
+        "label": "Legal for citizens. A visa-holder goes home.",
+        "effects": {
+          "liberty": -1,
+          "border": -1
+        }
+      },
+      {
+        "id": "d",
+        "label": "Nothing: and the same for any flag or book.",
+        "effects": {
+          "liberty": 2,
+          "faith": -0.5
+        }
+      }
+    ],
+    "facts": "August 25, 2025: Trump signed an executive order directing prosecution of flag burning where other laws apply; at the signing he said flag burners would get a year in jail. Texas v. Johnson (June 21, 1989) held flag burning is protected speech.",
+    "discrimination": 2
+  },
+  {
+    "id": "E-031",
+    "chapter": "debate",
+    "route": "both",
+    "type": "swipe",
+    "tier": "core",
+    "topic": "civil-liberties",
+    "context": "Free country, speed round. Nobody gets through this one without annoying their own side.",
+    "prompt": "Swipe right if it should be legal. Left if not.",
+    "cards": [
+      {
+        "id": "flag",
+        "text": "Burning the flag",
+        "yes": {
+          "liberty": 1
+        },
+        "no": {
+          "liberty": -1,
+          "social": -0.5
+        }
+      },
+      {
+        "id": "ar15",
+        "text": "Owning an AR-15",
+        "yes": {
+          "liberty": 1,
+          "social": -0.5
+        },
+        "no": {
+          "liberty": -1,
+          "social": 0.5
+        }
+      },
+      {
+        "id": "film",
+        "text": "Filming federal agents making an arrest",
+        "yes": {
+          "liberty": 1
+        },
+        "no": {
+          "liberty": -1,
+          "border": -0.5
+        }
+      },
+      {
+        "id": "vax",
+        "text": "Refusing a vaccine and keeping your job",
+        "yes": {
+          "liberty": 1
+        },
+        "no": {
+          "liberty": -1
+        }
+      },
+      {
+        "id": "hate",
+        "text": "Saying something hateful online",
+        "yes": {
+          "liberty": 1
+        },
+        "no": {
+          "liberty": -1
+        }
+      },
+      {
+        "id": "judge",
+        "text": "Protesting outside a judge's home",
+        "yes": {
+          "liberty": 1,
+          "system": 0.5
+        },
+        "no": {
+          "liberty": -1,
+          "system": -0.5
+        }
+      },
+      {
+        "id": "mask",
+        "text": "Wearing a mask at a protest",
+        "yes": {
+          "liberty": 1
+        },
+        "no": {
+          "liberty": -1
+        }
+      },
+      {
+        "id": "road",
+        "text": "Blocking a highway for a cause",
+        "yes": {
+          "liberty": 0.5,
+          "system": 1
+        },
+        "no": {
+          "liberty": -0.5,
+          "system": -0.5
+        }
+      }
+    ],
+    "measure": [
+      "speed"
+    ],
+    "discrimination": 3
+  },
+  {
+    "id": "E-032",
+    "chapter": "backroom",
+    "route": "both",
+    "type": "dilemma",
+    "tier": "core",
+    "topic": "pandemic",
+    "context": "A new virus. The modelers give you a graph and an hour. There is no vaccine yet.",
+    "prompt": "No middle. Do you lock down?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Close it all for a month: schools, bars, churches.",
+        "effects": {
+          "liberty": -1.5,
+          "federal": -0.5,
+          "econ": -0.5
+        }
+      },
+      {
+        "id": "b",
+        "label": "Publish the data. Let adults choose.",
+        "effects": {
+          "liberty": 1.5,
+          "econ": 0.5
+        },
+        "cand": {
+          "randpaul": 1,
+          "desantis": 1
+        }
+      }
+    ],
+    "measure": [
+      "hesitation"
+    ],
+    "discrimination": 2
+  },
+  {
+    "id": "E-033",
+    "chapter": "primary",
+    "route": "both",
+    "type": "hold",
+    "tier": "core",
+    "topic": "mass-protest",
+    "context": "Forty thousand people who despise you fill the streets around your rally. So far it is drums and cardboard.",
+    "prompt": "What is your order?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Let them march. Pull the police back.",
+        "effects": {
+          "liberty": 1.5,
+          "style": -0.5
+        }
+      },
+      {
+        "id": "b",
+        "label": "Permits, barricades and a ten o'clock curfew.",
+        "effects": {
+          "liberty": -0.5,
+          "system": -0.5
+        }
+      },
+      {
+        "id": "c",
+        "label": "Call out the Guard.",
+        "effects": {
+          "liberty": -1.5,
+          "psych": 0.5
+        }
+      },
+      {
+        "id": "d",
+        "label": "Name the organizers terrorists. Trace the money.",
+        "effects": {
+          "liberty": -2,
+          "democracy": -1.5,
+          "psych": 1
+        }
+      }
+    ],
+    "measure": [
+      "holdStrength"
+    ],
+    "facts": "October 18, 2025: the second nationwide No Kings protests. September 22, 2025: Trump signed an order designating antifa a domestic terrorist organization.",
+    "discrimination": 3
+  },
+  {
+    "id": "E-034",
+    "chapter": "backroom",
+    "route": "both",
+    "type": "choice",
+    "tier": "core",
+    "topic": "regulator-vs-comedian",
+    "excludes": [
+      "B-071"
+    ],
+    "context": "A regulator you appointed hints on a podcast that a network could lose its license over a comedian who mocks you nightly. The network pulls him.",
+    "prompt": "Off the record, what do you do about it?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Good. Jokes have consequences now.",
+        "effects": {
+          "liberty": -1.5,
+          "style": 1
+        }
+      },
+      {
+        "id": "b",
+        "label": "Stop. Next time it's our comedian.",
+        "effects": {
+          "liberty": 1.5,
+          "loyalty": -0.5
+        },
+        "cand": {
+          "cruz": 2
+        }
+      },
+      {
+        "id": "c",
+        "label": "Let the advertisers judge him, not the state.",
+        "effects": {
+          "liberty": 1,
+          "econ": 1
+        }
+      },
+      {
+        "id": "d",
+        "label": "Say nothing. Enjoy it in private.",
+        "effects": {
+          "mach": 1.5,
+          "liberty": -0.5
+        }
+      }
+    ],
+    "signature": [
+      "cruz"
+    ],
+    "facts": "September 17, 2025: ABC suspended Jimmy Kimmel Live after FCC chairman Brendan Carr suggested action against stations; the show returned on September 23 On September 19, 2025 Sen. Cruz said on his podcast that Carr's threat was dangerous and likened it to a mob boss.",
+    "discrimination": 2
+  },
+  {
+    "id": "E-035",
+    "chapter": "debate",
+    "route": "both",
+    "type": "slider",
+    "tier": "core",
+    "topic": "surveillance",
+    "prompt": "How much of your privacy would you hand over to be kept safe?",
+    "slider": {
+      "left": "Take it. Just keep us safe.",
+      "right": "Not one byte.",
+      "centre": "Some of it, with a judge watching",
+      "effects": {
+        "liberty": 2
+      },
+      "steps": 7,
+      "candLeft": {
+        "slotkin": 1
+      },
+      "candRight": {
+        "randpaul": 1,
+        "khanna": 1
+      }
+    },
+    "lev12": "security",
+    "discrimination": 3
+  },
+  {
+    "id": "E-036",
+    "chapter": "backroom",
+    "route": "both",
+    "type": "rank",
+    "tier": "core",
+    "topic": "civil-liberties",
+    "context": "The lawyers say the emergency bill can save four of these five. One goes.",
+    "prompt": "Rank the freedoms. The one you would die on the hill for goes on top.",
+    "options": [
+      {
+        "id": "speech",
+        "label": "Saying things the government hates",
+        "effects": {
+          "liberty": 1.5
+        }
+      },
+      {
+        "id": "guns",
+        "label": "Keeping a gun at home",
+        "effects": {
+          "liberty": 1,
+          "social": -1
+        }
+      },
+      {
+        "id": "privacy",
+        "label": "Privacy from the state",
+        "effects": {
+          "liberty": 1.5,
+          "tech": -0.5
+        }
+      },
+      {
+        "id": "worship",
+        "label": "Worshiping as I choose",
+        "effects": {
+          "faith": 1.5,
+          "liberty": 0.5
+        }
+      },
+      {
+        "id": "protest",
+        "label": "Marching in the street",
+        "effects": {
+          "liberty": 1,
+          "system": 1
+        }
+      }
+    ],
+    "discrimination": 2
+  },
+  {
+    "id": "E-037",
+    "chapter": "debate",
+    "route": "both",
+    "type": "pin",
+    "tier": "core",
+    "topic": "surveillance",
+    "context": "One city block, after dark. You get one ban.",
+    "prompt": "Which one do you ban? Tap it.",
+    "art": "E-PIN-NIGHT-BLOCK",
+    "artNote": "A city street corner at night, no people. Top left: a tall pole with a camera cluster and a glowing green scanning lens. Center: an unmarked dark van with tinted windows, side door ajar, parked at the curb. Top right: a small police drone hovering with a searchlight cone. Bottom right: a steel crowd barricade with hand-painted protest placards leaning on it (placards blank or abstract). Bottom left: a lit street lamp over an empty bench.",
+    "regions": [
+      {
+        "id": "camera",
+        "label": "The camera pole — ban face scanning",
+        "where": "top left, the pole with the green lens",
+        "effects": {
+          "liberty": 1.5,
+          "tech": -1
+        },
+        "cand": {
+          "randpaul": 1
+        },
+        "poly": { "wide": [[7,0],[18,0],[18,20],[14,22],[14,46],[7,46],[7,20]], "tall": [[8,6],[17,1],[34,3],[34,15],[25,18],[24,35],[14,36],[14,17],[8,14]] }
+      },
+      {
+        "id": "van",
+        "label": "The unmarked van — ban anonymous arrests",
+        "where": "center, the dark van at the curb",
+        "effects": {
+          "liberty": 1.5,
+          "border": 0.5
+        },
+        "poly": { "wide": [[29,32],[33,29],[60,29],[66,36],[70,42],[70,52],[52,58],[30,55],[28,44]], "tall": [[14,46],[18,40],[68,40],[78,46],[88,50],[88,57],[60,61],[18,59],[13,54]] }
+      },
+      {
+        "id": "drone",
+        "label": "The drone — ban police drones",
+        "where": "top right, the hovering drone and its light",
+        "effects": {
+          "liberty": 1,
+          "tech": -1
+        },
+        "poly": { "wide": [[74,5],[97,5],[97,15],[90,22],[86,30],[78,30],[80,18],[74,12]], "tall": [[52,4],[88,4],[88,12],[80,14],[76,25],[64,25],[66,13],[52,8]] }
+      },
+      {
+        "id": "placards",
+        "label": "The placards — ban protests after dark",
+        "where": "bottom right, the barricade and placards",
+        "effects": {
+          "liberty": -1.5,
+          "system": -0.5
+        },
+        "poly": { "wide": [[62,74],[72,60],[85,60],[95,63],[98,74],[99,95],[62,95]], "tall": [[50,80],[58,70],[93,72],[95,79],[98,96],[48,96]] }
+      },
+      {
+        "id": "lamp",
+        "label": "The lamp — ban nothing: it all keeps us safe",
+        "where": "bottom left, the street lamp and bench",
+        "effects": {
+          "liberty": -1.5,
+          "tech": 0.5
+        },
+        "poly": { "wide": [[5,50],[12,48],[17,53],[17,62],[35,72],[35,92],[4,92]], "tall": [[6,64],[14,62],[26,67],[26,80],[45,84],[45,93],[5,93]] }
+      }
+    ],
+    "fx": [
+      "night"
+    ],
+    "discrimination": 3
+  },
+  {
+    "id": "E-038",
+    "chapter": "election_night",
+    "phase": "count",
+    "route": "both",
+    "type": "choice",
+    "tier": "core",
+    "topic": "election-night-count",
+    "context": "A rumor about the vote count is racing across every platform. Your officials want to call the companies and ask for it to come down.",
+    "prompt": "Do they make the call?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Never. The state stays off the delete button.",
+        "effects": {
+          "liberty": 1.5,
+          "online": 0.5
+        }
+      },
+      {
+        "id": "b",
+        "label": "In an emergency, with every request published.",
+        "effects": {
+          "liberty": 0.5,
+          "democracy": 1
+        }
+      },
+      {
+        "id": "c",
+        "label": "The platforms should do it without being asked.",
+        "effects": {
+          "liberty": -1,
+          "tech": -1
+        }
+      },
+      {
+        "id": "d",
+        "label": "Make the call. It's fine when we do it.",
+        "effects": {
+          "mach": 1.5,
+          "liberty": -1.5
+        }
+      }
+    ],
+    "facts": "June 26, 2024: Murthy v. Missouri, in which the Supreme Court dismissed on standing a challenge to Biden administration contacts with social media companies over content.",
+    "discrimination": 2
+  },
+  {
+    "id": "E-039",
+    "chapter": "backroom",
+    "route": "both",
+    "type": "envelope",
+    "tier": "core",
+    "topic": "dirt-on-rival",
+    "context": "Your intelligence chief slides a folder across the desk. Swept up by accident, he says, and perfectly legal: three months of your opponent's phone locations.",
+    "prompt": "The folder is closed, for now. What do you do with it?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Send it back unopened and log that it existed.",
+        "effects": {
+          "liberty": 1.5,
+          "democracy": 1,
+          "mach": -1.5
+        }
+      },
+      {
+        "id": "b",
+        "label": "Read it. Never use it. Probably.",
+        "effects": {
+          "mach": 1,
+          "liberty": -0.5
+        }
+      },
+      {
+        "id": "c",
+        "label": "Use it.",
+        "effects": {
+          "mach": 2,
+          "liberty": -1.5,
+          "democracy": -1.5,
+          "psych": 1
+        }
+      }
+    ],
+    "measure": [
+      "hesitation"
+    ],
+    "fx": [
+      "night",
+      "candles"
+    ],
+    "discrimination": 3
+  },
+  {
+    "id": "E-040",
+    "chapter": "debate",
+    "route": "both",
+    "type": "choice",
+    "tier": "core",
+    "topic": "troops-vs-cartels",
+    "context": "The military has been blowing up small boats in the Caribbean that it says carry drugs. No arrests, no trial, no vote in Congress.",
+    "prompt": "Your answer on stage?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Sink them. The cartels are at war with us.",
+        "effects": {
+          "world": 0.8,
+          "psych": 1.5,
+          "democracy": -0.5
+        },
+        "cand": {
+          "vance": 1,
+          "rubio": 1
+        }
+      },
+      {
+        "id": "b",
+        "label": "Board them, arrest them, try them.",
+        "effects": {
+          "world": -0.5,
+          "psych": -1,
+          "liberty": 1
+        },
+        "cand": {
+          "randpaul": 2
+        }
+      },
+      {
+        "id": "c",
+        "label": "Strike only after Congress votes for it.",
+        "effects": {
+          "world": 0.5,
+          "democracy": 1.5
+        },
+        "cand": {
+          "slotkin": 1
+        }
+      },
+      {
+        "id": "d",
+        "label": "Not our war. Fix the demand at home.",
+        "effects": {
+          "world": -1.5,
+          "psych": -1
+        },
+        "cand": {
+          "khanna": 1
+        }
+      }
+    ],
+    "signature": [
+      "randpaul"
+    ],
+    "facts": "September 2, 2025: the first announced US military strike on an alleged drug boat in the Caribbean. October 8, 2025: the Senate rejected a war powers resolution on the strikes 48-51; Sen. Rand Paul voted for it.",
+    "discrimination": 3
+  },
+  {
+    "id": "E-041",
+    "chapter": "backroom",
+    "route": "both",
+    "type": "hold",
+    "tier": "core",
+    "topic": "allies",
+    "context": "An ally owns a vast, icy, mineral-rich island your generals would love. The ally says it is not for sale.",
+    "prompt": "How far do you go to get it?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Drop it. Allies are not real estate.",
+        "effects": {
+          "psych": -1,
+          "style": -1,
+          "democracy": 0.5
+        }
+      },
+      {
+        "id": "b",
+        "label": "Make a fair offer and take no for an answer.",
+        "effects": {
+          "mach": 0.5,
+          "world": 0.5
+        }
+      },
+      {
+        "id": "c",
+        "label": "Squeeze: tariffs until they come to the table.",
+        "effects": {
+          "psych": 1,
+          "trade": -1,
+          "style": 1
+        }
+      },
+      {
+        "id": "d",
+        "label": "Send the fleet.",
+        "effects": {
+          "world": 1.5,
+          "psych": 2,
+          "democracy": -1
+        }
+      }
+    ],
+    "measure": [
+      "holdStrength"
+    ],
+    "facts": "January 7, 2025: Trump declined at a press conference to rule out military or economic force to acquire Greenland and the Panama Canal. Denmark and Greenland have said Greenland is not for sale.",
+    "discrimination": 3
+  },
+  {
+    "id": "E-042",
+    "chapter": "primary",
+    "route": "both",
+    "type": "slider",
+    "tier": "core",
+    "topic": "defense-budget",
+    "excludes": [
+      "A-035"
+    ],
+    "context": "The joint chiefs slide a trillion-dollar budget across the desk. Clipped to it: a list of the towns each base keeps alive, and how they voted.",
+    "prompt": "The scissors are in your hand. How big should the military be?",
+    "slider": {
+      "left": "Half the size, and home",
+      "right": "Bigger. Peace through fear.",
+      "centre": "About this size, spent better",
+      "effects": {
+        "world": 1.5,
+        "psych": 0.5
+      },
+      "steps": 7,
+      "candLeft": {
+        "khanna": 1,
+        "randpaul": 1
+      },
+      "candRight": {
+        "pence": 1
+      }
+    },
+    "lev12": "militarist",
+    "discrimination": 3
+  },
+  {
+    "id": "E-043",
+    "chapter": "debate",
+    "route": "both",
+    "type": "dilemma",
+    "tier": "core",
+    "topic": "use-of-force",
+    "context": "A real war. The volunteers have run out.",
+    "prompt": "No middle. Do you bring back the draft?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Bring back the draft. Everyone's kids. Mine too.",
+        "effects": {
+          "world": 1,
+          "liberty": -1.5,
+          "psych": 0.5
+        }
+      },
+      {
+        "id": "b",
+        "label": "No draft. No volunteers means no war.",
+        "effects": {
+          "world": -1.5,
+          "liberty": 1.5
+        },
+        "cand": {
+          "randpaul": 1
+        }
+      }
+    ],
+    "measure": [
+      "hesitation"
+    ],
+    "discrimination": 3
+  },
+  {
+    "id": "E-044",
+    "chapter": "election_night",
+    "phase": "count",
+    "route": "both",
+    "type": "choice",
+    "tier": "core",
+    "topic": "war-powers",
+    "context": "3 am. The bombers are fueled, the target is real and the window closes at dawn. Congress is asleep.",
+    "prompt": "What do you do?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Strike now. Tell Congress at breakfast.",
+        "effects": {
+          "world": 1.5,
+          "democracy": -1,
+          "psych": 1
+        }
+      },
+      {
+        "id": "b",
+        "label": "Wake the leaders, then strike within the hour.",
+        "effects": {
+          "world": 1,
+          "democracy": 0.5
+        }
+      },
+      {
+        "id": "c",
+        "label": "No vote, no strike. Even if the window shuts.",
+        "effects": {
+          "world": -1,
+          "democracy": 1.5
+        },
+        "cand": {
+          "khanna": 2,
+          "randpaul": 1
+        }
+      },
+      {
+        "id": "d",
+        "label": "Strike, and deny it was us.",
+        "effects": {
+          "mach": 2,
+          "psych": 1,
+          "world": 0.5
+        }
+      }
+    ],
+    "signature": [
+      "khanna"
+    ],
+    "fx": [
+      "night"
+    ],
+    "facts": "June 21, 2025 (US time): US strikes on Iranian nuclear sites without a vote in Congress. June 17, 2025: Reps. Ro Khanna and Thomas Massie introduced a war powers resolution on Iran. January 3, 2026: US forces seized Nicolas Maduro in Caracas, again without a vote in Congress; he was flown to New York to face charges.",
+    "discrimination": 3
+  },
+  {
+    "id": "E-045",
+    "chapter": "backroom",
+    "route": "both",
+    "type": "pin",
+    "tier": "core",
+    "topic": "use-of-force",
+    "context": "A hostile regime has seized an American ship. The table is set with everything a President can reach for.",
+    "prompt": "How do you respond? Tap the first thing you pick up.",
+    "art": "E-PIN-SITROOM-TABLE",
+    "artNote": "A situation room table seen from above, no people, chairs pushed back. Center: a sea chart with a small brass aircraft carrier model on it. Top left: a gray drone model on a stand beside a single red key. Top right: a red desk telephone with a coiled cord. Bottom left: a thick folder stamped SANCTIONS with a fountain pen on top. Bottom right: the room's heavy door standing open onto a lit corridor.",
+    "regions": [
+      {
+        "id": "carrier",
+        "label": "The carrier — send the fleet",
+        "where": "center, the brass carrier on the sea chart",
+        "effects": {
+          "world": 1.5,
+          "psych": 1
+        },
+        "poly": { "wide": [[34,32],[66,31],[67,45],[70,64],[50,65],[29,65],[32,48]], "tall": [[14,31],[80,31],[84,40],[85,56],[50,57],[13,55],[16,43]] }
+      },
+      {
+        "id": "drone",
+        "label": "The drone — quiet strike, no speeches",
+        "where": "top left, the drone model and red key",
+        "effects": {
+          "world": 1,
+          "psych": 1.5,
+          "mach": 1
+        },
+        "poly": { "wide": [[11,22],[19,19],[30,19],[30,30],[31,35],[27,42],[16,40],[11,34]], "tall": [[14,23],[22,14],[46,13],[47.5,22],[45.5,30],[22,29.5]] }
+      },
+      {
+        "id": "phone",
+        "label": "The red phone — talk first",
+        "where": "top right, the red telephone",
+        "effects": {
+          "world": 0.5,
+          "psych": -1,
+          "style": -1
+        },
+        "poly": { "wide": [[69,22],[74,20],[86,21],[86,32],[82,39],[72,39],[69,32]], "tall": [[54,20],[62,14],[83,16],[83,25],[78,29],[58,29]] }
+      },
+      {
+        "id": "folder",
+        "label": "The folder — sanctions, and patience",
+        "where": "bottom left, the SANCTIONS folder and pen",
+        "effects": {
+          "world": 0.5,
+          "trade": -0.5,
+          "psych": -0.5
+        },
+        "poly": { "wide": [[8,56],[14,52],[24,54],[28,70],[28,78],[11,79],[8,70]], "tall": [[14,61],[38,59],[46,70],[48,78],[22,81],[14,77]] }
+      },
+      {
+        "id": "door",
+        "label": "The door — bring everyone home",
+        "where": "bottom right, the open door to the corridor",
+        "effects": {
+          "world": -2,
+          "psych": -0.5
+        },
+        "poly": { "wide": [[77,48],[86,48],[94,42],[97,45],[97,94],[86,90],[77,82]], "tall": [[52,60],[71,60],[84,57.5],[86,59.5],[86,88],[78,89],[57,83],[52,83]] }
+      }
+    ],
+    "lev12": "militarist",
+    "discrimination": 3
+  },
+  {
+    "id": "E-046",
+    "chapter": "debate",
+    "route": "both",
+    "type": "slider",
+    "tier": "core",
+    "topic": "allies",
+    "context": "An ally that underpays for its own defense is invaded on a Tuesday.",
+    "prompt": "Does America come to its defense?",
+    "slider": {
+      "left": "They pay up or they're alone",
+      "right": "We come. That's the promise.",
+      "centre": "We come, and send the bill after",
+      "effects": {
+        "world": 2
+      },
+      "steps": 5,
+      "candLeft": {
+        "vance": 1
+      },
+      "candRight": {
+        "christie": 1,
+        "pence": 1
+      }
+    },
+    "lev12": "internationalist",
+    "facts": "February 14, 2025: Vice President Vance's Munich Security Conference speech criticizing European allies.",
+    "discrimination": 3
+  },
+  {
+    "id": "E-047",
+    "chapter": "election_night",
+    "phase": "count",
+    "route": "both",
+    "type": "hold",
+    "tier": "core",
+    "topic": "use-of-force",
+    "context": "The man who planned the attack is in a house tonight. So is his family. The pilot is waiting on you.",
+    "prompt": "What is your order?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Abort. Not like this.",
+        "effects": {
+          "psych": -1.5,
+          "world": -0.5
+        }
+      },
+      {
+        "id": "b",
+        "label": "Wait until he's alone, even if we lose him.",
+        "effects": {
+          "psych": -0.5,
+          "world": 0.5
+        }
+      },
+      {
+        "id": "c",
+        "label": "Send a team in instead. Risk our own.",
+        "effects": {
+          "world": 1,
+          "psych": 0.5,
+          "style": 0.5
+        }
+      },
+      {
+        "id": "d",
+        "label": "Strike now.",
+        "effects": {
+          "psych": 2,
+          "world": 1.5
+        }
+      }
+    ],
+    "measure": [
+      "holdStrength",
+      "hesitation"
+    ],
+    "fx": [
+      "night",
+      "buzz_light"
+    ],
+    "discrimination": 3
+  },
+  {
+    "id": "E-048",
+    "chapter": "backroom",
+    "route": "both",
+    "type": "choice",
+    "tier": "core",
+    "topic": "personal-faith",
+    "excludes": [
+      "E-049"
+    ],
+    "context": "The cameras are gone and it has been the worst day of the campaign. Nobody is watching what you do next.",
+    "prompt": "Where do you turn?",
+    "options": [
+      {
+        "id": "a",
+        "label": "To prayer, the same as I would on stage.",
+        "effects": {
+          "faith": 1.5,
+          "mach": -0.5
+        },
+        "faithFlag": {
+          "professed": "religious",
+          "private": "religious"
+        }
+      },
+      {
+        "id": "b",
+        "label": "To prayer, though I never mention it in public.",
+        "effects": {
+          "faith": 0.5,
+          "narc": -0.5
+        },
+        "faithFlag": {
+          "professed": "secular",
+          "private": "religious"
+        }
+      },
+      {
+        "id": "c",
+        "label": "I quote scripture on stage. Alone, I'm less sure.",
+        "effects": {
+          "faith": -0.5,
+          "mach": 1
+        },
+        "faithFlag": {
+          "professed": "religious",
+          "private": "secular"
+        }
+      },
+      {
+        "id": "d",
+        "label": "To family and a long walk. No heaven involved.",
+        "effects": {
+          "faith": -1.5,
+          "mach": -0.5
+        },
+        "faithFlag": {
+          "professed": "secular",
+          "private": "secular"
+        }
+      }
+    ],
+    "measure": [
+      "faithPrivate"
+    ],
+    "discrimination": 2
+  },
+  {
+    "id": "E-049",
+    "chapter": "primary",
+    "route": "both",
+    "type": "slider",
+    "tier": "core",
+    "topic": "personal-faith",
+    "excludes": [
+      "E-048"
+    ],
+    "context": "Every candidate has two faiths: the one voters see at the prayer breakfast and the one that is there at 2 am. Neither answer is the wrong one.",
+    "prompt": "Which of yours is bigger?",
+    "slider": {
+      "left": "The one the voters see",
+      "right": "The one nobody sees",
+      "centre": "The same size. I checked.",
+      "effects": {
+        "mach": -1,
+        "narc": -1
+      },
+      "steps": 5,
+      "faithFlagLeft": "professed_exceeds_private",
+      "faithFlagRight": "private_exceeds_professed"
+    },
+    "measure": [
+      "faithPrivate"
+    ],
+    "discrimination": 1
+  },
+  {
+    "id": "E-050",
+    "chapter": "debate",
+    "route": "both",
+    "type": "hold",
+    "tier": "core",
+    "topic": "personal-faith",
+    "excludes": [
+      "A-051"
+    ],
+    "context": "The moderator sets down her cards and asks the one nobody rehearsed: do you believe in God?",
+    "prompt": "Hold for the answer you would actually give. The longer you hold, the more it is true.",
+    "options": [
+      {
+        "id": "a",
+        "label": "Yes. And I'd say so in an empty room.",
+        "effects": {
+          "faith": 1.5
+        },
+        "faithFlag": {
+          "professed": "religious",
+          "private": "religious"
+        }
+      },
+      {
+        "id": "b",
+        "label": "Yes: because no isn't an answer you survive.",
+        "effects": {
+          "faith": 0.5,
+          "mach": 1.5
+        },
+        "faithFlag": {
+          "professed": "religious",
+          "private": "secular"
+        }
+      },
+      {
+        "id": "c",
+        "label": "That is between me and whoever is listening.",
+        "effects": {
+          "faith": -0.5,
+          "liberty": 0.5,
+          "style": -0.5
+        },
+        "faithFlag": {
+          "professed": "secular",
+          "private": "religious"
+        }
+      },
+      {
+        "id": "d",
+        "label": "No. And voters deserve to hear it from me.",
+        "effects": {
+          "faith": -1.5,
+          "mach": -1
+        },
+        "faithFlag": {
+          "professed": "secular",
+          "private": "secular"
+        }
+      }
+    ],
+    "measure": [
+      "faithPrivate",
+      "holdStrength"
+    ],
+    "discrimination": 2
+  }
+]

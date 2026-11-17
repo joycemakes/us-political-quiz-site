@@ -1,0 +1,61 @@
+{
+  "_note": "url: the public address of the site. Share links and the link-preview tags use it.",
+  "url": "https://joycemakes.github.io/us-political-quiz-site/",
+  "templates": [
+    "I got {name} at {pct}%. The quiz says: {verdict} Rude. Accurate. Find out who you are: {url}",
+    "{pct}% {name}. I'd like to speak to whoever wrote this quiz. {url}",
+    "Confession: I took the US Political Quiz on the {route} route and came out {pct}% {name}. I will not be taking questions. {url}",
+    "The 2028 quiz just read me for filth: {verdict} Your turn, cowards: {url}",
+    "My top two for 2028 are {name} and {top2}. If that sentence made you angry, take the quiz and prove you're better than me: {url}",
+    "Apparently I belong with the {camp}. I have never felt so seen or so insulted. {url}",
+    "Bad news, everyone: I'm {pct}% {name}. Worse news: {top2} came second. Post yours so I feel better: {url}",
+    "I dare you to post your result. I got {name} ({pct}%) and I'm posting mine like an adult. {url}",
+    "A whole quiz about 2028 and all I learned is that I'm {name} with a smaller donor list. {pct}% match. {url}",
+    "Took the {route} route. Got {name}. Camp: {camp}. Regrets: several. {url}",
+    "I thought I was a free thinker. {pct}% {name} says I'm a type. What type are you? {url}",
+    "Unfollow me now: {name}, {pct}%. Or take it yourself and we can both be embarrassed. {url}",
+    "The quiz on me: {verdict} The quiz on you: probably worse. {url}",
+    "I didn't choose {name}. I was diagnosed. {pct}% match, {camp}. Second opinion: {top2}. {url}",
+    "Everyone has a politician hiding inside them. Mine is {name}, {pct}%. Go meet yours: {url}",
+    "Group chat, settle this: am I really {pct}% {name}? Don't answer. Take it and post yours: {url}",
+    "I answered honestly and got {name}. I should have lied. {pct}%, {route} route, no notes. {url}",
+    "Somebody tag a {top2} person so I can explain why {name} at {pct}% is the superior embarrassment. {url}",
+    "Filed under: {camp}. Matched with: {name}. Dragged with: {verdict} {url}",
+    "If you get anyone but {name}, you're wrong. If you get {name}, I'm sorry. I got {pct}%. {url}"
+  ],
+  "hashtags": [
+    "#USPoliticalQuiz",
+    "#2028Quiz",
+    "#Election2028",
+    "#2028"
+  ],
+  "verdicts": {
+    "aoc": "You'd wear Tax the Rich to the richest party in town and call it praxis.",
+    "newsom": "You wrote the rules, then got a table at the French Laundry anyway.",
+    "shapiro": "You can fix a highway in 12 days and still get passed over for Tim Walz.",
+    "harris": "You exist in the context of a loss you're still writing the memoir about.",
+    "buttigieg": "You have a McKinsey slide for every feeling and you'd present it on Fox.",
+    "beshear": "You're so inoffensive that even the nepotism feels wholesome.",
+    "slotkin": "You answer every question like it's a CIA briefing and nobody else is cleared.",
+    "pritzker": "You fight for the working class from a mansion with the toilets taken out.",
+    "kelly": "You went to space and came back with the charisma of a seatbelt sign.",
+    "khanna": "You denounce the oligarchs on behalf of the district where they all live.",
+    "ossoff": "You'd ban Congress from trading stocks. Enjoy eating lunch alone.",
+    "vance": "You called your boss unfit, took the job, and now ask guests if they said thank you.",
+    "rubio": "You hold four jobs at once and opinions for exactly as long as they're useful.",
+    "desantis": "You declared war on a cartoon mouse and your big launch crashed on Twitter Spaces.",
+    "kemp": "You said no to the boss once and have been quietly dining out on it ever since.",
+    "christie": "You'd close the beach to everyone and then get photographed sunbathing on it.",
+    "trumpjr": "You were born on third base and host a podcast about how you hit a triple.",
+    "youngkin": "You're private equity in a fleece vest: the layoffs come with a warm smile.",
+    "randpaul": "You inherited your anti-establishment politics from your dad, the congressman.",
+    "cruz": "You'd endorse the man who insulted your wife, then fly to Cancun in a blackout.",
+    "ramaswamy": "You think the country's problem is too many prom queens and not enough you.",
+    "pence": "You'll certify an election but not a dinner alone with a female colleague.",
+    "hawley": "You wrote a book called Manhood and were then filmed sprinting for the exit."
+  },
+  "og": {
+    "title": "US Political Quiz: Which 2028 candidate are you, really?",
+    "description": "23 candidates. One unflattering verdict. Find your 2028 match, then argue about it with everyone you know."
+  }
+}
