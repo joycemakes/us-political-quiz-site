@@ -3,11 +3,11 @@
 //
 // ctx: { el, artHost, cands (Map id -> candidate), stage }
 
-import { haptic, shake, sleep, reducedMotion } from './feel.js';
-import { holdStart, holdLevel, holdStop, sfx } from './sound.js';
-import { HOLD_TAP } from './howto.js';
-import { createArtSlot, portraitEl, hasArt } from './art.js';
-import { HOLD_FULL_MS } from './scoring.js';
+import { haptic, shake, sleep, reducedMotion } from './feel.js?v=7ad1c44-1794985733';
+import { holdStart, holdLevel, holdStop, sfx } from './sound.js?v=7ad1c44-1794985733';
+import { HOLD_TAP } from './howto.js?v=7ad1c44-1794985733';
+import { createArtSlot, portraitEl, hasArt } from './art.js?v=7ad1c44-1794985733';
+import { HOLD_FULL_MS } from './scoring.js?v=7ad1c44-1794985733';
 
 const h = (tag, cls, text) => {
   const e = document.createElement(tag);
@@ -143,7 +143,9 @@ function renderEnvelope(q, ctx) {
         scene.dataset.grade = ['warm', 'cold', 'smoke', 'warm', 'cold'][i] || 'warm';
         const cap = h('div', 'scene-caption', o.label || '');
         (scene.querySelector('.art-frame') || scene).appendChild(cap);
-        const env = h('div', `scene-envelope play-${i % 3}`);
+        // A note, file or leak plays out as the opened letter; money and offers as the sealed envelope.
+        const isLetter = /\b(letter|note|memo|file|leak|dossier|photographs?|folder|statement|pledge|questionnaire|resum[eé]|resignation|complaint|folded card)\b/i.test(`${q.context || ''} ${q.prompt || ''}`);
+        const env = h('div', `scene-envelope play-${i % 3}${isLetter ? ' is-letter' : ''}`);
         (scene.querySelector('.art-frame') || scene).appendChild(env);
         await sleep(reducedMotion() ? 150 : 1100);
         resolve({ optionId: o.id, ms: t });

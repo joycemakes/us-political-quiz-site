@@ -5,11 +5,11 @@
 // playReveal(R) resolves when the player asks for the full dossier.
 // R: { reading, matches, cands, profile, scores, route, shareCfg, replay }
 
-import { AXIS } from './axes.js';
-import { portraitEl, artUrl, artVersion } from './art.js';
-import { haptic, sleep, reducedMotion, typewriter, finishTyping, typingSkippedAt } from './feel.js';
-import { sfx } from './sound.js';
-import { renderShareSheet } from './sharesheet.js';
+import { AXIS } from './axes.js?v=7ad1c44-1794985733';
+import { portraitEl, artUrl, artVersion } from './art.js?v=7ad1c44-1794985733';
+import { haptic, sleep, reducedMotion, typewriter, finishTyping, typingSkippedAt } from './feel.js?v=7ad1c44-1794985733';
+import { sfx } from './sound.js?v=7ad1c44-1794985733';
+import { renderShareSheet } from './sharesheet.js?v=7ad1c44-1794985733';
 
 const h = (tag, cls, text) => {
   const e = document.createElement(tag);
@@ -182,6 +182,8 @@ export function playReveal(R) {
     root.setAttribute('aria-modal', 'true');
     root.setAttribute('aria-label', 'Your result');
     const bg = h('div', 'rv-bg');
+    // Load every card's backdrop up front, so a card change never flashes the old picture (playtest).
+    for (const c of CARDS) { const im = new Image(); im.src = new URL(backdropUrl(c.key, reading), document.baseURI).href; }
     const canvas = h('canvas', 'rv-confetti');
     canvas.setAttribute('aria-hidden', 'true');
 

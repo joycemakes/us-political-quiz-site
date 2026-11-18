@@ -1,11 +1,11 @@
 // The share sheet on the result screen: image preview in three sizes, a system Share button on phones,
 // one button per platform, Instagram (download the story image), copy link, copy message, download.
 
-import { SIZES, drawShareCard, canvasBlob } from './sharecard.js';
-import { buildMessage, shareUrls, X_LIMIT } from './share.js';
-import { portraitUrl, artUrl } from './art.js';
-import { reasonFor } from './scoring.js';
-import { haptic } from './feel.js';
+import { SIZES, drawShareCard, canvasBlob } from './sharecard.js?v=7ad1c44-1794985733';
+import { buildMessage, shareUrls, X_LIMIT } from './share.js?v=7ad1c44-1794985733';
+import { portraitUrl, artUrl } from './art.js?v=7ad1c44-1794985733';
+import { reasonFor } from './scoring.js?v=7ad1c44-1794985733';
+import { haptic } from './feel.js?v=7ad1c44-1794985733';
 
 const h = (tag, cls, text) => {
   const e = document.createElement(tag);
@@ -111,7 +111,7 @@ export function renderShareSheet(section, R) {
     sys.addEventListener('click', async () => {
       try {
         const file = await fileOf(kind);
-        const data = { text: message, title: 'THE 2028 QUIZ' };
+        const data = { text: message, title: 'US Political Quiz' };
         if (navigator.canShare && navigator.canShare({ files: [file] })) await navigator.share({ ...data, files: [file] });
         else await navigator.share({ ...data, url: shareCfg.url });
         say('Shared.');

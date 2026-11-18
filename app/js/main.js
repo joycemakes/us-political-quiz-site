@@ -1,24 +1,24 @@
 // US Political Quiz: boot, title screen, the run loop, chapter cards and the hand-off to results.
 
-import { loadData } from './data.js';
-import { createSelector, QUICK_LENGTH, FULL_LENGTH } from './selector.js';
-import { createScorer, applyAnswer, axisScores, matchCandidates, matchCamps } from './scoring.js';
-import { buildProfile } from './profile.js';
-import { CHAPTERS, CHAPTER_TITLE, CHAPTER_LINE } from './axes.js';
-import { routeOk } from './questions.js';
-import { installPress, haptic, setHaptics, getHaptics, runFx, typewriter, sleep, store, reducedMotion } from './feel.js';
-import { loadArtManifest, createArtSlot, artUrl, artVersion } from './art.js';
-import { billTitle } from './types.js';
-import { createWarMap, createGhosts } from './hud.js';
-import { renderAnswer } from './types.js';
-import { howFor, showCue, watchIdle } from './howto.js';
-import { swipeEnds } from './types.js';
-import { renderResults } from './results.js';
-import { newSeed } from './rng.js';
-import { loadShareConfig } from './share.js';
-import { getSound, setSound, sfx } from './sound.js';
-import { readingContext, buildReading } from './reading.js';
-import { playReveal } from './reveal.js';
+import { loadData } from './data.js?v=7ad1c44-1794985733';
+import { createSelector, QUICK_LENGTH, FULL_LENGTH } from './selector.js?v=7ad1c44-1794985733';
+import { createScorer, applyAnswer, axisScores, matchCandidates, matchCamps } from './scoring.js?v=7ad1c44-1794985733';
+import { buildProfile } from './profile.js?v=7ad1c44-1794985733';
+import { CHAPTERS, CHAPTER_TITLE, CHAPTER_LINE } from './axes.js?v=7ad1c44-1794985733';
+import { routeOk } from './questions.js?v=7ad1c44-1794985733';
+import { installPress, haptic, setHaptics, getHaptics, runFx, typewriter, sleep, store, reducedMotion } from './feel.js?v=7ad1c44-1794985733';
+import { loadArtManifest, createArtSlot, artUrl, artVersion } from './art.js?v=7ad1c44-1794985733';
+import { billTitle } from './types.js?v=7ad1c44-1794985733';
+import { createWarMap, createGhosts } from './hud.js?v=7ad1c44-1794985733';
+import { renderAnswer } from './types.js?v=7ad1c44-1794985733';
+import { howFor, showCue, watchIdle } from './howto.js?v=7ad1c44-1794985733';
+import { swipeEnds } from './types.js?v=7ad1c44-1794985733';
+import { renderResults } from './results.js?v=7ad1c44-1794985733';
+import { newSeed } from './rng.js?v=7ad1c44-1794985733';
+import { loadShareConfig } from './share.js?v=7ad1c44-1794985733';
+import { getSound, setSound, sfx } from './sound.js?v=7ad1c44-1794985733';
+import { readingContext, buildReading } from './reading.js?v=7ad1c44-1794985733';
+import { playReveal } from './reveal.js?v=7ad1c44-1794985733';
 
 const app = document.getElementById('app');
 const h = (tag, cls, text) => {
@@ -32,6 +32,9 @@ const READY_GUARD_MS = 400;
 // The run in progress (or just finished) is saved here after every answer, so closing the tab loses
 // nothing. Replaying the saved answers through the seeded selector rebuilds the run exactly.
 const SAVE_KEY = 'uspq.run';
+// The seen-list keeps about three runs' worth, so replays keep rotating instead of running out of
+// unseen questions after eight or nine runs and settling back into the same openings.
+const SEEN_KEEP = 150;
 const loadSave = () => {
   const v = store.get(SAVE_KEY, null);
   return v && v.v === 1 && Array.isArray(v.answers) && (v.route === 'dem' || v.route === 'gop') ? v : null;
@@ -259,6 +262,12 @@ async function startRun(saved = null) {
     run.log.push({ id: q.id, type: q.type, summary });
     save.answers.push({ id: q.id, a: answer });
     if (i >= replay.length) persist();
+    // The device's seen-list grows as you play, not only when a run finishes, so a run you abandon
+    // still steers the next one toward questions you have not had (Chris, 18 Nov 2026).
+    if (i >= replay.length && !devBank) {
+      const prevSeen = store.get('uspq.seen', []);
+      if (!prevSeen.includes(q.id)) store.set('uspq.seen', prevSeen.concat(q.id).slice(-SEEN_KEEP));
+    }
     rank = matchCandidates(sc, candidates, run.route).map(r => r.id);
     if (i >= replay.length - 1) ghosts.set(rank.slice(0, 3));
   }
@@ -407,10 +416,10 @@ function fitToScreen(wrap, artHost) {
 }
 
 async function finish(run) {
-  // Remember what this device has seen so replays prefer fresh questions (last 400 ids).
+  // Remember what this device has seen so replays prefer fresh questions (the last SEEN_KEEP ids).
   const prevSeen = store.get('uspq.seen', []);
   const ids = run.sel.history.map(x => x.id);
-  store.set('uspq.seen', prevSeen.filter(id => !ids.includes(id)).concat(ids).slice(-400));
+  store.set('uspq.seen', prevSeen.filter(id => !ids.includes(id)).concat(ids).slice(-SEEN_KEEP));
   const { candidates, camps } = S.data;
   const scores = axisScores(run.sc);
   const matches = matchCandidates(run.sc, candidates, run.route);

@@ -66,7 +66,7 @@
     "tier": "core",
     "topic": "who-you-owe",
     "context": "The senator who gave you your first job, taught you everything you know and still calls you kid wants to run too. There is room in this lane for exactly one of you.",
-    "prompt": "Hold on what you do about your mentor. The longer you hold, the more you mean it.",
+    "prompt": "What do you do about your mentor? Press and hold your answer; the longer you hold, the more you mean it.",
     "options": [
       {
         "id": "a",
@@ -136,7 +136,7 @@
     "slider": {
       "left": "Nothing. Boring survives",
       "right": "All of it. Star or punchline",
-      "centre": "A calculated wobble",
+      "centre": "Half. A stunt with a safety net",
       "effects": {
         "narc": 1,
         "style": 0.5
@@ -210,7 +210,7 @@
       },
       {
         "id": "4",
-        "text": "Someone on my own team is already talking to the press.",
+        "text": "I assume someone on my own team is already leaking.",
         "yes": {
           "mach": 0.5,
           "psych": 0.5
@@ -277,7 +277,7 @@
       },
       {
         "id": "8",
-        "text": "One powerful person despises me, and I would crawl to change it.",
+        "text": "I would crawl to win over a powerful person who despises me.",
         "yes": {
           "loyalty": 1,
           "narc": -0.5
@@ -297,7 +297,9 @@
     "measure": [
       "speed"
     ],
-    "discrimination": 2
+    "discrimination": 2,
+    "yesLabel": "Yes",
+    "noLabel": "No"
   },
   {
     "id": "G-005",
@@ -403,11 +405,11 @@
     "tier": "core",
     "topic": "old-insults",
     "context": "The rival who spent six months calling you a fraud and a lightweight has just dropped out. He is broke, and he is on the phone offering his endorsement if you help pay off his campaign debt.",
-    "prompt": "Hold on your answer to him. The longer you hold, the more you mean it.",
+    "prompt": "What do you tell him? Press and hold your answer; the longer you hold, the more you mean it.",
     "options": [
       {
         "id": "a",
-        "label": "Pay the debt, take the endorsement. Business is business.",
+        "label": "Pay his debt, take his endorsement. A clean trade.",
         "effects": {
           "mach": 1.5,
           "style": -0.5
@@ -418,19 +420,18 @@
       },
       {
         "id": "b",
-        "label": "Take it warmly. Remember every word he said, forever.",
+        "label": "Take the endorsement. Never pay the debt. Let him chase me.",
         "effects": {
           "mach": 1.5,
           "psych": 0.5
         },
         "reads": {
-          "grudge": 1.5,
-          "charm": 0.5
+          "grudge": 1.5
         }
       },
       {
         "id": "c",
-        "label": "Make him ask twice, in public. I want to watch him crawl.",
+        "label": "Make him beg twice, in public, before I pay a cent.",
         "effects": {
           "psych": 1.5,
           "style": 0.5
@@ -442,7 +443,7 @@
       },
       {
         "id": "d",
-        "label": "Forgive him and mean it. Campaigns make people ugly.",
+        "label": "Pay his debt and ask for nothing. Campaigns make people ugly.",
         "effects": {
           "psych": -1.5,
           "style": -1
@@ -465,7 +466,7 @@
     "type": "envelope",
     "tier": "core",
     "topic": "leak-hunt",
-    "context": "An unsigned note is under your hotel door in Des Moines: your campaign manager had dinner last night with your rival’s pollster. No proof, no name. She has run your life for six years.",
+    "context": "An unsigned note is under your hotel door in Des Moines: your campaign manager had dinner last night with your rival's pollster. No proof, no name. She has run your life for six years.",
     "prompt": "What do you do about the note?",
     "options": [
       {
@@ -561,7 +562,7 @@
       },
       {
         "id": "e",
-        "label": "Somebody else’s puppet",
+        "label": "Somebody else's puppet",
         "effects": {
           "loyalty": -1,
           "narc": 0.5
@@ -822,8 +823,8 @@
     "type": "hold",
     "tier": "core",
     "topic": "family-attacked",
-    "context": "On stage, a rival brings up your brother’s old drunk-driving arrest to make a point about your character. Your brother is sitting in the third row. You have thirty seconds to answer.",
-    "prompt": "Hold on your answer. The longer you hold, the more you mean it.",
+    "context": "On stage, a rival brings up your brother's old drunk-driving arrest to make a point about your character. Your brother is sitting in the third row. You have thirty seconds to answer.",
+    "prompt": "How do you answer? Press and hold your answer; the longer you hold, the more you mean it.",
     "options": [
       {
         "id": "a",
@@ -885,7 +886,7 @@
     "type": "dilemma",
     "tier": "core",
     "topic": "loyalty-to-the-leader",
-    "context": "The party leader who made you is finished: sick, hated, sinking, and the last to know. Whoever knifes him first inherits his voters. Tonight’s first debate question: do you still stand with him?",
+    "context": "The party leader who made you is finished: sick, hated, sinking, and the last to know. Whoever knifes him first inherits his voters. Tonight's first debate question: do you still stand with him?",
     "prompt": "When do you leave him?",
     "options": [
       {
@@ -923,7 +924,7 @@
     "type": "slider",
     "tier": "core",
     "topic": "debate-takedown",
-    "context": "Your rival once wept on camera and has never lived it down. You have the clip memorized, ninety seconds of live television, and he is already sweating.",
+    "context": "Your rival once wept on camera and has never lived it down. You know the clip by heart. You now have ninety seconds of live airtime, and he is already sweating.",
     "prompt": "How far do you take his humiliation?",
     "slider": {
       "left": "Nowhere. I beat him on the merits",
@@ -948,7 +949,7 @@
     "type": "choice",
     "tier": "core",
     "topic": "character-curve",
-    "context": "The moderator turns to you. The rival standing six feet away admitted an affair last month. The question: does a candidate’s private life tell voters how they would govern?",
+    "context": "The moderator turns to you. The rival standing six feet away admitted an affair last month. The question: does a candidate's private life tell voters how they would govern?",
     "prompt": "What is your answer?",
     "options": [
       {
@@ -1044,7 +1045,7 @@
       },
       {
         "id": "3",
-        "text": "I shake my rival’s hand and mean it.",
+        "text": "I shake my rival's hand and mean it.",
         "yes": {
           "style": -1,
           "psych": -0.5
@@ -1131,7 +1132,9 @@
     "measure": [
       "speed"
     ],
-    "discrimination": 2
+    "discrimination": 2,
+    "yesLabel": "Yes",
+    "noLabel": "No"
   },
   {
     "id": "G-020",
@@ -1183,7 +1186,7 @@
     "options": [
       {
         "id": "a",
-        "label": "Hire the boy. Nine million buys a desk and a title.",
+        "label": "Give him the real job. Nine million buys real power.",
         "effects": {
           "mach": 1,
           "dynasty": 1.5
@@ -1195,7 +1198,7 @@
       },
       {
         "id": "b",
-        "label": "Hire him. Big title, no power, a desk by the copier.",
+        "label": "Give him a big title, no power and a desk by the copier.",
         "effects": {
           "mach": 1.5,
           "dynasty": 0.5
@@ -1230,7 +1233,7 @@
     "tier": "core",
     "topic": "leak-hunt",
     "context": "A strategy meeting of your twelve most senior people. Last week, something said in this room turned up in the press, word for word.",
-    "prompt": "How do you run today’s meeting?",
+    "prompt": "How do you run today's meeting?",
     "options": [
       {
         "id": "a",
@@ -1291,7 +1294,7 @@
     "tier": "core",
     "topic": "staff-loyalty",
     "context": "Your oldest aide has been with you since the city council race. He would take a bullet for you. He is also badly out of his depth now, and the campaign pays for it every day.",
-    "prompt": "Hold on what you do with him. The longer you hold, the more you mean it.",
+    "prompt": "What do you do with him? Press and hold your answer; the longer you hold, the more you mean it.",
     "options": [
       {
         "id": "a",
@@ -1439,7 +1442,7 @@
     "options": [
       {
         "id": "a",
-        "label": "Save him. A chairman in my debt beats a corpse who is not.",
+        "label": "Save him. A chairman who owes me is worth more than a dead one.",
         "effects": {
           "mach": 1.5,
           "style": -0.5
@@ -1470,12 +1473,12 @@
     "type": "envelope",
     "tier": "core",
     "topic": "surrogate-trouble",
-    "context": "Your most valuable surrogate, the person who campaigns in your name, is a governor who delivers his state. Three young women on your staff have each quietly asked not to work his events. Nobody has filed a complaint.",
-    "prompt": "What do you do about the governor?",
+    "context": "A sealed letter reaches your desk, signed by three young women on your staff. They ask never again to work events with the governor who campaigns for you and delivers his state. It is not a formal complaint. Yet.",
+    "prompt": "What do you do with the letter?",
     "options": [
       {
         "id": "a",
-        "label": "Send only men to staff him. Managed. State delivered.",
+        "label": "File it. Send only men to staff him. State delivered.",
         "effects": {
           "mach": 1.5,
           "libertine": 0.5
@@ -1487,7 +1490,7 @@
       },
       {
         "id": "b",
-        "label": "Drop him. I will find that state some other way.",
+        "label": "Act on it. Drop him and find that state some other way.",
         "effects": {
           "libertine": -1.5,
           "mach": -1
@@ -1499,7 +1502,7 @@
       },
       {
         "id": "c",
-        "label": "Tell him to his face that I know. Keep him, on a leash.",
+        "label": "Show it to him. Then keep him, on a leash.",
         "effects": {
           "mach": 1,
           "psych": 0.5,
@@ -1583,12 +1586,12 @@
     "type": "rank",
     "tier": "core",
     "topic": "arm-twisting",
-    "context": "You need one stubborn senator’s vote, and you need it by Friday.",
+    "context": "You need one stubborn senator's vote, and you need it by Friday.",
     "prompt": "Rank your tools. The one you reach for first goes at the top.",
     "options": [
       {
         "id": "a",
-        "label": "Charm: dinner, his grandkids’ names, my full attention",
+        "label": "Charm: dinner, his grandkids' names, my full attention",
         "effects": {
           "mach": 0.5,
           "style": -1
@@ -1801,8 +1804,8 @@
     "type": "hold",
     "tier": "core",
     "topic": "ruthless-ads",
-    "context": "Your rival’s wife has been rushed to hospital, and he has stopped campaigning for a week. Your most brutal attack ad is booked to start tonight. It is paid for, it is true, and it tested beautifully.",
-    "prompt": "Hold on what you do with the ad. The longer you hold, the more you mean it.",
+    "context": "Your rival's wife has been rushed to the hospital, and he has stopped campaigning for a week. Your most brutal attack ad is booked to start tonight. It is paid for, it is true, and it tested beautifully.",
+    "prompt": "What do you do with the ad? Press and hold your answer; the longer you hold, the more you mean it.",
     "options": [
       {
         "id": "a",
@@ -1865,7 +1868,7 @@
     "type": "dilemma",
     "tier": "core",
     "topic": "first-family-business",
-    "context": "Your spouse’s company took a loan from a man who is about to be indicted. It was legal. It looks terrible. Your team’s advice: tell the press tonight that your spouse’s business has nothing to do with you.",
+    "context": "Your spouse's company took a loan from a man who is about to be indicted. It was legal. It looks terrible. Your team's advice: tell the press tonight that your spouse's business has nothing to do with you.",
     "prompt": "Do you cut your spouse loose in public?",
     "options": [
       {
@@ -1931,7 +1934,7 @@
       },
       {
         "id": "c",
-        "label": "Say nothing. Have today’s staff praise me on the record.",
+        "label": "Say nothing. Have today's staff praise me on the record.",
         "effects": {
           "mach": 1.5
         },
@@ -1967,7 +1970,7 @@
     "slider": {
       "left": "None. Shred it in front of them",
       "right": "All of it. A leash for everyone",
-      "centre": "Sealed in the safe, just in case",
+      "centre": "Only the worst page on each of them",
       "effects": {
         "mach": 1.5,
         "psych": 1
@@ -1987,12 +1990,12 @@
     "type": "envelope",
     "tier": "core",
     "topic": "the-leaker",
-    "context": "The staffer who leaked your plan to the press walks into your office and confesses before you catch her. She did it because she thought you were about to make a terrible mistake. She was right, and the leak stopped you.",
-    "prompt": "What happens to her?",
+    "context": "A staffer puts a sealed envelope on your desk: her resignation and her confession. She leaked your plan to the press because she thought it was a terrible mistake. She was right, and the leak stopped you.",
+    "prompt": "What do you do with her resignation?",
     "options": [
       {
         "id": "a",
-        "label": "She stays. I need one person who will stop me.",
+        "label": "Tear it up. I need one person who will stop me.",
         "effects": {
           "narc": -1.5,
           "psych": -1
@@ -2004,7 +2007,7 @@
       },
       {
         "id": "b",
-        "label": "She goes today. Right or wrong, she went around me.",
+        "label": "Accept it. Right or wrong, she went around me.",
         "effects": {
           "psych": 1,
           "loyalty": 1
@@ -2016,7 +2019,7 @@
       },
       {
         "id": "c",
-        "label": "She stays, watched, and never in the room again.",
+        "label": "Tear it up. Keep her watched, and out of the room.",
         "effects": {
           "mach": 1.5
         },
@@ -2221,7 +2224,7 @@
     "tier": "core",
     "topic": "convention-lineup",
     "context": "You have won the nomination. The rival you beat ran a filthy campaign against you. Now he wants a prime-time speaking slot, a say in the platform and jobs for his people.",
-    "prompt": "Hold on what he gets. The longer you hold, the more you mean it.",
+    "prompt": "What does he get? Press and hold your answer; the longer you hold, the more you mean it.",
     "options": [
       {
         "id": "a",
@@ -2321,7 +2324,7 @@
       },
       {
         "id": "b",
-        "label": "At the podium. He would have stayed. So will I.",
+        "label": "At the podium. He would tell me to stay. So I stay.",
         "effects": {
           "narc": 1,
           "psych": 1
@@ -2401,7 +2404,7 @@
     "tier": "core",
     "topic": "losing-well",
     "context": "Picture it: you have lost. In the hotel suite, your staff are waiting for you to say something. Everyone in the room knows whose mistakes cost what.",
-    "prompt": "Hold on what you say to them. The longer you hold, the more you mean it.",
+    "prompt": "What do you say to them? Press and hold your answer; the longer you hold, the more you mean it.",
     "options": [
       {
         "id": "a",

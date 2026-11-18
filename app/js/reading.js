@@ -6,7 +6,7 @@
 //   { archetype, scales: {id: {band, value, title, line, detail, name, plain}}, contradictions, tells, reads, closer }
 // It never throws: a missing or partial reading.json falls back to plain built-in copy.
 
-import { AXIS, AXIS_IDS } from './axes.js';
+import { AXIS, AXIS_IDS } from './axes.js?v=7ad1c44-1794985733';
 
 export const SCALE_IDS = ['mach', 'narc', 'psych', 'dynasty', 'libertine', 'loyalty', 'style', 'online', 'system', 'faith'];
 export const BANDS = ['high', 'above', 'mid', 'below', 'low'];
@@ -16,6 +16,14 @@ export const READS_MIN = 1.5; // a reads tag speaks only at |score| >= 1.5
 
 // Plain words for each band, shown beside the band's own title so high or low is never in doubt.
 export const BAND_WORD = { high: 'High', above: 'Above average', mid: 'Middling', below: 'Below average', low: 'Low' };
+// Two-sided scales say which end you lean to, so a badge never reads as a bare Above average (playtest).
+export const SCALE_ENDS = { dynasty: ['meritocrat', 'dynast'], libertine: ['puritan', 'libertine'], loyalty: ['free agent', 'loyalist'],
+  style: ['conciliator', 'brawler'], online: ['offline', 'extremely online'], system: ['establishment', 'insurgent'], faith: ['secular', 'devout'] };
+export function bandWord(id, band) {
+  const e = SCALE_ENDS[id];
+  if (!e) return BAND_WORD[band];
+  return { high: `Strongly ${e[1]}`, above: `Leans ${e[1]}`, mid: 'In the middle', below: `Leans ${e[0]}`, low: `Strongly ${e[0]}` }[band];
+}
 
 const DEFAULT_NAME = {
   mach: 'Machiavellianism', narc: 'Narcissism', psych: 'Psychopathy', dynasty: 'Nepotism and dynasty',
@@ -210,7 +218,7 @@ export function buildReading(raw, ctx) {
     const b = isObj(src.bands?.[band]) ? src.bands[band] : {};
     const ax = AXIS[id];
     scales[id] = {
-      id, value, band, word: BAND_WORD[band],
+      id, value, band, word: bandWord(id, band),
       name: src.name || DEFAULT_NAME[id],
       plain: src.plain || (ax ? `${ax.neg} at the low end, ${ax.pos.toLowerCase()} at the high end.` : ''),
       title: b.title || BAND_WORD[band],
@@ -236,21 +244,31 @@ export function buildReading(raw, ctx) {
     .slice(0, 2)
     .map((t, i) => ({ id: t.id || `t${i}`, text: t.text }));
 
+  // A reads line may be plain text, or { text, when } (or a list of those, the first that holds wins),
+  // so a line can stay quiet when it would contradict the rest of the reading (playtest, 18 Nov 2026).
+  const readsLine = (v) => {
+    for (const x of Array.isArray(v) ? v : [v]) {
+      if (typeof x === 'string' && x.trim()) return x;
+      if (isObj(x) && typeof x.text === 'string' && x.text.trim() && evalWhen(x.when, ctx).ok) return x.text;
+    }
+    return null;
+  };
   const reads = Object.entries(ctx.reads || {})
     .filter(([, v]) => Number.isFinite(v) && Math.abs(v) >= READS_MIN)
     .sort((x, y) => Math.abs(y[1]) - Math.abs(x[1]) || (x[0] < y[0] ? -1 : 1))
-    .slice(0, 2)
     .map(([tag, score]) => {
       const side = score > 0 ? 'high' : 'low';
-      const text = isObj(d.reads[tag]) ? d.reads[tag][side] : null;
-      return typeof text === 'string' && text.trim() ? { tag, score, side, text } : null;
+      const text = isObj(d.reads[tag]) ? readsLine(d.reads[tag][side]) : null;
+      return text ? { tag, score, side, text } : null;
     })
-    .filter(Boolean);
+    .filter(Boolean)
+    .slice(0, 2);
 
   const c = d.closers.find(x => evalWhen(x.when, ctx).ok);
   const closer = c ? c.text : FALLBACK_CLOSER;
+  const closerId = c ? c.id || null : null;
 
-  return { archetype, scales, contradictions, tells, reads, closer, present: d.present };
+  return { archetype, scales, contradictions, tells, reads, closer, closerId, present: d.present };
 }
 
 function defaultLine(band, ax) {

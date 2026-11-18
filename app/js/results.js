@@ -1,15 +1,15 @@
 // The result screen (the full dossier): ghost reveal, the personality reading, top five, your camp, ideology gauges, temperament,
 // dynasty and libertine dials, three words and your tells, and the share sheet.
 
-import { AXES, AXIS } from './axes.js';
-import { reasonFor } from './scoring.js';
-import { portraitEl } from './art.js';
-import { silhouetteEl } from './hud.js';
-import { haptic, sleep, reducedMotion, typewriter } from './feel.js';
-import { sfx } from './sound.js';
-import { renderShareSheet } from './sharesheet.js';
-import { normalizeShareConfig } from './share.js';
-import { archetypeArt, archName } from './reveal.js';
+import { AXES, AXIS } from './axes.js?v=7ad1c44-1794985733';
+import { reasonFor } from './scoring.js?v=7ad1c44-1794985733';
+import { portraitEl } from './art.js?v=7ad1c44-1794985733';
+import { silhouetteEl } from './hud.js?v=7ad1c44-1794985733';
+import { haptic, sleep, reducedMotion, typewriter } from './feel.js?v=7ad1c44-1794985733';
+import { sfx } from './sound.js?v=7ad1c44-1794985733';
+import { renderShareSheet } from './sharesheet.js?v=7ad1c44-1794985733';
+import { normalizeShareConfig } from './share.js?v=7ad1c44-1794985733';
+import { archetypeArt, archName } from './reveal.js?v=7ad1c44-1794985733';
 
 const h = (tag, cls, text) => {
   const e = document.createElement(tag);

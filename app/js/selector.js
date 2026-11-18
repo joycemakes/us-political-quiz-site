@@ -13,15 +13,15 @@
 //  - Election night: `phase` count first, then one outcome (loss or victory, never both); `finale` last.
 //  - A per-device seen-list (passed in) makes unseen questions preferred on replays.
 
-import { CHAPTERS, CHAPTER_SHARE } from './axes.js';
-import { routeOk, optionVectors, prepareQuestion } from './questions.js';
-import { makeRng } from './rng.js';
-import { predictAnswer } from './scoring.js';
+import { CHAPTERS, CHAPTER_SHARE } from './axes.js?v=7ad1c44-1794985733';
+import { routeOk, optionVectors, prepareQuestion } from './questions.js?v=7ad1c44-1794985733';
+import { makeRng } from './rng.js?v=7ad1c44-1794985733';
+import { predictAnswer } from './scoring.js?v=7ad1c44-1794985733';
 
-// Run lengths, in one place (Chris, 18 Nov 2026): Quick 45, Full Dossier 60 (was 90). Both meet the matching
+// Run lengths, in one place (Chris, 18 Nov 2026): Quick 38, Full Dossier 48 (was 45 and 60). Both meet the matching
 // bar (like-candidate bots first for 22+ of 23, random play's best match under 75%; app/tests/run.mjs).
-export const QUICK_LENGTH = 45;
-export const FULL_LENGTH = 60;
+export const QUICK_LENGTH = 38;
+export const FULL_LENGTH = 48;
 // Everything that depends on length scales from the per-50 figures below.
 export const SWEEP = 20;            // at 50; sweepAt(n) = min(21, round(0.4 n)): 14 at 35, 21 at 70
 export const BOMB_GAP = 8;          // at 50; bombGap(n) = clamp(round(8 n / 50), 6, 10): 6 at 35, 10 at 70
@@ -32,6 +32,11 @@ export const setSweepWeights = (d, n, l = LEADER_SPLIT_W) => { SWEEP_DISC = d; S
 export const sweepAt = n => Math.min(21, Math.round(0.4 * n));
 export const bombGap = n => Math.max(6, Math.min(10, Math.round((BOMB_GAP * n) / 50)));
 export const coverTop = n => Math.max(5, Math.min(COVER_TOP, Math.round((COVER_TOP * n) / 50)));
+export let EARLY_COVER = 8;          // uncovered leaders this high (all of coverTop) get a signature question as soon as their chapter allows
+export let TOP2_SPLIT_W = 1.5;    // adaptive picks: bonus when the top two would answer differently
+export const setTop2Split = w => { TOP2_SPLIT_W = w; };
+export let EARLY_WATCH = true;         // ...and so do the two just below them
+export const setEarlyCover = (n, w = EARLY_WATCH) => { EARLY_COVER = n; EARLY_WATCH = w; };
 export const DRAFT_GAP = 8;
 export const TOPIC_GAP = 6;
 export const TOPIC_PER_50 = 2;
@@ -267,18 +272,20 @@ export function createSelector({ bank, candidates, route, length, seed, seen = n
   const RELAX_LABEL = [null, null, null, 'group', 'type'];
 
   // Only ever the slot's own chapter.
-  function candidatesFor(i, filter, adaptive) {
+  function candidatesFor(i, filter, adaptive, maxRelax = 4) {
     const chapter = slots[i];
     relaxedBy = null;
     // relax 3 (topic-group spacing), then relax 4 (type caps); chapter purity goes after these, in pick().
-    for (let relax = 0; relax < 5; relax++) {
+    for (let relax = 0; relax <= maxRelax; relax++) {
       const list = pool.filter(q => q.chapter === chapter && (!filter || filter(q)) && phaseOk(q, i) && constraintsOk(q, i, relax, adaptive));
       // The device's seen-list is a hard preference: questions seen on earlier runs only when nothing unseen fits.
       if (seen && relax < 2) { const fresh = list.filter(q => !seen.has(q.id)); if (fresh.length) return fresh; }
       if (list.length) { relaxedBy = RELAX_LABEL[relax]; return list; }
     }
     // Election night ran out of the planned phase: allow any unused election night question but the finale.
-    if (slots[i] === 'election_night' && phaseAt[i] !== 'finale') {
+    // (Not for picks that may not ease anything, such as early cover: an outcome question in a count slot
+    // would leave the count questions after it.)
+    if (maxRelax >= 4 && slots[i] === 'election_night' && phaseAt[i] !== 'finale') {
       const outcomeTaken = history.some(h => h.phase && h.phase === outcome);
       const list = pool.filter(q => q.chapter === chapter && !q.finale && (!filter || filter(q)) && (q.phase || 'count') !== other
         && !(outcomeTaken && (q.phase || 'count') === 'count') && constraintsOk(q, i, 2, adaptive));
@@ -406,6 +413,22 @@ export function createSelector({ bank, candidates, route, length, seed, seen = n
       }
     }
 
+    // Early cover: a leader in the top EARLY_COVER who still has no signature question gets one as soon as
+    // this chapter has one that fits without easing any cap. Short runs cannot wait for the deadline
+    // above (at 38 questions a leader from question 5 on could go uncovered when the last chapter's
+    // signature question was blocked by a type cap).
+    if (adaptive && (uncovered.length || watch.size) && phaseAt[i] !== 'finale') {
+      const early = new Set(uncovered.filter(id => ranking.slice(0, EARLY_COVER).includes(id)));
+      if (EARLY_WATCH) for (const id of watch) early.add(id);
+      if (early.size) {
+        const l = candidatesFor(i, q => q.signature.some(id => early.has(id)), adaptive, 2);
+        if (l.length) {
+          const q = pickBy(l, q => q.signature.filter(id => early.has(id)).length + 0.3 * q.signature.filter(id => uncovered.includes(id)).length + 0.1 * q.discrimination - 0.5 * seenPenalty(q));
+          return take(q, i, `cover:${q.signature.filter(id => early.has(id)).join('+')}`);
+        }
+      }
+    }
+
     // The one exception to chapter purity, logged in the history as borrow:<chapter>: a top-8 leader
     // who has no signature question left in any chapter still to come gets one from the nearest
     // chapter, placed at the end of a chapter (or when the run is about to end).
@@ -445,6 +468,8 @@ export function createSelector({ bank, candidates, route, length, seed, seen = n
       } else {
         s = 1.2 * Math.min(3, splitScore(q, leaders)) + 0.3 * q.discrimination + rng.next() * 2.2;
         s += LEADER_SPLIT_W * (leaderSplit(q, leaders.slice(0, 3), byIdMap) - 1);
+        // The two leaders themselves: a question they would answer differently settles a close race.
+        if (TOP2_SPLIT_W && leaders.length >= 2) s += TOP2_SPLIT_W * (leaderSplit(q, leaders.slice(0, 2), byIdMap) - 1);
         s += 3 * q.signature.filter(id => uncSet.has(id)).length + q.signature.filter(id => watch.has(id)).length;
       }
       if (prev && prev.type === q.type) s -= 0.6;

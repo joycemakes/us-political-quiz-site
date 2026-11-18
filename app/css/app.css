@@ -257,8 +257,9 @@ h1, h2, h3 { font-weight: 400; margin: 0; }
 .art-frame > * { transition: filter .4s steps(4); }
 .art-envelope .scene-caption { font-size: 14px; padding: 4px 6px; left: 4px; right: 4px; bottom: 4px; }
 .scene-caption { position: absolute; left: 8px; right: 8px; bottom: 8px; padding: 8px 10px; background: rgba(9, 13, 24, .85); color: var(--parchment); box-shadow: var(--outline); animation: fadein .3s steps(3) 1; }
-.scene-envelope { position: absolute; width: 22%; aspect-ratio: 1.6; left: 39%; top: 30%; background: var(--parchment); box-shadow: var(--outline), inset 0 -40% 0 #d9cfb2, var(--drop); }
-.scene-envelope::before { content: ''; position: absolute; inset: 0 0 45% 0; background: linear-gradient(to bottom right, transparent 49%, #cdbf9b 50%) left / 50% 100% no-repeat, linear-gradient(to bottom left, transparent 49%, #cdbf9b 50%) right / 50% 100% no-repeat; }
+/* The envelope (or the opened letter) is a generated sprite (art/ui/LT-*.webp, Chris 18 Nov 2026). */
+.scene-envelope { position: absolute; width: 32%; aspect-ratio: 1; left: 34%; top: 18%; background: url("../art/ui/LT-ENVELOPE.webp") center / contain no-repeat; image-rendering: pixelated; filter: drop-shadow(4px 6px 0 rgba(6, 4, 5, .55)); pointer-events: none; }
+.scene-envelope.is-letter { background-image: url("../art/ui/LT-LETTER.webp"); }
 .scene-envelope.play-0 { animation: env-take 1s steps(8) forwards; }
 .scene-envelope.play-1 { animation: env-push 1s steps(8) forwards; }
 .scene-envelope.play-2 { animation: env-hold 1s steps(8) forwards; }
@@ -904,3 +905,5 @@ html.reveal-open, html.reveal-open body { overflow: hidden; }
 @media (max-width: 420px) { .hud-quit { width: 44px; height: 36px; padding: 0 2px; font-size: 10px; line-height: 1.05; letter-spacing: .02em; white-space: normal; }
   .hud { gap: 4px; } .warmap { width: 58px; } .hud-mid { min-width: 0; }
   .hud-chapter { font-size: 11px; letter-spacing: .03em; } .hud-q { font-size: 10px; letter-spacing: .03em; white-space: nowrap; } }
+/* Phones: the Haptics and Sound switches fit side by side at 375 (playtest: 14px sideways scroll). */
+@media (max-width: 420px) { .toggle-row { gap: 8px; } .toggle-row .switch-row { min-width: 0; gap: 6px; padding-left: 8px; padding-right: 8px; } .toggle-row .switch-label { font-size: 13px; letter-spacing: .06em; } .toggle-row .switch-track { width: 38px; } .toggle-row .switch-row[aria-checked="true"] .switch-knob { left: 15px; } }
