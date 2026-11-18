@@ -1,7 +1,7 @@
 // The player's profile for the result screen and share card: ideology camp (data/camps.json),
 // three personality words and a few flags. `camps` is the parsed data/camps.json camps array.
 
-import { AXES, AXIS_IDS } from './axes.js?v=c33a16e-1794988461';
+import { AXES, AXIS_IDS } from './axes.js?v=eafef2c-1794988692';
 
 const clamp = (v, lo, hi) => Math.max(lo, Math.min(hi, v));
 

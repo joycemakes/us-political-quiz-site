@@ -1,11 +1,11 @@
 // The share sheet on the result screen: image preview in three sizes, a system Share button on phones,
 // one button per platform, Instagram (download the story image), copy link, copy message, download.
 
-import { SIZES, drawShareCard, canvasBlob } from './sharecard.js?v=c33a16e-1794988461';
-import { buildMessage, shareUrls, X_LIMIT } from './share.js?v=c33a16e-1794988461';
-import { portraitUrl, artUrl } from './art.js?v=c33a16e-1794988461';
-import { reasonFor } from './scoring.js?v=c33a16e-1794988461';
-import { haptic } from './feel.js?v=c33a16e-1794988461';
+import { SIZES, drawShareCard, canvasBlob } from './sharecard.js?v=eafef2c-1794988692';
+import { buildMessage, shareUrls, X_LIMIT } from './share.js?v=eafef2c-1794988692';
+import { portraitUrl, artUrl } from './art.js?v=eafef2c-1794988692';
+import { reasonFor } from './scoring.js?v=eafef2c-1794988692';
+import { haptic } from './feel.js?v=eafef2c-1794988692';
 
 const h = (tag, cls, text) => {
   const e = document.createElement(tag);

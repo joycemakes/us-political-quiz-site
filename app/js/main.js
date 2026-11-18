@@ -1,25 +1,25 @@
 // US Political Quiz: boot, title screen, the run loop, chapter cards and the hand-off to results.
 
-import { loadData } from './data.js?v=c33a16e-1794988461';
-import { createSelector, QUICK_LENGTH, FULL_LENGTH } from './selector.js?v=c33a16e-1794988461';
-import { createScorer, applyAnswer, axisScores, matchCandidates, matchCamps } from './scoring.js?v=c33a16e-1794988461';
-import { buildProfile } from './profile.js?v=c33a16e-1794988461';
-import { CHAPTERS, CHAPTER_TITLE, CHAPTER_LINE } from './axes.js?v=c33a16e-1794988461';
-import { routeOk } from './questions.js?v=c33a16e-1794988461';
-import { installPress, haptic, setHaptics, getHaptics, runFx, typewriter, sleep, store, reducedMotion } from './feel.js?v=c33a16e-1794988461';
-import { loadArtManifest, createArtSlot, artUrl, artVersion } from './art.js?v=c33a16e-1794988461';
-import { billTitle } from './types.js?v=c33a16e-1794988461';
-import { createWarMap, createGhosts } from './hud.js?v=c33a16e-1794988461';
-import { renderAnswer } from './types.js?v=c33a16e-1794988461';
-import { howFor, showCue, watchIdle } from './howto.js?v=c33a16e-1794988461';
-import { swipeEnds } from './types.js?v=c33a16e-1794988461';
-import { renderResults } from './results.js?v=c33a16e-1794988461';
-import { newSeed } from './rng.js?v=c33a16e-1794988461';
-import { loadShareConfig } from './share.js?v=c33a16e-1794988461';
-import { getSound, setSound, sfx } from './sound.js?v=c33a16e-1794988461';
-import { readingContext, buildReading } from './reading.js?v=c33a16e-1794988461';
-import { playReveal } from './reveal.js?v=c33a16e-1794988461';
-import { dossierFromRun, encodeDossier, decodeDossier, rebuildDossier, dossierLink, codeFromHash, fileNumber, minuteOf, tidyScores, tidyReads } from './dossier.js?v=c33a16e-1794988461';
+import { loadData } from './data.js?v=eafef2c-1794988692';
+import { createSelector, QUICK_LENGTH, FULL_LENGTH } from './selector.js?v=eafef2c-1794988692';
+import { createScorer, applyAnswer, axisScores, matchCandidates, matchCamps } from './scoring.js?v=eafef2c-1794988692';
+import { buildProfile } from './profile.js?v=eafef2c-1794988692';
+import { CHAPTERS, CHAPTER_TITLE, CHAPTER_LINE } from './axes.js?v=eafef2c-1794988692';
+import { routeOk } from './questions.js?v=eafef2c-1794988692';
+import { installPress, haptic, setHaptics, getHaptics, runFx, typewriter, sleep, store, reducedMotion } from './feel.js?v=eafef2c-1794988692';
+import { loadArtManifest, createArtSlot, artUrl, artVersion } from './art.js?v=eafef2c-1794988692';
+import { billTitle } from './types.js?v=eafef2c-1794988692';
+import { createWarMap, createGhosts } from './hud.js?v=eafef2c-1794988692';
+import { renderAnswer } from './types.js?v=eafef2c-1794988692';
+import { howFor, showCue, watchIdle } from './howto.js?v=eafef2c-1794988692';
+import { swipeEnds } from './types.js?v=eafef2c-1794988692';
+import { renderResults } from './results.js?v=eafef2c-1794988692';
+import { newSeed } from './rng.js?v=eafef2c-1794988692';
+import { loadShareConfig } from './share.js?v=eafef2c-1794988692';
+import { getSound, setSound, sfx } from './sound.js?v=eafef2c-1794988692';
+import { readingContext, buildReading } from './reading.js?v=eafef2c-1794988692';
+import { playReveal } from './reveal.js?v=eafef2c-1794988692';
+import { dossierFromRun, encodeDossier, decodeDossier, rebuildDossier, dossierLink, codeFromHash, fileNumber, minuteOf, tidyScores, tidyReads } from './dossier.js?v=eafef2c-1794988692';
 
 const app = document.getElementById('app');
 const h = (tag, cls, text) => {

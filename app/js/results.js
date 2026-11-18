@@ -1,15 +1,15 @@
 // The result screen (the full dossier): ghost reveal, the personality reading, top five, your camp, ideology gauges, temperament,
 // dynasty and libertine dials, three words and your tells, and the share sheet.
 
-import { AXES, AXIS } from './axes.js?v=c33a16e-1794988461';
-import { reasonFor } from './scoring.js?v=c33a16e-1794988461';
-import { portraitEl } from './art.js?v=c33a16e-1794988461';
-import { silhouetteEl } from './hud.js?v=c33a16e-1794988461';
-import { haptic, sleep, reducedMotion, typewriter } from './feel.js?v=c33a16e-1794988461';
-import { sfx } from './sound.js?v=c33a16e-1794988461';
-import { renderShareSheet } from './sharesheet.js?v=c33a16e-1794988461';
-import { normalizeShareConfig } from './share.js?v=c33a16e-1794988461';
-import { archetypeArt, archName } from './reveal.js?v=c33a16e-1794988461';
+import { AXES, AXIS } from './axes.js?v=eafef2c-1794988692';
+import { reasonFor } from './scoring.js?v=eafef2c-1794988692';
+import { portraitEl } from './art.js?v=eafef2c-1794988692';
+import { silhouetteEl } from './hud.js?v=eafef2c-1794988692';
+import { haptic, sleep, reducedMotion, typewriter } from './feel.js?v=eafef2c-1794988692';
+import { sfx } from './sound.js?v=eafef2c-1794988692';
+import { renderShareSheet } from './sharesheet.js?v=eafef2c-1794988692';
+import { normalizeShareConfig } from './share.js?v=eafef2c-1794988692';
+import { archetypeArt, archName } from './reveal.js?v=eafef2c-1794988692';
 
 // The words on a dossier someone shared (the only quiz-specific copy for shared links).
 export const SHARED_COPY = {
@@ -203,7 +203,7 @@ export function renderResults(root, R) {
   screen.appendChild(sheet);
 
   // ---- share ----
-  const share = section('Share your result', 'share-block');
+  const share = section(SH('Share your result', 'Share this result'), 'share-block');
   renderShareSheet(share, { profile, matches, cands, route, scores, shareCfg: R.shareCfg || normalizeShareConfig(null), reading: R.reading, link: R.dossier?.link });
   screen.appendChild(share);
 
