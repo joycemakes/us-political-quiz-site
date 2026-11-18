@@ -71,7 +71,7 @@
         "His first wife Kimberly Guilfoyle was later engaged to Donald Trump Jr."
       ],
       "camp": "dem-bigtent",
-      "campFit": 89
+      "campFit": 88
     },
     {
       "id": "shapiro",
@@ -107,7 +107,7 @@
         "Do not joke about the April 2025 arson attack on his residence"
       ],
       "camp": "dem-centrist",
-      "campFit": 92
+      "campFit": 91
     },
     {
       "id": "harris",
@@ -248,7 +248,7 @@
         "November 2025 video with other veteran lawmakers telling troops they can refuse illegal orders; Trump called it seditious"
       ],
       "camp": "dem-centrist",
-      "campFit": 81
+      "campFit": 80
     },
     {
       "id": "pritzker",
@@ -352,7 +352,7 @@
         "Pushed the Epstein files discharge petition with Republican Thomas Massie in 2025"
       ],
       "camp": "dem-kitchen",
-      "campFit": 92
+      "campFit": 91
     },
     {
       "id": "ossoff",
@@ -708,7 +708,7 @@
         "Trump insulted his wife and father in 2016; he later endorsed Trump anyway"
       ],
       "camp": "gop-movement",
-      "campFit": 92
+      "campFit": 91
     },
     {
       "id": "ramaswamy",
@@ -813,7 +813,7 @@
         "Populist on labour, unusual for a Republican"
       ],
       "camp": "gop-populist",
-      "campFit": 79
+      "campFit": 78
     }
   ]
 }

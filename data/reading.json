@@ -1,0 +1,1130 @@
+{
+  "_note": "The personality reading for THE 2028 QUIZ (format: research/READING_CONTRACT.md). scales: ten scales, five bands each by axis value (high >= 1.2, above >= 0.4, mid > -0.4, below > -1.2, low otherwise). archetypes: the one with the most conditions that all hold wins, ties by margin; weathervane is the fallback; the six before it (poisoner to functionary) catch the middle ground with between conditions. contradictions: up to two. tells: up to two, about how the player answered. reads: the eight tags, high and low. closers: first in list order that holds; the fallback is last. Voice: second person, a dossier written by someone who hates the player and knows them well: what monster they would be with power, who they would destroy and how they would enjoy it, and the weakness an enemy would use. No quotation marks, American spelling, no real candidates named.",
+  "scales": {
+    "mach": {
+      "name": "Machiavellianism",
+      "plain": "How far you will lie, scheme and use people to get what you want.",
+      "bands": {
+        "high": {
+          "title": "Born schemer",
+          "line": "You have never had a conversation. You have had extractions.",
+          "detail": "Every person is a lever to you and every kindness a deposit you intend to withdraw. With power you would rule by debt, secret and quiet threat, and nobody would ever catch you giving an order. Your weakness: you can no longer recognize a sincere offer, so you will knife the one person who meant it."
+        },
+        "above": {
+          "title": "Schemer by habit",
+          "line": "You lie well, and only when it is useful, which is most days.",
+          "detail": "You keep a second plan, a second story and a short list of what everyone near you would hate to see printed. It makes you effective and faintly radioactive. The danger is the day you meet a real one and discover you were the amateur at the table."
+        },
+        "mid": {
+          "title": "Schemer when cornered",
+          "line": "You are honest until someone quotes you the price of honesty.",
+          "detail": "You have a conscience and a number, and nobody has named the number yet. Real predators adore you: clean enough to vouch for them, bendable enough to look away. You will be somebody's accomplice long before you are anybody's rival."
+        },
+        "below": {
+          "title": "Mostly straight dealer",
+          "line": "You say what you want out loud, like prey.",
+          "detail": "You would rather lose than cheat, and the people around you have built that into their plans. You are easy to read, easy to route around and very easy to blame. To them your honesty is not a virtue; it is a schedule."
+        },
+        "low": {
+          "title": "Straight dealer, defenseless",
+          "line": "You have never run a play in your life, and the whole table can smell it.",
+          "detail": "You keep your word, show your hand and leave the envelope where it lies. That makes you the perfect front: the honest face sent out to say what the liars need believed. You will be used until you are used up, and you will thank them for the opportunity."
+        }
+      }
+    },
+    "narc": {
+      "name": "Narcissism",
+      "plain": "How badly you need to be watched, praised and obeyed.",
+      "bands": {
+        "high": {
+          "title": "Main character, insatiable",
+          "line": "You do not have relationships. You have an audience and a waiting list.",
+          "detail": "You need to be looked at the way a fire needs air, and you burn through anyone who stops supplying it. With power you would build a court of mirrors and exile the first face that failed to reflect you. Your weakness is flattery: anyone who kneels convincingly can steer you by the ego."
+        },
+        "above": {
+          "title": "Hungry for worship",
+          "line": "You say you do not need the credit. You say it into a microphone.",
+          "detail": "You expect the room to turn when you enter, and you keep score when it does not. It gives you presence, and a growing list of people who must be punished for yawning. A rival only has to praise you to get within arm's reach."
+        },
+        "mid": {
+          "title": "Vain on a leash",
+          "line": "You like being watched, but you can still eat a meal without it.",
+          "detail": "You want the credit and you can survive without it, which makes you neither a star nor a servant. The shameless will pass you and the humble will resent you. Ego this moderate is just envy with good manners."
+        },
+        "below": {
+          "title": "Shrinks from the spotlight",
+          "line": "You hand other people the bow and quietly hate them for taking it.",
+          "detail": "You distrust attention, yours most of all, so louder people wear your work like a coat. You call it modesty. It is a long, silent grudge, and it is the handle by which a patient schemer will pick you up."
+        },
+        "low": {
+          "title": "Self-effacing, invisible",
+          "line": "You could be cut from the photograph and nobody would crop it differently.",
+          "detail": "You ask for nothing, claim nothing and apologize for the space you take up. Powerful people love that in a subordinate and step on it without breaking stride. You are not humble; you are furniture, and furniture gets sold with the house."
+        }
+      }
+    },
+    "psych": {
+      "name": "Psychopathy",
+      "plain": "How coldly you can ruin a person, and how little it costs you.",
+      "bands": {
+        "high": {
+          "title": "Ruthless, stone cold",
+          "line": "You have ended people between courses and asked for the dessert menu.",
+          "detail": "Other people's pain reaches you as information, when it reaches you at all. With power you would cut, sack and ruin without a raised pulse, and promote whoever copied you best. Your weakness is that fear is the only loyalty you have ever bought, and fear changes sides the moment you look weak."
+        },
+        "above": {
+          "title": "Ruthless when useful",
+          "line": "You feel bad afterwards. Briefly. On the drive home.",
+          "detail": "You can make the call that ruins someone and still enjoy dinner. You tell yourself it is only when necessary, and necessity has been getting more frequent. The people around you have noticed the pattern and started keeping files of their own."
+        },
+        "mid": {
+          "title": "Ruthless by appointment",
+          "line": "You have a heart and a calendar, and the calendar usually wins.",
+          "detail": "You will spare someone if it is cheap and bury them if it is not. You call that being reasonable. The person under the dirt calls it something else, and one of them will eventually get to say it under oath."
+        },
+        "below": {
+          "title": "Soft-hearted, exploitable",
+          "line": "You give second chances to people who are already spending the third.",
+          "detail": "You feel what your decisions cost, and it slows your hand at the exact moment a predator needs it slowed. Your staff love you for it. Your enemies love you more: they have learned you can be held hostage by a sad face."
+        },
+        "low": {
+          "title": "Soft-hearted, born victim",
+          "line": "You could not sack the man who is robbing you. You would ask if he was all right.",
+          "detail": "You carry everyone you ever let down, and you would rather lose than add to the weight. In this trade that is not goodness; it is an open wound in shark water. Every cruel thing done in your name will be done by someone who knew you would forgive them."
+        }
+      }
+    },
+    "dynasty": {
+      "name": "Nepotism and dynasty",
+      "plain": "Whether power belongs to your blood or to whoever can take it.",
+      "bands": {
+        "high": {
+          "title": "Dynasty builder, blood first",
+          "line": "You do not hire people. You breed them, or you marry them in.",
+          "detail": "You believe blood is the only contract that cannot be broken, so the family gets the offices, the money and the pardons. With power you would turn a republic into an inheritance. Your weakness sits at your own table: heirs raised to take what they want will eventually want what is yours."
+        },
+        "above": {
+          "title": "Family over merit",
+          "line": "The best person for the job is, by coincidence, always a relative.",
+          "detail": "A name opened the door for you or for someone you protect, and you see no shame in holding it shut behind you. You call it loyalty. Everyone outside calls it what it is, and they are compiling the list."
+        },
+        "mid": {
+          "title": "Nepotism when convenient",
+          "line": "You are against nepotism in general and for it in every specific case.",
+          "detail": "You believe in merit right up to the moment your own kin need a favor. That makes you an ordinary hypocrite, which is the easiest kind to buy. One job for one relative is all the leash anyone will ever need on you."
+        },
+        "below": {
+          "title": "Merit over blood",
+          "line": "A famous surname makes you reach for the résumé and the knife together.",
+          "detail": "You think heirs are thieves with better tailoring, and you enjoy watching them fail. It keeps you sharp, and it makes you enemies with long memories and old money. The families will wait you out; waiting is what they are bred for."
+        },
+        "low": {
+          "title": "Pure meritocrat, kinless",
+          "line": "You would make your own child apply online, and then reject the application.",
+          "detail": "You owe nothing to blood and you want nobody else to either. It is clean, it is cold, and it leaves you alone at the end: no clan, no cousins, nobody obliged to lie for you. A dynasty can lose a battle; a person with no one loses once."
+        }
+      }
+    },
+    "libertine": {
+      "name": "Libertine",
+      "plain": "Whether you indulge appetite and shrug at scandal, or police it in everyone.",
+      "bands": {
+        "high": {
+          "title": "Shameless libertine",
+          "line": "You cannot be shamed, which is not the same as having nothing to hide.",
+          "detail": "You treat appetite as a right and scandal as weather. With power you would keep a court where everyone is compromised, so nobody can talk. Your weakness is the drawer: someone has kept every receipt, and shamelessness is no defense against evidence."
+        },
+        "above": {
+          "title": "Leans libertine",
+          "line": "You forgive a vice far faster than a boring speech.",
+          "detail": "You leave other people's private lives alone, mostly because you want yours left alone too. It makes you easy company and a soft target. Somewhere a folder is getting thicker, and its keeper is in no hurry."
+        },
+        "mid": {
+          "title": "Vice in moderation",
+          "line": "You have standards, and they keep office hours.",
+          "detail": "You condemn in your enemies what you excuse in your friends and overlook in yourself. So does everyone, which is why it works until somebody plays the tape. You are exactly compromised enough to be owned and not enough to be feared."
+        },
+        "below": {
+          "title": "Leans puritan",
+          "line": "You notice who stays for the third drink, and you write it down.",
+          "detail": "You keep your own conduct tidy and take a close interest in everyone else's. You would call it standards. It is closer to a hobby, and the people you watch can feel your eyes on the back of their necks."
+        },
+        "low": {
+          "title": "Strict puritan",
+          "line": "Your private life could be read aloud in church, and you resent everyone whose could not.",
+          "detail": "You have denied yourself everything, and you want company in it. With power you would police appetite the way other tyrants police speech, and you would enjoy the inspections. Your weakness is the hunger you have starved for decades: it is not dead, and an enemy only has to feed it once, on camera."
+        }
+      }
+    },
+    "loyalty": {
+      "name": "Loyalty",
+      "plain": "Whether you serve a master to the end or sell every flag you salute.",
+      "bands": {
+        "high": {
+          "title": "Loyal like a dog",
+          "line": "You would take the fall, and ask if there was a second fall you could take.",
+          "detail": "You have handed your judgment to a master, and you call the emptiness devotion. With power you would do anything the leader hinted at and several things the leader would rather not know about. Your weakness is the leash itself: you will be spent like small change and mistake it for honor."
+        },
+        "above": {
+          "title": "Loyal, on a leash",
+          "line": "You stand by your people until the subpoena has your name on it.",
+          "detail": "You keep faith with the boss and expect to be kept in return, which shows how little you understand bosses. It makes you promotable and disposable in the same motion. You will find out which one you were on the day it matters."
+        },
+        "mid": {
+          "title": "Loyal while it pays",
+          "line": "Your loyalty is real, and it is reviewed quarterly.",
+          "detail": "You back the leader on the way up and discover your conscience on the way down. Everyone does it; you are simply punctual. Both sides have you marked as someone who can be had, and neither will pay full price."
+        },
+        "below": {
+          "title": "Leans free agent",
+          "line": "You keep one foot by the door and one eye on somebody's back.",
+          "detail": "You owe nobody your vote, and you enjoy reminding them. It keeps you unbought and uninvited. When the knives come out, you will find that nobody remembers owing you a warning."
+        },
+        "low": {
+          "title": "Free agent, faithless",
+          "line": "You have betrayed every flag you ever saluted, some of them twice.",
+          "detail": "Nobody owns you, because nobody would trust the receipt. You turn on allies as a matter of taste and call it independence. Your weakness is the map: you are running out of places that will still let you in."
+        }
+      }
+    },
+    "style": {
+      "name": "Fighting style",
+      "plain": "Whether you take what you want by the handshake or by the beating.",
+      "bands": {
+        "high": {
+          "title": "Pure brawler, bloodthirsty",
+          "line": "You do not want to win the argument. You want the other side to remember losing it.",
+          "detail": "You go for the soft parts on instinct, and you enjoy the sound. With power you would govern by public beating: one enemy a week, made an example of, to keep the rest quiet. Your weakness is that you cannot stop; with no enemy in reach, you start on your friends."
+        },
+        "above": {
+          "title": "Brawler by instinct",
+          "line": "You say you hate conflict, with your sleeves already rolled.",
+          "detail": "You would rather wound than bargain, and it reads as strength to people who have never been on the other end of it. You are leaving a trail of survivors behind you. Survivors talk to each other."
+        },
+        "mid": {
+          "title": "Smiles, then strikes",
+          "line": "You shake with the right hand and keep the left one free.",
+          "detail": "You can cut a deal or cut a person down, and nobody knows which they are getting until you arrive. That makes you flexible and impossible to trust. The first serious enemy you make will simply wait for the handshake."
+        },
+        "below": {
+          "title": "Conciliator, mostly spineless",
+          "line": "You would rather find the deal than win, and it shows in what you gave away.",
+          "detail": "You lower the temperature in every room, usually by lowering yourself. People like you; they also take things from you without asking. The loud ones have learned that you pay to make the noise stop."
+        },
+        "low": {
+          "title": "Born conciliator, doormat",
+          "line": "You have never met an aggressor you could not make room for.",
+          "detail": "You believe every enemy is a friend who has not finished taking yet. You concede first, apologize second and thank them third. With power you would hand it over at the first raised voice and write the thank-you note yourself."
+        }
+      }
+    },
+    "online": {
+      "name": "Extremely online",
+      "plain": "Whether you hunt on the timeline or work in print, phone calls and whispers.",
+      "bands": {
+        "high": {
+          "title": "Extremely online, feral",
+          "line": "You have ruined a stranger before your coffee went cold.",
+          "detail": "The feed is your weapon, your mirror and your cage. With power you would rule by mob: name the target, post the clip, and let the pack do what you cannot be seen doing. Your weakness is that the pack is not loyal, only hungry, and everything you ever posted is still there."
+        },
+        "above": {
+          "title": "Very online",
+          "line": "You read the replies. All of them. Twice.",
+          "detail": "You know how to move a crowd from a phone, and you like the taste. It keeps you fast and keeps your worst instincts well fed. You are one bad night away from handing your enemies the clip they have been praying for."
+        },
+        "mid": {
+          "title": "Online, within limits",
+          "line": "You post, you lurk, and you log off before it gets a grip on you. Mostly.",
+          "detail": "You use the mob without belonging to it, like someone who keeps a dangerous dog next door. It will not save you. When it turns, it does not check how often you logged in."
+        },
+        "below": {
+          "title": "Mostly offline",
+          "line": "You hear what they are saying about you three days late, from a relative.",
+          "detail": "You work by phone call and private dinner, where nothing is screenshotted. That is where the real crimes are arranged, so you are in good company. But your reputation is being written by strangers, and you are not in the room."
+        },
+        "low": {
+          "title": "Offline, old media",
+          "line": "You still think a quiet word with an editor can kill a story.",
+          "detail": "You operate in print, in person and in whispers, like something that has not noticed the sun come up. The old levers still work on old people. Everyone else is watching you get taken apart on a screen you cannot find."
+        }
+      }
+    },
+    "system": {
+      "name": "Insurgent streak",
+      "plain": "Whether you want to own the institutions or burn them with everyone inside.",
+      "bands": {
+        "high": {
+          "title": "Insurgent, burn it down",
+          "line": "You look at two centuries of institutions and see kindling and a list.",
+          "detail": "You want it all torn out, and you have thought far more about the bonfire than the morning after. With power you would purge first and build never, because the purge is the part you came for. Your weakness: the day you win you become the establishment, and you have taught everyone what to do to one."
+        },
+        "above": {
+          "title": "Insurgent at heart",
+          "line": "You want the establishment destroyed, except the parts that invite you to dinner.",
+          "detail": "You hate the people who run things, and you want their chairs. It gives you a following and a permanent supply of traitors to denounce. Watch the invitations: the first one you accept is the price they bought you for."
+        },
+        "mid": {
+          "title": "Half rebel, half insider",
+          "line": "You want to shake the system, gently, without losing your pass to the building.",
+          "detail": "You see the rot, and you also like the furniture. The rebels think you are a plant and the insiders think you are a risk, and both are right. You will be the first one sold when either side needs to show good faith."
+        },
+        "below": {
+          "title": "Leans institutionalist",
+          "line": "You trust the process, even while it is being used on you.",
+          "detail": "You believe the rules protect you, which is what the rules were written to make you believe. It makes you reliable and blind. The people breaking them are counting on you to file an objection and wait."
+        },
+        "low": {
+          "title": "Institutionalist to the bone",
+          "line": "You would report the coup to the proper committee and wait for a reply.",
+          "detail": "You worship procedure, and procedure has been good to you. With power you would defend any horror that arrived with the correct signatures. Your weakness is that the machine has no loyalty back: when it needs someone to blame, you are already on file."
+        }
+      }
+    },
+    "faith": {
+      "name": "Faith in public life",
+      "plain": "Whether God is your creed, your weapon or your enemy in politics.",
+      "bands": {
+        "high": {
+          "title": "Faith first, weaponized",
+          "line": "You open with a prayer and note who kept their eyes open.",
+          "detail": "You believe God belongs in government, and you have a strong feeling He would approve of your appointments. With power you would turn sin into statute and yourself into its interpreter. Your weakness is the pedestal: the higher the pulpit, the better the view of whatever you are hiding under it."
+        },
+        "above": {
+          "title": "Faith on display",
+          "line": "You never miss the prayer breakfast, or the photographer at it.",
+          "detail": "Belief is part of your act and maybe part of you; even you are no longer sure of the ratio. It opens rooms that money cannot. One day you will quote scripture to win a vote and notice that it did not feel like anything."
+        },
+        "mid": {
+          "title": "Faith when useful",
+          "line": "You can say God bless America and mean anything from nothing to a threat.",
+          "detail": "You wear belief like a lapel pin: on for the cameras, off for the meeting. It offends nobody and fools fewer people than you think. The devout can smell a tourist, and so can the godless."
+        },
+        "below": {
+          "title": "Leans secular",
+          "line": "You bow your head at the right moment and count the room.",
+          "detail": "You think faith is private, and you treat the faithful as a constituency to be managed. It keeps your reasoning clean and your contempt visible. The pulpit you ignore will be turned on you by someone who believes even less than you do."
+        },
+        "low": {
+          "title": "Strictly secular, godless",
+          "line": "You would take the motto off the money and enjoy the complaints.",
+          "detail": "You want religion out of public life, and you cannot hide how far you look down on people who do not. With power you would lecture half the country about its superstitions and be amazed when it voted to bury you. Your weakness is that contempt: it reads from the back of the hall."
+        }
+      }
+    }
+  },
+  "archetypes": [
+    {
+      "id": "puppeteer",
+      "name": "The Puppeteer",
+      "tagline": "The king wears the crown. You hold the leash.",
+      "when": {
+        "mach": ">=0.8",
+        "narc": "<=0.5",
+        "style": "<=0.5"
+      },
+      "text": "You do not want the throne; thrones have windows. You want the creature sitting on it to flinch when you clear your throat. With power you would own a king the way other people own a dog: fed, groomed and taught which hand it answers to. You would break his rivals one at a time and let him take the bow, because watching a ruler thank you for his own leash is the only applause you enjoy. Your weakness is that you cannot bear to be known: the enemy who simply says your name in public, as the hand inside the puppet, ends you.",
+      "art": "AR-PUPPETEER"
+    },
+    {
+      "id": "gravedigger",
+      "name": "The Gravedigger",
+      "tagline": "You bury careers over lunch and send flowers.",
+      "when": {
+        "online": "<=-0.8",
+        "style": "<=-0.3",
+        "system": "<=-0.3"
+      },
+      "text": "You are the polite end of a great many careers. You do it over lunch, in a low voice, with real regret about the weather. With power you would run the old machine exactly as it has always run: favors owed, calls returned, inconvenient people quietly lowered into consulting. You enjoy it most when the corpse thanks you for the advice. Your weakness is that you think the cemetery is the world: an enemy who fights on a screen you cannot work will have you buried before the paper prints.",
+      "art": "AR-GRAVEDIGGER"
+    },
+    {
+      "id": "zealot",
+      "name": "The Zealot",
+      "tagline": "You love the people. It is persons you cannot stand.",
+      "when": {
+        "system": ">=0.8",
+        "econ": "<=-0.8",
+        "mach": "<=0.5"
+      },
+      "text": "You believe every word, and that is what makes you dangerous to anyone standing near you. With power you would hold tribunals for your own side first, because a traitor is more satisfying than an enemy. You would destroy the friend who compromised, slowly and in public, with a list of his own old statements, and you would call the feeling in your chest justice. You love the people; it is persons you cannot stand. Your weakness is purity: an enemy only has to prove one stain on you, and the mob you trained will do the rest with your own methods.",
+      "art": "AR-ZEALOT"
+    },
+    {
+      "id": "confessor",
+      "name": "The Confessor",
+      "tagline": "You forgive everything. You forget nothing.",
+      "when": {
+        "faith": ">=1",
+        "libertine": "<=-0.8",
+        "psych": "<=-0.3"
+      },
+      "text": "People tell you things. You have the kind face, the quiet voice and the clean life that make a sinner feel safe, and you have never once wasted a confession. With power you would run a government of the absolved: every minister forgiven, every pardon on file, every one of them yours. You would never expose anyone; you would only let them know that you pray for them, by name, in detail, and you enjoy the moment their eyes change. Your weakness is the halo: you have no practice at being doubted, and one credible whisper that the saint keeps a ledger turns your whole flock into witnesses.",
+      "art": "AR-CONFESSOR"
+    },
+    {
+      "id": "kept-heir",
+      "name": "The Kept Heir",
+      "tagline": "The family owns the name. The name owns you.",
+      "when": {
+        "dynasty": ">=0.5",
+        "style": "<=-0.3",
+        "psych": "<=0"
+      },
+      "text": "You were bred for this the way a show dog is bred: good coat, good manners, no say in it. The family despises you a little, and you have spent your life earning the contempt in the hope that it turns into love. With power you would sign what the elders slide in front of you and take the blame they assign, gratefully. You would ruin whoever the family pointed at, apologize to them in person and feel almost useful. Your weakness is plain to everyone but you: an enemy only has to offer the approval your own blood withholds, and you will hand over the keys.",
+      "art": "AR-KEPT-HEIR"
+    },
+    {
+      "id": "decadent",
+      "name": "The Decadent",
+      "tagline": "Born owning the room. Bored of everyone in it.",
+      "when": {
+        "libertine": ">=0.8",
+        "narc": ">=0.8",
+        "dynasty": ">=0.5",
+        "style": ">=0"
+      },
+      "text": "You were born owning the room, and you have been bored of the people in it ever since. Appetite is the only thing you have ever taken seriously. With power you would hold court like a late emperor: favorites raised for a season, made to perform their gratitude, then dropped from a height for the pleasure of the sound. You would degrade the proud ones first, because watching dignity bargain is your favorite entertainment. Your weakness is that you leave evidence everywhere: you have never believed a consequence was addressed to you, and somewhere a patient guest has kept the receipts.",
+      "art": "AR-DECADENT"
+    },
+    {
+      "id": "usurper",
+      "name": "The Usurper",
+      "tagline": "The family built a throne. You are pricing it.",
+      "when": {
+        "dynasty": ">=1",
+        "style": ">=0.3",
+        "narc": ">=0.3"
+      },
+      "text": "The family built a throne and expected you to wait for it. You have been pricing it instead. With power you would do to your own blood what they did to everyone else: cut the old man out of the meeting, sell the siblings to the press one secret at a time, and keep the name, which is the only relative you ever liked. You would enjoy the dinner afterwards most of all, the one where they have to ask you for money. Your weakness is that you are a copy: every move you have was taught at that table, and the relative you underestimated had the same lessons and has a longer memory.",
+      "art": "AR-USURPER"
+    },
+    {
+      "id": "liquidator",
+      "name": "The Liquidator",
+      "tagline": "People are overhead. You came to cut overhead.",
+      "when": {
+        "tech": ">=1",
+        "system": ">=0.8",
+        "dynasty": "<=-0.8"
+      },
+      "text": "You look at a country and see headcount. You came from nothing, which taught you that everyone else is replaceable too. With power you would run the state like an acquisition: gut it, rename it, and fire by spreadsheet the people who knew where the pipes were. You would enjoy the efficiency of it, the clean thrill of a name becoming a number and the number becoming zero. Your weakness is contempt: you never bothered to learn what the little people know, and one of the clerks you deleted kept a copy of everything.",
+      "art": "AR-LIQUIDATOR"
+    },
+    {
+      "id": "turncoat",
+      "name": "The Turncoat",
+      "tagline": "Every side you ever joined still has the scar.",
+      "when": {
+        "style": ">=1.2",
+        "loyalty": "<=-0.8",
+        "psych": ">=0.5"
+      },
+      "text": "You have belonged to every side, and each of them still has the scar. You do not betray for money or for principle; you betray because the moment of the turn is the only time you feel fully awake. With power you would keep everyone near you guessing which of them is next, and you would choose by mood. What you enjoy is the face: the half second when an ally understands that the knife has your monogram on it. Your weakness is arithmetic: you are running out of sides, and the last one left will know exactly what you are when you arrive.",
+      "art": "AR-TURNCOAT"
+    },
+    {
+      "id": "inquisitor",
+      "name": "The Inquisitor",
+      "tagline": "You never sin. You only need it described twice.",
+      "when": {
+        "libertine": "<=-1.2",
+        "style": ">=0.5",
+        "system": ">=0.3"
+      },
+      "text": "You have never committed a sin in your life, and you have never stopped thinking about other people's. With power you would hold hearings: long ones, with the door closed, where the accused is made to describe everything twice. You would destroy people for what they do in private and call it hygiene. The questions are the part you enjoy; you would be offended to hear it called appetite, and it is appetite. Your weakness is exactly what you hunt: an enemy does not need to find a vice in you, only to ask in public why you need so much detail.",
+      "art": "AR-INQUISITOR"
+    },
+    {
+      "id": "appeaser",
+      "name": "The Appeaser",
+      "tagline": "Anything for a quiet night. Anyone, usually.",
+      "when": {
+        "world": "<=-0.6",
+        "psych": "<=0"
+      },
+      "text": "You would give anything for a quiet night, and what you usually give is someone else. You call it peace. With power you would feed your friends to whatever was growling loudest, one at a time, with a statement of deep concern for each. You would never destroy anyone yourself; you would stand aside, hold the door for the thing that does, and enjoy being the only adult who stayed calm. Your weakness is that every predator alive can smell it on you: an enemy only has to raise his voice, and you start listing what you are willing to lose.",
+      "art": "AR-APPEASER"
+    },
+    {
+      "id": "warden",
+      "name": "The Warden",
+      "tagline": "You sleep best when everyone is counted.",
+      "when": {
+        "world": ">=1",
+        "liberty": "<=-0.3",
+        "psych": ">=0"
+      },
+      "text": "You do not hate people. You just sleep better when they are counted, watched and facing the wall. With power you would build the lists first: who travels, who gathers, who said what to whom. You would break the ones who refused to be filed, calmly, for the safety of the rest, and enjoy the silence afterwards the way other people enjoy music. Your weakness is fear, which is the only thing you really govern by: show you a threat, even an invented one, and you will lock down the wrong wing while your enemy walks out the front.",
+      "art": "AR-WARDEN"
+    },
+    {
+      "id": "ringleader",
+      "name": "The Ringleader",
+      "tagline": "You only point. Ten thousand strangers do the rest.",
+      "when": {
+        "online": ">=1.2",
+        "style": ">=0.8",
+        "narc": ">=0.3"
+      },
+      "text": "You do not destroy people. You point, and ten thousand strangers do it for you before breakfast. With power you would rule by pile-on: a name, a clip, a nickname, and then the pleasure of watching a life come apart in your replies while your own hands stay clean. You would pick targets for sport, the smaller the better, because the small ones break where you can see it. Your weakness is the leash: the mob is not yours, it is only hungry, and the enemy who hands it a tastier clip of you will watch it turn without breaking stride.",
+      "art": "AR-RINGLEADER"
+    },
+    {
+      "id": "whisperer",
+      "name": "The Whisperer",
+      "tagline": "One ear, one drop of poison, every single day.",
+      "when": {
+        "loyalty": ">=1",
+        "mach": ">=0.8",
+        "style": "<=0.8"
+      },
+      "text": "You found a ruler and attached yourself to the ear. You never contradict; you only wonder aloud, in private, whether a certain friend has seemed quite loyal lately. With power, borrowed and deniable, you would starve a court one friendship at a time, until the only voice the king trusts is the one that has been poisoning him. You enjoy the honest advisers most: the ones who never learn why the door stopped opening. Your weakness is that you are nothing without the ear: an enemy does not have to fight you, only get five minutes alone with your master, and you know it, which is why you never sleep.",
+      "art": "AR-WHISPERER"
+    },
+    {
+      "id": "seducer",
+      "name": "The Seducer",
+      "tagline": "Everyone you ruin thanks you first.",
+      "when": {
+        "narc": ">=1",
+        "mach": ">=0.8",
+        "social": ">=0.3"
+      },
+      "text": "You are beautiful at this. You make each person feel like the only one in the room, and you have never once meant it. With power you would collect people: flatter them open, take what they keep closest, and leave them defending you to their own friends. You would ruin the ones who adored you most, because devotion bores you the moment it is certain, and you enjoy being thanked on the way out. Your weakness is the mirror: you need to be wanted so badly that an enemy only has to withhold it, visibly, and you will chase him into whatever room he has prepared.",
+      "art": "AR-SEDUCER"
+    },
+    {
+      "id": "false-prophet",
+      "name": "The False Prophet",
+      "tagline": "Heaven speaks. Conveniently, it agrees with you.",
+      "when": {
+        "faith": ">=0.8",
+        "narc": ">=0.8",
+        "mach": ">=1"
+      },
+      "text": "You found the one stage where vanity passes for a calling. You speak for heaven, and heaven, conveniently, has never once disagreed with you. With power you would turn belief into a protection racket: blessings for the obedient, damnation for the auditors, and a collection taken at both. You would destroy doubters by name from the pulpit and enjoy the hush when the congregation turns to look at them. Your weakness is that you have started to believe it: an enemy who flatters the prophet can walk you off any cliff, provided he calls it a mountain.",
+      "art": "AR-FALSE-PROPHET"
+    },
+    {
+      "id": "alibi",
+      "name": "The Alibi",
+      "tagline": "Every monster needs one honest face. They chose yours.",
+      "when": {
+        "mach": "<=0",
+        "psych": "<=0",
+        "narc": "<=0.1"
+      },
+      "text": "You are honest, modest and kind, and every monster in the building has noticed. They do not want to corrupt you; they want you exactly as you are, standing next to them in the photograph. With power you would be the clean signature on the dirty order, the decent face sent out to say there is nothing to see, and you would believe it every time. You will destroy people without ever learning their names, by vouching for the ones who do it, and you will enjoy the warm feeling of being trusted. Your weakness is the thing you are proudest of: you cannot imagine being used, so nobody has ever needed to hide it from you.",
+      "art": "AR-ALIBI"
+    },
+    {
+      "id": "footstool",
+      "name": "The Footstool",
+      "tagline": "You mistake being stepped on for being close to power.",
+      "when": {
+        "loyalty": ">=0.5",
+        "system": "<=-0.8",
+        "narc": "<=0.6"
+      },
+      "text": "You have confused being stepped on with being close to power. You chose a master, learned the sound of the footsteps, and you count a day without contempt as a day you were forgotten. With power, which you would only ever hold for someone else, you would do the things the boss prefers not to know about and bring them home like a dog with a bird. You would destroy anyone the boss frowned at, eagerly, and the reward you want is not thanks: it is to be insulted by name in front of the staff. Your weakness is that anyone can become your master; an enemy only has to treat you worse than the current one does.",
+      "art": "AR-FOOTSTOOL"
+    },
+    {
+      "id": "informant",
+      "name": "The Informant",
+      "tagline": "You were always the one who told the teacher.",
+      "when": {
+        "dynasty": "<=-1.2",
+        "mach": ">=0.5",
+        "system": "<=-0.5",
+        "tech": ">=0.5"
+      },
+      "text": "You were always the one who told the teacher. You are brilliant, spotless and helpful, and you have kept a private record of everyone who was ever careless near you. With power you would govern by file: a quiet word upstairs, a forwarded message, a colleague who is suddenly not on the list. You never raise your voice or your hand; you report, and the pleasure is in the meeting afterwards, when you console the person you sank. Your weakness is that you need someone above you to report to: an enemy who becomes that someone gets everything, including the file on you that you could not resist keeping accurate.",
+      "art": "AR-INFORMANT"
+    },
+    {
+      "id": "prosecutor",
+      "name": "The Prosecutor",
+      "tagline": "Your hands are clean. That is what the gloves are for.",
+      "when": {
+        "dynasty": "<=-1",
+        "narc": "<=0.3",
+        "style": ">=0.5"
+      },
+      "text": "Your hands are clean. That is what the gloves are for. You have no famous name and no need to be loved, only a talent for finding the one true bad thing in a person and reading it aloud. With power you would investigate everyone, starting with your friends, because guilt is better sport when it trusts you. You would end people lawfully, thoroughly and on camera, and call the warmth you feel a sense of duty. Your weakness is that you need a guilty party the way a drunk needs a glass: an enemy only has to keep feeding you smaller and smaller villains until the public sees what you are enjoying.",
+      "art": "AR-PROSECUTOR"
+    },
+    {
+      "id": "cleaner",
+      "name": "The Cleaner",
+      "tagline": "A call at night. By morning, a vacancy.",
+      "when": {
+        "psych": ">=0.5",
+        "narc": "<=0.3"
+      },
+      "text": "You have ended more careers than a recession, and you could not name five of them. You do not hate; hating is for amateurs. With power you would be the thing leaders point at problems: a call at night, a meeting with no minutes, and by morning a person has become a vacancy. You take no pleasure in it, and that absence is the one thing about yourself you do enjoy. Your weakness is that you are a tool, and you know where every other tool is buried: the day your employer feels safe, the next cleaner is given your name.",
+      "art": "AR-CLEANER"
+    },
+    {
+      "id": "tyrant",
+      "name": "The Tyrant",
+      "tagline": "You do not want voters. You want subjects.",
+      "when": {
+        "democracy": "<=-0.5",
+        "style": ">=0.3"
+      },
+      "text": "You do not want voters. You want subjects, and you want them grateful. Courts, reporters and rules are furniture to you, and you have never liked how the room was arranged. With power you would take more of it, and then test what the country will kneel through: one humiliation, then a larger one, each presented as a gift. You would break the proud in public and keep them around afterwards, because a kneeling enemy pleases you more than an absent one. Your weakness is that you can no longer tell fear from love, so you are surrounded by people performing one while planning around the other.",
+      "art": "AR-TYRANT"
+    },
+    {
+      "id": "host",
+      "name": "The Host",
+      "tagline": "Everyone sins at your table. You keep the seating chart.",
+      "when": {
+        "libertine": ">=0.5",
+        "faith": "<=0"
+      },
+      "text": "Everyone sins at your table, and you keep the seating chart. You are generous, amusing and never shocked, which is why powerful people relax around you and regret it for the rest of their lives. With power you would never need to threaten anyone; you would only mention, warmly, what a wonderful evening that was. You would own judges, donors and rivals by their own appetites, and you would enjoy the pious ones most, sweating through the toast. Your weakness is that the guest list cuts both ways: you were in the room too, and an enemy with nothing left to lose only has to open the doors and show who was hosting.",
+      "art": "AR-HOST"
+    },
+    {
+      "id": "mercenary",
+      "name": "The Mercenary",
+      "tagline": "Nobody owns you. Everybody has rented you.",
+      "when": {
+        "loyalty": "<=-0.8",
+        "liberty": ">=0.5",
+        "econ": ">=0"
+      },
+      "text": "You belong to nobody, and you have the rate card to prove it. You call it independence; it is a market. With power you would rent yourself to whichever cause was paying in the currency you like best, which is being begged. You would abandon an ally in the middle of the fight on a point of principle discovered that morning, and you would enjoy the phone ringing, and ringing, and you not picking up. Your weakness is price: every enemy knows you can be bought off the field, and the only question they ever ask about you is how little it will take.",
+      "art": "AR-MERCENARY"
+    },
+    {
+      "id": "idol",
+      "name": "The Idol",
+      "tagline": "You do not want supporters. You want worshippers.",
+      "when": {
+        "narc": ">=0.5",
+        "mach": "<=0.3"
+      },
+      "text": "You do not want supporters. You want worshippers, and from the stage you can feel the difference. You have no plan and no scheme, only a hunger to be looked at that would embarrass an actor. With power you would turn a government into an audience: loyalty measured by how loudly someone claps, exile for anyone caught yawning. You would destroy the friend who told you the truth and enjoy watching the rest learn from it. Your weakness is so plain it is almost unsporting: anyone who kneels convincingly owns you, and the schemers are already practicing.",
+      "art": "AR-IDOL"
+    },
+    {
+      "id": "poisoner",
+      "name": "The Poisoner",
+      "tagline": "Never a knife. A drop in the right cup, weekly.",
+      "when": {
+        "mach": "between 0.1 0.8",
+        "narc": "<=0.3",
+        "style": "between -0.7 0.7"
+      },
+      "text": "Never a knife. A drop, in the right cup, once a week. You do not attack people; you mention them, kindly, with a small pause in the wrong place. With power you would sit one office down from it and thin out the building by rumor, so slowly that every victim believes they simply lost their touch. You enjoy the sympathy visit most: sitting with someone you have ruined and letting them thank you for coming. Your weakness is that you have never once fought in the open: an enemy who drags it into daylight and asks you, plainly, to repeat what you said will find nothing in your hands at all.",
+      "art": "AR-POISONER"
+    },
+    {
+      "id": "bagman",
+      "name": "The Bagman",
+      "tagline": "You carry the envelope. You always count it first.",
+      "when": {
+        "mach": "between 0.1 1.2",
+        "psych": "between 0.05 1",
+        "style": "between -0.3 1.4"
+      },
+      "text": "You carry the envelope, and you always count it first. You are not the boss and you do not want to be; bosses get indicted, and you get a percentage. With power you would be the plumbing of every dirty arrangement in the capital: the cash, the shell company, the favor that never appears on paper. You would squeeze the people who fell behind, patiently, and enjoy how polite they become. Your weakness is that you are the only one who knows all the amounts, which makes you the most valuable witness in the country, and both your employer and the prosecutor have done that arithmetic.",
+      "art": "AR-BAGMAN"
+    },
+    {
+      "id": "collaborator",
+      "name": "The Collaborator",
+      "tagline": "Whoever wins, you were with them all along.",
+      "when": {
+        "econ": "between -0.6 0.6",
+        "social": "between -0.6 0.6",
+        "system": "between -0.95 1"
+      },
+      "text": "Whoever wins, you were with them all along. You have a reasonable tone, a moderate record and a gift for being found next to power when the photograph is taken. With power you would administer whatever the strong side wanted, explain to the losers why it was necessary, and keep your own desk through three regimes. You would hand over neighbors with a sigh and privately enjoy how much more reasonable you are than the people being taken off the list. Your weakness is the next regime: every side has your signature on something, and the day they compare notes you have no friends and two files.",
+      "art": "AR-COLLABORATOR"
+    },
+    {
+      "id": "parasite",
+      "name": "The Parasite",
+      "tagline": "You do not climb. You attach.",
+      "when": {
+        "narc": "between 0.1 1.1",
+        "mach": "between -0.5 0.8",
+        "system": "between -1.2 0.7"
+      },
+      "text": "You do not climb. You attach. You find someone rising, make yourself agreeable to the exact degree required, and feed until they stall; then you find the next one. With power you would have no program beyond staying fed: praise upward, blame downward, and a new host the week the old one weakens. You would drain the mentor who made you and enjoy delivering the eulogy. Your weakness is that you cannot live alone: an enemy does not need to attack you, only to bring down whoever you are attached to this year, and you will come to him asking where to stand.",
+      "art": "AR-PARASITE"
+    },
+    {
+      "id": "coward",
+      "name": "The Coward",
+      "tagline": "You have never betrayed anyone to their face.",
+      "when": {
+        "style": "<=-0.15",
+        "psych": "<=0.2",
+        "narc": "between -0.3 0.9"
+      },
+      "text": "You have never betrayed anyone to their face. You agree in the room, you agree in the corridor, and then you let the vote do the stabbing while you study your shoes. With power you would give it away, piece by piece, to whoever frightened you most recently, and call it listening. You would destroy your friends by absence: the unreturned call, the statement not made, the seat left empty at the hearing. And you would enjoy, a little, being the one who was not hit. Your weakness is known to every bully in public life: they do not have to beat you, only look at you for slightly too long.",
+      "art": "AR-COWARD"
+    },
+    {
+      "id": "functionary",
+      "name": "The Functionary",
+      "tagline": "You never gave the order. You only stamped it.",
+      "when": {
+        "system": "between -1.1 0",
+        "style": "between -0.8 0.6",
+        "psych": "between -0.4 0.7"
+      },
+      "text": "You never gave an order in your life. You processed them. You are careful, moderate and correct, and you believe that a thing done through the proper channels cannot be a crime. With power you would stamp whatever arrived on your desk, the list of names included, and take a quiet pride in how neatly it was formatted. You would destroy thousands without meeting one of them, and enjoy leaving on time. Your weakness is the paperwork you are so proud of: when the wind changes, yours is the only signature on every page, and the people who gave the orders never wrote anything down.",
+      "art": "AR-FUNCTIONARY"
+    },
+    {
+      "id": "weathervane",
+      "name": "The Weathervane",
+      "tagline": "For sale to both sides at once, and cheap.",
+      "when": {},
+      "text": "You got through all of this without holding one position long enough to be caught with it. You are not moderate; you are for sale, to both sides at once, and you are cheap. With power you would promise each camp the other's head and deliver neither, and you would enjoy being courted far more than you could ever enjoy deciding. The people you destroy are the ones who believed you, which so far is everyone who has tried. Your weakness is that both sides eventually compare notes, and a creature with two masters and no convictions is the one betrayal they can agree on.",
+      "art": "AR-WEATHERVANE"
+    }
+  ],
+  "contradictions": [
+    {
+      "id": "pulpit-and-penthouse",
+      "when": {
+        "faith": ">=1",
+        "libertine": ">=1"
+      },
+      "text": "You want God in the public square and a locked suite upstairs. One of them is the act, and whoever finds the room key gets to decide which."
+    },
+    {
+      "id": "bootstraps-and-bloodline",
+      "when": {
+        "econ": ">=0.8",
+        "dynasty": ">=0.8"
+      },
+      "text": "You preach that everyone must earn it, and your own children will inherit everything but the sermon. The market is a thing you do to other people's kids."
+    },
+    {
+      "id": "insurgent-heir",
+      "when": {
+        "system": ">=0.8",
+        "dynasty": ">=0.8"
+      },
+      "text": "You want to burn down the palace and leave the ashes to your children. That is not a revolution. It is a hostile takeover by a rival family."
+    },
+    {
+      "id": "self-made-statue",
+      "when": {
+        "dynasty": "<=-1",
+        "narc": ">=1.2"
+      },
+      "text": "You despise inherited power, and you are already commissioning the statue. You do not hate dynasties. You hate being the first generation of one."
+    },
+    {
+      "id": "loyal-schemer",
+      "when": {
+        "loyalty": ">=1",
+        "mach": ">=1"
+      },
+      "text": "You are loyal to the leader, and you are always running a play. One day the play will be the leader, and you will hold the knife as tenderly as you once held the coat."
+    },
+    {
+      "id": "merit-and-fealty",
+      "when": {
+        "dynasty": "<=-1",
+        "loyalty": ">=1.2"
+      },
+      "text": "You say the best should rise, and then you kneel to whoever is on top. Merit is the standard you apply downward. Upward, you crawl."
+    },
+    {
+      "id": "two-stars",
+      "when": {
+        "narc": ">=1.2",
+        "loyalty": ">=1.2"
+      },
+      "text": "You need to be worshipped, and you have sworn yourself to someone else's altar. One of you will have to be sacrificed, and your master has had more practice choosing."
+    },
+    {
+      "id": "insurgent-loyalist",
+      "when": {
+        "system": ">=1",
+        "loyalty": ">=1"
+      },
+      "text": "You want every authority torn down except the one whose boot you have chosen. You are not a rebel. You are a guard dog that changed yards."
+    },
+    {
+      "id": "soft-brawler",
+      "when": {
+        "style": ">=1",
+        "psych": "<=-0.5"
+      },
+      "text": "You draw blood for a living and then lie awake over it. A sadist with a conscience is only a slower sadist, and the guilt is part of what you come back for."
+    },
+    {
+      "id": "cold-handshake",
+      "when": {
+        "style": "<=-0.8",
+        "psych": ">=0.8"
+      },
+      "text": "You smile, you compromise, you remember the children's names, and you feel nothing at all. The warmth is a lure. People find that out at the exact moment they stop being useful."
+    },
+    {
+      "id": "tender-schemer",
+      "when": {
+        "mach": ">=1",
+        "psych": "<=-0.8"
+      },
+      "text": "You set the trap and then weep when it closes. You want the kill and the innocence both, so you ruin people twice: once by plotting, and once by asking them to forgive you."
+    },
+    {
+      "id": "star-with-no-trick",
+      "when": {
+        "narc": ">=1",
+        "mach": "<=-0.5"
+      },
+      "text": "You need every eye in the room, and you have no scheme to keep them there. That makes you the easiest mark alive: a starving ego with no guard on the door."
+    },
+    {
+      "id": "rude-for-decorum",
+      "when": {
+        "system": "<=-0.8",
+        "style": ">=1.2"
+      },
+      "text": "You defend the rules with your teeth. You love order the way a jailer does: for the keys, and for what it lets you do to people who break it."
+    },
+    {
+      "id": "hall-monitor-in-a-riot",
+      "when": {
+        "online": ">=1",
+        "system": "<=-0.8"
+      },
+      "text": "You guard the establishment from inside the mob that wants it dead. You are an informer in a riot, taking names, and the riot can read."
+    },
+    {
+      "id": "landline-revolution",
+      "when": {
+        "online": "<=-0.8",
+        "system": ">=1"
+      },
+      "text": "You want the regime brought down, and you are plotting it by landline. Every conspiracy needs someone to be caught first. You have volunteered."
+    },
+    {
+      "id": "no-vices-all-sins",
+      "when": {
+        "libertine": "<=-1",
+        "psych": ">=0.8"
+      },
+      "text": "You never touch a drink, and you would end a person before breakfast. You have confused having no vices with having no victims."
+    },
+    {
+      "id": "kept-the-frown",
+      "when": {
+        "faith": "<=-0.8",
+        "libertine": "<=-1"
+      },
+      "text": "You threw out God and kept the Inquisition. You have no heaven to offer anyone, only the list of what they are doing wrong."
+    },
+    {
+      "id": "pray-then-lie",
+      "when": {
+        "faith": ">=1",
+        "mach": ">=1.2"
+      },
+      "text": "You pray before the meeting and lie all the way through it. You are not a hypocrite, exactly; you have simply made God an accessory after the fact."
+    },
+    {
+      "id": "peace-abroad-war-at-home",
+      "when": {
+        "world": "<=-1",
+        "style": ">=1.2"
+      },
+      "text": "You want no wars abroad and a blood feud in every room you enter. You are not against cruelty. You just like to be close enough to see the face."
+    },
+    {
+      "id": "weeping-hawk",
+      "when": {
+        "world": ">=1",
+        "psych": "<=-0.8"
+      },
+      "text": "You would give the order and then need a moment. The tears are real, the order still goes out, and that is the most dangerous kind of ruler there is: one who can cry and sign at the same time."
+    },
+    {
+      "id": "free-market-with-a-wall",
+      "when": {
+        "econ": ">=1",
+        "trade": "<=-1"
+      },
+      "text": "You worship competition until it arrives at your own gate, and then you want a wall and a toll. Markets for the weak and protection for your friends: the old word for that arrangement is a racket."
+    },
+    {
+      "id": "freedom-by-strongman",
+      "when": {
+        "liberty": ">=1",
+        "democracy": "<=-0.8"
+      },
+      "text": "You want total freedom, delivered by a ruler with total power. You have pictured yourself holding the whip, and that picture is the whole of your philosophy."
+    },
+    {
+      "id": "future-on-paper",
+      "when": {
+        "tech": ">=1",
+        "online": "<=-0.8"
+      },
+      "text": "You want to build the machine that watches everyone, and you cannot work your own phone. You will hand the keys to whoever sets it up for you, and never learn what else they installed."
+    },
+    {
+      "id": "big-state-own-rules",
+      "when": {
+        "econ": "<=-1",
+        "federal": ">=1"
+      },
+      "text": "You want a state strong enough to reach into every life, and you want it run by your people, near your house. That is not policy. That is a fiefdom with a budget."
+    }
+  ],
+  "tells": [
+    {
+      "id": "fast-and-fixed",
+      "when": {
+        "fastSwipeShare": ">=0.4",
+        "holdAvg": ">=0.7"
+      },
+      "text": "You answered in an instant and then would not let go. You decide before you think and punish anyone who notices. That is how tyrants are made, and how they are led into traps."
+    },
+    {
+      "id": "slow-then-rewritten",
+      "when": {
+        "hesitations": ">=3",
+        "revisions": ">=2"
+      },
+      "text": "You slowed down, and then you went back and changed your answers. You were not searching your conscience. You were cleaning the scene."
+    },
+    {
+      "id": "never-flinched",
+      "when": {
+        "hesitations": "<=0",
+        "fastSwipeShare": ">=0.25"
+      },
+      "text": "You did not slow down once on the envelope or the loyalty questions. Either there is nothing in you to consult, or it learned long ago not to speak."
+    },
+    {
+      "id": "slow-on-the-envelope",
+      "when": {
+        "hesitations": ">=4"
+      },
+      "text": "You slowed right down on the envelope and the loyalty questions: what you would take, and who you would sell. That was not doubt. That was you working out your price, and now it is on file."
+    },
+    {
+      "id": "paused-on-the-dirty-ones",
+      "when": {
+        "hesitations": "between 2 3"
+      },
+      "text": "You paused on a couple of the dirty ones. Long enough to taste them. Not long enough to say no."
+    },
+    {
+      "id": "one-soft-spot",
+      "when": {
+        "hesitations": "between 1 1"
+      },
+      "text": "You hesitated exactly once, on a question about money or betrayal. That is the handle. An enemy only needs one."
+    },
+    {
+      "id": "iron-grip",
+      "when": {
+        "holdAvg": ">=0.8"
+      },
+      "text": "When you were told to hold, you held all the way down, every time. You do not let go of anything: a grudge, a secret, another person's leash."
+    },
+    {
+      "id": "lawyer-grip",
+      "when": {
+        "holdAvg": "between 0.5 0.8"
+      },
+      "text": "You held firm, but never to the limit. You commit the way a traitor does: fully, with the exit already paid for."
+    },
+    {
+      "id": "light-grip",
+      "when": {
+        "holdAvg": "between 0.01 0.35"
+      },
+      "text": "Your grip was light, and you let go early every time. You will hold a position, a promise or a friend exactly until it starts to cost. Everyone who deals with you will learn the timing."
+    },
+    {
+      "id": "trigger-thumb",
+      "when": {
+        "fastSwipeShare": ">=0.5"
+      },
+      "text": "You swiped most of your answers faster than the questions could be read. That is appetite, not judgment. People who decide that fast decided long ago, and only want the paperwork."
+    },
+    {
+      "id": "gut-first",
+      "when": {
+        "fastSwipeShare": "between 0.25 0.5"
+      },
+      "text": "A good share of your answers came before the second thought arrived. Your instincts are doing the deciding, and your instincts are not nice."
+    },
+    {
+      "id": "read-every-word",
+      "when": {
+        "fastSwipeShare": "between 0.001 0.08"
+      },
+      "text": "You almost never answered fast. You read every option and weighed it like evidence. Careful people do the worst things: slowly, correctly, with a clear record of why."
+    },
+    {
+      "id": "checking-the-wind",
+      "when": {
+        "revisions": ">=3"
+      },
+      "text": "You changed your answers again and again. That is not an open mind. That is a weathervane with a pulse, working out who is watching before it commits to a face."
+    },
+    {
+      "id": "ten-second-position",
+      "when": {
+        "revisions": "between 1 2"
+      },
+      "text": "You went back and changed an answer more than once. Somewhere in here is a conviction you held for under ten seconds. Whoever finds it owns you."
+    }
+  ],
+  "reads": {
+    "grudge": {
+      "high": "You keep a ledger. Every slight is entered, dated and left to mature, and the real reason you want power is to collect. The day you get it, people who forgot your name will learn it again.",
+      "low": "You let insults go, and betrayals get a second lunch. You think that is grace. Everyone else has read it as the price list for crossing you, and the price is nothing."
+    },
+    "vanity": {
+      "high": "You need to be seen, and seen winning. Offered the victory or the picture of the victory, you reached for the picture, and your enemies now know which one to take away.",
+      "low": "You turned the mirror down every time. You think you are above vanity; you are only careless, and the first ugly image of you will be the only one anyone keeps."
+    },
+    "risk": {
+      "high": "You bet the house, repeatedly, with other people living in it. You need the drop more than the win. One day you will lose everything on a single card and feel, for a moment, completely alive.",
+      "low": "You took the safe option every time it was offered. A gamble will never ruin you. You will be eaten slowly by someone who took one."
+    },
+    "charm": {
+      "high": "You use warmth the way a pickpocket uses a crowd. People leave you feeling chosen and find out later what is missing. You have never had a friend you were not also working.",
+      "low": "You refused to charm anyone: no flattery, no hand on the arm. You would rather be feared than liked, and you have not yet noticed that you are neither."
+    },
+    "control": {
+      "high": "You must hold every string yourself. You trust nobody, delegate nothing and read your own staff's mail. With power you would be a jailer who cannot leave the prison.",
+      "low": "You hand things off without looking: the work, then the decision, then the blame. One day something monstrous will be done under your signature, and you will learn about it at the hearing."
+    },
+    "paranoia": {
+      "high": "You see plots, wires and knives behind every friendly face, and you are right just often enough to keep doing it. With power you would purge the loyal to be safe from the traitors, and end up alone with the traitors.",
+      "low": "You trust people. You sign what is put in front of you and believe what you are told. Someone close to you has been living off that for years, and it is not who you think."
+    },
+    "mercy": {
+      "high": "You spare people. You had rivals on the floor and you helped them up. They remember it as weakness, and they are coming back with that in mind.",
+      "low": "You do not spare anyone. Every time someone was on the floor you finished it, and you took your time. Everyone near you has drawn the correct conclusion about their own future."
+    },
+    "hunger": {
+      "high": "You want it more than anyone in the room, and it comes off you like heat. There is nothing you would not trade for it, and no one. The people closest to you have started doing the math on themselves.",
+      "low": "You do not want it badly enough. You kept choosing your comfort over the prize. In this game that does not make you safe; it makes you the meal."
+    }
+  },
+  "closers": [
+    {
+      "when": {
+        "psych": ">=1.2",
+        "mach": ">=1.2"
+      },
+      "text": "Verdict: you would win, and rule, and grow old in office, surrounded by people waiting for exactly that."
+    },
+    {
+      "when": {
+        "mach": "<=-1",
+        "psych": "<=-1"
+      },
+      "text": "Verdict: the only decent person in the building. They will put your face on the poster and your name on the indictment."
+    },
+    {
+      "when": {
+        "faith": ">=1.2",
+        "libertine": "<=-1"
+      },
+      "text": "Verdict: no folder exists on you. So one will be invented, and you have spent a lifetime making people who want to believe it."
+    },
+    {
+      "when": {
+        "narc": ">=1.5"
+      },
+      "text": "Verdict: you would rather be destroyed on camera than obeyed in the dark. Someone will arrange it."
+    },
+    {
+      "when": {
+        "dynasty": ">=1.2"
+      },
+      "text": "Verdict: the name will outlive you. One of your own will see to the timing."
+    },
+    {
+      "when": {
+        "loyalty": ">=1.5"
+      },
+      "text": "Verdict: you will be spent. You will fetch the knife yourself and call it service."
+    },
+    {
+      "when": {
+        "psych": ">=1"
+      },
+      "text": "Verdict: you will get the office. When you fall, people will come only to make sure."
+    },
+    {
+      "when": {
+        "mach": ">=1.2"
+      },
+      "text": "Verdict: nobody will ever prove a thing. Everyone will know anyway."
+    },
+    {
+      "when": {
+        "tag:hunger": ">=2"
+      },
+      "text": "Verdict: you want it too much to be trusted with it. That has never once stopped anyone, and it will not stop you."
+    },
+    {
+      "when": {
+        "system": ">=1.2"
+      },
+      "text": "Verdict: you will burn it all down and rule the ash, until someone who learned from you lights the next match."
+    },
+    {
+      "when": {
+        "libertine": ">=1.2"
+      },
+      "text": "Verdict: the first scandal will not finish you. The person collecting them will."
+    },
+    {
+      "when": {
+        "style": ">=1.2"
+      },
+      "text": "Verdict: you will win every fight and run out of people, in that order."
+    },
+    {
+      "when": {
+        "style": "<=-1"
+      },
+      "text": "Verdict: everyone likes you. They will say so, warmly, while they divide up what was yours."
+    },
+    {
+      "when": {
+        "online": ">=1.5"
+      },
+      "text": "Verdict: you will rule the mob until the hour you are fed to it."
+    },
+    {
+      "when": {
+        "loyalty": "<=-1.2"
+      },
+      "text": "Verdict: nobody owns you. Nobody will hide you either."
+    },
+    {
+      "when": {
+        "mach": "<=-1"
+      },
+      "text": "Verdict: you will keep your word, and they will use it to hang the blame on you."
+    },
+    {
+      "when": {},
+      "text": "Verdict: power is hungry. You would feed it whoever was nearest, and tell yourself it was eating out of your hand."
+    }
+  ]
+}

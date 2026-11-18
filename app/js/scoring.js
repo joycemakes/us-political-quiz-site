@@ -37,7 +37,8 @@ export function hesitationThreshold(q) {
 export function createScorer() {
   return {
     S: {}, S2: {}, W: {}, cand: {}, flags: {},
-    signals: { hesitations: 0, holdStrengths: [], swipes: 0, fastSwipes: 0, revisionNudges: 0 },
+    signals: { hesitations: 0, holdStrengths: [], swipes: 0, fastSwipes: 0, revisionNudges: 0, revisions: 0 },
+    reads: {},   // personality reads tags (READING_CONTRACT section 2): never used in matching
     answered: [],
     qs: [],      // answered questions, in order (for predicted profiles)
     ans: [],     // the player's answers, in the same order
@@ -50,6 +51,15 @@ function addObs(sc, axis, v, w) {
   sc.S[axis] = (sc.S[axis] || 0) + v * w;
   sc.S2[axis] = (sc.S2[axis] || 0) + v * v * w;
   sc.W[axis] = (sc.W[axis] || 0) + w;
+}
+
+// Option `reads` tags feed the personality reading only, scaled exactly like the option's effects.
+function addReads(sc, reads, mult = 1) {
+  if (!reads || typeof reads !== 'object' || !Number.isFinite(mult) || mult === 0) return;
+  for (const [tag, v] of Object.entries(reads)) {
+    if (!Number.isFinite(v)) continue;
+    sc.reads[tag] = (sc.reads[tag] || 0) + v * mult;
+  }
 }
 
 function addCand(sc, cand, mult = 1) {
@@ -74,6 +84,7 @@ function observePick(sc, vectors, chosen, valueMult = 1, weightMult = 1, direct 
   observe(sc, chosen?.effects || {}, maxAbs, valueMult, weightMult);
   if (chosen) {
     addCand(sc, chosen.cand, valueMult);
+    addReads(sc, chosen.reads, valueMult * weightMult); // hold strength; fast swipes count 1.25x
     takeFlags(sc, chosen);
   }
 }
@@ -120,6 +131,8 @@ export function applyAnswer(sc, q, answer = {}) {
       const picked = {}, maxAbs = {};
       for (const [a, e] of Object.entries(s.effects || {})) { picked[a] = e * pos; maxAbs[a] = Math.abs(e); }
       observe(sc, picked, maxAbs);
+      // Slider reads run from -reads at the far left to +reads at the far right, like its effects.
+      addReads(sc, s.reads || q.reads, pos);
       if (pos < 0) addCand(sc, s.candLeft, -pos);
       if (pos > 0) addCand(sc, s.candRight, pos);
       if (pos <= -0.25) takeFlags(sc, { faithFlag: s.faithFlagLeft });
@@ -138,6 +151,7 @@ export function applyAnswer(sc, q, answer = {}) {
           maxAbs[a] = Math.max(maxAbs[a] || 0, Math.abs(e));
         }
         addCand(sc, o.cand, share);
+        addReads(sc, o.reads, share);
         if (share >= 0.5) takeFlags(sc, o);
       }
       observe(sc, picked, maxAbs);
@@ -154,6 +168,7 @@ export function applyAnswer(sc, q, answer = {}) {
         const o = findOpt(q, id);
         for (const [a, e] of Object.entries(o.effects || {})) picked[a] = (picked[a] || 0) + e * f[i];
         addCand(sc, o.cand, f[i]);
+        addReads(sc, o.reads, f[i]);
       });
       for (const a of axes) {
         const effs = q.options.map(o => (o.effects || {})[a] || 0);
@@ -175,7 +190,8 @@ export function applyAnswer(sc, q, answer = {}) {
         const fast = (Number(r.ms) || 99999) < FAST_SWIPE_MS;
         sc.signals.swipes++;
         if (fast) sc.signals.fastSwipes++;
-        const vecs = [{ effects: c.yes || {}, cand: c.candYes || {} }, { effects: c.no || {}, cand: c.candNo || {} }];
+        // A card's reads: readsYes / readsNo, or `reads` for the yes side.
+        const vecs = [{ effects: c.yes || {}, cand: c.candYes || {}, reads: c.readsYes || c.reads }, { effects: c.no || {}, cand: c.candNo || {}, reads: c.readsNo }];
         observePick(sc, vecs, r.v === 'yes' ? vecs[0] : vecs[1], 1, fast ? 1.25 : 1);
         bits.push(`${c.id}:${r.v}${fast ? '!' : ''}`);
       }
@@ -185,9 +201,9 @@ export function applyAnswer(sc, q, answer = {}) {
     case 'whosaid': {
       const g = findOpt(q, answer.guess);
       if ((q.options || []).some(o => o.effects && Object.keys(o.effects).length)) observePick(sc, q.options, g);
-      else if (g?.cand) addCand(sc, g.cand);
-      const agreeVec = { effects: q.agree?.effects || {}, cand: q.agree?.cand || (q.answer ? { [q.answer]: 2 } : {}) };
-      const disVec = { effects: q.disagree?.effects || {}, cand: q.disagree?.cand || {} };
+      else if (g) { if (g.cand) addCand(sc, g.cand); addReads(sc, g.reads); }
+      const agreeVec = { effects: q.agree?.effects || {}, cand: q.agree?.cand || (q.answer ? { [q.answer]: 2 } : {}), reads: q.agree?.reads };
+      const disVec = { effects: q.disagree?.effects || {}, cand: q.disagree?.cand || {}, reads: q.disagree?.reads };
       observePick(sc, [agreeVec, disVec], answer.agree ? agreeVec : disVec, 1, 1, false);
       summary = `${answer.guess}${answer.guess === q.answer ? '(right)' : '(wrong)'} ${answer.agree ? 'agree' : 'disagree'}`;
       break;
@@ -203,6 +219,7 @@ export function applyAnswer(sc, q, answer = {}) {
   }
   if ((Number(answer.revisions) || 0) >= 2) {
     sc.signals.revisionNudges++;
+    sc.signals.revisions++;
     addObs(sc, 'narc', -1, 0.3);
     addObs(sc, 'mach', 1, 0.3);
   }

@@ -125,8 +125,12 @@ export function runFx(q, { stage, banner }) {
 // Progress follows the clock, not the timer count, so a throttled tab still finishes on time.
 // A tap on the text or anywhere on the screen finishes every line being typed at once.
 const typing = new Set();
+let skippedAt = -1e9;
 export function finishTyping() { for (const f of [...typing]) f(); }
-if (typeof window !== 'undefined') window.addEventListener('pointerdown', () => finishTyping(), true);
+export const isTyping = () => typing.size > 0;
+// When a tap last cut typing short (so the same tap does not also count as a move on).
+export const typingSkippedAt = () => skippedAt;
+if (typeof window !== 'undefined') window.addEventListener('pointerdown', () => { if (typing.size) skippedAt = performance.now(); finishTyping(); }, true);
 
 export function typewriter(el, text, { cps = 40, maxMs = 2200, sound = true } = {}) {
   el.textContent = '';

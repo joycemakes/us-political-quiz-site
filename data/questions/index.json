@@ -1,4 +1,4 @@
 {
   "_note": "Question files the quiz loads, in order. A file that is missing or fails to parse is skipped. The engine's test set (_sample.json) is not listed: it loads only with ?sample=1.",
-  "files": ["A_ideology.json", "B_candidates.json", "C_power.json", "D_routes.json", "E_state.json", "F_coverage.json"]
+  "files": ["A_ideology.json", "B_candidates.json", "C_power.json", "D_routes.json", "E_state.json", "F_coverage.json", "G_personality.json"]
 }

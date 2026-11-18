@@ -187,6 +187,16 @@ export async function drawShareCard(canvas, kind, card) {
     text(x, `${first.pct}%`, 446, 560, { size: 170, color: C.brass2 });
     para(x, card.verdict, 74, 660, 930, 40, 2, { color: C.amber });
     if (laneLine) text(x, laneLine, 74, 760, { size: 32, color: C.parch, spacing: 3 });
+    // The archetype, right-aligned on the lane row, in whatever room the lane line leaves.
+    if (card.archetype) {
+      x.font = `32px ${BODY}`;
+      const laneEnd = laneLine ? 74 + x.measureText(laneLine).width + laneLine.length * 3 + 36 : 74;
+      const arch = card.archetype.toUpperCase();
+      const room = 1006 - laneEnd;
+      const z = fitSize(x, arch, room, 34, 22);
+      x.font = `${z}px ${BODY}`;
+      if (x.measureText(arch).width + arch.length * 2 <= room) text(x, arch, 1006, 760, { size: z, color: C.brass2, align: 'right', spacing: 2 });
+    }
     card.top.slice(1, 5).forEach((m, i) => {
       const y = 784 + i * 46;
       portrait(x, rest[i], card.cands.get(m.id) || m, 74, y, 40, 3);
@@ -206,8 +216,14 @@ export async function drawShareCard(canvas, kind, card) {
     text(x, 'MY 2028 MATCH', w / 2, 980, { size: 38, color: C.smoke, align: 'center', spacing: 6 });
     text(x, first.name, w / 2, 1070, { size: fitSize(x, first.name, 920, 84, 52), align: 'center' });
     text(x, `${first.pct}%`, w / 2, 1270, { size: 230, color: C.brass2, align: 'center' });
-    const lines = wrap(x, card.verdict, 900, 46).slice(0, 3);
-    lines.forEach((l, i) => text(x, l, w / 2, 1360 + i * 54, { size: 46, color: C.amber, align: 'center' }));
+    if (card.archetype) {
+      // Room for the archetype: the verdict keeps two lines (shrinking to fit), the archetype sits under it.
+      para(x, card.verdict, w / 2, 1352, 900, 44, 2, { color: C.amber, align: 'center' });
+      text(x, card.archetype.toUpperCase(), w / 2, 1478, { size: fitSize(x, card.archetype.toUpperCase(), 900, 44, 30), color: C.brass2, align: 'center', spacing: 4 });
+    } else {
+      const lines = wrap(x, card.verdict, 900, 46).slice(0, 3);
+      lines.forEach((l, i) => text(x, l, w / 2, 1360 + i * 54, { size: 46, color: C.amber, align: 'center' }));
+    }
     if (laneLine) text(x, laneLine, w / 2, 1540, { size: 38, align: 'center', spacing: 4 });
     card.top.slice(1, 5).forEach((m, i) => {
       const col = i % 2, row = Math.floor(i / 2);

@@ -1,4 +1,4 @@
-// The result screen: ghost reveal, top five, your camp, ideology gauges, temperament,
+// The result screen (the full dossier): ghost reveal, the personality reading, top five, your camp, ideology gauges, temperament,
 // dynasty and libertine dials, three words and your tells, and the share sheet.
 
 import { AXES, AXIS } from './axes.js';
@@ -9,6 +9,7 @@ import { haptic, sleep, reducedMotion, typewriter } from './feel.js';
 import { sfx } from './sound.js';
 import { renderShareSheet } from './sharesheet.js';
 import { normalizeShareConfig } from './share.js';
+import { archetypeArt, archName } from './reveal.js';
 
 const h = (tag, cls, text) => {
   const e = document.createElement(tag);
@@ -77,8 +78,11 @@ export function renderResults(root, R) {
     for (const p of pod.querySelectorAll('.pod')) { p.classList.add('revealed'); haptic('select'); await sleep(reducedMotion() ? 0 : 260); }
   })();
 
+  // ---- the personality reading ----
+  if (R.reading) screen.appendChild(readingBlock(R.reading, R.onReplay));
+
   // ---- top five ----
-  const top = section('Your top five');
+  const top = section('Your top five', 'top-block');
   top.appendChild(h('p', 'res-cap', 'The five of the 23 candidates whose answers sit closest to yours.'));
   const ol = h('ol', 'top5');
   const campShort = id => (camps || []).find(l => l.id === id)?.short || '';
@@ -176,7 +180,7 @@ export function renderResults(root, R) {
 
   // ---- share ----
   const share = section('Share your result', 'share-block');
-  renderShareSheet(share, { profile, matches, cands, route, scores, shareCfg: R.shareCfg || normalizeShareConfig(null) });
+  renderShareSheet(share, { profile, matches, cands, route, scores, shareCfg: R.shareCfg || normalizeShareConfig(null), reading: R.reading });
   screen.appendChild(share);
 
   const again = h('button', 'btn again', 'Play again');
@@ -184,4 +188,60 @@ export function renderResults(root, R) {
   again.addEventListener('click', () => R.onAgain && R.onAgain());
   screen.append(again, h('p', 'fineprint', 'Real officeholders appear only in their portraits. Everything else is simulated fiction. Match percentages are editorial estimates, not claims.'));
   return { shown: true };
+}
+
+// The reading near the top of the dossier: archetype, contradictions, all ten scales with their bands
+// (tap one for the detail), what the answers gave away, the tells and the closer.
+function readingBlock(reading, onReplay) {
+  const sec = section('Your reading', 'reading-block');
+  sec.appendChild(h('p', 'res-cap', 'Who your answers say you are: your type, ten scores in plain words, and where you contradict yourself.'));
+  const a = reading.archetype;
+  const head = h('div', 'rd-head');
+  const meta = h('div', 'rd-meta');
+  meta.append(h('div', 'rd-label', 'Your type'), archName('rd-name', a.name));
+  if (a.tagline) meta.append(h('p', 'rd-tag', a.tagline));
+  if (onReplay) {
+    const rp = h('button', 'btn rd-replay');
+    rp.type = 'button';
+    rp.append(h('span', 'btn-label', 'Replay the reveal'));
+    rp.addEventListener('click', () => { haptic('commit'); onReplay(); });
+    meta.append(rp);
+  }
+  head.append(archetypeArt(a, 'rd-art'), meta);
+  const left = h('div', 'rd-col'), right = h('div', 'rd-col');
+  left.appendChild(head);
+  const text = h('div', 'rd-text');
+  if (a.text) text.appendChild(h('p', 'rd-lede', a.text));
+  const group = (title, items) => {
+    if (!items.length) return;
+    text.appendChild(h('h4', 'rd-sub', title));
+    for (const t of items) text.appendChild(h('p', null, t.text));
+  };
+  group('Where you contradict yourself', reading.contradictions);
+  group('What your answers gave away', reading.reads);
+  group('How you answered', reading.tells);
+  left.appendChild(text);
+
+  const list = h('div', 'rd-scales');
+  for (const s of Object.values(reading.scales)) {
+    const d = h('details', `rd-scale band-${s.band}`);
+    d.dataset.scale = s.id;
+    const sum = h('summary');
+    sum.append(h('span', 'rd-scale-name', s.name), h('span', `rv-band band-${s.band}`, s.word), h('span', 'rd-scale-title', s.title));
+    const pos = (((Math.max(-2, Math.min(2, s.value)) + 2) / 4) * 100).toFixed(1);
+    const bar = h('div', 'rd-bar');
+    bar.innerHTML = `<span class="rd-bar-needle" style="left:${pos}%"></span>`;
+    bar.setAttribute('aria-hidden', 'true');
+    const ax = AXIS[s.id];
+    const ends = h('div', 'gauge-ends');
+    ends.append(h('span', null, ax ? ax.neg : 'Low'), h('span', null, ax ? ax.pos : 'High'));
+    d.append(sum, bar, ends, h('p', 'rd-line', s.line));
+    if (s.detail) d.append(h('p', 'rd-detail', s.detail));
+    if (s.plain) d.append(h('p', 'rd-plain', s.plain));
+    list.appendChild(d);
+  }
+  right.append(h('h4', 'rd-sub', 'Your ten scores'), h('p', 'rd-hint', 'Tap a score for what it means.'), list);
+  sec.append(left, right);
+  if (reading.closer) sec.appendChild(h('p', 'rd-closer', reading.closer));
+  return sec;
 }

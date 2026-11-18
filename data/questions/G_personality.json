@@ -1,0 +1,2556 @@
+[
+  {
+    "id": "G-001",
+    "chapter": "announcement",
+    "route": "both",
+    "type": "choice",
+    "tier": "core",
+    "topic": "why-run",
+    "context": "Launch day is a week away. Your speechwriter shuts the door and asks the one question the speech has to answer: why do you actually want to be president?",
+    "prompt": "No cameras, no notes, nobody to impress. What is the true answer?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Because I would be better at it than anyone alive.",
+        "effects": {
+          "narc": 1.5
+        },
+        "reads": {
+          "vanity": 1,
+          "hunger": 0.5
+        }
+      },
+      {
+        "id": "b",
+        "label": "Because it is broken, and nobody else is going to fix it.",
+        "effects": {
+          "narc": -1,
+          "system": 0.5
+        },
+        "reads": {
+          "hunger": -0.5,
+          "mercy": 0.5
+        }
+      },
+      {
+        "id": "c",
+        "label": "Because I have wanted it since I was nine years old.",
+        "effects": {
+          "narc": 1,
+          "mach": 0.5
+        },
+        "reads": {
+          "hunger": 1.5
+        }
+      },
+      {
+        "id": "d",
+        "label": "Because certain people said I never could.",
+        "effects": {
+          "narc": 0.5,
+          "style": 1
+        },
+        "reads": {
+          "grudge": 1.5,
+          "hunger": 0.5
+        }
+      }
+    ],
+    "discrimination": 2
+  },
+  {
+    "id": "G-002",
+    "chapter": "announcement",
+    "route": "both",
+    "type": "hold",
+    "tier": "core",
+    "topic": "who-you-owe",
+    "context": "The senator who gave you your first job, taught you everything you know and still calls you kid wants to run too. There is room in this lane for exactly one of you.",
+    "prompt": "Hold on what you do about your mentor. The longer you hold, the more you mean it.",
+    "options": [
+      {
+        "id": "a",
+        "label": "Announce first. She taught me to move fast.",
+        "effects": {
+          "mach": 1,
+          "psych": 1,
+          "loyalty": -1
+        },
+        "reads": {
+          "hunger": 1.5,
+          "mercy": -1
+        }
+      },
+      {
+        "id": "b",
+        "label": "Go to her house. Ask for her blessing, and mean it.",
+        "effects": {
+          "mach": -1,
+          "psych": -0.5,
+          "style": -0.5
+        },
+        "reads": {
+          "mercy": 0.5,
+          "risk": 0.5
+        }
+      },
+      {
+        "id": "c",
+        "label": "Stand down. I owe her, and I can wait four years.",
+        "effects": {
+          "loyalty": 1.5,
+          "narc": -1
+        },
+        "reads": {
+          "hunger": -1.5,
+          "mercy": 1
+        }
+      },
+      {
+        "id": "d",
+        "label": "Praise her in public. Sign her donors in private.",
+        "effects": {
+          "mach": 1.5,
+          "loyalty": -0.5
+        },
+        "reads": {
+          "charm": 1,
+          "hunger": 1
+        }
+      }
+    ],
+    "measure": [
+      "holdStrength"
+    ],
+    "discrimination": 2
+  },
+  {
+    "id": "G-003",
+    "chapter": "announcement",
+    "route": "both",
+    "type": "slider",
+    "tier": "core",
+    "topic": "campaign-launch",
+    "context": "Your team offers two launches. One is safe, forgettable and cannot hurt you. The other is a stunt that makes you a star by dinner or a punchline by breakfast.",
+    "prompt": "How much of the campaign do you bet on day one?",
+    "slider": {
+      "left": "Nothing. Boring survives",
+      "right": "All of it. Star or punchline",
+      "centre": "A calculated wobble",
+      "effects": {
+        "narc": 1,
+        "style": 0.5
+      },
+      "reads": {
+        "risk": 1.5
+      },
+      "steps": 5
+    },
+    "discrimination": 2
+  },
+  {
+    "id": "G-004",
+    "chapter": "announcement",
+    "route": "both",
+    "type": "swipe",
+    "tier": "core",
+    "topic": "honesty-check",
+    "context": "Before you file the paperwork to run, your oldest adviser wants straight answers. Nobody else will ever see them.",
+    "prompt": "An honesty check. Is each one true of you? Yes or no, four seconds each.",
+    "cards": [
+      {
+        "id": "1",
+        "text": "I have practiced my signature for the bill signings.",
+        "yes": {
+          "narc": 1
+        },
+        "no": {
+          "narc": -0.5
+        },
+        "readsYes": {
+          "vanity": 1
+        },
+        "readsNo": {
+          "vanity": -0.5
+        }
+      },
+      {
+        "id": "2",
+        "text": "I remember exactly who laughed when I first said I would run.",
+        "yes": {
+          "style": 0.5,
+          "psych": 0.5
+        },
+        "no": {
+          "style": -0.5
+        },
+        "readsYes": {
+          "grudge": 1
+        },
+        "readsNo": {
+          "grudge": -0.5
+        }
+      },
+      {
+        "id": "3",
+        "text": "I would rather lose big than never find out.",
+        "yes": {
+          "narc": 0.5,
+          "style": 0.5
+        },
+        "no": {
+          "style": -0.5
+        },
+        "readsYes": {
+          "risk": 1
+        },
+        "readsNo": {
+          "risk": -1
+        }
+      },
+      {
+        "id": "4",
+        "text": "Someone on my own team is already talking to the press.",
+        "yes": {
+          "mach": 0.5,
+          "psych": 0.5
+        },
+        "no": {
+          "mach": -0.5
+        },
+        "readsYes": {
+          "paranoia": 1
+        },
+        "readsNo": {
+          "paranoia": -0.5
+        }
+      },
+      {
+        "id": "5",
+        "text": "I could lose this race and still be a happy person.",
+        "yes": {
+          "narc": -1
+        },
+        "no": {
+          "narc": 1
+        },
+        "readsYes": {
+          "hunger": -1
+        },
+        "readsNo": {
+          "hunger": 1
+        }
+      },
+      {
+        "id": "6",
+        "text": "I have forgiven someone who never apologized.",
+        "yes": {
+          "psych": -1
+        },
+        "no": {
+          "psych": 0.5
+        },
+        "readsYes": {
+          "mercy": 1,
+          "grudge": -0.5
+        },
+        "readsNo": {
+          "grudge": 0.5
+        }
+      },
+      {
+        "id": "7",
+        "text": "People usually leave a conversation with me agreeing.",
+        "yes": {
+          "mach": 0.5,
+          "narc": 0.5
+        },
+        "no": {
+          "narc": -0.5
+        },
+        "readsYes": {
+          "charm": 1
+        },
+        "readsNo": {
+          "charm": -0.5
+        }
+      },
+      {
+        "id": "8",
+        "text": "One powerful person despises me, and I would crawl to change it.",
+        "yes": {
+          "loyalty": 1,
+          "narc": -0.5
+        },
+        "no": {
+          "loyalty": -0.5
+        },
+        "readsYes": {
+          "hunger": 0.5,
+          "vanity": 0.5
+        },
+        "readsNo": {
+          "vanity": -0.5
+        }
+      }
+    ],
+    "measure": [
+      "speed"
+    ],
+    "discrimination": 2
+  },
+  {
+    "id": "G-005",
+    "chapter": "primary",
+    "route": "both",
+    "type": "choice",
+    "tier": "core",
+    "topic": "handling-staff",
+    "context": "A 23-year-old field organizer sent your volunteers to the wrong caucus site. You lost the county by eleven votes. She is crying in the hallway, and the whole staff is watching to see what you do.",
+    "prompt": "What do you do with her?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Fire her in the hallway. The staff need to see a price.",
+        "effects": {
+          "psych": 1.5,
+          "style": 1
+        },
+        "reads": {
+          "mercy": -1.5,
+          "control": 0.5
+        }
+      },
+      {
+        "id": "b",
+        "label": "Keep her. Nobody alive will check an address harder.",
+        "effects": {
+          "psych": -1,
+          "mach": 0.5
+        },
+        "reads": {
+          "mercy": 1.5
+        }
+      },
+      {
+        "id": "c",
+        "label": "Keep her, somewhere she can never hurt me again.",
+        "effects": {
+          "mach": 1,
+          "psych": 0.5
+        },
+        "reads": {
+          "control": 1,
+          "mercy": 0.5
+        }
+      },
+      {
+        "id": "d",
+        "label": "Tell the press the mistake was mine. She is 23.",
+        "effects": {
+          "narc": -1,
+          "psych": -1
+        },
+        "reads": {
+          "mercy": 1,
+          "vanity": -1
+        }
+      }
+    ],
+    "discrimination": 3
+  },
+  {
+    "id": "G-006",
+    "chapter": "primary",
+    "route": "both",
+    "type": "dilemma",
+    "tier": "core",
+    "topic": "big-promises",
+    "context": "A New Hampshire diner. A laid-off machinist grips your hand and asks if you will bring his plant back. You will not. Nobody will. The cameras are four feet away.",
+    "prompt": "What do you tell him?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Promise him. He needs the lie more than the truth.",
+        "effects": {
+          "mach": 1.5,
+          "style": -0.5
+        },
+        "reads": {
+          "charm": 1.5
+        }
+      },
+      {
+        "id": "b",
+        "label": "The plant is gone. Here is what I can actually do.",
+        "effects": {
+          "mach": -1.5,
+          "style": 0.5
+        },
+        "reads": {
+          "charm": -1,
+          "risk": 0.5
+        }
+      }
+    ],
+    "discrimination": 2
+  },
+  {
+    "id": "G-007",
+    "chapter": "primary",
+    "route": "both",
+    "type": "hold",
+    "tier": "core",
+    "topic": "old-insults",
+    "context": "The rival who spent six months calling you a fraud and a lightweight has just dropped out. He is broke, and he is on the phone offering his endorsement if you help pay off his campaign debt.",
+    "prompt": "Hold on your answer to him. The longer you hold, the more you mean it.",
+    "options": [
+      {
+        "id": "a",
+        "label": "Pay the debt, take the endorsement. Business is business.",
+        "effects": {
+          "mach": 1.5,
+          "style": -0.5
+        },
+        "reads": {
+          "grudge": -1
+        }
+      },
+      {
+        "id": "b",
+        "label": "Take it warmly. Remember every word he said, forever.",
+        "effects": {
+          "mach": 1.5,
+          "psych": 0.5
+        },
+        "reads": {
+          "grudge": 1.5,
+          "charm": 0.5
+        }
+      },
+      {
+        "id": "c",
+        "label": "Make him ask twice, in public. I want to watch him crawl.",
+        "effects": {
+          "psych": 1.5,
+          "style": 0.5
+        },
+        "reads": {
+          "grudge": 1,
+          "mercy": -1
+        }
+      },
+      {
+        "id": "d",
+        "label": "Forgive him and mean it. Campaigns make people ugly.",
+        "effects": {
+          "psych": -1.5,
+          "style": -1
+        },
+        "reads": {
+          "mercy": 1.5,
+          "grudge": -1.5
+        }
+      }
+    ],
+    "measure": [
+      "holdStrength"
+    ],
+    "discrimination": 2
+  },
+  {
+    "id": "G-008",
+    "chapter": "primary",
+    "route": "both",
+    "type": "envelope",
+    "tier": "core",
+    "topic": "leak-hunt",
+    "context": "An unsigned note is under your hotel door in Des Moines: your campaign manager had dinner last night with your rival’s pollster. No proof, no name. She has run your life for six years.",
+    "prompt": "What do you do about the note?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Ask her straight, tonight, and believe the answer.",
+        "effects": {
+          "mach": -1.5,
+          "psych": -0.5
+        },
+        "reads": {
+          "paranoia": -1.5,
+          "risk": 0.5
+        }
+      },
+      {
+        "id": "b",
+        "label": "Say nothing. Have someone quietly pull her phone records.",
+        "effects": {
+          "mach": 1.5,
+          "psych": 1,
+          "liberty": -0.5
+        },
+        "reads": {
+          "paranoia": 1.5,
+          "control": 1
+        }
+      },
+      {
+        "id": "c",
+        "label": "Feed her one false detail and see if it travels.",
+        "effects": {
+          "mach": 1.5
+        },
+        "reads": {
+          "paranoia": 1,
+          "control": 0.5
+        }
+      }
+    ],
+    "measure": [
+      "hesitation"
+    ],
+    "discrimination": 2
+  },
+  {
+    "id": "G-009",
+    "chapter": "primary",
+    "route": "both",
+    "type": "rank",
+    "tier": "core",
+    "topic": "the-profile",
+    "context": "A long magazine profile of you runs on Sunday. You have not seen it. You know roughly what your enemies told the writer.",
+    "prompt": "Rank these verdicts by how much each would sting. The one you could least bear to read goes at the top.",
+    "options": [
+      {
+        "id": "a",
+        "label": "Weak",
+        "effects": {
+          "psych": 1,
+          "style": 1
+        },
+        "reads": {
+          "control": 0.5,
+          "mercy": -0.5
+        }
+      },
+      {
+        "id": "b",
+        "label": "Forgettable",
+        "effects": {
+          "narc": 1.5
+        },
+        "reads": {
+          "vanity": 1.5
+        }
+      },
+      {
+        "id": "c",
+        "label": "Dishonest",
+        "effects": {
+          "mach": -1.5
+        }
+      },
+      {
+        "id": "d",
+        "label": "Cruel",
+        "effects": {
+          "psych": -1.5
+        },
+        "reads": {
+          "mercy": 1
+        }
+      },
+      {
+        "id": "e",
+        "label": "Somebody else’s puppet",
+        "effects": {
+          "loyalty": -1,
+          "narc": 0.5
+        },
+        "reads": {
+          "control": 1
+        }
+      }
+    ],
+    "discrimination": 2
+  },
+  {
+    "id": "G-010",
+    "chapter": "primary",
+    "route": "both",
+    "type": "choice",
+    "tier": "core",
+    "topic": "candidates-children",
+    "context": "Your consultants want your sixteen-year-old daughter in the new ad: she tests through the roof. She has told you, in tears, that she wants no part of the campaign.",
+    "prompt": "Is she in the ad?",
+    "options": [
+      {
+        "id": "a",
+        "label": "No. She gets a childhood, and I lose two points.",
+        "effects": {
+          "dynasty": -1,
+          "psych": -1
+        },
+        "reads": {
+          "mercy": 1,
+          "hunger": -1
+        }
+      },
+      {
+        "id": "b",
+        "label": "Yes. The family serves the campaign. She will thank me.",
+        "effects": {
+          "dynasty": 1.5,
+          "psych": 1
+        },
+        "reads": {
+          "hunger": 1.5,
+          "control": 1
+        }
+      },
+      {
+        "id": "c",
+        "label": "Negotiate. One shoot, and she names her price.",
+        "effects": {
+          "mach": 1,
+          "dynasty": 0.5
+        },
+        "reads": {
+          "charm": 1
+        }
+      },
+      {
+        "id": "d",
+        "label": "Use an old photo. She cannot refuse a picture.",
+        "effects": {
+          "mach": 1.5,
+          "psych": 0.5
+        },
+        "reads": {
+          "mercy": -0.5,
+          "control": 0.5
+        }
+      }
+    ],
+    "discrimination": 2
+  },
+  {
+    "id": "G-011",
+    "chapter": "primary",
+    "route": "both",
+    "type": "slider",
+    "tier": "core",
+    "topic": "micromanaging",
+    "context": "Your campaign has four hundred staff. The schedule, the ads, the posts and the color of the yard signs all still cross your desk, because you told them to.",
+    "prompt": "How much of your own campaign do you let other people run?",
+    "slider": {
+      "left": "All of it. I hired adults",
+      "right": "None. I approve the yard signs",
+      "centre": "The small things, grudgingly",
+      "effects": {
+        "narc": 1,
+        "psych": 0.5
+      },
+      "reads": {
+        "control": 1.5
+      },
+      "steps": 5
+    },
+    "discrimination": 2
+  },
+  {
+    "id": "G-012",
+    "chapter": "primary",
+    "route": "both",
+    "type": "dilemma",
+    "tier": "core",
+    "topic": "betting-the-house",
+    "context": "You are out of money and third in the polls. One more week of ads might turn it around. The only cash left is a mortgage on your own house, and your spouse has not said yes.",
+    "prompt": "Do you mortgage the house?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Sign. I did not come this far to keep a kitchen.",
+        "effects": {
+          "narc": 1,
+          "psych": 0.5
+        },
+        "reads": {
+          "risk": 1.5,
+          "hunger": 1.5
+        }
+      },
+      {
+        "id": "b",
+        "label": "No. The race can end. The family home does not.",
+        "effects": {
+          "narc": -1,
+          "psych": -0.5
+        },
+        "reads": {
+          "risk": -1.5,
+          "hunger": -1
+        }
+      }
+    ],
+    "discrimination": 2
+  },
+  {
+    "id": "G-013",
+    "chapter": "primary",
+    "route": "both",
+    "type": "choice",
+    "tier": "core",
+    "topic": "press-grudges",
+    "context": "A reporter wrote the profile that nearly ended you: accurate, merciless, shared everywhere. Now her paper has folded and she is asking, politely, for a job on your press team. She is very good.",
+    "prompt": "What do you tell her?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Hired. She already knows exactly where I am weak.",
+        "effects": {
+          "mach": 1,
+          "psych": -0.5
+        },
+        "reads": {
+          "grudge": -1.5,
+          "risk": 0.5
+        }
+      },
+      {
+        "id": "b",
+        "label": "Hired, so she can never write the sequel.",
+        "effects": {
+          "mach": 1.5
+        },
+        "reads": {
+          "control": 1,
+          "paranoia": 0.5
+        }
+      },
+      {
+        "id": "c",
+        "label": "A warm no. Then a quiet word so nobody else hires her.",
+        "effects": {
+          "psych": 1.5,
+          "mach": 1
+        },
+        "reads": {
+          "grudge": 1.5,
+          "charm": 0.5
+        }
+      },
+      {
+        "id": "d",
+        "label": "A cold no. I read that piece every morning for a month.",
+        "effects": {
+          "style": 1,
+          "narc": 0.5
+        },
+        "reads": {
+          "grudge": 1,
+          "vanity": 0.5
+        }
+      }
+    ],
+    "discrimination": 2
+  },
+  {
+    "id": "G-014",
+    "chapter": "debate",
+    "route": "both",
+    "type": "choice",
+    "tier": "core",
+    "topic": "rival-stumbles",
+    "context": "Mid-answer, your closest rival goes blank. Ten seconds of dead air on live television. He is gripping the podium. The moderator is looking at you.",
+    "prompt": "What do you do with the silence?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Finish his sentence for him, kindly. The room remembers.",
+        "effects": {
+          "psych": -1,
+          "style": -1,
+          "mach": 0.5
+        },
+        "reads": {
+          "mercy": 1,
+          "charm": 1
+        }
+      },
+      {
+        "id": "b",
+        "label": "Let it run. I could watch him drown all night.",
+        "effects": {
+          "psych": 1.5,
+          "mach": 0.5
+        },
+        "reads": {
+          "mercy": -1.5
+        }
+      },
+      {
+        "id": "c",
+        "label": "Ask the room: is this who takes the 3 a.m. call?",
+        "effects": {
+          "style": 1.5,
+          "psych": 1
+        },
+        "reads": {
+          "mercy": -1,
+          "risk": 0.5
+        }
+      },
+      {
+        "id": "d",
+        "label": "Take the time myself and talk about my plan.",
+        "effects": {
+          "narc": 1,
+          "style": -0.5
+        },
+        "reads": {
+          "vanity": 0.5,
+          "hunger": 0.5
+        }
+      }
+    ],
+    "discrimination": 3
+  },
+  {
+    "id": "G-015",
+    "chapter": "debate",
+    "route": "both",
+    "type": "hold",
+    "tier": "core",
+    "topic": "family-attacked",
+    "context": "On stage, a rival brings up your brother’s old drunk-driving arrest to make a point about your character. Your brother is sitting in the third row. You have thirty seconds to answer.",
+    "prompt": "Hold on your answer. The longer you hold, the more you mean it.",
+    "options": [
+      {
+        "id": "a",
+        "label": "Ice. One sentence for my brother, then back to policy.",
+        "effects": {
+          "style": -1,
+          "narc": -0.5
+        },
+        "reads": {
+          "control": 1,
+          "grudge": -0.5
+        }
+      },
+      {
+        "id": "b",
+        "label": "Burn the rival down. Nobody touches my family.",
+        "effects": {
+          "style": 1.5,
+          "dynasty": 1
+        },
+        "reads": {
+          "grudge": 1,
+          "risk": 0.5
+        }
+      },
+      {
+        "id": "c",
+        "label": "Smile. His family is in my folder, and October is coming.",
+        "effects": {
+          "mach": 1.5,
+          "psych": 1
+        },
+        "reads": {
+          "grudge": 1.5
+        }
+      },
+      {
+        "id": "d",
+        "label": "Tell the whole story of the arrest myself, all of it.",
+        "effects": {
+          "mach": -1,
+          "libertine": 0.5
+        },
+        "reads": {
+          "risk": 1,
+          "charm": 1
+        }
+      }
+    ],
+    "measure": [
+      "holdStrength"
+    ],
+    "discrimination": 2
+  },
+  {
+    "id": "G-016",
+    "chapter": "debate",
+    "route": "both",
+    "type": "dilemma",
+    "tier": "core",
+    "topic": "loyalty-to-the-leader",
+    "context": "The party leader who made you is finished: sick, hated, sinking, and the last to know. Whoever knifes him first inherits his voters. Tonight’s first debate question: do you still stand with him?",
+    "prompt": "When do you leave him?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Now, on live television, before anyone else dares.",
+        "effects": {
+          "loyalty": -1.5,
+          "mach": 1,
+          "psych": 1
+        },
+        "reads": {
+          "hunger": 1.5,
+          "risk": 1
+        }
+      },
+      {
+        "id": "b",
+        "label": "Never. He made me. I go down holding his hand.",
+        "effects": {
+          "loyalty": 1.5,
+          "mach": -1
+        },
+        "reads": {
+          "mercy": 1,
+          "hunger": -1
+        }
+      }
+    ],
+    "discrimination": 2
+  },
+  {
+    "id": "G-017",
+    "chapter": "debate",
+    "route": "both",
+    "type": "slider",
+    "tier": "core",
+    "topic": "debate-takedown",
+    "context": "Your rival once wept on camera and has never lived it down. You have the clip memorized, ninety seconds of live television, and he is already sweating.",
+    "prompt": "How far do you take his humiliation?",
+    "slider": {
+      "left": "Nowhere. I beat him on the merits",
+      "right": "Until he cannot look up",
+      "centre": "One cut, then walk away",
+      "effects": {
+        "psych": 1.5,
+        "style": 1
+      },
+      "reads": {
+        "mercy": -1.5,
+        "vanity": 0.5
+      },
+      "steps": 5
+    },
+    "discrimination": 2
+  },
+  {
+    "id": "G-018",
+    "chapter": "debate",
+    "route": "both",
+    "type": "choice",
+    "tier": "core",
+    "topic": "character-curve",
+    "context": "The moderator turns to you. The rival standing six feet away admitted an affair last month. The question: does a candidate’s private life tell voters how they would govern?",
+    "prompt": "What is your answer?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Yes. A man who lies to his wife will lie to the country.",
+        "effects": {
+          "libertine": -1.5,
+          "style": 1
+        },
+        "reads": {
+          "mercy": -1
+        }
+      },
+      {
+        "id": "b",
+        "label": "No. Half the great presidents would flunk that test.",
+        "effects": {
+          "libertine": 1.5
+        },
+        "reads": {
+          "mercy": 0.5
+        }
+      },
+      {
+        "id": "c",
+        "label": "That is between him and his family. Next question.",
+        "effects": {
+          "libertine": 0.5,
+          "style": -1
+        },
+        "reads": {
+          "mercy": 1
+        }
+      },
+      {
+        "id": "d",
+        "label": "No. But let us all say the word affair a few more times.",
+        "effects": {
+          "mach": 1.5,
+          "libertine": -0.5
+        },
+        "reads": {
+          "charm": 0.5,
+          "mercy": -0.5
+        }
+      }
+    ],
+    "discrimination": 2
+  },
+  {
+    "id": "G-019",
+    "chapter": "debate",
+    "route": "both",
+    "type": "swipe",
+    "tier": "core",
+    "topic": "green-room",
+    "context": "The green room, twenty minutes before the biggest debate of the race. Nobody is watching you but your own staff.",
+    "prompt": "Is each one you? Yes or no, four seconds each.",
+    "cards": [
+      {
+        "id": "1",
+        "text": "I check which camera gets my bad side.",
+        "yes": {
+          "narc": 1
+        },
+        "no": {
+          "narc": -0.5
+        },
+        "readsYes": {
+          "vanity": 1
+        },
+        "readsNo": {
+          "vanity": -0.5
+        }
+      },
+      {
+        "id": "2",
+        "text": "I rewrite my closing statement myself, ten minutes out.",
+        "yes": {
+          "narc": 0.5,
+          "mach": 0.5
+        },
+        "no": {
+          "narc": -0.5
+        },
+        "readsYes": {
+          "control": 1,
+          "risk": 0.5
+        },
+        "readsNo": {
+          "control": -0.5
+        }
+      },
+      {
+        "id": "3",
+        "text": "I shake my rival’s hand and mean it.",
+        "yes": {
+          "style": -1,
+          "psych": -0.5
+        },
+        "no": {
+          "style": 1
+        },
+        "readsYes": {
+          "mercy": 0.5
+        },
+        "readsNo": {
+          "grudge": 0.5
+        }
+      },
+      {
+        "id": "4",
+        "text": "I want to know who my staff spoke to in the hallway.",
+        "yes": {
+          "mach": 1
+        },
+        "no": {
+          "mach": -0.5
+        },
+        "readsYes": {
+          "paranoia": 1
+        },
+        "readsNo": {
+          "paranoia": -0.5
+        }
+      },
+      {
+        "id": "5",
+        "text": "If the moment comes, I throw away the script.",
+        "yes": {
+          "style": 0.5,
+          "narc": 0.5
+        },
+        "no": {
+          "style": -0.5
+        },
+        "readsYes": {
+          "risk": 1
+        },
+        "readsNo": {
+          "risk": -1
+        }
+      },
+      {
+        "id": "6",
+        "text": "I know which rival I want to see cry tonight.",
+        "yes": {
+          "psych": 1.5
+        },
+        "no": {
+          "psych": -1
+        },
+        "readsYes": {
+          "grudge": 0.5,
+          "mercy": -0.5
+        },
+        "readsNo": {
+          "mercy": 0.5
+        }
+      },
+      {
+        "id": "7",
+        "text": "I like my own staff a little afraid of me.",
+        "yes": {
+          "psych": 1,
+          "narc": 0.5
+        },
+        "no": {
+          "psych": -1
+        },
+        "readsYes": {
+          "control": 1,
+          "mercy": -0.5
+        },
+        "readsNo": {
+          "control": -0.5
+        }
+      }
+    ],
+    "measure": [
+      "speed"
+    ],
+    "discrimination": 2
+  },
+  {
+    "id": "G-020",
+    "chapter": "debate",
+    "route": "both",
+    "type": "dilemma",
+    "tier": "core",
+    "topic": "friendship",
+    "context": "The front-runner is tearing into the one rival who has always been decent to you, using a charge you know is false. Defending her costs you your own speaking time and makes you his next target.",
+    "prompt": "Do you step in?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Step in. Some debts get paid on live television.",
+        "effects": {
+          "mach": -1,
+          "psych": -1,
+          "style": 0.5
+        },
+        "reads": {
+          "mercy": 1,
+          "risk": 1
+        }
+      },
+      {
+        "id": "b",
+        "label": "Stay out. Two rivals bleeding is a good night for me.",
+        "effects": {
+          "mach": 1.5,
+          "psych": 1
+        },
+        "reads": {
+          "mercy": -1,
+          "hunger": 1
+        }
+      }
+    ],
+    "discrimination": 3
+  },
+  {
+    "id": "G-021",
+    "chapter": "backroom",
+    "route": "both",
+    "type": "envelope",
+    "tier": "core",
+    "topic": "donor-pressure",
+    "context": "A fundraiser who has brought in nine million dollars slides a resume across your desk. It is his son: twenty-six, no experience, wants to be your deputy political director. No job, no more checks.",
+    "prompt": "What happens to the resume?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Hire the boy. Nine million buys a desk and a title.",
+        "effects": {
+          "mach": 1,
+          "dynasty": 1.5
+        },
+        "reads": {
+          "hunger": 0.5,
+          "risk": -0.5
+        }
+      },
+      {
+        "id": "b",
+        "label": "Hire him. Big title, no power, a desk by the copier.",
+        "effects": {
+          "mach": 1.5,
+          "dynasty": 0.5
+        },
+        "reads": {
+          "control": 1,
+          "charm": 0.5
+        }
+      },
+      {
+        "id": "c",
+        "label": "Hand it back. My payroll is not his family trust.",
+        "effects": {
+          "dynasty": -1.5,
+          "mach": -1
+        },
+        "reads": {
+          "risk": 1
+        }
+      }
+    ],
+    "measure": [
+      "hesitation"
+    ],
+    "discrimination": 2
+  },
+  {
+    "id": "G-022",
+    "chapter": "backroom",
+    "route": "both",
+    "type": "choice",
+    "tier": "core",
+    "topic": "leak-hunt",
+    "context": "A strategy meeting of your twelve most senior people. Last week, something said in this room turned up in the press, word for word.",
+    "prompt": "How do you run today’s meeting?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Phones in a basket at the door. Mine too.",
+        "effects": {
+          "mach": 0.5,
+          "psych": 0.5
+        },
+        "reads": {
+          "paranoia": 1,
+          "control": 1
+        }
+      },
+      {
+        "id": "b",
+        "label": "Same as always. I will not run a campaign of suspects.",
+        "effects": {
+          "mach": -1,
+          "psych": -0.5
+        },
+        "reads": {
+          "paranoia": -1.5,
+          "mercy": 0.5
+        }
+      },
+      {
+        "id": "c",
+        "label": "Cut it to three people. The other nine get memos.",
+        "effects": {
+          "mach": 1,
+          "narc": 0.5
+        },
+        "reads": {
+          "control": 1.5,
+          "paranoia": 1
+        }
+      },
+      {
+        "id": "d",
+        "label": "Find the leaker first. Fire them in front of the eleven.",
+        "effects": {
+          "psych": 1.5,
+          "style": 1
+        },
+        "reads": {
+          "grudge": 1,
+          "paranoia": 0.5
+        }
+      }
+    ],
+    "discrimination": 2
+  },
+  {
+    "id": "G-023",
+    "chapter": "backroom",
+    "route": "both",
+    "type": "hold",
+    "tier": "core",
+    "topic": "staff-loyalty",
+    "context": "Your oldest aide has been with you since the city council race. He would take a bullet for you. He is also badly out of his depth now, and the campaign pays for it every day.",
+    "prompt": "Hold on what you do with him. The longer you hold, the more you mean it.",
+    "options": [
+      {
+        "id": "a",
+        "label": "Keep him where he is. Loyalty like that is not for sale.",
+        "effects": {
+          "loyalty": 1,
+          "psych": -1
+        },
+        "reads": {
+          "mercy": 1,
+          "hunger": -0.5
+        }
+      },
+      {
+        "id": "b",
+        "label": "A grand title, an empty desk, nothing he can break.",
+        "effects": {
+          "mach": 1.5
+        },
+        "reads": {
+          "charm": 0.5,
+          "mercy": 0.5
+        }
+      },
+      {
+        "id": "c",
+        "label": "Fire him myself, today, to his face.",
+        "effects": {
+          "psych": 1,
+          "mach": -0.5
+        },
+        "reads": {
+          "hunger": 1,
+          "mercy": -0.5
+        }
+      },
+      {
+        "id": "d",
+        "label": "Have a stranger fire him by text while I am out of state.",
+        "effects": {
+          "psych": 1.5,
+          "mach": 1
+        },
+        "reads": {
+          "mercy": -1.5,
+          "risk": -0.5
+        }
+      }
+    ],
+    "measure": [
+      "holdStrength"
+    ],
+    "discrimination": 3
+  },
+  {
+    "id": "G-024",
+    "chapter": "backroom",
+    "route": "both",
+    "type": "slider",
+    "tier": "core",
+    "topic": "keeping-score",
+    "context": "Somebody crossed you eight years ago: a broken promise, a knife at a bad moment. They have been nothing but pleasant ever since.",
+    "prompt": "How long do you keep their file open?",
+    "slider": {
+      "left": "It closed years ago",
+      "right": "Until they are finished",
+      "centre": "Open, but in a drawer",
+      "effects": {
+        "psych": 1,
+        "style": 1
+      },
+      "reads": {
+        "grudge": 1.5
+      },
+      "steps": 5
+    },
+    "discrimination": 2
+  },
+  {
+    "id": "G-025",
+    "chapter": "backroom",
+    "route": "both",
+    "type": "budget",
+    "tier": "core",
+    "topic": "inner-circle",
+    "context": "Trust is the only currency on a campaign that you cannot raise more of.",
+    "prompt": "You have 100 points of trust to hand out inside your own campaign. Who gets it?",
+    "options": [
+      {
+        "id": "a",
+        "label": "My family. Blood does not leak",
+        "effects": {
+          "dynasty": 1.5
+        },
+        "reads": {
+          "paranoia": 0.5
+        }
+      },
+      {
+        "id": "b",
+        "label": "The professionals I hired for their records",
+        "effects": {
+          "dynasty": -1,
+          "mach": -0.5
+        },
+        "reads": {
+          "paranoia": -1,
+          "control": -1
+        }
+      },
+      {
+        "id": "c",
+        "label": "Whoever has the most to lose if I fall",
+        "effects": {
+          "mach": 1.5
+        },
+        "reads": {
+          "paranoia": 1
+        }
+      },
+      {
+        "id": "d",
+        "label": "Nobody. I keep all of it",
+        "effects": {
+          "psych": 1,
+          "narc": 1
+        },
+        "reads": {
+          "control": 1.5,
+          "paranoia": 1.5
+        }
+      }
+    ],
+    "discrimination": 2
+  },
+  {
+    "id": "G-026",
+    "chapter": "backroom",
+    "route": "both",
+    "type": "dilemma",
+    "tier": "core",
+    "topic": "petty-revenge",
+    "context": "A committee chairman once killed your signature bill out of pure spite. Now he is one vote short of keeping his gavel, and that vote is yours. He has come to your office to ask in person.",
+    "prompt": "Do you save him?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Save him. A chairman in my debt beats a corpse who is not.",
+        "effects": {
+          "mach": 1.5,
+          "style": -0.5
+        },
+        "reads": {
+          "grudge": -1,
+          "control": 0.5
+        }
+      },
+      {
+        "id": "b",
+        "label": "Let him fall, and make sure he knows whose hand it was.",
+        "effects": {
+          "style": 1.5,
+          "psych": 1
+        },
+        "reads": {
+          "grudge": 1.5
+        }
+      }
+    ],
+    "discrimination": 2
+  },
+  {
+    "id": "G-027",
+    "chapter": "backroom",
+    "route": "both",
+    "type": "envelope",
+    "tier": "core",
+    "topic": "surrogate-trouble",
+    "context": "Your most valuable surrogate, the person who campaigns in your name, is a governor who delivers his state. Three young women on your staff have each quietly asked not to work his events. Nobody has filed a complaint.",
+    "prompt": "What do you do about the governor?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Send only men to staff him. Managed. State delivered.",
+        "effects": {
+          "mach": 1.5,
+          "libertine": 0.5
+        },
+        "reads": {
+          "control": 0.5,
+          "mercy": -0.5
+        }
+      },
+      {
+        "id": "b",
+        "label": "Drop him. I will find that state some other way.",
+        "effects": {
+          "libertine": -1.5,
+          "mach": -1
+        },
+        "reads": {
+          "risk": 1,
+          "mercy": 1
+        }
+      },
+      {
+        "id": "c",
+        "label": "Tell him to his face that I know. Keep him, on a leash.",
+        "effects": {
+          "mach": 1,
+          "psych": 0.5,
+          "libertine": -0.5
+        },
+        "reads": {
+          "control": 1.5
+        }
+      }
+    ],
+    "measure": [
+      "hesitation"
+    ],
+    "discrimination": 3
+  },
+  {
+    "id": "G-028",
+    "chapter": "backroom",
+    "route": "both",
+    "type": "choice",
+    "tier": "core",
+    "topic": "kingmaker",
+    "context": "The party boss whose blessing you need has kept you waiting in his lobby for two hours. His assistant keeps smiling. Everyone who walks past can see you sitting there.",
+    "prompt": "What do you do?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Wait. Pride is cheap, and his machine is not.",
+        "effects": {
+          "mach": 1.5,
+          "narc": -1
+        },
+        "reads": {
+          "hunger": 1,
+          "vanity": -1
+        }
+      },
+      {
+        "id": "b",
+        "label": "Leave. Nobody makes me sit in a lobby.",
+        "effects": {
+          "narc": 1.5,
+          "style": 1
+        },
+        "reads": {
+          "vanity": 1.5,
+          "risk": 0.5
+        }
+      },
+      {
+        "id": "c",
+        "label": "Wait, be delightful, and never forget the two hours.",
+        "effects": {
+          "mach": 1.5,
+          "psych": 0.5
+        },
+        "reads": {
+          "charm": 1,
+          "grudge": 1
+        }
+      },
+      {
+        "id": "d",
+        "label": "Work the lobby. By the time he is free, his staff are mine.",
+        "effects": {
+          "mach": 1,
+          "narc": 0.5
+        },
+        "reads": {
+          "charm": 1.5,
+          "hunger": 0.5
+        }
+      }
+    ],
+    "discrimination": 2
+  },
+  {
+    "id": "G-029",
+    "chapter": "backroom",
+    "route": "both",
+    "type": "rank",
+    "tier": "core",
+    "topic": "arm-twisting",
+    "context": "You need one stubborn senator’s vote, and you need it by Friday.",
+    "prompt": "Rank your tools. The one you reach for first goes at the top.",
+    "options": [
+      {
+        "id": "a",
+        "label": "Charm: dinner, his grandkids’ names, my full attention",
+        "effects": {
+          "mach": 0.5,
+          "style": -1
+        },
+        "reads": {
+          "charm": 1.5
+        }
+      },
+      {
+        "id": "b",
+        "label": "Kompromat: the folder on him I have kept for years",
+        "effects": {
+          "mach": 1.5,
+          "psych": 0.5
+        },
+        "reads": {
+          "control": 0.5,
+          "paranoia": 0.5
+        }
+      },
+      {
+        "id": "c",
+        "label": "Fear: he learns what crossing me costs",
+        "effects": {
+          "psych": 1.5,
+          "style": 1
+        },
+        "reads": {
+          "mercy": -0.5,
+          "grudge": 0.5
+        }
+      },
+      {
+        "id": "d",
+        "label": "The argument: I am right, and I can show him",
+        "effects": {
+          "mach": -1.5
+        },
+        "reads": {
+          "charm": -0.5
+        }
+      },
+      {
+        "id": "e",
+        "label": "His staff: I go around him until he is alone",
+        "effects": {
+          "mach": 1.5
+        },
+        "reads": {
+          "control": 1
+        }
+      }
+    ],
+    "discrimination": 2
+  },
+  {
+    "id": "G-030",
+    "chapter": "backroom",
+    "route": "both",
+    "type": "dilemma",
+    "tier": "core",
+    "topic": "family-cover-up",
+    "context": "It is 2 a.m. Your son calls from the roadside: he has been drinking and has hit a parked car. Nobody is hurt and nobody saw. Your state trooper detail can make all of it vanish before sunrise.",
+    "prompt": "What do you tell the troopers?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Make it vanish. He is my son, and I have an election.",
+        "effects": {
+          "dynasty": 1.5,
+          "mach": 1,
+          "psych": 0.5
+        },
+        "reads": {
+          "control": 1,
+          "risk": 1
+        }
+      },
+      {
+        "id": "b",
+        "label": "Nothing. He calls the police himself, and I stand by him.",
+        "effects": {
+          "dynasty": -1,
+          "mach": -1.5
+        },
+        "reads": {
+          "control": -1,
+          "risk": 0.5
+        }
+      }
+    ],
+    "discrimination": 3
+  },
+  {
+    "id": "G-031",
+    "chapter": "scandal",
+    "route": "both",
+    "type": "envelope",
+    "tier": "core",
+    "topic": "taking-the-fall",
+    "context": "A campaign finance violation is about to break. The decision was yours. Your young treasurer signed the form, and he has just offered, unprompted, to say it was all his mistake.",
+    "prompt": "Do you let him take the blame?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Let him. He offered, and I will look after him later.",
+        "effects": {
+          "mach": 1.5,
+          "psych": 1
+        },
+        "reads": {
+          "mercy": -1,
+          "hunger": 1
+        }
+      },
+      {
+        "id": "b",
+        "label": "No. It was my call, and I will say so.",
+        "effects": {
+          "mach": -1.5,
+          "psych": -1
+        },
+        "reads": {
+          "mercy": 1,
+          "risk": 1
+        }
+      },
+      {
+        "id": "c",
+        "label": "Neither of us. Blame the lawyers. Nobody likes them.",
+        "effects": {
+          "mach": 1.5,
+          "style": 0.5
+        },
+        "reads": {
+          "charm": 0.5,
+          "risk": -0.5
+        }
+      }
+    ],
+    "measure": [
+      "hesitation"
+    ],
+    "discrimination": 3
+  },
+  {
+    "id": "G-032",
+    "chapter": "scandal",
+    "route": "both",
+    "type": "choice",
+    "tier": "core",
+    "topic": "scandal-night",
+    "context": "A video from fifteen years ago surfaces: you, drunk at a wedding, doing an impression of the voters you now need. It is cruel, and it is unmistakably you.",
+    "prompt": "What is the plan by morning?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Apologize once, plainly, and take the week of pain.",
+        "effects": {
+          "style": -1,
+          "mach": -1
+        },
+        "reads": {
+          "vanity": -1
+        }
+      },
+      {
+        "id": "b",
+        "label": "Never apologize. Attack whoever leaked it.",
+        "effects": {
+          "style": 1.5,
+          "narc": 1
+        },
+        "reads": {
+          "grudge": 1,
+          "vanity": 0.5
+        }
+      },
+      {
+        "id": "c",
+        "label": "Post it myself with a joke. Own it before they do.",
+        "effects": {
+          "libertine": 1,
+          "online": 1
+        },
+        "reads": {
+          "risk": 1,
+          "charm": 1
+        }
+      },
+      {
+        "id": "d",
+        "label": "Find out who filmed it. Someone at that wedding pays.",
+        "effects": {
+          "psych": 1,
+          "mach": 0.5
+        },
+        "reads": {
+          "grudge": 1.5,
+          "paranoia": 1
+        }
+      }
+    ],
+    "discrimination": 2
+  },
+  {
+    "id": "G-033",
+    "chapter": "scandal",
+    "route": "both",
+    "type": "hold",
+    "tier": "core",
+    "topic": "ruthless-ads",
+    "context": "Your rival’s wife has been rushed to hospital, and he has stopped campaigning for a week. Your most brutal attack ad is booked to start tonight. It is paid for, it is true, and it tested beautifully.",
+    "prompt": "Hold on what you do with the ad. The longer you hold, the more you mean it.",
+    "options": [
+      {
+        "id": "a",
+        "label": "Pull it, and tell nobody that I pulled it.",
+        "effects": {
+          "psych": -1.5,
+          "narc": -0.5
+        },
+        "reads": {
+          "mercy": 1.5,
+          "vanity": -0.5
+        }
+      },
+      {
+        "id": "b",
+        "label": "Pull it, and make sure the press hears how gracious I am.",
+        "effects": {
+          "mach": 1.5,
+          "narc": 0.5
+        },
+        "reads": {
+          "vanity": 1,
+          "charm": 1
+        }
+      },
+      {
+        "id": "c",
+        "label": "Run it. He would not pull his.",
+        "effects": {
+          "psych": 1.5,
+          "style": 1
+        },
+        "reads": {
+          "mercy": -1.5,
+          "hunger": 1
+        }
+      },
+      {
+        "id": "d",
+        "label": "Hold it one week. Then double the buy.",
+        "effects": {
+          "mach": 1,
+          "psych": 0.5
+        },
+        "reads": {
+          "hunger": 0.5,
+          "control": 0.5
+        }
+      }
+    ],
+    "measure": [
+      "holdStrength"
+    ],
+    "discrimination": 3
+  },
+  {
+    "id": "G-034",
+    "chapter": "scandal",
+    "route": "both",
+    "type": "dilemma",
+    "tier": "core",
+    "topic": "first-family-business",
+    "context": "Your spouse’s company took a loan from a man who is about to be indicted. It was legal. It looks terrible. Your team’s advice: tell the press tonight that your spouse’s business has nothing to do with you.",
+    "prompt": "Do you cut your spouse loose in public?",
+    "options": [
+      {
+        "id": "a",
+        "label": "No. We stand at the podium together and sink or swim.",
+        "effects": {
+          "dynasty": 1,
+          "psych": -1
+        },
+        "reads": {
+          "risk": 1,
+          "mercy": 0.5
+        }
+      },
+      {
+        "id": "b",
+        "label": "Yes. Their business is theirs, and I knew nothing.",
+        "effects": {
+          "mach": 1,
+          "psych": 1,
+          "dynasty": -1
+        },
+        "reads": {
+          "hunger": 1,
+          "mercy": -0.5
+        }
+      }
+    ],
+    "discrimination": 2
+  },
+  {
+    "id": "G-035",
+    "chapter": "scandal",
+    "route": "both",
+    "type": "choice",
+    "tier": "core",
+    "topic": "tell-all",
+    "context": "A former aide has sold a tell-all book. The worst chapter is true: you scream at staff, you once threw a phone, and an intern quit in tears. It publishes Tuesday.",
+    "prompt": "How do you answer the book?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Admit it. Apologize to the staff by name, and change.",
+        "effects": {
+          "psych": -1,
+          "narc": -1
+        },
+        "reads": {
+          "mercy": 0.5,
+          "vanity": -1
+        }
+      },
+      {
+        "id": "b",
+        "label": "Bitter, disloyal, fired for cause. Destroy the author.",
+        "effects": {
+          "psych": 1.5,
+          "style": 1
+        },
+        "reads": {
+          "grudge": 1.5
+        }
+      },
+      {
+        "id": "c",
+        "label": "Say nothing. Have today’s staff praise me on the record.",
+        "effects": {
+          "mach": 1.5
+        },
+        "reads": {
+          "control": 1,
+          "vanity": 0.5
+        }
+      },
+      {
+        "id": "d",
+        "label": "Own it. Yes, I am demanding. Winning is demanding.",
+        "effects": {
+          "narc": 1.5,
+          "style": 0.5
+        },
+        "reads": {
+          "hunger": 1,
+          "vanity": 0.5
+        }
+      }
+    ],
+    "discrimination": 2
+  },
+  {
+    "id": "G-036",
+    "chapter": "scandal",
+    "route": "both",
+    "type": "slider",
+    "tier": "core",
+    "topic": "kompromat",
+    "context": "Your opposition researcher has, without being asked, built a file on your own senior staff: the debts, the affairs, one old arrest. It is sitting on your desk. Nobody else knows it exists.",
+    "prompt": "How much of the file on your own people do you keep?",
+    "slider": {
+      "left": "None. Shred it in front of them",
+      "right": "All of it. A leash for everyone",
+      "centre": "Sealed in the safe, just in case",
+      "effects": {
+        "mach": 1.5,
+        "psych": 1
+      },
+      "reads": {
+        "control": 1.5,
+        "paranoia": 1
+      },
+      "steps": 5
+    },
+    "discrimination": 2
+  },
+  {
+    "id": "G-037",
+    "chapter": "scandal",
+    "route": "both",
+    "type": "envelope",
+    "tier": "core",
+    "topic": "the-leaker",
+    "context": "The staffer who leaked your plan to the press walks into your office and confesses before you catch her. She did it because she thought you were about to make a terrible mistake. She was right, and the leak stopped you.",
+    "prompt": "What happens to her?",
+    "options": [
+      {
+        "id": "a",
+        "label": "She stays. I need one person who will stop me.",
+        "effects": {
+          "narc": -1.5,
+          "psych": -1
+        },
+        "reads": {
+          "mercy": 1.5,
+          "paranoia": -1
+        }
+      },
+      {
+        "id": "b",
+        "label": "She goes today. Right or wrong, she went around me.",
+        "effects": {
+          "psych": 1,
+          "loyalty": 1
+        },
+        "reads": {
+          "control": 1,
+          "mercy": -1
+        }
+      },
+      {
+        "id": "c",
+        "label": "She stays, watched, and never in the room again.",
+        "effects": {
+          "mach": 1.5
+        },
+        "reads": {
+          "paranoia": 1.5,
+          "control": 0.5
+        }
+      }
+    ],
+    "measure": [
+      "hesitation"
+    ],
+    "discrimination": 3
+  },
+  {
+    "id": "G-038",
+    "chapter": "scandal",
+    "route": "both",
+    "type": "choice",
+    "tier": "core",
+    "topic": "hypocrisy-scandals",
+    "context": "Your team has photographs of your rival at a private club: on his knees, in a collar, entirely legal, entirely consensual. He is running on family values. Nobody else has the pictures.",
+    "prompt": "What do you do with the photographs?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Publish. The hypocrisy is the story, and I will enjoy it.",
+        "effects": {
+          "psych": 1.5,
+          "mach": 0.5,
+          "libertine": -1
+        },
+        "reads": {
+          "mercy": -1.5,
+          "grudge": 0.5
+        }
+      },
+      {
+        "id": "b",
+        "label": "Burn them. What a man kneels for is his own business.",
+        "effects": {
+          "libertine": 1.5,
+          "mach": -1,
+          "psych": -1
+        },
+        "reads": {
+          "mercy": 1.5
+        }
+      },
+      {
+        "id": "c",
+        "label": "Show him one. From tonight, he works for me.",
+        "effects": {
+          "mach": 1.5,
+          "psych": 1
+        },
+        "reads": {
+          "control": 1.5,
+          "risk": 0.5
+        }
+      },
+      {
+        "id": "d",
+        "label": "Keep them. Let him wonder forever who has them.",
+        "effects": {
+          "mach": 1.5,
+          "psych": 0.5
+        },
+        "reads": {
+          "control": 1,
+          "paranoia": 0.5
+        }
+      }
+    ],
+    "discrimination": 3
+  },
+  {
+    "id": "G-039",
+    "chapter": "convention",
+    "route": "both",
+    "type": "choice",
+    "tier": "core",
+    "topic": "running-mate-ego",
+    "context": "Two names are left for running mate. One is dull, loyal and would never upstage you. The other is a star: a better speaker than you, better looking, and already talked about for next time.",
+    "prompt": "Who gets the call?",
+    "options": [
+      {
+        "id": "a",
+        "label": "The star. I want to win, and I can survive a rival at lunch.",
+        "effects": {
+          "narc": -1,
+          "mach": 0.5
+        },
+        "reads": {
+          "risk": 1,
+          "vanity": -1
+        }
+      },
+      {
+        "id": "b",
+        "label": "The dull one. One sun per solar system.",
+        "effects": {
+          "narc": 1.5
+        },
+        "reads": {
+          "vanity": 1.5,
+          "control": 0.5
+        }
+      },
+      {
+        "id": "c",
+        "label": "The star, once it is in writing who is in charge.",
+        "effects": {
+          "mach": 1.5
+        },
+        "reads": {
+          "control": 1.5
+        }
+      },
+      {
+        "id": "d",
+        "label": "The dull one. Stars measure the drapes by day two.",
+        "effects": {
+          "mach": 1,
+          "loyalty": 0.5
+        },
+        "reads": {
+          "paranoia": 1.5
+        }
+      }
+    ],
+    "discrimination": 2
+  },
+  {
+    "id": "G-040",
+    "chapter": "convention",
+    "route": "both",
+    "type": "budget",
+    "tier": "core",
+    "topic": "acceptance-speech",
+    "context": "Your acceptance speech is the biggest audience you will ever have. Forty minutes, forty million people.",
+    "prompt": "Split 100 points of the speech between these.",
+    "options": [
+      {
+        "id": "a",
+        "label": "My own story",
+        "effects": {
+          "narc": 1.5
+        },
+        "reads": {
+          "vanity": 1.5
+        }
+      },
+      {
+        "id": "b",
+        "label": "Tearing the other side apart",
+        "effects": {
+          "style": 1.5,
+          "psych": 0.5
+        },
+        "reads": {
+          "grudge": 0.5
+        }
+      },
+      {
+        "id": "c",
+        "label": "Thanking the people who got me here",
+        "effects": {
+          "narc": -1,
+          "loyalty": 0.5
+        },
+        "reads": {
+          "vanity": -1,
+          "mercy": 0.5
+        }
+      },
+      {
+        "id": "d",
+        "label": "Reaching for voters who did not pick me",
+        "effects": {
+          "style": -1.5
+        },
+        "reads": {
+          "charm": 1
+        }
+      },
+      {
+        "id": "e",
+        "label": "My family, on stage, by name",
+        "effects": {
+          "dynasty": 1.5
+        }
+      }
+    ],
+    "discrimination": 2
+  },
+  {
+    "id": "G-041",
+    "chapter": "convention",
+    "route": "both",
+    "type": "hold",
+    "tier": "core",
+    "topic": "convention-lineup",
+    "context": "You have won the nomination. The rival you beat ran a filthy campaign against you. Now he wants a prime-time speaking slot, a say in the platform and jobs for his people.",
+    "prompt": "Hold on what he gets. The longer you hold, the more you mean it.",
+    "options": [
+      {
+        "id": "a",
+        "label": "All of it. I need his voters more than my pride.",
+        "effects": {
+          "mach": 1,
+          "style": -1
+        },
+        "reads": {
+          "grudge": -1.5,
+          "charm": 0.5
+        }
+      },
+      {
+        "id": "b",
+        "label": "Tuesday, 4 p.m., to an empty hall. He will know why.",
+        "effects": {
+          "mach": 1,
+          "psych": 0.5
+        },
+        "reads": {
+          "grudge": 1
+        }
+      },
+      {
+        "id": "c",
+        "label": "The slot, if he reads my script praising me, word for word.",
+        "effects": {
+          "mach": 1,
+          "narc": 1
+        },
+        "reads": {
+          "control": 1.5,
+          "vanity": 0.5
+        }
+      },
+      {
+        "id": "d",
+        "label": "Nothing. He can watch it from the hotel.",
+        "effects": {
+          "style": 1.5,
+          "psych": 1
+        },
+        "reads": {
+          "grudge": 1.5,
+          "risk": 1
+        }
+      }
+    ],
+    "measure": [
+      "holdStrength"
+    ],
+    "discrimination": 2
+  },
+  {
+    "id": "G-042",
+    "chapter": "convention",
+    "route": "both",
+    "type": "slider",
+    "tier": "core",
+    "topic": "rope-line",
+    "context": "Convention week. Four thousand delegates, and you have something for each: the name, the grip on the shoulder, the question about the kids. Your staff have a private bet on how much of it you mean.",
+    "prompt": "How much of your warmth is real?",
+    "slider": {
+      "left": "All of it. I like people",
+      "right": "None. It is a tool that works",
+      "centre": "Real, and also useful",
+      "effects": {
+        "mach": 1.5,
+        "psych": 1
+      },
+      "steps": 5
+    },
+    "discrimination": 2
+  },
+  {
+    "id": "G-043",
+    "chapter": "convention",
+    "route": "both",
+    "type": "dilemma",
+    "tier": "core",
+    "topic": "family-or-office",
+    "context": "The last night of the convention. Your father has taken a turn for the worse in a hospital two hours away. The doctors say tonight, maybe. Your acceptance speech is at ten, and forty million people are waiting.",
+    "prompt": "Where are you at ten?",
+    "options": [
+      {
+        "id": "a",
+        "label": "At his bedside. The speech can wait, or someone can read it.",
+        "effects": {
+          "narc": -1.5,
+          "psych": -1
+        },
+        "reads": {
+          "hunger": -1.5,
+          "mercy": 1
+        }
+      },
+      {
+        "id": "b",
+        "label": "At the podium. He would have stayed. So will I.",
+        "effects": {
+          "narc": 1,
+          "psych": 1
+        },
+        "reads": {
+          "hunger": 1.5
+        }
+      }
+    ],
+    "discrimination": 3
+  },
+  {
+    "id": "G-044",
+    "chapter": "election_night",
+    "phase": "count",
+    "route": "both",
+    "type": "choice",
+    "tier": "core",
+    "topic": "waiting-room",
+    "context": "The polls have closed. The first real numbers are an hour away. Forty staff are in the war room, and your family is in the suite upstairs.",
+    "prompt": "Where are you for the next hour?",
+    "options": [
+      {
+        "id": "a",
+        "label": "At the data desk, refreshing the counties myself.",
+        "effects": {
+          "mach": 0.5,
+          "narc": 0.5
+        },
+        "reads": {
+          "control": 1.5
+        }
+      },
+      {
+        "id": "b",
+        "label": "Upstairs with the family, phone face down.",
+        "effects": {
+          "dynasty": 0.5,
+          "narc": -1
+        },
+        "reads": {
+          "control": -1.5
+        }
+      },
+      {
+        "id": "c",
+        "label": "Working the war room. A hand on every shoulder.",
+        "effects": {
+          "psych": -1,
+          "style": -0.5
+        },
+        "reads": {
+          "charm": 1.5
+        }
+      },
+      {
+        "id": "d",
+        "label": "Alone, with the list of who doubted me. Tonight it gets used.",
+        "effects": {
+          "narc": 1,
+          "psych": 0.5
+        },
+        "reads": {
+          "grudge": 1,
+          "paranoia": 0.5
+        }
+      }
+    ],
+    "discrimination": 2
+  },
+  {
+    "id": "G-045",
+    "chapter": "election_night",
+    "phase": "loss",
+    "route": "both",
+    "type": "hold",
+    "tier": "core",
+    "topic": "losing-well",
+    "context": "Picture it: you have lost. In the hotel suite, your staff are waiting for you to say something. Everyone in the room knows whose mistakes cost what.",
+    "prompt": "Hold on what you say to them. The longer you hold, the more you mean it.",
+    "options": [
+      {
+        "id": "a",
+        "label": "This one was mine. Every one of you did your job.",
+        "effects": {
+          "narc": -1.5,
+          "psych": -1
+        },
+        "reads": {
+          "mercy": 1.5
+        }
+      },
+      {
+        "id": "b",
+        "label": "Thank them warmly. The list of names can wait a week.",
+        "effects": {
+          "mach": 1.5
+        },
+        "reads": {
+          "grudge": 1.5,
+          "charm": 0.5
+        }
+      },
+      {
+        "id": "c",
+        "label": "Name the people who failed, here, now, to their faces.",
+        "effects": {
+          "psych": 1.5,
+          "style": 1
+        },
+        "reads": {
+          "grudge": 1,
+          "mercy": -1.5
+        }
+      },
+      {
+        "id": "d",
+        "label": "We were robbed, and this is not over.",
+        "effects": {
+          "system": 1.5,
+          "narc": 1,
+          "democracy": -1
+        },
+        "reads": {
+          "hunger": 1,
+          "risk": 0.5
+        }
+      }
+    ],
+    "measure": [
+      "holdStrength"
+    ],
+    "discrimination": 2
+  },
+  {
+    "id": "G-046",
+    "chapter": "election_night",
+    "phase": "victory",
+    "route": "both",
+    "type": "choice",
+    "tier": "core",
+    "topic": "victory-night",
+    "context": "You have won. Before the speech you have ten minutes and one phone. There are four names on the list in your pocket.",
+    "prompt": "Who gets the first call?",
+    "options": [
+      {
+        "id": "a",
+        "label": "The rival I beat. Be generous while it is cheap.",
+        "effects": {
+          "mach": 0.5,
+          "style": -1
+        },
+        "reads": {
+          "mercy": 1,
+          "charm": 0.5
+        }
+      },
+      {
+        "id": "b",
+        "label": "The donor who dropped me in March. I want to hear him beg.",
+        "effects": {
+          "style": 1,
+          "psych": 1
+        },
+        "reads": {
+          "grudge": 1.5
+        }
+      },
+      {
+        "id": "c",
+        "label": "My mother. She is the only one who does not want a job.",
+        "effects": {
+          "dynasty": 0.5,
+          "narc": -1
+        },
+        "reads": {
+          "vanity": -0.5,
+          "paranoia": 0.5
+        }
+      },
+      {
+        "id": "d",
+        "label": "The party boss. Tonight I set terms. Tomorrow costs more.",
+        "effects": {
+          "mach": 1.5
+        },
+        "reads": {
+          "control": 1,
+          "hunger": 1
+        }
+      }
+    ],
+    "discrimination": 2
+  },
+  {
+    "id": "G-047",
+    "chapter": "election_night",
+    "phase": "loss",
+    "route": "both",
+    "type": "dilemma",
+    "tier": "core",
+    "topic": "running-again",
+    "context": "Picture it: you lost, and it was not close. You are fifty-eight. Your family wants you home. A donor at the hotel bar is already saying four years is nothing.",
+    "prompt": "Is this the end of it?",
+    "options": [
+      {
+        "id": "a",
+        "label": "It is over. I go home and learn to be a person.",
+        "effects": {
+          "narc": -1.5
+        },
+        "reads": {
+          "hunger": -1.5,
+          "vanity": -0.5
+        }
+      },
+      {
+        "id": "b",
+        "label": "The next one starts tomorrow. I am not done until I win.",
+        "effects": {
+          "narc": 1.5,
+          "mach": 0.5
+        },
+        "reads": {
+          "hunger": 1.5,
+          "risk": 0.5
+        }
+      }
+    ],
+    "discrimination": 2
+  }
+]

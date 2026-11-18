@@ -45,18 +45,20 @@ const isPhone = () => {
 };
 
 export function renderShareSheet(section, R) {
-  const { profile, matches, cands, route, scores, shareCfg } = R;
+  const { profile, matches, cands, route, scores, shareCfg, reading } = R;
+  // The archetype from the personality reading, once reading.json has given it a real name.
+  const archetype = reading && reading.present && !reading.archetype?.fallback ? reading.archetype.name : null;
   const top = matches.slice(0, 5).map(m => ({ id: m.id, name: cands.get(m.id)?.name || m.id, pct: m.pct, party: cands.get(m.id)?.party }));
   const first = cands.get(matches[0].id);
   const verdict = shareCfg.verdicts[matches[0].id] || reasonFor(scores, first, matches[0].picks);
   const card = {
-    top, cands, route, verdict, url: shareCfg.url,
+    top, cands, route, verdict, url: shareCfg.url, archetype,
     camp: profile.camp ? { short: profile.camp.short, name: profile.camp.name } : null,
     tem: { mach: scores.mach.value, narc: scores.narc.value, psych: scores.psych.value },
     art: { wide: artUrl('share_wide.webp'), tall: artUrl('share_tall.webp') },
     portraitUrl,
   };
-  const result = { top, route, campName: profile.camp ? profile.camp.name : '', verdict };
+  const result = { top, route, campName: profile.camp ? profile.camp.name : '', verdict, archetype };
   // One template per result, used for every platform; X, Threads and Bluesky get the capped text with hashtags.
   const pickR = Math.random();
   const message = buildMessage(result, shareCfg, { rng: () => pickR, hashtags: false });

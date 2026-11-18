@@ -17,6 +17,8 @@ import { renderResults } from './results.js';
 import { newSeed } from './rng.js';
 import { loadShareConfig } from './share.js';
 import { getSound, setSound, sfx } from './sound.js';
+import { readingContext, buildReading } from './reading.js';
+import { playReveal } from './reveal.js';
 
 const app = document.getElementById('app');
 const h = (tag, cls, text) => {
@@ -180,9 +182,12 @@ async function startRun(saved = null) {
   const run = { seed, sel, sc, route, length: runLength, index: 0, current: null, log: [], seenTypes: new Set() };
   S.run = run;
   const live = () => S.run === run;
-  const save = { v: 1, seed, route, length: runLength, seen: seenList, answers: [], done: false };
+  // revealSeen: the win reveal has been watched to the end, so See your result opens the dossier.
+  const save = { v: 1, seed, route, length: runLength, seen: seenList, answers: [], done: false, revealSeen: !!(saved && saved.revealSeen) };
   const persist = () => { if (!devBank && live()) store.set(SAVE_KEY, save); };
   const replay = saved ? saved.answers : [];
+  run.save = save;
+  run.persist = persist;
   if (!saved) persist();
 
   app.innerHTML = '';
@@ -401,7 +406,7 @@ function fitToScreen(wrap, artHost) {
   setTimeout(fit, 400);
 }
 
-function finish(run) {
+async function finish(run) {
   // Remember what this device has seen so replays prefer fresh questions (last 400 ids).
   const prevSeen = store.get('uspq.seen', []);
   const ids = run.sel.history.map(x => x.id);
@@ -410,18 +415,39 @@ function finish(run) {
   const scores = axisScores(run.sc);
   const matches = matchCandidates(run.sc, candidates, run.route);
   const profile = buildProfile({ scores, matches, camps, route: run.route, scorerFlags: run.sc.flags, campRows: matchCamps(run.sc, camps, candidates) });
-  run.result = { scores, matches, profile };
+  const reading = buildReading(S.data.reading, readingContext({ scores, signals: run.sc.signals, reads: run.sc.reads, matches, route: run.route }));
+  run.result = { scores, matches, profile, reading };
   run.stage.classList.remove('fx-night', 'fx-candles');
+  const reveal = { reading, matches, cands: S.cands, profile, scores, route: run.route, shareCfg: S.shareCfg };
+  const live = () => S.run === run;
+
+  const dossier = () => {
+    app.innerHTML = '';
+    const bd = h('div', 'backdrop');
+    bd.dataset.bg = 'election_night';
+    app.appendChild(bd);
+    const out = renderResults(app, {
+      profile, matches, scores, cands: S.cands, camps, route: run.route, length: run.sel.history.length, signals: run.sc.signals, shareCfg: S.shareCfg, reading,
+      onAgain: () => { clearSave(); title(); },
+      // Replay the reveal over the dossier; closing it comes back to the same place on the page.
+      onReplay: () => playReveal({ ...reveal, replay: true }),
+    });
+    run.result.shown = !!out;
+    window.scrollTo({ top: 0 });
+  };
+
+  // A run reopened with See your result goes straight to the dossier once its reveal has been
+  // watched (the dossier has Replay the reveal); otherwise the reveal plays first.
+  if (run.save?.revealSeen) { dossier(); return; }
   app.innerHTML = '';
   const bd = h('div', 'backdrop');
   bd.dataset.bg = 'election_night';
   app.appendChild(bd);
-  const out = renderResults(app, {
-    profile, matches, scores, cands: S.cands, camps, route: run.route, length: run.sel.history.length, signals: run.sc.signals, shareCfg: S.shareCfg,
-    onAgain: () => { clearSave(); title(); },
-  });
-  run.result.shown = !!out;
-  window.scrollTo({ top: 0 });
+  await playReveal(reveal);
+  if (!live()) return;
+  run.save.revealSeen = true;
+  run.persist();
+  dossier();
 }
 
 boot();

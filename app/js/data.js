@@ -1,4 +1,4 @@
-// Loads candidates, the ideology camps and every question file named in
+// Loads candidates, the ideology camps, the personality reading and every question file named in
 // data/questions/index.json. A file that is missing or fails to parse is skipped.
 
 import { normalizeQuestion } from './questions.js';
@@ -10,10 +10,15 @@ async function getJson(url) {
 }
 
 export async function loadData(base = '../data/') {
-  const [cj, campsJson, manifest] = await Promise.all([
+  // The personality reading (research/READING_CONTRACT.md). Missing or broken: the reading falls back to
+  // plain built-in copy. Dev aid: ?reading=stub loads the engine's test fixture instead.
+  const readingUrl = typeof location !== 'undefined' && new URLSearchParams(location.search).get('reading') === 'stub'
+    ? 'tests/reading-stub.json' : `${base}reading.json`;
+  const [cj, campsJson, manifest, reading] = await Promise.all([
     getJson(`${base}candidates.json`),
     getJson(`${base}camps.json`).catch(() => ({ camps: [] })),
     getJson(`${base}questions/index.json`).catch(() => ({ files: ['_sample.json'] })),
+    getJson(readingUrl).catch(e => { console.info(`[quiz] no reading.json yet (${e.message}); using built-in reading copy`); return null; }),
   ]);
   const candidates = cj.candidates || [];
   const candIds = new Set(candidates.map(c => c.id));
@@ -41,5 +46,5 @@ export async function loadData(base = '../data/') {
     report.push({ file: f, ok: true, count: n, skipped });
     if (skipped.length) console.warn(`[quiz] ${f}: skipped ${skipped.length}`, skipped);
   }
-  return { candidates, camps: campsJson.camps || [], bank, report };
+  return { candidates, camps: campsJson.camps || [], bank, report, reading };
 }
