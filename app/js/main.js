@@ -1,27 +1,27 @@
 // US Political Quiz: boot, title screen, the run loop, chapter cards and the hand-off to results.
 
-import { loadData } from './data.js?v=c583357-1795003897';
-import { createSelector, QUICK_LENGTH, FULL_LENGTH } from './selector.js?v=c583357-1795003897';
-import { createScorer, applyAnswer, axisScores, matchCandidates, matchCamps } from './scoring.js?v=c583357-1795003897';
-import { buildProfile } from './profile.js?v=c583357-1795003897';
-import { CHAPTERS, CHAPTER_TITLE, CHAPTER_LINE } from './axes.js?v=c583357-1795003897';
-import { routeOk } from './questions.js?v=c583357-1795003897';
-import { installPress, haptic, setHaptics, getHaptics, runFx, typewriter, sleep, store, reducedMotion } from './feel.js?v=c583357-1795003897';
-import { loadArtManifest, createArtSlot, artUrl, artVersion } from './art.js?v=c583357-1795003897';
-import { billTitle } from './types.js?v=c583357-1795003897';
-import { createWarMap, createGhosts } from './hud.js?v=c583357-1795003897';
-import { renderAnswer } from './types.js?v=c583357-1795003897';
-import { howFor, showCue, watchIdle } from './howto.js?v=c583357-1795003897';
-import { swipeEnds } from './types.js?v=c583357-1795003897';
-import { renderResults } from './results.js?v=c583357-1795003897';
-import { newSeed } from './rng.js?v=c583357-1795003897';
-import { loadShareConfig } from './share.js?v=c583357-1795003897';
-import { getSound, setSound, sfx } from './sound.js?v=c583357-1795003897';
-import { readingContext, buildReading } from './reading.js?v=c583357-1795003897';
-import { playReveal } from './reveal.js?v=c583357-1795003897';
-import { dossierFromRun, encodeDossier, decodeDossier, rebuildDossier, dossierLink, codeFromHash, fileNumber, minuteOf, tidyScores, tidyReads } from './dossier.js?v=c583357-1795003897';
-import { pickTicket, pickExhibits, ticketView } from './endgame.js?v=c583357-1795003897';
-import { renderVersus } from './versus.js?v=c583357-1795003897';
+import { loadData } from './data.js?v=21123e1-1795007242';
+import { createSelector, QUICK_LENGTH, FULL_LENGTH } from './selector.js?v=21123e1-1795007242';
+import { createScorer, applyAnswer, axisScores, matchCandidates, matchCamps } from './scoring.js?v=21123e1-1795007242';
+import { buildProfile } from './profile.js?v=21123e1-1795007242';
+import { CHAPTERS, CHAPTER_TITLE, CHAPTER_LINE } from './axes.js?v=21123e1-1795007242';
+import { routeOk } from './questions.js?v=21123e1-1795007242';
+import { installPress, haptic, setHaptics, getHaptics, runFx, typewriter, sleep, store, reducedMotion } from './feel.js?v=21123e1-1795007242';
+import { loadArtManifest, createArtSlot, artUrl, artVersion } from './art.js?v=21123e1-1795007242';
+import { billTitle } from './types.js?v=21123e1-1795007242';
+import { createWarMap, createGhosts } from './hud.js?v=21123e1-1795007242';
+import { renderAnswer } from './types.js?v=21123e1-1795007242';
+import { howFor, showCue, watchIdle } from './howto.js?v=21123e1-1795007242';
+import { swipeEnds } from './types.js?v=21123e1-1795007242';
+import { renderResults } from './results.js?v=21123e1-1795007242';
+import { newSeed } from './rng.js?v=21123e1-1795007242';
+import { loadShareConfig } from './share.js?v=21123e1-1795007242';
+import { getSound, setSound, sfx } from './sound.js?v=21123e1-1795007242';
+import { readingContext, buildReading } from './reading.js?v=21123e1-1795007242';
+import { playReveal } from './reveal.js?v=21123e1-1795007242';
+import { dossierFromRun, encodeDossier, decodeDossier, rebuildDossier, dossierLink, codeFromHash, fileNumber, minuteOf, tidyScores, tidyReads } from './dossier.js?v=21123e1-1795007242';
+import { pickTicket, pickExhibits, ticketView } from './endgame.js?v=21123e1-1795007242';
+import { renderVersus } from './versus.js?v=21123e1-1795007242';
 
 // Versus: this device's own finished file (its dossier code), and a file someone sent that is waiting to be
 // compared once the player has one of their own ({ code, pending }).
@@ -339,6 +339,10 @@ async function startRun(saved = null) {
   if (!live()) return;
   map.set(total, total);
   save.done = true;
+  // The finish time is fixed once and saved, so reopening your own result rebuilds the same dossier code
+  // and File No. (re-stamping it with the current time broke links already shared).
+  save.t = (saved && Number.isFinite(saved.t)) ? saved.t : Math.floor(Date.now() / 1000);
+  run.finishedAt = save.t;
   persist();
   finish(run);
 }
@@ -497,7 +501,7 @@ async function finish(run) {
   const scores = tidyScores(axisScores(run.sc));
   const matches = matchCandidates(run.sc, candidates, run.route);
   // The time is kept to the minute, the same as in the dossier code, so a shared link rebuilds the same dossier.
-  const t = minuteOf(Math.floor(Date.now() / 1000));
+  const t = minuteOf(run.finishedAt || Math.floor(Date.now() / 1000));
   const profile = buildProfile({ scores, matches, camps, route: run.route, scorerFlags: run.sc.flags, campRows: matchCamps(run.sc, camps, candidates) });
   const reading = buildReading(S.data.reading, readingContext({ scores, signals: run.sc.signals, reads: tidyReads(run.sc.reads), matches, route: run.route }));
   // The endgame: Exhibits A, B, C from the receipts the answers fired, and the ticket from the match list.

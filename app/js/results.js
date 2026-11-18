@@ -1,16 +1,16 @@
 // The result screen (the full dossier): ghost reveal, the personality reading, top five, your camp, ideology gauges, temperament,
 // dynasty and libertine dials, three words and your tells, and the share sheet.
 
-import { AXES, AXIS } from './axes.js?v=c583357-1795003897';
-import { reasonFor } from './scoring.js?v=c583357-1795003897';
-import { portraitEl } from './art.js?v=c583357-1795003897';
-import { silhouetteEl } from './hud.js?v=c583357-1795003897';
-import { haptic, sleep, reducedMotion, typewriter } from './feel.js?v=c583357-1795003897';
-import { sfx } from './sound.js?v=c583357-1795003897';
-import { renderShareSheet } from './sharesheet.js?v=c583357-1795003897';
-import { normalizeShareConfig } from './share.js?v=c583357-1795003897';
-import { archetypeArt, archName } from './reveal.js?v=c583357-1795003897';
-import { exhibitsEl, ticketEl } from './endgame-ui.js?v=c583357-1795003897';
+import { AXES, AXIS } from './axes.js?v=21123e1-1795007242';
+import { reasonFor } from './scoring.js?v=21123e1-1795007242';
+import { portraitEl } from './art.js?v=21123e1-1795007242';
+import { silhouetteEl } from './hud.js?v=21123e1-1795007242';
+import { haptic, sleep, reducedMotion, typewriter } from './feel.js?v=21123e1-1795007242';
+import { sfx } from './sound.js?v=21123e1-1795007242';
+import { renderShareSheet } from './sharesheet.js?v=21123e1-1795007242';
+import { normalizeShareConfig } from './share.js?v=21123e1-1795007242';
+import { archetypeArt, archName } from './reveal.js?v=21123e1-1795007242';
+import { exhibitsEl, ticketEl } from './endgame-ui.js?v=21123e1-1795007242';
 
 // The words on a dossier someone shared (the only quiz-specific copy for shared links).
 export const SHARED_COPY = {
