@@ -1,0 +1,426 @@
+{
+  "ticket": {
+    "intro": {
+      "mate": "Your running mate",
+      "knife": "The knife",
+      "mark": "The mark"
+    },
+    "lines": {
+      "aoc": {
+        "mate": "She brings the crowd, the clip and the base, and reminds you daily which of you they came for.",
+        "knife": "She will denounce you live from her kitchen the night you take the donors' call, and the stream will outdraw your convention.",
+        "mark": "You do not attack her; you invite her to the gala and let the photographs do the work."
+      },
+      "newsom": {
+        "mate": "He looks more like a president than you do, and he has checked.",
+        "knife": "He will go on a podcast with your worst enemy, be charming about you for an hour, and call it outreach.",
+        "mark": "You publish his dinner reservations beside the rules he wrote, and let him explain."
+      },
+      "shapiro": {
+        "mate": "He will fix whatever you break in twelve days and make sure the cameras know who fixed it.",
+        "knife": "He was passed over once and smiled; he will not smile twice, and you will learn that the week before the convention.",
+        "mark": "You make him the favorite early, and let everyone else do what they always do to favorites."
+      },
+      "harris": {
+        "mate": "She has done this job before and will tell you, in order, everything that was done to her in it.",
+        "knife": "She will not move against you; she will write it all down for a hundred and seven days and publish.",
+        "mark": "You hand her the worst portfolio in the building and praise her patience in public."
+      },
+      "buttigieg": {
+        "mate": "He has a slide for each of your weaknesses and the tact to present them to you first.",
+        "knife": "He will explain your failure calmly on the other side's network, and their viewers will like him more than they like you.",
+        "mark": "You give him the dullest disaster in government to manage and a camera to stand beside."
+      },
+      "beshear": {
+        "mate": "He is so decent standing next to you that voters start to wonder what is wrong with you.",
+        "knife": "He will pray for you in public, by name, the morning the story breaks, and that is the whole knife.",
+        "mark": "You cannot find a scandal, so you ask, gently and often, who his father was."
+      },
+      "slotkin": {
+        "mate": "She briefs you like an asset and, you slowly realize, has assessed you like one.",
+        "knife": "She will tell the people under you that they are allowed to refuse you, on video, in a calm voice.",
+        "mark": "You classify her best argument and dare her to make it anyway."
+      },
+      "pritzker": {
+        "mate": "He pays for everything and never mentions it, which is how you know he is counting.",
+        "knife": "He will decide it is simpler to buy the top of the ticket than to stand under it, and he can afford to.",
+        "mark": "You make the entire race about the plumbing in one mansion."
+      },
+      "kelly": {
+        "mate": "He is steady, decorated and impossible to dislike, and next to him you look exactly like what you are.",
+        "knife": "He will not plot; he will refuse one order on principle, on the record, and take half your room with him.",
+        "mark": "You never lay a glove on him; you let him talk until the audience checks the time."
+      },
+      "khanna": {
+        "mate": "He will have a principled objection to your first decision and a thread ready about your second.",
+        "knife": "He will find the one Republican who agrees with him and force the vote you spent a year burying.",
+        "mark": "You read his donors' zip codes aloud, slowly, in a union hall."
+      },
+      "ossoff": {
+        "mate": "He is young, clean and well lit, and he keeps asking to see your stock portfolio.",
+        "knife": "He used to make investigative documentaries, and you are the next one.",
+        "mark": "You make him vote, on camera, on the one thing his own state will not forgive."
+      },
+      "vance": {
+        "mate": "He will defend you better than you can, in the same voice he once used to condemn you.",
+        "knife": "He called a boss unfit once and then took the job; he is waiting to do the second half to you.",
+        "mark": "You read his old opinions of you into the record and ask which one he meant."
+      },
+      "rubio": {
+        "mate": "He will hold four of your jobs at once and agree with you in all of them until the hour it matters.",
+        "knife": "He leaves no fingerprints: one morning your foreign policy will simply have become his.",
+        "mark": "You repeat yourself at him on a debate stage until he starts repeating himself back."
+      },
+      "desantis": {
+        "mate": "He will fight your enemies, then your friends, then a theme park, and send you the bill.",
+        "knife": "He will run at you from the right the day your numbers dip and call it loyalty to the movement.",
+        "mark": "You make him shake hands with voters, in person, for one whole week."
+      },
+      "kemp": {
+        "mate": "He will do the job quietly and tell you no exactly once, at the worst possible moment.",
+        "knife": "When you call to ask him for the votes, he will say no and keep the recording.",
+        "mark": "You cannot beat him at home, so you promote him to somewhere he has to take orders."
+      },
+      "christie": {
+        "mate": "He will prepare you for the debate superbly, then explain on Sunday television everything you got wrong.",
+        "knife": "He will end you in ninety seconds on a debate stage, as he has ended others, and enjoy his lunch.",
+        "mark": "You find the beach chair, and you send a photographer."
+      },
+      "trumpjr": {
+        "mate": "He brings the name, the podcast and the base, and not one of them is yours.",
+        "knife": "He will remember whose name is on the movement the first time you disagree with how his father remembers it.",
+        "mark": "You ask him, in public, to name one thing he built that did not come with the surname."
+      },
+      "youngkin": {
+        "mate": "He wears the vest, smiles at the parents and reads your numbers like a company he may yet restructure.",
+        "knife": "He will take you private: a quiet buyout of your donors, announced after the papers are signed.",
+        "mark": "You make him say out loud which half of his own party he belongs to."
+      },
+      "randpaul": {
+        "mate": "He will vote against your first bill, your budget and very possibly your inauguration, on principle.",
+        "knife": "He will filibuster you for thirteen hours, and his clips will outperform your address.",
+        "mark": "You do not need to destroy him; you count the votes without him, as everyone always has."
+      },
+      "cruz": {
+        "mate": "He will argue your case brilliantly, and nobody in the room will be able to stand it.",
+        "knife": "He will insult you, endorse you, and be on a flight out of town the night you actually need him.",
+        "mark": "You leave his microphone on and ask one basic follow-up question."
+      },
+      "ramaswamy": {
+        "mate": "He will explain your own platform back to you, faster and at greater length, on your own stage.",
+        "knife": "He will announce that you have gone mediocre, in a very long post, at the hour it trends best.",
+        "mark": "You give him a department to abolish and wait for him to get bored."
+      },
+      "pence": {
+        "mate": "He will stand behind you, perfectly still, until the single day you ask him to do the wrong thing.",
+        "knife": "He will read the rule, follow the rule and certify your defeat, and he will not raise his voice once.",
+        "mark": "You cannot tempt him, so you make him irrelevant: you stop saying his name, and soon so does everyone."
+      },
+      "hawley": {
+        "mate": "He will raise a fist for your cause anywhere there is a camera to see it.",
+        "knife": "He will write a book about courage, and its subject will be the week he left you.",
+        "mark": "You play the footage, and you do not add a word."
+      }
+    }
+  },
+  "versus": [
+    {
+      "id": "mirror-with-a-knife",
+      "when": {
+        "same:archetype": true,
+        "same:top": true
+      },
+      "text": "Same type, same candidate. This is not a rivalry; it is a mirror with a knife, and one of you is the reflection."
+    },
+    {
+      "id": "same-monster",
+      "when": {
+        "same:archetype": true
+      },
+      "text": "{a} meets {a}. Two of the same monster in one room: each knows exactly what the other will do, and exactly when. Whoever moves second loses."
+    },
+    {
+      "id": "same-candidate",
+      "when": {
+        "same:top": true
+      },
+      "text": "Two different monsters with the same closest match. You would back the same candidate and spend the whole campaign fighting to be the one left in the room."
+    },
+    {
+      "id": "across-the-aisle",
+      "when": {
+        "same:route": false
+      },
+      "text": "Opposite sides of the aisle, which only means the cameras expect a fight. {a} and {b} would give them one, and settle the real terms afterward by phone."
+    },
+    {
+      "id": "same-party",
+      "when": {
+        "same:route": true
+      },
+      "text": "Same party. The other side is merely the opposition; {b} is the enemy, and {a} has always known it."
+    },
+    {
+      "id": "meal-with-paperwork",
+      "when": {
+        "d:mach": ">=0.5",
+        "d:psych": ">=0.5"
+      },
+      "text": "{a} out-schemes and out-freezes {b} on every count. This is not a contest. It is a meal with paperwork."
+    },
+    {
+      "id": "meal-with-paperwork-reversed",
+      "when": {
+        "d:mach": "<=-0.5",
+        "d:psych": "<=-0.5"
+      },
+      "text": "{b} out-schemes and out-freezes {a} on every count. This is not a contest. It is a meal with paperwork, and {a} is not the one holding the fork."
+    },
+    {
+      "id": "better-schemer",
+      "when": {
+        "d:mach": ">=0.8"
+      },
+      "text": "{a} is the better schemer by a clear distance. {b} will not see the first move, and will say thank you for the second."
+    },
+    {
+      "id": "worse-schemer",
+      "when": {
+        "d:mach": "<=-0.8"
+      },
+      "text": "{b} is the better schemer by a clear distance. {a} will not see the first move, and will say thank you for the second."
+    },
+    {
+      "id": "colder",
+      "when": {
+        "d:psych": ">=0.8"
+      },
+      "text": "{a} is the colder of the two. When it comes to it, {b} will hesitate for one second, and one second is what {a} was waiting for."
+    },
+    {
+      "id": "warmer",
+      "when": {
+        "d:psych": "<=-0.8"
+      },
+      "text": "{b} is the colder of the two. When it comes to it, {a} will hesitate for one second, and one second is what {b} was waiting for."
+    },
+    {
+      "id": "takes-the-room",
+      "when": {
+        "d:narc": ">=0.8"
+      },
+      "text": "{a} needs the room and {b} barely wants it. {b} will hand over the microphone and walk away with everything that is not on camera."
+    },
+    {
+      "id": "gives-the-room",
+      "when": {
+        "d:narc": "<=-0.8"
+      },
+      "text": "{b} needs the room and {a} barely wants it. {a} will hand over the microphone and walk away with everything that is not on camera."
+    },
+    {
+      "id": "two-main-characters",
+      "when": {
+        "a:narc": ">=0.7",
+        "b:narc": ">=0.7"
+      },
+      "text": "Two main characters and one stage. Neither can bear to be the supporting act, so they will destroy each other in public, and both will enjoy the ratings."
+    },
+    {
+      "id": "two-schemers",
+      "when": {
+        "a:mach": ">=0.9",
+        "b:mach": ">=0.9"
+      },
+      "text": "Two schemers. They will form an alliance within the hour, and each has already drafted the statement regretting how it ended."
+    },
+    {
+      "id": "two-cold",
+      "when": {
+        "a:psych": ">=0.8",
+        "b:psych": ">=0.8"
+      },
+      "text": "Neither of these two has ever lost sleep over a person. It ends the day one of them stops being useful, and both are doing that math right now."
+    },
+    {
+      "id": "two-soft",
+      "when": {
+        "a:psych": "<=-0.2",
+        "b:psych": "<=-0.2"
+      },
+      "text": "Two soft hearts. They would never hurt each other, which is why a third person, harder than both, ends up with everything they had."
+    },
+    {
+      "id": "schemer-and-believer",
+      "when": {
+        "a:mach": ">=0.8",
+        "b:mach": "<=0.1"
+      },
+      "text": "{a} schemes and {b} believes. {b} will be used as the honest face of something terrible, and will be the last to find out."
+    },
+    {
+      "id": "believer-and-schemer",
+      "when": {
+        "a:mach": "<=0.1",
+        "b:mach": ">=0.8"
+      },
+      "text": "{a} believes and {b} schemes. {a} will be used as the honest face of something terrible, and will be the last to find out."
+    },
+    {
+      "id": "adored-and-arranged",
+      "when": {
+        "a:narc": ">=0.7",
+        "b:mach": ">=0.9"
+      },
+      "text": "{a} wants to be adored, and {b} knows how to arrange it. {b} will supply the applause and own the person receiving it."
+    },
+    {
+      "id": "arranger-and-adored",
+      "when": {
+        "a:mach": ">=0.9",
+        "b:narc": ">=0.7"
+      },
+      "text": "{b} wants to be adored, and {a} knows how to arrange it. {a} will supply the applause and own the person receiving it."
+    },
+    {
+      "id": "puritan-and-libertine",
+      "when": {
+        "a:libertine": "<=-0.5",
+        "b:libertine": ">=0.5"
+      },
+      "text": "{a} polices appetite and {b} indulges it. One of them keeps a list of the other's evenings. The other keeps a list of everyone who asked to read it."
+    },
+    {
+      "id": "libertine-and-puritan",
+      "when": {
+        "a:libertine": ">=0.5",
+        "b:libertine": "<=-0.5"
+      },
+      "text": "{a} has appetites and {b} has a notebook. It ends in a hearing, and {a} arrives smiling."
+    },
+    {
+      "id": "dynast-and-striver",
+      "when": {
+        "a:dynasty": ">=0.6",
+        "b:dynasty": "<=-0.4"
+      },
+      "text": "{a} inherited the seat and {b} had to claw toward it. {b} will never forgive that, and {a} will never notice there was anything to forgive."
+    },
+    {
+      "id": "striver-and-dynast",
+      "when": {
+        "a:dynasty": "<=-0.4",
+        "b:dynasty": ">=0.6"
+      },
+      "text": "{a} clawed toward the seat that {b} was simply handed. {a} will never forgive it, and {b} will never notice there was anything to forgive."
+    },
+    {
+      "id": "brawler-and-soother",
+      "when": {
+        "d:style": ">=0.8"
+      },
+      "text": "{a} hits and {b} soothes. {b} will apologize after the first blow, concede after the second, and be quoted as a friend at the end."
+    },
+    {
+      "id": "soother-and-brawler",
+      "when": {
+        "d:style": "<=-0.8"
+      },
+      "text": "{b} hits and {a} soothes. {a} will apologize after the first blow, concede after the second, and be quoted as a friend at the end."
+    },
+    {
+      "id": "servant-and-seller",
+      "when": {
+        "d:loyalty": ">=1"
+      },
+      "text": "{a} serves and {b} sells. {b} will offer {a} a better master, and the terrible thing is that {a} will listen."
+    },
+    {
+      "id": "seller-and-servant",
+      "when": {
+        "d:loyalty": "<=-1"
+      },
+      "text": "{a} sells and {b} serves. {a} will offer {b} a better master, and the terrible thing is that {b} will listen."
+    },
+    {
+      "id": "burner-and-keyholder",
+      "when": {
+        "a:system": ">=0.5",
+        "b:system": "<=-0.4"
+      },
+      "text": "{a} wants the building burned, and {b} holds the keys to it. {b} will follow procedure right up until {a} is the procedure."
+    },
+    {
+      "id": "keyholder-and-burner",
+      "when": {
+        "a:system": "<=-0.4",
+        "b:system": ">=0.5"
+      },
+      "text": "{a} holds the keys to the building {b} wants burned. {a} will follow procedure right up until {b} is the procedure."
+    },
+    {
+      "id": "noon-and-thursday",
+      "when": {
+        "d:online": ">=0.8"
+      },
+      "text": "{a} would finish this in public by noon. {b} would hear about it on Thursday, by phone, from a friend who was sorry to be the one to say."
+    },
+    {
+      "id": "thursday-and-noon",
+      "when": {
+        "d:online": "<=-0.8"
+      },
+      "text": "{b} would finish this in public by noon. {a} would hear about it on Thursday, by phone, from a friend who was sorry to be the one to say."
+    },
+    {
+      "id": "pulpit-and-sneer",
+      "when": {
+        "a:faith": ">=0.7",
+        "b:faith": "<=-0.3"
+      },
+      "text": "{a} brings God to the fight and {b} brings contempt. Neither is praying. Both are performing for the same pews."
+    },
+    {
+      "id": "sneer-and-pulpit",
+      "when": {
+        "a:faith": "<=-0.3",
+        "b:faith": ">=0.7"
+      },
+      "text": "{a} brings contempt to the fight and {b} brings God. Neither is praying. Both are performing for the same pews."
+    },
+    {
+      "id": "fleet-and-regrets",
+      "when": {
+        "d:world": ">=1.2"
+      },
+      "text": "{a} would send the fleet and {b} would send regrets. They will never agree on a war, except the one with each other."
+    },
+    {
+      "id": "regrets-and-fleet",
+      "when": {
+        "d:world": "<=-1.2"
+      },
+      "text": "{a} would send regrets and {b} would send the fleet. They will never agree on a war, except the one with each other."
+    },
+    {
+      "id": "recognized-the-gait",
+      "when": {
+        "d:mach": "between -0.2 0.2",
+        "d:psych": "between -0.2 0.2",
+        "d:narc": "between -0.2 0.2"
+      },
+      "text": "On the three dark scales these two files are nearly the same person. That is not friendship. It is two predators who have recognized the gait."
+    },
+    {
+      "id": "fallback",
+      "when": {},
+      "text": "{a} meets {b}. They will shake hands, compare files, and each decide the other is the one to watch. Both are correct."
+    }
+  ],
+  "rarity": {
+    "common": "Common. There are a great many of you, which is how these things happen.",
+    "uncommon": "Uncommon. Roughly one to a cabinet.",
+    "rare": "Rare. Most administrations get by without one. Not all of them.",
+    "veryRare": "Very rare. When one of you turns up, people write books afterward."
+  }
+}

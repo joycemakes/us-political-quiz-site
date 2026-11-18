@@ -1,15 +1,16 @@
 // The result screen (the full dossier): ghost reveal, the personality reading, top five, your camp, ideology gauges, temperament,
 // dynasty and libertine dials, three words and your tells, and the share sheet.
 
-import { AXES, AXIS } from './axes.js?v=eafef2c-1794988692';
-import { reasonFor } from './scoring.js?v=eafef2c-1794988692';
-import { portraitEl } from './art.js?v=eafef2c-1794988692';
-import { silhouetteEl } from './hud.js?v=eafef2c-1794988692';
-import { haptic, sleep, reducedMotion, typewriter } from './feel.js?v=eafef2c-1794988692';
-import { sfx } from './sound.js?v=eafef2c-1794988692';
-import { renderShareSheet } from './sharesheet.js?v=eafef2c-1794988692';
-import { normalizeShareConfig } from './share.js?v=eafef2c-1794988692';
-import { archetypeArt, archName } from './reveal.js?v=eafef2c-1794988692';
+import { AXES, AXIS } from './axes.js?v=c583357-1795003897';
+import { reasonFor } from './scoring.js?v=c583357-1795003897';
+import { portraitEl } from './art.js?v=c583357-1795003897';
+import { silhouetteEl } from './hud.js?v=c583357-1795003897';
+import { haptic, sleep, reducedMotion, typewriter } from './feel.js?v=c583357-1795003897';
+import { sfx } from './sound.js?v=c583357-1795003897';
+import { renderShareSheet } from './sharesheet.js?v=c583357-1795003897';
+import { normalizeShareConfig } from './share.js?v=c583357-1795003897';
+import { archetypeArt, archName } from './reveal.js?v=c583357-1795003897';
+import { exhibitsEl, ticketEl } from './endgame-ui.js?v=c583357-1795003897';
 
 // The words on a dossier someone shared (the only quiz-specific copy for shared links).
 export const SHARED_COPY = {
@@ -82,6 +83,17 @@ export function renderResults(root, R) {
   }
   if (R.dossier) head.appendChild(fileBlock(R.dossier));
   screen.appendChild(head);
+  // Versus: compare this file with yours, or yours with the one you were sent.
+  if (R.versus) {
+    const vs = h('div', 'versus-offer');
+    vs.setAttribute('role', 'note');
+    const b = h('button', 'btn primary versus-go');
+    b.type = 'button';
+    b.append(h('span', 'btn-label', R.versus.label));
+    b.addEventListener('click', () => { haptic('commit'); R.versus.onClick(); });
+    vs.append(h('p', 'versus-text', R.versus.text), b);
+    screen.appendChild(vs);
+  }
 
   // ---- ghost reveal ----
   const pod = h('div', 'podium');
@@ -103,7 +115,15 @@ export function renderResults(root, R) {
   })();
 
   // ---- the personality reading ----
-  if (R.reading) screen.appendChild(readingBlock(R.reading, R.onReplay));
+  if (R.reading) screen.appendChild(readingBlock(R.reading, R.onReplay, R.exhibits));
+  // ---- the ticket and the knife ----
+  if (R.ticketView && R.ticketView.length) {
+    const tk = section(SH('The ticket and the knife', 'Their ticket and their knife'), 'ticket-block');
+    const el = ticketEl(R.ticketView, cands, { title: '', cap: SH('Who runs with you, who turns on you, and who you destroy.', 'Who runs with them, who turns on them, and who they destroy.'), their: !!R.shared });
+    el.querySelector('.ticket-title')?.remove();
+    tk.appendChild(el);
+    screen.appendChild(tk);
+  }
 
   // ---- top five ----
   const top = section(Y('Your top five'), 'top-block');
@@ -122,7 +142,7 @@ export function renderResults(root, R) {
     tags.append(h('span', `tag party-${c.party}`, partyName(c.party)));
     if (c.camp) tags.append(h('span', 'tag lane', campShort(c.camp) || c.camp));
     const reason = h('p', 'top5-reason');
-    const reasonText = reasonFor(scores, c, m.picks, usedPhrases);
+    const reasonText = SH(reasonFor(scores, c, m.picks, usedPhrases), reasonFor(scores, c, m.picks, usedPhrases).replace(/^Like you:/, 'Like them:').replace(/You kept picking them\./, 'They kept picking them.'));
     reason.dataset.text = reasonText;
     meta.append(name, h('div', 'top5-title', c.title || ''), tags, reason);
     const pct = h('div', 'top5-pct');
@@ -204,7 +224,7 @@ export function renderResults(root, R) {
 
   // ---- share ----
   const share = section(SH('Share your result', 'Share this result'), 'share-block');
-  renderShareSheet(share, { profile, matches, cands, route, scores, shareCfg: R.shareCfg || normalizeShareConfig(null), reading: R.reading, link: R.dossier?.link });
+  renderShareSheet(share, { profile, matches, cands, route, scores, shareCfg: R.shareCfg || normalizeShareConfig(null), reading: R.reading, link: R.dossier?.link, ticket: R.ticket });
   screen.appendChild(share);
 
   const again = h('button', `btn again${R.shared ? ' primary' : ''}`, R.shared ? SHARED_COPY.cta : 'Play again');
@@ -216,7 +236,7 @@ export function renderResults(root, R) {
 
 // The reading near the top of the dossier: archetype, contradictions, all ten scales with their bands
 // (tap one for the detail), what the answers gave away, the tells and the closer.
-function readingBlock(reading, onReplay) {
+function readingBlock(reading, onReplay, exhibits) {
   const sec = section(Y('Your reading'), 'reading-block');
   sec.appendChild(h('p', 'res-cap', SH('Who your answers say you are: your type, ten scores in plain words, and where you contradict yourself.', 'Who their answers say they are: their type, ten scores in plain words, and where they contradict themselves. The reading speaks to them directly.')));
   const a = reading.archetype;
@@ -236,6 +256,8 @@ function readingBlock(reading, onReplay) {
   left.appendChild(head);
   const text = h('div', 'rd-text');
   if (a.text) text.appendChild(h('p', 'rd-lede', a.text));
+  const ex = exhibitsEl(exhibits, { title: 'The exhibits', cap: SH('Your own answers, read back to you.', 'Their own answers, read back to them.') });
+  if (ex) text.appendChild(ex);
   const group = (title, items) => {
     if (!items.length) return;
     text.appendChild(h('h4', 'rd-sub', Y(title)));

@@ -11,8 +11,9 @@
 // canonical policy (predictAnswer), and the player is compared with that predicted profile. A consistent
 // AOC player shrinks exactly as predicted-AOC shrinks, so they land on AOC.
 
-import { AXIS, AXIS_IDS, AXES, GROUP_WEIGHT } from './axes.js?v=eafef2c-1794988692';
-import { rankFactors, textLength, normalizeFaithFlag } from './questions.js?v=eafef2c-1794988692';
+import { AXIS, AXIS_IDS, AXES, GROUP_WEIGHT } from './axes.js?v=c583357-1795003897';
+import { rankFactors, textLength, normalizeFaithFlag } from './questions.js?v=c583357-1795003897';
+import { firedReceipts } from './endgame.js?v=c583357-1795003897';
 
 export const HOLD_FULL_MS = 1500;
 export const FAST_SWIPE_MS = 1500;
@@ -39,6 +40,7 @@ export function createScorer() {
     S: {}, S2: {}, W: {}, cand: {}, flags: {},
     signals: { hesitations: 0, holdStrengths: [], swipes: 0, fastSwipes: 0, revisionNudges: 0, revisions: 0 },
     reads: {},   // personality reads tags (READING_CONTRACT section 2): never used in matching
+    receipts: [], // exhibits the answers fired (ENDGAME_CONTRACT section 1): { qid, key, text, weight, order }
     answered: [],
     qs: [],      // answered questions, in order (for predicted profiles)
     ans: [],     // the player's answers, in the same order
@@ -223,6 +225,7 @@ export function applyAnswer(sc, q, answer = {}) {
     addObs(sc, 'narc', -1, 0.3);
     addObs(sc, 'mach', 1, 0.3);
   }
+  for (const r of firedReceipts(q, answer)) sc.receipts.push({ qid: q.id, key: r.key, text: r.text, weight: r.weight, order: sc.qs.length });
   sc.answered.push({ id: q.id, type: q.type, ms, summary });
   sc.qs.push(q);
   sc.ans.push(answer);

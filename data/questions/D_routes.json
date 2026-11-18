@@ -11,7 +11,7 @@
     "options": [
       {
         "id": "a",
-        "label": "Shut it down. A fight you lose still tells people who you are.",
+        "receipt": "Offered a shutdown fight you would lose, you took it. It still tells people who you are.", "receiptWeight": 1, "label": "Shut it down. A fight you lose still tells people who you are.",
         "effects": {
           "style": 1.2,
           "system": 0.8
@@ -23,7 +23,7 @@
       },
       {
         "id": "b",
-        "label": "Vote yes. A shutdown hands him the keys to the building.",
+        "receipt": "With the base refreshing your feed, you voted yes and kept the government open.", "receiptWeight": 1, "label": "Vote yes. A shutdown hands him the keys to the building.",
         "effects": {
           "style": -1,
           "system": -1
@@ -34,7 +34,7 @@
       },
       {
         "id": "c",
-        "label": "Vote no, quietly, and keep the leader's number.",
+        "receipt": "With the base watching your feed, you voted no quietly and kept the leader's number.", "receiptWeight": 2, "label": "Vote no, quietly, and keep the leader's number.",
         "effects": {
           "mach": 1,
           "style": -0.3
@@ -45,7 +45,7 @@
       },
       {
         "id": "d",
-        "label": "Vote no and call for a new leader by name.",
+        "receipt": "Your own Senate leader was folding. You voted no and called for a new leader by name.", "receiptWeight": 2, "label": "Vote no and call for a new leader by name.",
         "effects": {
           "system": 1.2,
           "loyalty": -1,
@@ -74,7 +74,7 @@
     "options": [
       {
         "id": "a",
-        "label": "Stay shut. Until the subsidies are back, nobody gets my vote.",
+        "receipt": "Day 40 of the shutdown. You stayed shut until the subsidies came back.", "receiptWeight": 1, "label": "Stay shut. Until the subsidies are back, nobody gets my vote.",
         "effects": {
           "style": 1,
           "econ": -0.8
@@ -86,7 +86,7 @@
       },
       {
         "id": "b",
-        "label": "Take the deal. People are missing paychecks.",
+        "receipt": "Day 40 of the shutdown, with paychecks missing, you took the deal.", "receiptWeight": 1, "label": "Take the deal. People are missing paychecks.",
         "effects": {
           "style": -1,
           "system": -0.8,
@@ -95,7 +95,7 @@
       },
       {
         "id": "c",
-        "label": "Stay shut, and find primary challengers for the eight.",
+        "receipt": "Eight colleagues were ready to end the shutdown. You held out, and went looking for their primary challengers.", "receiptWeight": 3, "label": "Stay shut, and find primary challengers for the eight.",
         "effects": {
           "system": 1.2,
           "psych": 0.8,
@@ -161,7 +161,7 @@
     "options": [
       {
         "id": "a",
-        "label": "Say it plainly: we saw it, and we should have spoken.",
+        "receipt": "You were in the rooms where his decline was hidden. You said so: we saw it, and we should have spoken.", "receiptWeight": 2, "label": "Say it plainly: we saw it, and we should have spoken.",
         "effects": {
           "loyalty": -1.2,
           "mach": -0.8,
@@ -173,7 +173,7 @@
       },
       {
         "id": "b",
-        "label": "Defend him. You do not knife the man who made you.",
+        "receipt": "You were in the rooms where a president's decline was hidden. Asked about it in your driveway, you defended him.", "receiptWeight": 2, "label": "Defend him. You do not knife the man who made you.",
         "effects": {
           "loyalty": 1.5,
           "system": -0.5
@@ -662,7 +662,7 @@
     "options": [
       {
         "id": "a",
-        "label": "No more offensive weapons. Full stop.",
+        "receipt": "A delegate asked you one question about Gaza. You said no more offensive weapons, full stop.", "receiptWeight": 1, "label": "No more offensive weapons. Full stop.",
         "effects": {
           "world": -1.5,
           "system": 0.8
@@ -685,7 +685,7 @@
       },
       {
         "id": "c",
-        "label": "The alliance holds. Disagreements stay private.",
+        "receipt": "A delegate asked you one question about Gaza. You said the alliance holds and disagreements stay private.", "receiptWeight": 1, "label": "The alliance holds. Disagreements stay private.",
         "effects": {
           "world": 1.2,
           "system": -0.8
@@ -696,7 +696,7 @@
       },
       {
         "id": "d",
-        "label": "Dodge it. Pivot to rent, every time.",
+        "receipt": "A delegate asked you one question about Gaza. You talked about rent.", "receiptWeight": 3, "label": "Dodge it. Pivot to rent, every time.",
         "effects": {
           "mach": 1,
           "style": -0.6
@@ -875,7 +875,7 @@
     "options": [
       {
         "id": "sign",
-        "label": "Sign. You cannot help anyone from retirement.",
+        "receipt": "The bill restricted care for trans minors. You signed it, because you cannot help anyone from retirement.", "receiptWeight": 2, "label": "Sign. You cannot help anyone from retirement.",
         "effects": {
           "social": -1.5,
           "mach": 0.8
@@ -883,7 +883,7 @@
       },
       {
         "id": "veto",
-        "label": "Veto. Lose the vote, keep the conscience.",
+        "receipt": "The bill restricted care for trans minors in a state you lost by 26. You vetoed it and kept the conscience.", "receiptWeight": 1, "label": "Veto. Lose the vote, keep the conscience.",
         "effects": {
           "social": 1.2,
           "psych": -0.8,
@@ -1026,7 +1026,7 @@
     "options": [
       {
         "id": "a",
-        "label": "Abolish them. The voters or nothing.",
+        "receipt": "On the party insiders and their votes, you said abolish them: the voters or nothing.", "receiptWeight": 1, "label": "Abolish them. The voters or nothing.",
         "effects": {
           "system": 1.2,
           "dynasty": -0.5
@@ -1048,7 +1048,7 @@
       },
       {
         "id": "c",
-        "label": "Give them back the first ballot. Parties should pick nominees.",
+        "receipt": "On the party insiders, you gave them back the first ballot. Parties should pick nominees.", "receiptWeight": 1, "label": "Give them back the first ballot. Parties should pick nominees.",
         "effects": {
           "system": -1.5,
           "dynasty": 0.5
@@ -1056,7 +1056,7 @@
       },
       {
         "id": "d",
-        "label": "Denounce them on stage and court them by text.",
+        "receipt": "On the superdelegates, you denounced them on stage and courted them by text.", "receiptWeight": 3, "label": "Denounce them on stage and court them by text.",
         "effects": {
           "mach": 1.5
         },
@@ -1861,7 +1861,7 @@
     "options": [
       {
         "id": "a",
-        "label": "Repost it and take every interview offered.",
+        "receipt": "The President called your video sedition. You reposted it and took every interview offered.", "receiptWeight": 1, "label": "Repost it and take every interview offered.",
         "effects": {
           "style": 1.2,
           "online": 0.8
@@ -1885,7 +1885,7 @@
       },
       {
         "id": "c",
-        "label": "Regret the framing, keep the principle.",
+        "receipt": "The President called your video sedition. You regretted the framing and kept the principle.", "receiptWeight": 1, "label": "Regret the framing, keep the principle.",
         "effects": {
           "style": -1,
           "mach": 0.6
@@ -1893,7 +1893,7 @@
       },
       {
         "id": "d",
-        "label": "Have the fundraising email out before lunch.",
+        "receipt": "The President called your video sedition. Your fundraising email was out before lunch.", "receiptWeight": 3, "label": "Have the fundraising email out before lunch.",
         "effects": {
           "mach": 1.2,
           "narc": 0.6
@@ -2008,7 +2008,7 @@
     "options": [
       {
         "id": "a",
-        "label": "Laugh. I did want the job. I still do.",
+        "receipt": "The memoir said you wanted the top job too much. You laughed and said you still do.", "receiptWeight": 2, "label": "Laugh. I did want the job. I still do.",
         "effects": {
           "narc": 1,
           "style": 0.5
@@ -2019,7 +2019,7 @@
       },
       {
         "id": "b",
-        "label": "Return fire, chapter and verse.",
+        "receipt": "The memoir said you were passed over for wanting it too much. You returned fire, chapter and verse.", "receiptWeight": 1, "label": "Return fire, chapter and verse.",
         "effects": {
           "style": 1.5,
           "loyalty": -1
@@ -2030,7 +2030,7 @@
       },
       {
         "id": "c",
-        "label": "Praise the book and never mention it again.",
+        "receipt": "The memoir said you wanted the top job too much. You praised the book and never mentioned it again.", "receiptWeight": 2, "label": "Praise the book and never mention it again.",
         "effects": {
           "mach": 1.2,
           "style": -1
@@ -2135,7 +2135,7 @@
     "options": [
       {
         "id": "a",
-        "label": "Co-lead it. Transparency has no party.",
+        "receipt": "Asked to co-lead the Epstein petition with a Republican, you did. Transparency has no party.", "receiptWeight": 1, "label": "Co-lead it. Transparency has no party.",
         "effects": {
           "system": 1.2,
           "loyalty": -1.2
@@ -2146,7 +2146,7 @@
       },
       {
         "id": "b",
-        "label": "Sign it, but let him carry the cameras.",
+        "receipt": "Asked to co-lead the Epstein petition, you signed it and let him carry the cameras.", "receiptWeight": 2, "label": "Sign it, but let him carry the cameras.",
         "effects": {
           "mach": 0.8,
           "narc": -0.5
@@ -2154,7 +2154,7 @@
       },
       {
         "id": "c",
-        "label": "Decline. It is their mess; let them sit in it.",
+        "receipt": "Asked to help force out the Epstein files, you declined. It was their mess to sit in.", "receiptWeight": 1, "label": "Decline. It is their mess; let them sit in it.",
         "effects": {
           "mach": 1,
           "psych": 0.6,
@@ -2163,7 +2163,7 @@
       },
       {
         "id": "d",
-        "label": "Demand every name, your own donors included.",
+        "receipt": "Asked to force out the Epstein files, you demanded every name, your own donors included.", "receiptWeight": 2, "label": "Demand every name, your own donors included.",
         "effects": {
           "system": 1.5,
           "libertine": -1
@@ -2231,7 +2231,7 @@
     "options": [
       {
         "id": "a",
-        "label": "Force the vote and read the trades into the record.",
+        "receipt": "Your stock-trading ban threatened your own leaders. You forced the vote and read their trades into the record.", "receiptWeight": 2, "label": "Force the vote and read the trades into the record.",
         "effects": {
           "system": 1,
           "style": 1,
@@ -2243,7 +2243,7 @@
       },
       {
         "id": "b",
-        "label": "Exempt sitting members so it can pass.",
+        "receipt": "Your stock-trading ban threatened your own leaders. You exempted sitting members so it could pass.", "receiptWeight": 3, "label": "Exempt sitting members so it can pass.",
         "effects": {
           "mach": 0.8,
           "system": -0.6
@@ -2251,7 +2251,7 @@
       },
       {
         "id": "c",
-        "label": "Shelve it until the primary is over.",
+        "receipt": "Your stock-trading ban threatened your own leaders. You shelved it until the primary was over.", "receiptWeight": 2, "label": "Shelve it until the primary is over.",
         "effects": {
           "mach": 1.2,
           "loyalty": 0.8
@@ -2366,7 +2366,7 @@
     "options": [
       {
         "id": "a",
-        "label": "Endorse early. She earned the rematch.",
+        "receipt": "The last nominee called for your endorsement. You gave it early: she had earned the rematch.", "receiptWeight": 1, "label": "Endorse early. She earned the rematch.",
         "effects": {
           "loyalty": 1.5,
           "system": -0.8
@@ -2377,7 +2377,7 @@
       },
       {
         "id": "b",
-        "label": "Decline. The party needs a clean break.",
+        "receipt": "The last nominee called for your endorsement. You told her the party needs a clean break.", "receiptWeight": 2, "label": "Decline. The party needs a clean break.",
         "effects": {
           "loyalty": -1.2,
           "system": 0.8,
@@ -2422,7 +2422,7 @@
       },
       {
         "id": "b",
-        "label": "Refuse the premise and go after the network.",
+        "receipt": "Asked on hostile television about your worst week, you refused the premise and went after the network.", "receiptWeight": 1, "label": "Refuse the premise and go after the network.",
         "effects": {
           "style": 1.5,
           "system": 0.5
@@ -2433,7 +2433,7 @@
       },
       {
         "id": "c",
-        "label": "Say you were slow, and mean it.",
+        "receipt": "Asked on hostile television about your worst week, you said you had been slow, and meant it.", "receiptWeight": 1, "label": "Say you were slow, and mean it.",
         "effects": {
           "narc": -1,
           "psych": -0.8
@@ -2444,7 +2444,7 @@
       },
       {
         "id": "d",
-        "label": "Unclip the microphone and walk. Away games are for losing.",
+        "receipt": "Live on the other side's network, you unclipped the microphone and walked.", "receiptWeight": 2, "label": "Unclip the microphone and walk. Away games are for losing.",
         "effects": {
           "style": -0.8,
           "online": -0.6
@@ -2898,7 +2898,9 @@
         },
         "cand": {
           "trumpjr": 2
-        }
+        },
+        "receipt": "Asked to help draft the President's son for 2028, you signed.",
+        "receiptWeight": 1
       },
       {
         "id": "b",
@@ -2910,7 +2912,9 @@
         "cand": {
           "christie": 1,
           "pence": 1
-        }
+        },
+        "receipt": "Asked to draft the President's son, you said a republic is not a family business.",
+        "receiptWeight": 1
       },
       {
         "id": "c",
@@ -2920,7 +2924,9 @@
         },
         "cand": {
           "cruz": 1
-        }
+        },
+        "receipt": "Asked to sign for the President's son, you signed nothing and told both sides you were with them.",
+        "receiptWeight": 2
       }
     ],
     "signature": [
@@ -3406,7 +3412,7 @@
     "options": [
       {
         "id": "a",
-        "label": "Ask him whether he has once said thank you.",
+        "receipt": "An ally at war was being taken apart on live television. You asked whether he had once said thank you.", "receiptWeight": 3, "label": "Ask him whether he has once said thank you.",
         "effects": {
           "world": -1.5,
           "style": 1.5,
@@ -3418,7 +3424,7 @@
       },
       {
         "id": "b",
-        "label": "Say nothing. The cameras do not need a third voice.",
+        "receipt": "An ally at war was being taken apart on live television. You sat there and said nothing.", "receiptWeight": 2, "label": "Say nothing. The cameras do not need a third voice.",
         "effects": {
           "mach": 1,
           "loyalty": 1,
@@ -3430,7 +3436,7 @@
       },
       {
         "id": "c",
-        "label": "Cut in and drag it back to the deal on the table.",
+        "receipt": "An ally at war was being taken apart on live television. You cut in and dragged it back to the deal.", "receiptWeight": 1, "label": "Cut in and drag it back to the deal on the table.",
         "effects": {
           "style": -0.8,
           "world": 0.8
@@ -3442,7 +3448,7 @@
       },
       {
         "id": "d",
-        "label": "Tell reporters afterward it was a disgrace.",
+        "receipt": "An ally at war was being taken apart in front of you. You waited until afterward to call it a disgrace.", "receiptWeight": 2, "label": "Tell reporters afterward it was a disgrace.",
         "effects": {
           "loyalty": -1.5,
           "world": 1.5
@@ -3587,7 +3593,7 @@
     "options": [
       {
         "id": "a",
-        "label": "Say it does not matter and hit back harder.",
+        "receipt": "Asked the population of the country you wanted to bomb, you said it did not matter.", "receiptWeight": 3, "label": "Say it does not matter and hit back harder.",
         "effects": {
           "style": 1.5,
           "narc": 1
@@ -3598,7 +3604,7 @@
       },
       {
         "id": "b",
-        "label": "Admit it, laugh, move on.",
+        "receipt": "Asked the population of the country you wanted to bomb, you admitted you did not know, and laughed.", "receiptWeight": 1, "label": "Admit it, laugh, move on.",
         "effects": {
           "narc": -1,
           "style": -0.5
@@ -3609,7 +3615,7 @@
       },
       {
         "id": "c",
-        "label": "Never again do an interview you do not control.",
+        "receipt": "You could not name the population of the country you wanted to bomb. You swore off interviews you do not control.", "receiptWeight": 2, "label": "Never again do an interview you do not control.",
         "effects": {
           "mach": 1,
           "online": -1
@@ -3620,7 +3626,7 @@
       },
       {
         "id": "d",
-        "label": "Go back next week with the number and a grudge.",
+        "receipt": "You could not name the population of the country you wanted to bomb. You went back with the number and a grudge.", "receiptWeight": 2, "label": "Go back next week with the number and a grudge.",
         "effects": {
           "online": 0.8,
           "narc": 0.5,
@@ -3661,7 +3667,9 @@
         "cand": {
           "hawley": 2,
           "randpaul": 1
-        }
+        },
+        "receipt": "On the Epstein files, you demanded every page, whoever was in them.",
+        "receiptWeight": 1
       },
       {
         "id": "b",
@@ -3669,7 +3677,9 @@
         "effects": {
           "loyalty": 1.5,
           "libertine": 0.8
-        }
+        },
+        "receipt": "With the base still asking about the Epstein files, you told them to move on.",
+        "receiptWeight": 2
       },
       {
         "id": "c",
@@ -3677,7 +3687,9 @@
         "effects": {
           "mach": 1.5,
           "loyalty": 0.5
-        }
+        },
+        "receipt": "On the Epstein files, you said release it all, then voted to bury it.",
+        "receiptWeight": 3
       }
     ],
     "signature": [
@@ -3811,7 +3823,7 @@
     "options": [
       {
         "id": "a",
-        "label": "Refuse. The law says certify, so you certify.",
+        "receipt": "The President lost your state and wanted a special session. You certified.", "receiptWeight": 1, "label": "Refuse. The law says certify, so you certify.",
         "effects": {
           "loyalty": -1.5,
           "system": -1.2,
@@ -3824,7 +3836,7 @@
       },
       {
         "id": "b",
-        "label": "Call the session. He made you; you owe him the try.",
+        "receipt": "The President lost your state and asked for a special session. He made you, so you called it.", "receiptWeight": 3, "label": "Call the session. He made you; you owe him the try.",
         "effects": {
           "loyalty": 1.5,
           "system": 1.2,
@@ -3856,7 +3868,7 @@
     "options": [
       {
         "id": "a",
-        "label": "I objected to the count lawfully, and I would again.",
+        "receipt": "Shown the clips of yourself on January 6, you said you objected lawfully and would again.", "receiptWeight": 2, "label": "I objected to the count lawfully, and I would again.",
         "effects": {
           "loyalty": 1,
           "system": 0.8
@@ -3868,7 +3880,7 @@
       },
       {
         "id": "b",
-        "label": "It was a mistake. I am saying so now.",
+        "receipt": "Shown the clips of yourself on January 6, you called it a mistake.", "receiptWeight": 1, "label": "It was a mistake. I am saying so now.",
         "effects": {
           "loyalty": -1,
           "narc": -1
@@ -3876,7 +3888,7 @@
       },
       {
         "id": "c",
-        "label": "Pivot: ask who was right about Big Tech all along.",
+        "receipt": "Shown the clips of yourself on January 6, you changed the subject to Big Tech.", "receiptWeight": 2, "label": "Pivot: ask who was right about Big Tech all along.",
         "effects": {
           "mach": 1,
           "tech": -1
@@ -3887,7 +3899,7 @@
       },
       {
         "id": "d",
-        "label": "Mock the clip before anyone else can.",
+        "receipt": "Shown the clips of yourself on January 6, you mocked them before anyone else could.", "receiptWeight": 2, "label": "Mock the clip before anyone else can.",
         "effects": {
           "online": 1,
           "narc": 0.5,
@@ -4017,7 +4029,7 @@
     "options": [
       {
         "id": "a",
-        "label": "Denounce it by name. There are enemies on the right too.",
+        "receipt": "A host on your side gave a friendly hour to an open antisemite. You denounced it by name.", "receiptWeight": 1, "label": "Denounce it by name. There are enemies on the right too.",
         "effects": {
           "style": 1,
           "loyalty": -0.5,
@@ -4029,7 +4041,7 @@
       },
       {
         "id": "b",
-        "label": "No purity tests. We do not cancel our own.",
+        "receipt": "A host on your side gave a friendly hour to an open antisemite. You said the movement does not cancel its own.", "receiptWeight": 3, "label": "No purity tests. We do not cancel our own.",
         "effects": {
           "online": 1,
           "system": 1,
@@ -4041,7 +4053,7 @@
       },
       {
         "id": "c",
-        "label": "Say nothing and quietly pull out of their gala.",
+        "receipt": "A host on your side gave a friendly hour to an open antisemite. You said nothing and quietly skipped the gala.", "receiptWeight": 2, "label": "Say nothing and quietly pull out of their gala.",
         "effects": {
           "mach": 1.2,
           "style": -0.8
@@ -4147,7 +4159,7 @@
     "options": [
       {
         "id": "a",
-        "label": "Double down with a longer post.",
+        "receipt": "Your midnight post drew 40,000 angry replies. You doubled down with a longer one.", "receiptWeight": 1, "label": "Double down with a longer post.",
         "effects": {
           "narc": 1.2,
           "online": 1,
@@ -4160,7 +4172,7 @@
       },
       {
         "id": "b",
-        "label": "Delete it and say the base is right about visas.",
+        "receipt": "Your midnight post drew 40,000 angry replies. You deleted it and said the base was right.", "receiptWeight": 2, "label": "Delete it and say the base is right about visas.",
         "effects": {
           "loyalty": 1,
           "border": -1,
@@ -4415,7 +4427,7 @@
     "options": [
       {
         "id": "a",
-        "label": "Back your own candidate against his.",
+        "receipt": "The President picked your successor without asking you. You backed your own candidate against his.", "receiptWeight": 1, "label": "Back your own candidate against his.",
         "effects": {
           "loyalty": -1.5,
           "style": 1.2,
@@ -4427,7 +4439,7 @@
       },
       {
         "id": "b",
-        "label": "Fall in line and endorse.",
+        "receipt": "The President picked your successor, in your own state, without asking. You fell in line.", "receiptWeight": 1, "label": "Fall in line and endorse.",
         "effects": {
           "loyalty": 1.5,
           "style": -0.8
@@ -4435,7 +4447,7 @@
       },
       {
         "id": "c",
-        "label": "Stay neutral and start visiting Iowa.",
+        "receipt": "The President picked your successor without asking. You stayed neutral and started visiting Iowa.", "receiptWeight": 2, "label": "Stay neutral and start visiting Iowa.",
         "effects": {
           "mach": 1.2,
           "narc": 0.8
@@ -4469,7 +4481,7 @@
     "options": [
       {
         "id": "a",
-        "label": "Strip the company's tax perks. Make an example.",
+        "receipt": "The biggest employer in your state criticized your law. You stripped its tax perks to make an example.", "receiptWeight": 2, "label": "Strip the company's tax perks. Make an example.",
         "effects": {
           "style": 1.5,
           "psych": 1,
@@ -4482,7 +4494,7 @@
       },
       {
         "id": "b",
-        "label": "Call the chief executive and settle it quietly.",
+        "receipt": "The biggest employer in your state attacked your law. You called the chief executive and settled it quietly.", "receiptWeight": 1, "label": "Call the chief executive and settle it quietly.",
         "effects": {
           "style": -1,
           "econ": 1
@@ -4493,7 +4505,7 @@
       },
       {
         "id": "c",
-        "label": "Leave it. Government does not punish speech.",
+        "receipt": "The biggest employer in your state attacked your law. You left it alone: government does not punish speech.", "receiptWeight": 1, "label": "Leave it. Government does not punish speech.",
         "effects": {
           "econ": 1,
           "system": -0.5,
@@ -5178,7 +5190,7 @@
     "options": [
       {
         "id": "a",
-        "label": "Never. I kept my oath.",
+        "receipt": "Offered a way back if you called certifying a mistake, you said never. You had kept your oath.", "receiptWeight": 1, "label": "Never. I kept my oath.",
         "effects": {
           "loyalty": -1.5,
           "system": -1.2,
@@ -5191,7 +5203,7 @@
       },
       {
         "id": "b",
-        "label": "Say you would handle it differently today.",
+        "receipt": "Offered a way back if you called certifying a mistake, you said you would handle it differently today.", "receiptWeight": 2, "label": "Say you would handle it differently today.",
         "effects": {
           "loyalty": 1.2,
           "mach": 1,
@@ -5200,7 +5212,7 @@
       },
       {
         "id": "c",
-        "label": "Say history will judge, and take the invitation.",
+        "receipt": "Offered a way back if you called certifying a mistake, you said history will judge, and took the invitation.", "receiptWeight": 3, "label": "Say history will judge, and take the invitation.",
         "effects": {
           "mach": 1.5,
           "style": -0.5
@@ -5379,7 +5391,7 @@
     "options": [
       {
         "id": "a",
-        "label": "Point it out, live, and wait for him to do it again.",
+        "receipt": "Your rival repeated the same memorized 25 seconds. You pointed it out, live, and waited for him to do it again.", "receiptWeight": 2, "label": "Point it out, live, and wait for him to do it again.",
         "effects": {
           "style": 1.5,
           "psych": 1
@@ -5390,7 +5402,7 @@
       },
       {
         "id": "b",
-        "label": "Say nothing. Let him sink on his own.",
+        "receipt": "Your rival repeated the same memorized 25 seconds. You said nothing and let him sink.", "receiptWeight": 1, "label": "Say nothing. Let him sink on his own.",
         "effects": {
           "mach": 1,
           "style": -0.5
@@ -5413,7 +5425,7 @@
       },
       {
         "id": "d",
-        "label": "Clip it and post it before he finishes.",
+        "receipt": "Your rival repeated the same memorized 25 seconds. You clipped it and posted it before he finished.", "receiptWeight": 2, "label": "Clip it and post it before he finishes.",
         "effects": {
           "online": 1.5,
           "style": 0.8
@@ -5605,7 +5617,7 @@
     "options": [
       {
         "id": "a",
-        "label": "People change. So did the party.",
+        "receipt": "Read your old insults about the man you now serve, you said people change. So did the party.", "receiptWeight": 1, "label": "People change. So did the party.",
         "effects": {
           "mach": 1.2,
           "loyalty": 1
@@ -5616,7 +5628,7 @@
       },
       {
         "id": "b",
-        "label": "I was wrong then, and I have said so.",
+        "receipt": "Read your old insults about the man you now serve, you said you had been wrong.", "receiptWeight": 1, "label": "I was wrong then, and I have said so.",
         "effects": {
           "loyalty": 1.5,
           "narc": -0.8
@@ -5627,7 +5639,7 @@
       },
       {
         "id": "c",
-        "label": "I meant it then. I am useful now.",
+        "receipt": "Read your old insults about the man you now serve, you said: I meant it then. I am useful now.", "receiptWeight": 3, "label": "I meant it then. I am useful now.",
         "effects": {
           "mach": 1.5,
           "psych": 0.6,
@@ -5639,7 +5651,7 @@
       },
       {
         "id": "d",
-        "label": "Smile, reach for the water, next question.",
+        "receipt": "Read your old quotes about the President, you smiled and reached for the water.", "receiptWeight": 2, "label": "Smile, reach for the water, next question.",
         "effects": {
           "style": -1,
           "narc": -0.5
@@ -6629,7 +6641,7 @@
     "options": [
       {
         "id": "a",
-        "label": "Concede tonight, in person, by name.",
+        "receipt": "The networks called it against you. You conceded that night, in person, by name.", "receiptWeight": 1, "label": "Concede tonight, in person, by name.",
         "effects": {
           "system": -1.5,
           "narc": -1,
@@ -6644,7 +6656,7 @@
       },
       {
         "id": "b",
-        "label": "Wait for every lawful recount. Then concede.",
+        "receipt": "The networks called it against you. You waited for every lawful recount, and then conceded.", "receiptWeight": 1, "label": "Wait for every lawful recount. Then concede.",
         "effects": {
           "system": -0.5,
           "mach": 0.5
@@ -6655,7 +6667,7 @@
       },
       {
         "id": "c",
-        "label": "Never concede. Say it was taken.",
+        "receipt": "You lost the decisive state by under 12,000 votes. You told the country it was taken.", "receiptWeight": 3, "label": "Never concede. Say it was taken.",
         "effects": {
           "system": 1.5,
           "narc": 1.2,
@@ -7174,7 +7186,9 @@
         "cand": {
           "beshear": 1,
           "kemp": 1
-        }
+        },
+        "receipt": "Your victory crowd chanted to lock up the loser. You stopped it.",
+        "receiptWeight": 1
       },
       {
         "id": "b",
@@ -7186,7 +7200,9 @@
         "cand": {
           "rubio": 1,
           "newsom": 1
-        }
+        },
+        "receipt": "Your victory crowd chanted to lock up your opponent. You gave it ten seconds and a smile.",
+        "receiptWeight": 2
       },
       {
         "id": "c",
@@ -7199,7 +7215,9 @@
         },
         "cand": {
           "trumpjr": 1
-        }
+        },
+        "receipt": "Your victory crowd wanted the loser locked up. You led the chant.",
+        "receiptWeight": 3
       }
     ],
     "measure": [

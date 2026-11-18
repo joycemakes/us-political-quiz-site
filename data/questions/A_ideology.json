@@ -11,7 +11,7 @@
     "options": [
       {
         "id": "a",
-        "label": "Medicare for All. No more half measures",
+        "receipt": "A nurse asked what you would do about her premiums. You promised her Medicare for All, no half measures.", "receiptWeight": 1, "label": "Medicare for All. No more half measures",
         "effects": {
           "econ": -1.5,
           "system": 0.5
@@ -26,14 +26,14 @@
       },
       {
         "id": "c",
-        "label": "Send the money to families' own health accounts",
+        "receipt": "A nurse asked about her insurance premiums. You offered her a health savings account.", "receiptWeight": 1, "label": "Send the money to families' own health accounts",
         "effects": {
           "econ": 0.8
         }
       },
       {
         "id": "d",
-        "label": "Get Washington out and let insurers compete",
+        "receipt": "A nurse asked what you would do about her premiums. You told her to let the insurers compete.", "receiptWeight": 2, "label": "Get Washington out and let insurers compete",
         "effects": {
           "econ": 1.5
         }
@@ -178,14 +178,14 @@
     "options": [
       {
         "id": "a",
-        "label": "Restore the Medicaid money, even if taxes rise",
+        "receipt": "Given one stroke of the pen, you put the Medicaid money back and let the taxes rise.", "receiptWeight": 1, "label": "Restore the Medicaid money, even if taxes rise",
         "effects": {
           "econ": -1.3
         }
       },
       {
         "id": "b",
-        "label": "Keep the tax cuts, even if coverage shrinks",
+        "receipt": "Given one stroke of the pen, you kept the tax cuts and let the coverage shrink.", "receiptWeight": 2, "label": "Keep the tax cuts, even if coverage shrinks",
         "effects": {
           "econ": 1.3
         }
@@ -467,7 +467,7 @@
     "options": [
       {
         "id": "a",
-        "label": "Give him the mic. A workers' party means it",
+        "receipt": "A union president wanted your stage and your donors wanted him gone. You handed him the microphone.", "receiptWeight": 1, "label": "Give him the mic. A workers' party means it",
         "effects": {
           "econ": -1.2,
           "trade": -0.5
@@ -478,14 +478,14 @@
       },
       {
         "id": "b",
-        "label": "He can speak, but the laws that let workers skip dues stay",
+        "receipt": "A union man got his slot at your rally. The laws that drain his dues stayed where they were.", "receiptWeight": 1, "label": "He can speak, but the laws that let workers skip dues stay",
         "effects": {
           "econ": 0.6
         }
       },
       {
         "id": "c",
-        "label": "No. We are the party of free enterprise",
+        "receipt": "A union president asked to speak at your rally. The donors said no, and so did you.", "receiptWeight": 2, "label": "No. We are the party of free enterprise",
         "effects": {
           "econ": 1.5
         }
@@ -571,7 +571,7 @@
     "options": [
       {
         "id": "a",
-        "label": "Pledge it. Day one, no pills by mail",
+        "receipt": "Asked to pledge no abortion pills by mail from day one, you signed, with the suburbs listening.", "receiptWeight": 1, "label": "Pledge it. Day one, no pills by mail",
         "effects": {
           "social": -1.5,
           "faith": 0.8
@@ -589,7 +589,7 @@
       },
       {
         "id": "c",
-        "label": "Leave it to the states. That was the point",
+        "receipt": "Asked for a pledge on abortion pills, you left it to the states.", "receiptWeight": 1, "label": "Leave it to the states. That was the point",
         "effects": {
           "social": -0.2,
           "system": -0.5
@@ -597,7 +597,7 @@
       },
       {
         "id": "d",
-        "label": "Leave it alone. This is how we lose",
+        "receipt": "Pro-life groups wanted your pledge. You told them this is how we lose.", "receiptWeight": 2, "label": "Leave it alone. This is how we lose",
         "effects": {
           "social": 0.7,
           "mach": 0.5
@@ -1123,14 +1123,14 @@
     "options": [
       {
         "id": "a",
-        "label": "Send the fleet. America defends Taiwan",
+        "receipt": "At three in the morning, with Taiwan blockaded, you sent the fleet.", "receiptWeight": 2, "label": "Send the fleet. America defends Taiwan",
         "effects": {
           "world": 1.5
         }
       },
       {
         "id": "b",
-        "label": "Not with American lives",
+        "receipt": "With Taiwan blockaded at three in the morning, you said: not with American lives.", "receiptWeight": 2, "label": "Not with American lives",
         "effects": {
           "world": -1.3
         }
@@ -1156,7 +1156,7 @@
     "options": [
       {
         "id": "a",
-        "label": "Yes. A dictator is gone and it took one night",
+        "receipt": "A foreign president was seized in his own capital with no vote in Congress. You said it took one night and it worked.", "receiptWeight": 2, "label": "Yes. A dictator is gone and it took one night",
         "effects": {
           "world": 1.2,
           "psych": 0.4
@@ -1164,7 +1164,7 @@
       },
       {
         "id": "b",
-        "label": "No. No vote, no plan, not our business",
+        "receipt": "A dictator was flown out in handcuffs with no vote in Congress. You said no vote, no plan, not our business.", "receiptWeight": 1, "label": "No. No vote, no plan, not our business",
         "effects": {
           "world": -1.2,
           "system": -0.3
@@ -1675,14 +1675,14 @@
     "options": [
       {
         "id": "a",
-        "label": "Keep the tariff. Steel is strategy",
+        "receipt": "The tariff saved 600 jobs at the mill and cost 800 downriver. You kept the tariff.", "receiptWeight": 2, "label": "Keep the tariff. Steel is strategy",
         "effects": {
           "trade": -1.5
         }
       },
       {
         "id": "b",
-        "label": "Lift it. You cannot tax your way to jobs",
+        "receipt": "Six hundred steelworkers had their jobs back because of a tariff. You lifted it.", "receiptWeight": 2, "label": "Lift it. You cannot tax your way to jobs",
         "effects": {
           "trade": 1.5
         }
@@ -1950,7 +1950,7 @@
     "options": [
       {
         "id": "a",
-        "label": "End it. Tariffs are taxes and I do not raise taxes",
+        "receipt": "On the President's tariff emergency, you voted to end it and said why: tariffs are taxes.", "receiptWeight": 1, "label": "End it. Tariffs are taxes and I do not raise taxes",
         "effects": {
           "trade": 1.5,
           "loyalty": -1
@@ -1961,7 +1961,7 @@
       },
       {
         "id": "b",
-        "label": "End it quietly and praise the president loudly",
+        "receipt": "On the President's tariff emergency, you voted to end it quietly and praised him loudly.", "receiptWeight": 3, "label": "End it quietly and praise the president loudly",
         "effects": {
           "trade": 0.5,
           "mach": 1
@@ -1977,7 +1977,7 @@
       },
       {
         "id": "d",
-        "label": "Keep it, and build the wall higher",
+        "receipt": "Asked to end the tariff emergency, you voted to keep it and build the wall higher.", "receiptWeight": 1, "label": "Keep it, and build the wall higher",
         "effects": {
           "trade": -1.5,
           "loyalty": 0.5
@@ -2132,7 +2132,7 @@
     "options": [
       {
         "id": "a",
-        "label": "All of it. I answer to God before voters",
+        "receipt": "Asked how much your faith decides your politics, you said all of it. God first, voters second.", "receiptWeight": 2, "label": "All of it. I answer to God before voters",
         "effects": {
           "faith": 1.5
         },
@@ -2150,14 +2150,14 @@
       },
       {
         "id": "c",
-        "label": "That is between me and my pew",
+        "receipt": "Asked on stage about your faith, you said it was between you and your pew.", "receiptWeight": 1, "label": "That is between me and my pew",
         "effects": {
           "faith": -0.5
         }
       },
       {
         "id": "d",
-        "label": "I am not religious, and that should be fine",
+        "receipt": "Asked on a debate stage about your faith, you said you had none, and that it should be fine.", "receiptWeight": 2, "label": "I am not religious, and that should be fine",
         "effects": {
           "faith": -1.5
         }
@@ -2338,7 +2338,7 @@
       },
       {
         "id": "c4",
-        "text": "America is a Christian nation",
+        "receiptYes": "Asked in a speed round if America is a Christian nation, you said yes.", "receiptWeightYes": 1, "text": "America is a Christian nation",
         "yes": {
           "faith": 1.5
         },
@@ -2348,7 +2348,7 @@
       },
       {
         "id": "c5",
-        "text": "Churches should pay tax like everyone else",
+        "receiptYes": "Asked in a speed round if churches should pay tax like everyone else, you said yes.", "receiptWeightYes": 1, "text": "Churches should pay tax like everyone else",
         "yes": {
           "faith": -1.2
         },
@@ -2470,7 +2470,7 @@
     "options": [
       {
         "id": "a",
-        "label": "Wear it. This is a Christian country",
+        "receipt": "Called a Christian nationalist on a debate stage, you wore it.", "receiptWeight": 2, "label": "Wear it. This is a Christian country",
         "effects": {
           "faith": 1.5,
           "system": 0.5
@@ -2478,14 +2478,14 @@
       },
       {
         "id": "b",
-        "label": "Reject the label, keep the values",
+        "receipt": "Called a Christian nationalist on stage, you rejected the label and kept the values.", "receiptWeight": 1, "label": "Reject the label, keep the values",
         "effects": {
           "faith": 0.8
         }
       },
       {
         "id": "c",
-        "label": "Say the party is for every faith and none",
+        "receipt": "Called a Christian nationalist on stage, you said the party is for every faith and none.", "receiptWeight": 1, "label": "Say the party is for every faith and none",
         "effects": {
           "faith": -0.4,
           "social": 0.4
@@ -2693,7 +2693,7 @@
     "options": [
       {
         "id": "a",
-        "label": "Masks off. Police show their faces",
+        "receipt": "Asked about agents working in masks and unmarked cars, you said police show their faces.", "receiptWeight": 1, "label": "Masks off. Police show their faces",
         "effects": {
           "border": 0.9,
           "system": -0.3,
@@ -2702,7 +2702,7 @@
       },
       {
         "id": "b",
-        "label": "Masks stay. Agents have families too",
+        "receipt": "Asked about masked agents in unmarked cars, you kept the masks on.", "receiptWeight": 2, "label": "Masks stay. Agents have families too",
         "effects": {
           "border": -1.1,
           "liberty": -0.8
@@ -2727,7 +2727,7 @@
     "options": [
       {
         "id": "a",
-        "label": "No. Change the law or the Constitution to end it",
+        "receipt": "A baby was born in Phoenix to parents without papers. You said she should not be an American.", "receiptWeight": 2, "label": "No. Change the law or the Constitution to end it",
         "effects": {
           "border": -1.5,
           "system": 0.5
@@ -2735,7 +2735,7 @@
       },
       {
         "id": "b",
-        "label": "Yes. The 14th Amendment says what it says",
+        "receipt": "A baby was born in Phoenix to parents without papers. You said the 14th Amendment says what it says.", "receiptWeight": 1, "label": "Yes. The 14th Amendment says what it says",
         "effects": {
           "border": 1.1,
           "system": -0.5
@@ -2881,7 +2881,7 @@
     "cards": [
       {
         "id": "c1",
-        "text": "Send the National Guard into cities to back up ICE",
+        "receiptYes": "Asked whether to send the National Guard into cities to back the raids, you said yes.", "receiptWeightYes": 1, "text": "Send the National Guard into cities to back up ICE",
         "yes": {
           "border": -1,
           "system": 0.4,
@@ -2940,7 +2940,7 @@
       },
       {
         "id": "c6",
-        "text": "Deport people to countries they never lived in",
+        "receiptYes": "Asked if people should be deported to countries they never lived in, you said yes inside four seconds.", "receiptWeightYes": 3, "text": "Deport people to countries they never lived in",
         "yes": {
           "border": -1.2,
           "psych": 0.5
@@ -3009,7 +3009,7 @@
     "options": [
       {
         "id": "a",
-        "label": "No carve-outs. The law is the law",
+        "receipt": "Your donors wanted their own workers spared the raids. You gave them no carve-outs.", "receiptWeight": 1, "label": "No carve-outs. The law is the law",
         "effects": {
           "border": -1.5,
           "econ": -0.3
@@ -3017,7 +3017,7 @@
       },
       {
         "id": "b",
-        "label": "Quietly point the agents somewhere else",
+        "receipt": "Your donors asked for the raids to skip their workers. You quietly pointed the agents somewhere else.", "receiptWeight": 3, "label": "Quietly point the agents somewhere else",
         "effects": {
           "border": -0.3,
           "mach": 1
@@ -3033,7 +3033,7 @@
       },
       {
         "id": "d",
-        "label": "Legal status for long-time workers. Out loud",
+        "receipt": "Your donors wanted quiet protection for their workers. You offered legal status instead, out loud.", "receiptWeight": 1, "label": "Legal status for long-time workers. Out loud",
         "effects": {
           "border": 1.1,
           "loyalty": -0.5
@@ -3054,7 +3054,7 @@
     "options": [
       {
         "id": "a",
-        "label": "Abolish it and start again",
+        "receipt": "The crowd chanted abolish ICE and the microphone was in your hand. You joined in.", "receiptWeight": 1, "label": "Abolish it and start again",
         "effects": {
           "border": 1.5,
           "system": 1
@@ -3065,7 +3065,7 @@
       },
       {
         "id": "b",
-        "label": "Keep it, fire the leadership, ban the masks",
+        "receipt": "The crowd chanted abolish ICE. You offered to fire its leaders and ban the masks.", "receiptWeight": 1, "label": "Keep it, fire the leadership, ban the masks",
         "effects": {
           "border": 0.8
         }
@@ -3079,7 +3079,7 @@
       },
       {
         "id": "d",
-        "label": "Say it plainly: secure the border first",
+        "receipt": "The crowd chanted abolish ICE. You told them to secure the border first.", "receiptWeight": 2, "label": "Say it plainly: secure the border first",
         "effects": {
           "border": -1
         },
@@ -3604,7 +3604,7 @@
     "options": [
       {
         "id": "a",
-        "label": "Take it. We lost the builders and need them",
+        "receipt": "A tech billionaire who backed the other side offered to bankroll you. You took the money.", "receiptWeight": 2, "label": "Take it. We lost the builders and need them",
         "effects": {
           "tech": 1.2,
           "mach": 0.5
@@ -3623,7 +3623,7 @@
       },
       {
         "id": "c",
-        "label": "Refuse. We are the ones who regulate him",
+        "receipt": "A tech billionaire offered to bankroll you. You refused: you are the ones who regulate him.", "receiptWeight": 1, "label": "Refuse. We are the ones who regulate him",
         "effects": {
           "tech": -1.2,
           "system": 0.5
@@ -3631,7 +3631,7 @@
       },
       {
         "id": "d",
-        "label": "Refuse, and make the ad about refusing",
+        "receipt": "A tech billionaire offered you his money. You refused, and made the ad about refusing.", "receiptWeight": 2, "label": "Refuse, and make the ad about refusing",
         "effects": {
           "tech": -1,
           "style": 0.8,
@@ -3656,7 +3656,7 @@
     "options": [
       {
         "id": "a",
-        "label": "The builders: AI, rockets, crypto",
+        "receipt": "Asked to pick a table on the right, you sat with the builders: AI, rockets, crypto.", "receiptWeight": 1, "label": "The builders: AI, rockets, crypto",
         "effects": {
           "tech": 1.5
         },
@@ -3666,7 +3666,7 @@
       },
       {
         "id": "b",
-        "label": "The populists: Big Tech is the enemy",
+        "receipt": "Asked to pick a table on the right, you sat with the populists and named Big Tech the enemy.", "receiptWeight": 1, "label": "The populists: Big Tech is the enemy",
         "effects": {
           "tech": -1.5
         },
@@ -3676,7 +3676,7 @@
       },
       {
         "id": "c",
-        "label": "Money from one, votes from the other",
+        "receipt": "Asked to choose between the tech right and the populists, you took money from one and votes from the other.", "receiptWeight": 3, "label": "Money from one, votes from the other",
         "effects": {
           "mach": 1.2,
           "tech": 0.3
@@ -3784,7 +3784,7 @@
     "options": [
       {
         "id": "a",
-        "label": "Release all of it, whoever falls",
+        "receipt": "On the Epstein files, you said release all of it, whoever falls.", "receiptWeight": 1, "label": "Release all of it, whoever falls",
         "effects": {
           "system": 1.5
         },
@@ -3801,7 +3801,7 @@
       },
       {
         "id": "c",
-        "label": "Enough. It is a distraction from prices",
+        "receipt": "With the Epstein pages arriving blacked out, you called it a distraction from prices.", "receiptWeight": 1, "label": "Enough. It is a distraction from prices",
         "effects": {
           "system": -1,
           "online": -0.6
@@ -3809,7 +3809,7 @@
       },
       {
         "id": "d",
-        "label": "Use it. Subpoena the other side's names first",
+        "receipt": "On the Epstein files, your first move was a subpoena for the other side's names.", "receiptWeight": 2, "label": "Use it. Subpoena the other side's names first",
         "effects": {
           "mach": 1.5,
           "style": 1,
@@ -4055,14 +4055,14 @@
     "options": [
       {
         "id": "a",
-        "label": "Bills through Congress, the slow way",
+        "receipt": "Given a hundred days of political capital, you spent most of it on bills through Congress, the slow way.", "receiptWeight": 1, "label": "Bills through Congress, the slow way",
         "effects": {
           "system": -1.2
         }
       },
       {
         "id": "b",
-        "label": "Executive orders. Sue me later",
+        "receipt": "Given a hundred days of political capital, you spent most of it on executive orders. Sue me later.", "receiptWeight": 2, "label": "Executive orders. Sue me later",
         "effects": {
           "system": 1.2,
           "psych": 0.3
@@ -4070,7 +4070,7 @@
       },
       {
         "id": "c",
-        "label": "Clearing out the top of every agency",
+        "receipt": "Given a hundred days of political capital, you spent most of it clearing out the top of every agency.", "receiptWeight": 2, "label": "Clearing out the top of every agency",
         "effects": {
           "system": 1.2,
           "loyalty": 0.5
@@ -4078,7 +4078,7 @@
       },
       {
         "id": "d",
-        "label": "Investigating the last administration",
+        "receipt": "Given a hundred days of political capital, you spent most of it investigating the last administration.", "receiptWeight": 3, "label": "Investigating the last administration",
         "effects": {
           "system": 0.8,
           "style": 1.2
@@ -4086,7 +4086,7 @@
       },
       {
         "id": "e",
-        "label": "A unity cabinet with the other party in it",
+        "receipt": "Given a hundred days of political capital, you spent most of it on a cabinet with the other party in it.", "receiptWeight": 1, "label": "A unity cabinet with the other party in it",
         "effects": {
           "system": -1,
           "style": -1.2
@@ -4214,7 +4214,7 @@
     "options": [
       {
         "id": "a",
-        "label": "Yes. The Constitution left no choice",
+        "receipt": "Asked in Iowa if you would have certified 2020, you said yes: the Constitution left no choice.", "receiptWeight": 1, "label": "Yes. The Constitution left no choice",
         "effects": {
           "system": -1.5,
           "loyalty": -1.5,
@@ -4227,7 +4227,7 @@
       },
       {
         "id": "b",
-        "label": "Yes. Next question",
+        "receipt": "Asked in Iowa if you would have certified 2020, you said yes, next question.", "receiptWeight": 1, "label": "Yes. Next question",
         "effects": {
           "system": -0.5,
           "mach": 0.8,
@@ -4236,7 +4236,7 @@
       },
       {
         "id": "c",
-        "label": "I would have sent it back to the states first",
+        "receipt": "Asked if you would have certified 2020, you said you would have sent it back to the states first.", "receiptWeight": 2, "label": "I would have sent it back to the states first",
         "effects": {
           "system": 1,
           "loyalty": 1,
@@ -4248,7 +4248,7 @@
       },
       {
         "id": "d",
-        "label": "No",
+        "receipt": "Asked whether you would have certified the 2020 election, you said no.", "receiptWeight": 3, "label": "No",
         "effects": {
           "system": 1.5,
           "loyalty": 1.5,
@@ -4860,7 +4860,7 @@
     "options": [
       {
         "id": "a",
-        "label": "Send them",
+        "receipt": "Dared on a debate stage to send American troops into Mexico, you said you would.", "receiptWeight": 2, "label": "Send them",
         "effects": {
           "world": 0.8,
           "border": -1,
@@ -4869,7 +4869,7 @@
       },
       {
         "id": "b",
-        "label": "Never without Mexico's consent",
+        "receipt": "Dared on stage to send troops into Mexico, you said never without Mexico's consent.", "receiptWeight": 1, "label": "Never without Mexico's consent",
         "effects": {
           "world": -0.6,
           "border": 0.3,
@@ -5049,7 +5049,7 @@
     "tier": "core",
     "topic": "kids-online-safety",
     "context": "The Kids Online Safety Act",
-    "prompt": "The Kids Online Safety Act: age checks for social media, and platforms made liable for harm to children. They swear it will break the internet. Do you sign it?",
+    "prompt": "The Kids Online Safety Act: platforms owe children a duty of care, the safest settings come switched on, and harmful design becomes their liability. They swear it will break the internet. Do you sign it?",
     "options": [
       {
         "id": "sign",

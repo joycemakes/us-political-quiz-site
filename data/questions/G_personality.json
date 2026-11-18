@@ -18,7 +18,9 @@
         "reads": {
           "vanity": 1,
           "hunger": 0.5
-        }
+        },
+        "receipt": "Asked in private why you wanted it, you said you would be better at it than anyone alive.",
+        "receiptWeight": 2
       },
       {
         "id": "b",
@@ -30,7 +32,9 @@
         "reads": {
           "hunger": -0.5,
           "mercy": 0.5
-        }
+        },
+        "receipt": "Asked why you wanted it, you said it was broken and no one else was going to fix it.",
+        "receiptWeight": 1
       },
       {
         "id": "c",
@@ -41,7 +45,9 @@
         },
         "reads": {
           "hunger": 1.5
-        }
+        },
+        "receipt": "Asked why you wanted to be president, you said you had wanted it since you were nine.",
+        "receiptWeight": 1
       },
       {
         "id": "d",
@@ -53,7 +59,9 @@
         "reads": {
           "grudge": 1.5,
           "hunger": 0.5
-        }
+        },
+        "receipt": "Asked why you were running, you gave the true reason: certain people said you never could.",
+        "receiptWeight": 2
       }
     ],
     "discrimination": 2
@@ -79,7 +87,9 @@
         "reads": {
           "hunger": 1.5,
           "mercy": -1
-        }
+        },
+        "receipt": "Your mentor still called you kid. You announced first and let her read about it.",
+        "receiptWeight": 2
       },
       {
         "id": "b",
@@ -92,7 +102,9 @@
         "reads": {
           "mercy": 0.5,
           "risk": 0.5
-        }
+        },
+        "receipt": "Your mentor wanted the same race. You drove to her house and asked for her blessing.",
+        "receiptWeight": 1
       },
       {
         "id": "c",
@@ -104,7 +116,9 @@
         "reads": {
           "hunger": -1.5,
           "mercy": 1
-        }
+        },
+        "receipt": "Your mentor wanted the same race. You stood down and called it gratitude. Four years is a long time to be grateful.",
+        "receiptWeight": 1
       },
       {
         "id": "d",
@@ -116,7 +130,9 @@
         "reads": {
           "charm": 1,
           "hunger": 1
-        }
+        },
+        "receipt": "You praised your mentor from the podium while your finance chair worked through her donor list.",
+        "receiptWeight": 3
       }
     ],
     "measure": [
@@ -321,7 +337,9 @@
         "reads": {
           "mercy": -1.5,
           "control": 0.5
-        }
+        },
+        "receipt": "A 23-year-old cost you a county by eleven votes. You fired her in the hallway so the others could watch.",
+        "receiptWeight": 2
       },
       {
         "id": "b",
@@ -332,7 +350,9 @@
         },
         "reads": {
           "mercy": 1.5
-        }
+        },
+        "receipt": "A 23-year-old cost you a county by eleven votes. You kept her. Nobody on your staff has forgotten it.",
+        "receiptWeight": 1
       },
       {
         "id": "c",
@@ -344,7 +364,9 @@
         "reads": {
           "control": 1,
           "mercy": 0.5
-        }
+        },
+        "receipt": "She cost you a county, so you kept her on the payroll and off the map.",
+        "receiptWeight": 1
       },
       {
         "id": "d",
@@ -356,7 +378,9 @@
         "reads": {
           "mercy": 1,
           "vanity": -1
-        }
+        },
+        "receipt": "A 23-year-old lost you a county, and you told the press the mistake was yours.",
+        "receiptWeight": 2
       }
     ],
     "discrimination": 3
@@ -380,7 +404,9 @@
         },
         "reads": {
           "charm": 1.5
-        }
+        },
+        "receipt": "A laid-off machinist asked if his plant was coming back. You held his hand and said yes.",
+        "receiptWeight": 3
       },
       {
         "id": "b",
@@ -392,7 +418,9 @@
         "reads": {
           "charm": -1,
           "risk": 0.5
-        }
+        },
+        "receipt": "A laid-off machinist asked you for one kind lie. You gave him a policy.",
+        "receiptWeight": 2
       }
     ],
     "discrimination": 2
@@ -416,7 +444,9 @@
         },
         "reads": {
           "grudge": -1
-        }
+        },
+        "receipt": "The man who called you a fraud for six months was broke. You paid his debts and filed him under assets.",
+        "receiptWeight": 1
       },
       {
         "id": "b",
@@ -427,7 +457,9 @@
         },
         "reads": {
           "grudge": 1.5
-        }
+        },
+        "receipt": "A broke rival sold you his endorsement. You took delivery and never paid the invoice.",
+        "receiptWeight": 3
       },
       {
         "id": "c",
@@ -439,7 +471,9 @@
         "reads": {
           "grudge": 1,
           "mercy": -1
-        }
+        },
+        "receipt": "A beaten rival needed money. You made him ask twice, in public, before you reached for a pen.",
+        "receiptWeight": 2
       },
       {
         "id": "d",
@@ -451,7 +485,9 @@
         "reads": {
           "mercy": 1.5,
           "grudge": -1.5
-        }
+        },
+        "receipt": "The man who called you a fraud was drowning in debt. You paid it and asked for nothing.",
+        "receiptWeight": 1
       }
     ],
     "measure": [
@@ -479,7 +515,9 @@
         "reads": {
           "paranoia": -1.5,
           "risk": 0.5
-        }
+        },
+        "receipt": "An unsigned note accused the woman who runs your life. You asked her once and believed her.",
+        "receiptWeight": 1
       },
       {
         "id": "b",
@@ -492,7 +530,9 @@
         "reads": {
           "paranoia": 1.5,
           "control": 1
-        }
+        },
+        "receipt": "An unsigned note accused your campaign manager. You wished her good morning and had her phone records by noon.",
+        "receiptWeight": 2
       },
       {
         "id": "c",
@@ -503,7 +543,9 @@
         "reads": {
           "paranoia": 1,
           "control": 0.5
-        }
+        },
+        "receipt": "Told your campaign manager might be a traitor, you fed her a lie and waited to see where it surfaced.",
+        "receiptWeight": 2
       }
     ],
     "measure": [
@@ -594,7 +636,9 @@
         "reads": {
           "mercy": 1,
           "hunger": -1
-        }
+        },
+        "receipt": "Your daughter cried and asked to be left out of the ad. You left her out. It cost two points and you paid.",
+        "receiptWeight": 1
       },
       {
         "id": "b",
@@ -606,7 +650,9 @@
         "reads": {
           "hunger": 1.5,
           "control": 1
-        }
+        },
+        "receipt": "Your sixteen-year-old begged not to be in the ad. She tested well. She was in the ad.",
+        "receiptWeight": 3
       },
       {
         "id": "c",
@@ -617,7 +663,9 @@
         },
         "reads": {
           "charm": 1
-        }
+        },
+        "receipt": "Your daughter did not want to be in the ad, so you opened negotiations with a sixteen-year-old.",
+        "receiptWeight": 1
       },
       {
         "id": "d",
@@ -629,7 +677,9 @@
         "reads": {
           "mercy": -0.5,
           "control": 0.5
-        }
+        },
+        "receipt": "Your daughter refused the camera, so you used an old photograph. A picture cannot say no.",
+        "receiptWeight": 2
       }
     ],
     "discrimination": 2
@@ -678,7 +728,9 @@
         "reads": {
           "risk": 1.5,
           "hunger": 1.5
-        }
+        },
+        "receipt": "Third in the polls, you mortgaged the house before your spouse had said yes.",
+        "receiptWeight": 2
       },
       {
         "id": "b",
@@ -690,7 +742,9 @@
         "reads": {
           "risk": -1.5,
           "hunger": -1
-        }
+        },
+        "receipt": "Third in the polls with one bet left, you kept the house. You will always know the price of that kitchen.",
+        "receiptWeight": 1
       }
     ],
     "discrimination": 2
@@ -715,7 +769,9 @@
         "reads": {
           "grudge": -1.5,
           "risk": 0.5
-        }
+        },
+        "receipt": "The reporter who nearly ended you needed a job. You hired her for knowing where the knife goes.",
+        "receiptWeight": 1
       },
       {
         "id": "b",
@@ -726,7 +782,9 @@
         "reads": {
           "control": 1,
           "paranoia": 0.5
-        }
+        },
+        "receipt": "The reporter who nearly ended you needed work. You hired her so the sequel would never be written.",
+        "receiptWeight": 2
       },
       {
         "id": "c",
@@ -738,7 +796,9 @@
         "reads": {
           "grudge": 1.5,
           "charm": 0.5
-        }
+        },
+        "receipt": "A reporter who wounded you asked for a job. You declined warmly, then made sure nobody else said yes.",
+        "receiptWeight": 2
       },
       {
         "id": "d",
@@ -750,7 +810,9 @@
         "reads": {
           "grudge": 1,
           "vanity": 0.5
-        }
+        },
+        "receipt": "A jobless reporter asked you for work. You could still recite her article, and you said no.",
+        "receiptWeight": 2
       }
     ],
     "discrimination": 2
@@ -776,7 +838,9 @@
         "reads": {
           "mercy": 1,
           "charm": 1
-        }
+        },
+        "receipt": "Your rival went blank on live television. You finished his sentence for him, and the room remembered.",
+        "receiptWeight": 1
       },
       {
         "id": "b",
@@ -787,7 +851,9 @@
         },
         "reads": {
           "mercy": -1.5
-        }
+        },
+        "receipt": "Your rival froze on live television. You let the silence run and enjoyed every second of it.",
+        "receiptWeight": 2
       },
       {
         "id": "c",
@@ -799,7 +865,9 @@
         "reads": {
           "mercy": -1,
           "risk": 0.5
-        }
+        },
+        "receipt": "Your rival froze at the podium, so you asked the country if this was the man for the 3 a.m. call.",
+        "receiptWeight": 2
       },
       {
         "id": "d",
@@ -811,7 +879,9 @@
         "reads": {
           "vanity": 0.5,
           "hunger": 0.5
-        }
+        },
+        "receipt": "Your rival froze on live television, and you used the time to talk about yourself.",
+        "receiptWeight": 1
       }
     ],
     "discrimination": 3
@@ -836,7 +906,9 @@
         "reads": {
           "control": 1,
           "grudge": -0.5
-        }
+        },
+        "receipt": "They dragged your brother's arrest onto the stage. You gave him one sentence and went back to policy.",
+        "receiptWeight": 1
       },
       {
         "id": "b",
@@ -848,7 +920,9 @@
         "reads": {
           "grudge": 1,
           "risk": 0.5
-        }
+        },
+        "receipt": "A rival used your brother's arrest against you. You spent your thirty seconds burning him down.",
+        "receiptWeight": 1
       },
       {
         "id": "c",
@@ -859,7 +933,9 @@
         },
         "reads": {
           "grudge": 1.5
-        }
+        },
+        "receipt": "A rival used your brother's arrest on stage. You smiled, and made a note for October.",
+        "receiptWeight": 3
       },
       {
         "id": "d",
@@ -871,7 +947,9 @@
         "reads": {
           "risk": 1,
           "charm": 1
-        }
+        },
+        "receipt": "They raised your brother's arrest to shame you. You told the whole story yourself, with him in the third row.",
+        "receiptWeight": 1
       }
     ],
     "measure": [
@@ -900,7 +978,9 @@
         "reads": {
           "hunger": 1.5,
           "risk": 1
-        }
+        },
+        "receipt": "The man who made you was sinking. You were the first to leave him, and you did it on live television.",
+        "receiptWeight": 2
       },
       {
         "id": "b",
@@ -912,7 +992,9 @@
         "reads": {
           "mercy": 1,
           "hunger": -1
-        }
+        },
+        "receipt": "The man who made you was finished, and you held his hand all the way down.",
+        "receiptWeight": 2
       }
     ],
     "discrimination": 2
@@ -938,7 +1020,11 @@
         "mercy": -1.5,
         "vanity": 0.5
       },
-      "steps": 5
+      "steps": 5,
+      "receiptLeft": "You knew exactly which clip would break your rival, and you left it alone.",
+      "receiptWeightLeft": 1,
+      "receiptRight": "Your rival was already sweating. You kept going until he could not look up.",
+      "receiptWeightRight": 2
     },
     "discrimination": 2
   },
@@ -1157,7 +1243,9 @@
         "reads": {
           "mercy": 1,
           "risk": 1
-        }
+        },
+        "receipt": "The front-runner was lying about the one decent rival you had. You spent your own time defending her.",
+        "receiptWeight": 1
       },
       {
         "id": "b",
@@ -1169,7 +1257,9 @@
         "reads": {
           "mercy": -1,
           "hunger": 1
-        }
+        },
+        "receipt": "The one rival who was ever decent to you was being torn apart with a lie. You stayed out and watched.",
+        "receiptWeight": 2
       }
     ],
     "discrimination": 3
@@ -1194,7 +1284,9 @@
         "reads": {
           "hunger": 0.5,
           "risk": -0.5
-        }
+        },
+        "receipt": "A donor's son wanted a real job. Nine million dollars later, he had real power.",
+        "receiptWeight": 2
       },
       {
         "id": "b",
@@ -1206,7 +1298,9 @@
         "reads": {
           "control": 1,
           "charm": 0.5
-        }
+        },
+        "receipt": "A donor's son wanted a job. You gave him a title, a desk by the copier and nothing to touch.",
+        "receiptWeight": 1
       },
       {
         "id": "c",
@@ -1217,7 +1311,9 @@
         },
         "reads": {
           "risk": 1
-        }
+        },
+        "receipt": "Nine million dollars came with a resume attached. You handed back the resume.",
+        "receiptWeight": 1
       }
     ],
     "measure": [
@@ -1306,7 +1402,9 @@
         "reads": {
           "mercy": 1,
           "hunger": -0.5
-        }
+        },
+        "receipt": "Your oldest aide was drowning in the job. You kept him there, because he would take a bullet for you.",
+        "receiptWeight": 1
       },
       {
         "id": "b",
@@ -1317,7 +1415,9 @@
         "reads": {
           "charm": 0.5,
           "mercy": 0.5
-        }
+        },
+        "receipt": "Your most loyal aide was out of his depth. You gave him a grand title and an empty desk.",
+        "receiptWeight": 1
       },
       {
         "id": "c",
@@ -1329,7 +1429,9 @@
         "reads": {
           "hunger": 1,
           "mercy": -0.5
-        }
+        },
+        "receipt": "The aide who had been with you since the city council had to go. You told him yourself, to his face.",
+        "receiptWeight": 1
       },
       {
         "id": "d",
@@ -1341,7 +1443,9 @@
         "reads": {
           "mercy": -1.5,
           "risk": -0.5
-        }
+        },
+        "receipt": "Your oldest aide was fired by text, by a stranger, while you were out of state.",
+        "receiptWeight": 3
       }
     ],
     "measure": [
@@ -1369,7 +1473,11 @@
       "reads": {
         "grudge": 1.5
       },
-      "steps": 5
+      "steps": 5,
+      "receiptLeft": "Someone knifed you eight years ago. You closed the file and have not opened it since.",
+      "receiptWeightLeft": 1,
+      "receiptRight": "Someone crossed you eight years ago and has been pleasant ever since. Their file is still open.",
+      "receiptWeightRight": 2
     },
     "discrimination": 2
   },
@@ -1450,7 +1558,9 @@
         "reads": {
           "grudge": -1,
           "control": 0.5
-        }
+        },
+        "receipt": "The chairman who killed your bill came begging. You saved him, because a debtor is worth more than a body.",
+        "receiptWeight": 2
       },
       {
         "id": "b",
@@ -1461,7 +1571,9 @@
         },
         "reads": {
           "grudge": 1.5
-        }
+        },
+        "receipt": "The chairman who killed your bill needed one vote. You let him fall, and made sure he saw whose hand it was.",
+        "receiptWeight": 2
       }
     ],
     "discrimination": 2
@@ -1486,7 +1598,9 @@
         "reads": {
           "control": 0.5,
           "mercy": -0.5
-        }
+        },
+        "receipt": "Three women wrote to you about the governor. You filed the letter and changed the staffing.",
+        "receiptWeight": 3
       },
       {
         "id": "b",
@@ -1498,7 +1612,9 @@
         "reads": {
           "risk": 1,
           "mercy": 1
-        }
+        },
+        "receipt": "Three women wrote to you about the governor. You dropped him, and his state with him.",
+        "receiptWeight": 1
       },
       {
         "id": "c",
@@ -1510,7 +1626,9 @@
         },
         "reads": {
           "control": 1.5
-        }
+        },
+        "receipt": "Three women wrote to you about the governor. You showed him the letter and kept him.",
+        "receiptWeight": 2
       }
     ],
     "measure": [
@@ -1538,7 +1656,9 @@
         "reads": {
           "hunger": 1,
           "vanity": -1
-        }
+        },
+        "receipt": "A party boss left you in his lobby for two hours. You sat there, because his machine was worth it.",
+        "receiptWeight": 1
       },
       {
         "id": "b",
@@ -1550,7 +1670,9 @@
         "reads": {
           "vanity": 1.5,
           "risk": 0.5
-        }
+        },
+        "receipt": "A party boss made you wait two hours. You walked out past everyone who had watched you sit.",
+        "receiptWeight": 1
       },
       {
         "id": "c",
@@ -1562,7 +1684,9 @@
         "reads": {
           "charm": 1,
           "grudge": 1
-        }
+        },
+        "receipt": "Left two hours in a lobby, you were charming to everyone and wrote the time down.",
+        "receiptWeight": 2
       },
       {
         "id": "d",
@@ -1574,7 +1698,9 @@
         "reads": {
           "charm": 1.5,
           "hunger": 0.5
-        }
+        },
+        "receipt": "Left waiting in a party boss's lobby, you spent the two hours stealing his staff.",
+        "receiptWeight": 2
       }
     ],
     "discrimination": 2
@@ -1668,7 +1794,9 @@
         "reads": {
           "control": 1,
           "risk": 1
-        }
+        },
+        "receipt": "Your son hit a parked car, drunk, at 2 a.m. By sunrise it had never happened.",
+        "receiptWeight": 3
       },
       {
         "id": "b",
@@ -1680,7 +1808,9 @@
         "reads": {
           "control": -1,
           "risk": 0.5
-        }
+        },
+        "receipt": "Your son called drunk from the roadside. You told him to phone the police himself.",
+        "receiptWeight": 2
       }
     ],
     "discrimination": 3
@@ -1705,7 +1835,9 @@
         "reads": {
           "mercy": -1,
           "hunger": 1
-        }
+        },
+        "receipt": "Your treasurer offered to take the blame for your decision. You let him, and promised to look after him.",
+        "receiptWeight": 3
       },
       {
         "id": "b",
@@ -1717,7 +1849,9 @@
         "reads": {
           "mercy": 1,
           "risk": 1
-        }
+        },
+        "receipt": "Your treasurer offered to take the fall for you. You took it yourself, out loud.",
+        "receiptWeight": 1
       },
       {
         "id": "c",
@@ -1729,7 +1863,9 @@
         "reads": {
           "charm": 0.5,
           "risk": -0.5
-        }
+        },
+        "receipt": "The violation was yours and the signature was his, so you blamed the lawyers.",
+        "receiptWeight": 1
       }
     ],
     "measure": [
@@ -1817,7 +1953,9 @@
         "reads": {
           "mercy": 1.5,
           "vanity": -0.5
-        }
+        },
+        "receipt": "Your rival's wife was in the hospital. You pulled the ad and told no one.",
+        "receiptWeight": 2
       },
       {
         "id": "b",
@@ -1829,7 +1967,9 @@
         "reads": {
           "vanity": 1,
           "charm": 1
-        }
+        },
+        "receipt": "Your rival's wife was in the hospital. You pulled the ad, then made sure the press knew whom to thank.",
+        "receiptWeight": 2
       },
       {
         "id": "c",
@@ -1841,7 +1981,9 @@
         "reads": {
           "mercy": -1.5,
           "hunger": 1
-        }
+        },
+        "receipt": "Your rival was at his wife's bedside. The ad ran on schedule.",
+        "receiptWeight": 3
       },
       {
         "id": "d",
@@ -1853,7 +1995,9 @@
         "reads": {
           "hunger": 0.5,
           "control": 0.5
-        }
+        },
+        "receipt": "Your rival's wife was in the hospital. You gave him one week, then doubled the buy.",
+        "receiptWeight": 2
       }
     ],
     "measure": [
@@ -1919,7 +2063,9 @@
         "reads": {
           "mercy": 0.5,
           "vanity": -1
-        }
+        },
+        "receipt": "The book said you scream at staff. It was true, so you apologized to them by name.",
+        "receiptWeight": 1
       },
       {
         "id": "b",
@@ -1930,7 +2076,9 @@
         },
         "reads": {
           "grudge": 1.5
-        }
+        },
+        "receipt": "A former aide told the truth about you in hardcover. You set out to destroy the author.",
+        "receiptWeight": 2
       },
       {
         "id": "c",
@@ -1941,7 +2089,9 @@
         "reads": {
           "control": 1,
           "vanity": 0.5
-        }
+        },
+        "receipt": "The tell-all was true. You said nothing, and had the people still on your payroll praise you on the record.",
+        "receiptWeight": 2
       },
       {
         "id": "d",
@@ -1953,7 +2103,9 @@
         "reads": {
           "hunger": 1,
           "vanity": 0.5
-        }
+        },
+        "receipt": "Accused in print of throwing a phone at your staff, you called it high standards.",
+        "receiptWeight": 1
       }
     ],
     "discrimination": 2
@@ -1979,7 +2131,11 @@
         "control": 1.5,
         "paranoia": 1
       },
-      "steps": 5
+      "steps": 5,
+      "receiptLeft": "Handed a secret file on your own staff, you shredded it in front of them.",
+      "receiptWeightLeft": 1,
+      "receiptRight": "Handed a file on your own staff's debts and affairs, you kept every page. A leash for everyone.",
+      "receiptWeightRight": 3
     },
     "discrimination": 2
   },
@@ -2003,7 +2159,9 @@
         "reads": {
           "mercy": 1.5,
           "paranoia": -1
-        }
+        },
+        "receipt": "She leaked your plan and confessed. You tore up her resignation, because she had been right.",
+        "receiptWeight": 1
       },
       {
         "id": "b",
@@ -2015,7 +2173,9 @@
         "reads": {
           "control": 1,
           "mercy": -1
-        }
+        },
+        "receipt": "She leaked to save you from yourself, and it worked. You accepted her resignation anyway.",
+        "receiptWeight": 2
       },
       {
         "id": "c",
@@ -2026,7 +2186,9 @@
         "reads": {
           "paranoia": 1.5,
           "control": 0.5
-        }
+        },
+        "receipt": "The staffer who saved you from a mistake kept her job. She is watched now, and never in the room.",
+        "receiptWeight": 2
       }
     ],
     "measure": [
@@ -2055,7 +2217,9 @@
         "reads": {
           "mercy": -1.5,
           "grudge": 0.5
-        }
+        },
+        "receipt": "Shown photographs of your rival in a collar, you published them, and you enjoyed it.",
+        "receiptWeight": 3
       },
       {
         "id": "b",
@@ -2067,7 +2231,9 @@
         },
         "reads": {
           "mercy": 1.5
-        }
+        },
+        "receipt": "Shown photographs of your rival on his knees, you burned them. What a man kneels for was his own business.",
+        "receiptWeight": 2
       },
       {
         "id": "c",
@@ -2079,7 +2245,9 @@
         "reads": {
           "control": 1.5,
           "risk": 0.5
-        }
+        },
+        "receipt": "Shown photographs of your rival in a collar, you did not publish and you did not burn. You showed him one.",
+        "receiptWeight": 3
       },
       {
         "id": "d",
@@ -2091,7 +2259,9 @@
         "reads": {
           "control": 1,
           "paranoia": 0.5
-        }
+        },
+        "receipt": "You kept the photographs of your rival and told no one. He will wonder who has them for the rest of his life.",
+        "receiptWeight": 2
       }
     ],
     "discrimination": 3
@@ -2116,7 +2286,9 @@
         "reads": {
           "risk": 1,
           "vanity": -1
-        }
+        },
+        "receipt": "Offered a running mate who outshone you, you took the star and the risk.",
+        "receiptWeight": 1
       },
       {
         "id": "b",
@@ -2127,7 +2299,9 @@
         "reads": {
           "vanity": 1.5,
           "control": 0.5
-        }
+        },
+        "receipt": "You passed over the better speaker for the dull one. One sun per solar system.",
+        "receiptWeight": 2
       },
       {
         "id": "c",
@@ -2137,7 +2311,9 @@
         },
         "reads": {
           "control": 1.5
-        }
+        },
+        "receipt": "You picked the star for running mate, once it was in writing who was in charge.",
+        "receiptWeight": 1
       },
       {
         "id": "d",
@@ -2148,7 +2324,9 @@
         },
         "reads": {
           "paranoia": 1.5
-        }
+        },
+        "receipt": "You chose the dull running mate. The talented one would have been measuring your drapes.",
+        "receiptWeight": 2
       }
     ],
     "discrimination": 2
@@ -2236,7 +2414,9 @@
         "reads": {
           "grudge": -1.5,
           "charm": 0.5
-        }
+        },
+        "receipt": "The rival who smeared you asked for prime time, the platform and jobs. You gave him all three.",
+        "receiptWeight": 1
       },
       {
         "id": "b",
@@ -2247,7 +2427,9 @@
         },
         "reads": {
           "grudge": 1
-        }
+        },
+        "receipt": "The rival you beat wanted prime time. You gave him Tuesday at four and an empty hall.",
+        "receiptWeight": 2
       },
       {
         "id": "c",
@@ -2259,7 +2441,9 @@
         "reads": {
           "control": 1.5,
           "vanity": 0.5
-        }
+        },
+        "receipt": "Your beaten rival got his speaking slot. He read your script, praising you, word for word.",
+        "receiptWeight": 2
       },
       {
         "id": "d",
@@ -2271,7 +2455,9 @@
         "reads": {
           "grudge": 1.5,
           "risk": 1
-        }
+        },
+        "receipt": "The rival you beat asked for a speaking slot. He watched the convention from his hotel.",
+        "receiptWeight": 1
       }
     ],
     "measure": [
@@ -2296,7 +2482,11 @@
         "mach": 1.5,
         "psych": 1
       },
-      "steps": 5
+      "steps": 5,
+      "receiptLeft": "Asked how much of your warmth was real, you said all of it. Your staff had money on the other answer.",
+      "receiptWeightLeft": 1,
+      "receiptRight": "Asked how much of your warmth was real, you said none. It is a tool, and it works.",
+      "receiptWeightRight": 3
     },
     "discrimination": 2
   },
@@ -2320,7 +2510,9 @@
         "reads": {
           "hunger": -1.5,
           "mercy": 1
-        }
+        },
+        "receipt": "Your father was dying on the night of your speech. Forty million people waited, and you went to him.",
+        "receiptWeight": 2
       },
       {
         "id": "b",
@@ -2331,7 +2523,9 @@
         },
         "reads": {
           "hunger": 1.5
-        }
+        },
+        "receipt": "Your father was dying two hours away. You gave the speech.",
+        "receiptWeight": 3
       }
     ],
     "discrimination": 3
@@ -2415,7 +2609,9 @@
         },
         "reads": {
           "mercy": 1.5
-        }
+        },
+        "receipt": "You lost, and told the staff it was yours. Every one of them had done the job.",
+        "receiptWeight": 1
       },
       {
         "id": "b",
@@ -2426,7 +2622,9 @@
         "reads": {
           "grudge": 1.5,
           "charm": 0.5
-        }
+        },
+        "receipt": "You lost, thanked the staff warmly, and saved the list of names for later.",
+        "receiptWeight": 2
       },
       {
         "id": "c",
@@ -2438,7 +2636,9 @@
         "reads": {
           "grudge": 1,
           "mercy": -1.5
-        }
+        },
+        "receipt": "You lost, and named the people who failed you, in the room, to their faces.",
+        "receiptWeight": 2
       },
       {
         "id": "d",
@@ -2451,7 +2651,9 @@
         "reads": {
           "hunger": 1,
           "risk": 0.5
-        }
+        },
+        "receipt": "You lost, and told the room you had been robbed.",
+        "receiptWeight": 2
       }
     ],
     "measure": [
@@ -2480,7 +2682,9 @@
         "reads": {
           "mercy": 1,
           "charm": 0.5
-        }
+        },
+        "receipt": "You won, and called the loser first. Generosity was cheap that night.",
+        "receiptWeight": 1
       },
       {
         "id": "b",
@@ -2491,7 +2695,9 @@
         },
         "reads": {
           "grudge": 1.5
-        }
+        },
+        "receipt": "You won. Your first call went to the donor who dropped you in March, so you could hear him beg.",
+        "receiptWeight": 2
       },
       {
         "id": "c",
@@ -2503,7 +2709,9 @@
         "reads": {
           "vanity": -0.5,
           "paranoia": 0.5
-        }
+        },
+        "receipt": "You won, and the first call went to your mother. She was the only one who did not want a job.",
+        "receiptWeight": 1
       },
       {
         "id": "d",
@@ -2514,7 +2722,9 @@
         "reads": {
           "control": 1,
           "hunger": 1
-        }
+        },
+        "receipt": "You won, and called the party boss before the speech. Terms were cheaper that night.",
+        "receiptWeight": 1
       }
     ],
     "discrimination": 2
@@ -2539,7 +2749,9 @@
         "reads": {
           "hunger": -1.5,
           "vanity": -0.5
-        }
+        },
+        "receipt": "You lost badly at fifty-eight, and went home to learn to be a person.",
+        "receiptWeight": 1
       },
       {
         "id": "b",
@@ -2551,7 +2763,9 @@
         "reads": {
           "hunger": 1.5,
           "risk": 0.5
-        }
+        },
+        "receipt": "You lost badly, and started the next campaign the following morning.",
+        "receiptWeight": 2
       }
     ],
     "discrimination": 2

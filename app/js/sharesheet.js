@@ -1,11 +1,11 @@
 // The share sheet on the result screen: image preview in three sizes, a system Share button on phones,
 // one button per platform, Instagram (download the story image), copy link, copy message, download.
 
-import { SIZES, drawShareCard, canvasBlob } from './sharecard.js?v=eafef2c-1794988692';
-import { buildMessage, shareUrls, X_LIMIT } from './share.js?v=eafef2c-1794988692';
-import { portraitUrl, artUrl } from './art.js?v=eafef2c-1794988692';
-import { reasonFor } from './scoring.js?v=eafef2c-1794988692';
-import { haptic } from './feel.js?v=eafef2c-1794988692';
+import { SIZES, drawShareCard, canvasBlob } from './sharecard.js?v=c583357-1795003897';
+import { buildMessage, shareUrls, X_LIMIT } from './share.js?v=c583357-1795003897';
+import { portraitUrl, artUrl } from './art.js?v=c583357-1795003897';
+import { reasonFor } from './scoring.js?v=c583357-1795003897';
+import { haptic } from './feel.js?v=c583357-1795003897';
 
 const h = (tag, cls, text) => {
   const e = document.createElement(tag);
@@ -51,17 +51,21 @@ export function renderShareSheet(section, R) {
   const siteUrl = R.shareCfg.url;
   // The archetype from the personality reading, once reading.json has given it a real name.
   const archetype = reading && reading.present && !reading.archetype?.fallback ? reading.archetype.name : null;
+  const tagline = archetype ? reading.archetype.tagline || '' : '';
+  const nameOf = id => (id && cands.get(id)?.name) || '';
   const top = matches.slice(0, 5).map(m => ({ id: m.id, name: cands.get(m.id)?.name || m.id, pct: m.pct, party: cands.get(m.id)?.party }));
   const first = cands.get(matches[0].id);
   const verdict = shareCfg.verdicts[matches[0].id] || reasonFor(scores, first, matches[0].picks);
   const card = {
-    top, cands, route, verdict, url: siteUrl, archetype,
+    top, cands, route, verdict, url: siteUrl, archetype, tagline,
+    // The type leads the image (ENDGAME_CONTRACT section 3): its card picture, then the closest match.
+    typeArt: archetype && reading.archetype.art ? artUrl(`${reading.archetype.art}_tall.webp`) : null,
     camp: profile.camp ? { short: profile.camp.short, name: profile.camp.name } : null,
     tem: { mach: scores.mach.value, narc: scores.narc.value, psych: scores.psych.value },
     art: { wide: artUrl('share_wide.webp'), tall: artUrl('share_tall.webp') },
     portraitUrl,
   };
-  const result = { top, route, campName: profile.camp ? profile.camp.name : '', verdict, archetype };
+  const result = { top, route, campName: profile.camp ? profile.camp.name : '', verdict, archetype, tagline, closer: reading?.closer || '', mate: nameOf(R.ticket?.mate), knife: nameOf(R.ticket?.knife) };
   // One template per result, used for every platform; X, Threads and Bluesky get the capped text with hashtags.
   const pickR = Math.random();
   const message = buildMessage(result, shareCfg, { rng: () => pickR, hashtags: false });

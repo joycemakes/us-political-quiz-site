@@ -3,11 +3,11 @@
 //
 // ctx: { el, artHost, cands (Map id -> candidate), stage }
 
-import { haptic, shake, sleep, reducedMotion } from './feel.js?v=eafef2c-1794988692';
-import { holdStart, holdLevel, holdStop, sfx } from './sound.js?v=eafef2c-1794988692';
-import { HOLD_TAP } from './howto.js?v=eafef2c-1794988692';
-import { createArtSlot, portraitEl, hasArt } from './art.js?v=eafef2c-1794988692';
-import { HOLD_FULL_MS } from './scoring.js?v=eafef2c-1794988692';
+import { haptic, shake, sleep, reducedMotion } from './feel.js?v=c583357-1795003897';
+import { holdStart, holdLevel, holdStop, sfx } from './sound.js?v=c583357-1795003897';
+import { HOLD_TAP, rankLine } from './howto.js?v=c583357-1795003897';
+import { createArtSlot, portraitEl, hasArt } from './art.js?v=c583357-1795003897';
+import { HOLD_FULL_MS } from './scoring.js?v=c583357-1795003897';
 
 const h = (tag, cls, text) => {
   const e = document.createElement(tag);
@@ -265,9 +265,9 @@ function renderSlider(q, ctx) {
     const place = () => {
       if (touched && commit.disabled) { commit.disabled = false; commit.setAttribute('aria-disabled', 'false'); }
       handle.style.left = `${(idx / (steps - 1)) * 100}%`;
+      describe();
       track.setAttribute('aria-valuenow', String(idx));
       track.setAttribute('aria-valuetext', readout.textContent);
-      describe();
     };
     const setFromX = x => {
       const r = track.getBoundingClientRect();
@@ -312,6 +312,7 @@ function renderPin(q, ctx) {
     confirm.disabled = true;
     confirm.setAttribute('aria-disabled', 'true');
     let caption = null;
+    const narrow = () => window.innerWidth < 900;
 
     // A tap (on the picture, a marker or a legend row) selects; Confirm commits.
     const select = r => {
@@ -324,14 +325,20 @@ function renderPin(q, ctx) {
         x.classList.toggle('sel', on);
         x.setAttribute('aria-checked', String(on));
       });
+      // The chosen spot's label sits under the picture, never over it (sense check, 375 px).
       if (slot.el) {
-        if (!caption) { caption = h('div', 'scene-caption pin-caption'); slot.frame.appendChild(caption); }
+        if (!caption) { caption = h('div', 'pin-caption'); caption.setAttribute('aria-live', 'polite'); slot.el.appendChild(caption); }
         const n = q.regions.indexOf(r) + 1;
         caption.textContent = `${n}. ${r.label || r.id}`;
       }
       confirm.disabled = false;
       confirm.setAttribute('aria-disabled', 'false');
       haptic('select');
+      // Phones: Confirm follows the list instead of floating over it; bring it into view once chosen.
+      if (narrow()) {
+        const b = confirm.getBoundingClientRect();
+        if (b.bottom > window.innerHeight - 4) confirm.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+      }
     };
 
     const firstHint = 'Tap a spot on the picture to choose. Each spot is a different answer.';
@@ -384,6 +391,8 @@ function renderPin(q, ctx) {
       const fit = () => {
         if (!slot.el.isConnected || done) { window.removeEventListener('resize', fit); return; }
         slot.el.style.removeProperty('--pin-h');
+        // Phones give the picture the full width and let the page scroll (sense check: 120x180 was too small).
+        if (narrow()) return;
         const over = document.documentElement.scrollHeight - window.innerHeight;
         const fh = slot.frame.getBoundingClientRect().height;
         if (over > 0 && fh > 0) slot.el.style.setProperty('--pin-h', `${Math.max(180, Math.floor(fh - over - 4))}px`);
@@ -468,7 +477,7 @@ function renderRank(q, ctx) {
   return new Promise(resolve => {
     const ms = clock();
     const wrap = h('div', 'rank');
-    const hint = ctx.how ? null : h('p', 'hint', 'Drag to order, most to least. Top is first.');
+    const hint = ctx.how ? null : h('p', 'hint', rankLine(q));
     const list = h('ol', 'rank-list');
     const moved = {};
     const renumber = () => list.querySelectorAll('.rank-item').forEach((li, i) => { li.querySelector('.rank-n').textContent = String(i + 1); });
@@ -689,7 +698,7 @@ function renderWhosaid(q, ctx) {
         const who = ctx.cands.get(q.answer)?.name || q.options.find(x => x.id === q.answer)?.label || q.answer;
         step2.hidden = false;
         step2.append(
-          h('p', `verdict ${right ? 'right' : 'wrong'}`, right ? `Right. It was ${who}.` : `No. It was ${who}.`),
+          h('p', `verdict ${right ? 'right' : 'wrong'}`, right ? `Right. It was ${String(who).replace(/\.$/, '')}.` : `No. It was ${String(who).replace(/\.$/, '')}.`),
           ...(q.context ? [h('p', 'reveal-context', q.context)] : []),
           h('p', 'followup', q.followup || 'Do you agree with it?'),
         );

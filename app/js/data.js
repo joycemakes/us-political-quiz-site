@@ -1,7 +1,7 @@
 // Loads candidates, the ideology camps, the personality reading and every question file named in
 // data/questions/index.json. A file that is missing or fails to parse is skipped.
 
-import { normalizeQuestion } from './questions.js?v=eafef2c-1794988692';
+import { normalizeQuestion } from './questions.js?v=c583357-1795003897';
 
 async function getJson(url) {
   const r = await fetch(url, { cache: 'no-cache' });
@@ -14,11 +14,14 @@ export async function loadData(base = '../data/') {
   // plain built-in copy. Dev aid: ?reading=stub loads the engine's test fixture instead.
   const readingUrl = typeof location !== 'undefined' && new URLSearchParams(location.search).get('reading') === 'stub'
     ? 'tests/reading-stub.json' : `${base}reading.json`;
-  const [cj, campsJson, manifest, reading] = await Promise.all([
+  const [cj, campsJson, manifest, reading, endgame] = await Promise.all([
     getJson(`${base}candidates.json`),
     getJson(`${base}camps.json`).catch(() => ({ camps: [] })),
     getJson(`${base}questions/index.json`).catch(() => ({ files: ['_sample.json'] })),
     getJson(readingUrl).catch(e => { console.info(`[quiz] no reading.json yet (${e.message}); using built-in reading copy`); return null; }),
+    // The endgame (research/ENDGAME_CONTRACT.md): hand-off, ticket lines, versus lines. Missing: those
+    // blocks stay out (the ticket still shows names and portraits).
+    getJson(`${base}endgame.json`).catch(() => null),
   ]);
   const candidates = cj.candidates || [];
   const candIds = new Set(candidates.map(c => c.id));
@@ -46,5 +49,18 @@ export async function loadData(base = '../data/') {
     report.push({ file: f, ok: true, count: n, skipped });
     if (skipped.length) console.warn(`[quiz] ${f}: skipped ${skipped.length}`, skipped);
   }
-  return { candidates, camps: campsJson.camps || [], bank, report, reading };
+  // Dev aid until the receipts are written: ?receipts=stub gives every answer without one a plain stand-in.
+  if (typeof location !== 'undefined' && new URLSearchParams(location.search).get('receipts') === 'stub') stubReceipts(bank);
+  return { candidates, camps: campsJson.camps || [], bank, report, reading, endgame };
+}
+
+function stubReceipts(bank) {
+  const w = s => 1 + ([...s].reduce((t, c) => t + c.charCodeAt(0), 0) % 3);
+  const say = (q, label) => `Stand-in exhibit for ${q.id}: you chose ${String(label || '').replace(/[.\s]+$/, '').slice(0, 90)}.`;
+  for (const q of bank) {
+    if (q.type === 'slider' && q.slider) { q.slider.receiptLeft ??= say(q, q.slider.left); q.slider.receiptRight ??= say(q, q.slider.right); q.slider.receiptWeightRight ??= w(q.id); }
+    else if (q.type === 'swipe') for (const c of q.cards || []) { c.receiptYes ??= say(q, `yes to ${c.text}`); c.receiptWeightYes ??= w(q.id + c.id); }
+    else if (q.type === 'pin') for (const r of q.regions || []) { r.receipt ??= say(q, r.label); r.receiptWeight ??= w(q.id + r.id); }
+    else if (q.type !== 'whosaid') for (const o of q.options || []) { o.receipt ??= say(q, o.label || o.id); o.receiptWeight ??= w(q.id + o.id); }
+  }
 }

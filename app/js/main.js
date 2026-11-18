@@ -1,25 +1,31 @@
 // US Political Quiz: boot, title screen, the run loop, chapter cards and the hand-off to results.
 
-import { loadData } from './data.js?v=eafef2c-1794988692';
-import { createSelector, QUICK_LENGTH, FULL_LENGTH } from './selector.js?v=eafef2c-1794988692';
-import { createScorer, applyAnswer, axisScores, matchCandidates, matchCamps } from './scoring.js?v=eafef2c-1794988692';
-import { buildProfile } from './profile.js?v=eafef2c-1794988692';
-import { CHAPTERS, CHAPTER_TITLE, CHAPTER_LINE } from './axes.js?v=eafef2c-1794988692';
-import { routeOk } from './questions.js?v=eafef2c-1794988692';
-import { installPress, haptic, setHaptics, getHaptics, runFx, typewriter, sleep, store, reducedMotion } from './feel.js?v=eafef2c-1794988692';
-import { loadArtManifest, createArtSlot, artUrl, artVersion } from './art.js?v=eafef2c-1794988692';
-import { billTitle } from './types.js?v=eafef2c-1794988692';
-import { createWarMap, createGhosts } from './hud.js?v=eafef2c-1794988692';
-import { renderAnswer } from './types.js?v=eafef2c-1794988692';
-import { howFor, showCue, watchIdle } from './howto.js?v=eafef2c-1794988692';
-import { swipeEnds } from './types.js?v=eafef2c-1794988692';
-import { renderResults } from './results.js?v=eafef2c-1794988692';
-import { newSeed } from './rng.js?v=eafef2c-1794988692';
-import { loadShareConfig } from './share.js?v=eafef2c-1794988692';
-import { getSound, setSound, sfx } from './sound.js?v=eafef2c-1794988692';
-import { readingContext, buildReading } from './reading.js?v=eafef2c-1794988692';
-import { playReveal } from './reveal.js?v=eafef2c-1794988692';
-import { dossierFromRun, encodeDossier, decodeDossier, rebuildDossier, dossierLink, codeFromHash, fileNumber, minuteOf, tidyScores, tidyReads } from './dossier.js?v=eafef2c-1794988692';
+import { loadData } from './data.js?v=c583357-1795003897';
+import { createSelector, QUICK_LENGTH, FULL_LENGTH } from './selector.js?v=c583357-1795003897';
+import { createScorer, applyAnswer, axisScores, matchCandidates, matchCamps } from './scoring.js?v=c583357-1795003897';
+import { buildProfile } from './profile.js?v=c583357-1795003897';
+import { CHAPTERS, CHAPTER_TITLE, CHAPTER_LINE } from './axes.js?v=c583357-1795003897';
+import { routeOk } from './questions.js?v=c583357-1795003897';
+import { installPress, haptic, setHaptics, getHaptics, runFx, typewriter, sleep, store, reducedMotion } from './feel.js?v=c583357-1795003897';
+import { loadArtManifest, createArtSlot, artUrl, artVersion } from './art.js?v=c583357-1795003897';
+import { billTitle } from './types.js?v=c583357-1795003897';
+import { createWarMap, createGhosts } from './hud.js?v=c583357-1795003897';
+import { renderAnswer } from './types.js?v=c583357-1795003897';
+import { howFor, showCue, watchIdle } from './howto.js?v=c583357-1795003897';
+import { swipeEnds } from './types.js?v=c583357-1795003897';
+import { renderResults } from './results.js?v=c583357-1795003897';
+import { newSeed } from './rng.js?v=c583357-1795003897';
+import { loadShareConfig } from './share.js?v=c583357-1795003897';
+import { getSound, setSound, sfx } from './sound.js?v=c583357-1795003897';
+import { readingContext, buildReading } from './reading.js?v=c583357-1795003897';
+import { playReveal } from './reveal.js?v=c583357-1795003897';
+import { dossierFromRun, encodeDossier, decodeDossier, rebuildDossier, dossierLink, codeFromHash, fileNumber, minuteOf, tidyScores, tidyReads } from './dossier.js?v=c583357-1795003897';
+import { pickTicket, pickExhibits, ticketView } from './endgame.js?v=c583357-1795003897';
+import { renderVersus } from './versus.js?v=c583357-1795003897';
+
+// Versus: this device's own finished file (its dossier code), and a file someone sent that is waiting to be
+// compared once the player has one of their own ({ code, pending }).
+const MINE_KEY = 'uspq.mine', VERSUS_KEY = 'uspq.versus';
 
 const app = document.getElementById('app');
 const h = (tag, cls, text) => {
@@ -29,6 +35,7 @@ const h = (tag, cls, text) => {
   return e;
 };
 const ROMAN = ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII'];
+const fineSkip = () => { try { return window.matchMedia('(pointer: fine)').matches; } catch { return false; } };
 const READY_GUARD_MS = 400;
 // The run in progress (or just finished) is saved here after every answer, so closing the tab loses
 // nothing. Replaying the saved answers through the seeded selector rebuilds the run exactly.
@@ -85,10 +92,17 @@ function openShared(code) {
   const r = decodeDossier(code, { candidates, camps });
   if (!r.ok) { dropHash(); title({ notice: r.error }); return; }
   S.run = null;
-  const rb = rebuildDossier(r.data, { candidates, camps, reading });
+  const rb = rebuildDossier(r.data, { candidates, camps, reading, bank: S.data.bank });
   const dossier = { code, link: dossierLink(code, S.shareCfg.url), file: fileNumber(code) };
   S.shared = { code, data: r.data, ...rb };
-  const reveal = { reading: rb.reading, matches: rb.matches, cands: S.cands, profile: rb.profile, scores: rb.scores, route: rb.route, shareCfg: S.shareCfg, link: dossier.link };
+  const tv = ticketView(rb.ticket, S.data.endgame, S.cands);
+  const reveal = { reading: rb.reading, matches: rb.matches, cands: S.cands, profile: rb.profile, scores: rb.scores, route: rb.route, shareCfg: S.shareCfg, link: dossier.link,
+    exhibits: rb.exhibits, ticket: rb.ticket, ticketView: tv, endgame: S.data.endgame };
+  // Versus: with a finished file of your own, compare; without one, the code waits for the end of your run.
+  const mine = store.get(MINE_KEY, null);
+  const versus = mine && mine !== code && decodeDossier(mine, { candidates, camps }).ok
+    ? { label: 'Compare with your file', text: 'You have a file of your own on this device. Lay the two side by side.', onClick: () => showVersus(mine, code) }
+    : null;
   app.innerHTML = '';
   const bd = h('div', 'backdrop');
   bd.dataset.bg = 'election_night';
@@ -96,7 +110,9 @@ function openShared(code) {
   renderResults(app, {
     profile: rb.profile, matches: rb.matches, scores: rb.scores, cands: S.cands, camps, route: rb.route, length: rb.length, signals: rb.signals,
     shareCfg: S.shareCfg, reading: rb.reading, dossier, shared: true,
-    onAgain: () => { dropHash(); S.shared = null; title(); },
+    exhibits: rb.exhibits, ticket: rb.ticket, ticketView: tv, endgame: S.data.endgame, versus,
+    // Taking the quiz from someone's file remembers it, so the end of your run can offer the compare.
+    onAgain: () => { if (!versus) store.set(VERSUS_KEY, { code, pending: true }); dropHash(); S.shared = null; title(); },
     onReplay: () => playReveal({ ...reveal, replay: true }),
   });
   window.scrollTo({ top: 0 });
@@ -133,12 +149,23 @@ function title({ notice = '' } = {}) {
       b.dataset.value = String(it.value);
       b.append(h('span', 'pick-main', it.main), h('span', 'pick-sub', it.sub));
       b.setAttribute('aria-label', `${it.main}, ${it.sub}`);
-      const sync = () => row.querySelectorAll('.pick').forEach(x => x.setAttribute('aria-checked', String(x.dataset.value === String(S[key]))));
       b.addEventListener('click', () => { S[key] = it.value; store.set(`uspq.${key}`, it.value); haptic('select'); sync(); onPick && onPick(); });
       row.appendChild(b);
     }
+    // A radio group: one tab stop (the checked one), the arrow keys move the choice (sense check).
+    const sync = () => row.querySelectorAll('.pick').forEach(x => { const on = x.dataset.value === String(S[key]); x.setAttribute('aria-checked', String(on)); x.tabIndex = on ? 0 : -1; });
+    row.addEventListener('keydown', e => {
+      const dir = { ArrowRight: 1, ArrowDown: 1, ArrowLeft: -1, ArrowUp: -1 }[e.key];
+      if (!dir) return;
+      e.preventDefault();
+      const all = [...row.querySelectorAll('.pick')];
+      const i = Math.max(0, all.findIndex(x => x.dataset.value === String(S[key])));
+      const nb = all[(i + dir + all.length) % all.length];
+      nb.click();
+      nb.focus();
+    });
     g.appendChild(row);
-    queueMicrotask(() => row.querySelectorAll('.pick').forEach(x => x.setAttribute('aria-checked', String(x.dataset.value === String(S[key])))));
+    queueMicrotask(sync);
     return g;
   };
   const route = group('Your primary', [
@@ -183,13 +210,16 @@ function title({ notice = '' } = {}) {
     resume.type = 'button';
     resume.append(
       h('span', 'pick-main', saved.done ? 'See your result' : 'Continue your file'),
-      h('span', 'pick-sub', `${saved.route === 'gop' ? 'Republican' : 'Democrat'} · ${saved.done ? `all ${n} answered` : `question ${n + 1} of ${saved.length}`}`),
+      h('span', 'pick-sub', `${saved.route === 'gop' ? 'Republican' : 'Democrat'} · ${saved.length === FULL_LENGTH ? 'Full Dossier' : saved.length === QUICK_LENGTH ? 'Quick' : `${saved.length} questions`} · ${saved.done ? `all ${n} answered` : `question ${n + 1} of ${saved.length}`}`),
     );
     resume.addEventListener('click', () => { haptic('commit'); startRun(saved); });
     const cont = h('div', 'choice-group resume-group');
     cont.append(h('div', 'group-label', 'Saved on this device'), resume);
     panel.append(cont);
   }
+  // With a saved file, the pickers below are plainly for a new one (sense check: Continue said 48 while
+  // the Length toggle showed Quick).
+  if (saved) panel.append(h('div', 'new-file-label', 'Or start a new file with these settings'));
   panel.append(route, length, toggles, begin);
   if (notice) {
     const n = h('p', 'title-notice', notice);
@@ -239,8 +269,8 @@ async function startRun(saved = null) {
   const chapterLbl = h('div', 'hud-chapter');
   const qLbl = h('div', 'hud-q');
   mid.append(chapterLbl, qLbl);
-  // Start over: back to the title, where the saved file can still be continued or a new one opened.
-  const quit = h('button', 'hud-quit', 'Start over');
+  // Exit to title: the saved file stays, so it can be continued or a new one opened (was Start over).
+  const quit = h('button', 'hud-quit', 'Exit to title');
   quit.type = 'button';
   quit.addEventListener('click', () => { haptic('select'); title(); });
   const speaker = h('button', 'hud-sound');
@@ -327,7 +357,7 @@ function chapterCard(chapter, stage) {
       h('div', 'chapter-num', `Chapter ${ROMAN[n] || ''}`),
       h('h2', 'chapter-title'),
       h('p', 'chapter-line'),
-      h('div', 'chapter-tap', 'Tap to skip'),
+      h('div', 'chapter-tap', fineSkip() ? 'Click or press a key to skip' : 'Tap to skip'),
     );
     const inner = h('div', 'chapter-inner panel');
     inner.append(...card.childNodes);
@@ -351,7 +381,7 @@ function chapterCard(chapter, stage) {
     };
     card.addEventListener('pointerdown', go);
     card.addEventListener('click', go);
-    const onKey = e => { if (e.key === 'Enter' || e.key === ' ' || e.key === 'Escape') go(); };
+    const onKey = e => { if (!['Shift', 'Control', 'Alt', 'Meta', 'Tab'].includes(e.key)) go(); };
     window.addEventListener('keydown', onKey);
     setTimeout(go, 2200);
   });
@@ -401,7 +431,14 @@ async function askQuestion(q, { body, stage, banner, fresh }) {
   let promptText = q.prompt || '';
   // The hint under a hold says how; Hold to commit. in a prompt (at either end) adds nothing.
   promptText = promptText.replace(/^\s*hold to commit\.?\s*/i, '').replace(/\s*hold to commit\.?\s*$/i, '').trim();
+  // The hint under a hold says how to hold, so a prompt that says it too drops its copy (sense check).
+  if (q.type === 'hold') promptText = promptText.replace(/\s*Press and hold your answer[^.]*\.?\s*$/i, '').trim() || promptText;
   if (!promptText && q.context) { promptText = q.context; ctxEl.hidden = true; }
+  // Screen readers: after each answer, focus moves to the new question's heading, which carries its full
+  // text at once (the visible text types on).
+  prompt.tabIndex = -1;
+  prompt.setAttribute('aria-label', [ctxEl.hidden ? '' : q.context, promptText].filter(Boolean).join(' '));
+  if (!fresh) prompt.focus({ preventScroll: true });
   // Context, then prompt, type on; the controls arrive when the prompt has finished (a tap finishes it).
   if (!ctxEl.hidden && q.context) await typewriter(ctxEl, q.context, { maxMs: 1200 }).done;
   await typewriter(prompt, promptText, { maxMs: 1800 }).done;
@@ -463,17 +500,23 @@ async function finish(run) {
   const t = minuteOf(Math.floor(Date.now() / 1000));
   const profile = buildProfile({ scores, matches, camps, route: run.route, scorerFlags: run.sc.flags, campRows: matchCamps(run.sc, camps, candidates) });
   const reading = buildReading(S.data.reading, readingContext({ scores, signals: run.sc.signals, reads: tidyReads(run.sc.reads), matches, route: run.route }));
-  // The shareable dossier: the result packed into a USQ1 code and a link (app/js/dossier.js).
+  // The endgame: Exhibits A, B, C from the receipts the answers fired, and the ticket from the match list.
+  const exhibits = pickExhibits(run.sc.receipts);
+  const ticket = pickTicket({ matches, scores, route: run.route, candidates });
+  const tv = ticketView(ticket, S.data.endgame, S.cands);
+  // The shareable dossier: the result packed into a USQ2 code and a link (app/js/dossier.js).
   let dossier = null;
   try {
-    const enc = encodeDossier(dossierFromRun({ route: run.route, length: run.sel.history.length, t, scores, matches, reads: run.sc.reads, signals: run.sc.signals, flags: run.sc.flags, campRows: matchCamps(run.sc, camps, candidates) }),
-      { candidates, camps, reading: S.data.reading });
+    const enc = encodeDossier(dossierFromRun({ route: run.route, length: run.sel.history.length, t, scores, matches, reads: run.sc.reads, signals: run.sc.signals, flags: run.sc.flags, ticket, exhibits, campRows: matchCamps(run.sc, camps, candidates) }),
+      { candidates, camps, reading: S.data.reading, bank: S.data.bank });
     if (!enc.exact) console.info(`[quiz] dossier link rebuilds with ${enc.off} small difference(s) from this page`);
     dossier = { code: enc.code, link: dossierLink(enc.code, S.shareCfg.url), file: fileNumber(enc.code) };
+    store.set(MINE_KEY, enc.code);
   } catch (e) { console.warn('[quiz] could not make a dossier link', e); }
-  run.result = { scores, matches, profile, reading, dossier };
+  run.result = { scores, matches, profile, reading, dossier, exhibits, ticket };
   run.stage.classList.remove('fx-night', 'fx-candles');
-  const reveal = { reading, matches, cands: S.cands, profile, scores, route: run.route, shareCfg: S.shareCfg, link: dossier?.link };
+  const reveal = { reading, matches, cands: S.cands, profile, scores, route: run.route, shareCfg: S.shareCfg, link: dossier?.link,
+    exhibits, ticket, ticketView: tv, endgame: S.data.endgame };
   const live = () => S.run === run;
 
   const showDossier = () => {
@@ -481,8 +524,17 @@ async function finish(run) {
     const bd = h('div', 'backdrop');
     bd.dataset.bg = 'election_night';
     app.appendChild(bd);
+    // A file someone sent, waiting for this one: offer the compare (it stays offered on the dossier).
+    const waiting = store.get(VERSUS_KEY, null);
+    const theirs = waiting && waiting.code && dossier && waiting.code !== dossier.code && decodeDossier(waiting.code, { candidates, camps }).ok ? waiting.code : null;
+    const versus = theirs ? {
+      label: 'Compare with their file',
+      text: waiting.pending ? `Your file is done. Lay it beside the one you were sent, File No. ${fileNumber(theirs)}.` : `Compare again with File No. ${fileNumber(theirs)}.`,
+      onClick: () => { store.set(VERSUS_KEY, { code: theirs, pending: false }); showVersus(dossier.code, theirs); },
+    } : null;
     const out = renderResults(app, {
       profile, matches, scores, cands: S.cands, camps, route: run.route, length: run.sel.history.length, signals: run.sc.signals, shareCfg: S.shareCfg, reading, dossier,
+      exhibits, ticket, ticketView: tv, endgame: S.data.endgame, versus,
       onAgain: () => { clearSave(); title(); },
       // Replay the reveal over the dossier; closing it comes back to the same place on the page.
       onReplay: () => playReveal({ ...reveal, replay: true }),
@@ -503,6 +555,26 @@ async function finish(run) {
   run.save.revealSeen = true;
   run.persist();
   showDossier();
+}
+
+// ---- versus: two files side by side ---------------------------------------------------------------------
+function showVersus(mineCode, theirCode) {
+  const { candidates, camps, reading, bank, endgame } = S.data;
+  const a = decodeDossier(mineCode, { candidates, camps }), b = decodeDossier(theirCode, { candidates, camps });
+  if (!a.ok || !b.ok) { title({ notice: (a.ok ? b : a).error }); return; }
+  const side = (code, d) => { const rb = rebuildDossier(d, { candidates, camps, reading, bank }); return { rb, ticketView: ticketView(rb.ticket, endgame, S.cands), file: fileNumber(code) }; };
+  S.run = null;
+  app.innerHTML = '';
+  const bd = h('div', 'backdrop');
+  bd.dataset.bg = 'election_night';
+  app.appendChild(bd);
+  const host = h('div', 'versus-host');
+  app.appendChild(host);
+  renderVersus(host, side(mineCode, a.data), side(theirCode, b.data), {
+    endgame, cands: S.cands,
+    onTheirs: () => { try { history.replaceState(null, '', `${location.pathname}${location.search}#d=${theirCode}`); } catch { /* file: */ } openShared(theirCode); },
+    onMine: () => { dropHash(); const saved = loadSave(); if (saved && saved.done) startRun(saved); else openShared(mineCode); },
+  });
 }
 
 boot();

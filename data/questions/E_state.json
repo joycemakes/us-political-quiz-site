@@ -27,7 +27,7 @@
       },
       {
         "id": "b",
-        "label": "The governor's. No invitation, no troops.",
+        "receipt": "Asked who decides when troops enter a city, you said the governor: no invitation, no troops.", "receiptWeight": 1, "label": "The governor's. No invitation, no troops.",
         "effects": {
           "federal": 1.5,
           "liberty": 0.5,
@@ -40,7 +40,7 @@
       },
       {
         "id": "c",
-        "label": "Nobody's. Soldiers don't police Americans, ever.",
+        "receipt": "Asked who decides when troops enter a city, you said nobody. Soldiers do not police Americans.", "receiptWeight": 1, "label": "Nobody's. Soldiers don't police Americans, ever.",
         "effects": {
           "liberty": 1.5,
           "federal": 0.5,
@@ -52,7 +52,7 @@
       },
       {
         "id": "d",
-        "label": "The President's. And the next city should start packing.",
+        "receipt": "Asked who decides when troops enter a city, you said the President, and that the next city should start packing.", "receiptWeight": 2, "label": "The President's. And the next city should start packing.",
         "effects": {
           "federal": -2,
           "liberty": -1.5,
@@ -355,7 +355,7 @@
     "options": [
       {
         "id": "a",
-        "label": "Open the jails. The roads need paving.",
+        "receipt": "Washington offered you highway money for your jails. You opened the jails.", "receiptWeight": 2, "label": "Open the jails. The roads need paving.",
         "effects": {
           "federal": -1,
           "border": -1,
@@ -364,7 +364,7 @@
       },
       {
         "id": "b",
-        "label": "Keep them shut. See you in court.",
+        "receipt": "Washington offered you highway money for your jails. You kept them shut and went to court.", "receiptWeight": 1, "label": "Keep them shut. See you in court.",
         "effects": {
           "federal": 1.5,
           "border": 1,
@@ -394,7 +394,7 @@
     "options": [
       {
         "id": "a",
-        "label": "Comply. Federal law is federal law.",
+        "receipt": "A President you cannot stand sent agents to enforce a law your state rejected. You complied.", "receiptWeight": 1, "label": "Comply. Federal law is federal law.",
         "effects": {
           "federal": -1.5,
           "system": -1
@@ -402,7 +402,7 @@
       },
       {
         "id": "b",
-        "label": "Stall. The paperwork keeps getting lost.",
+        "receipt": "A President you cannot stand sent agents into your state. The paperwork kept getting lost.", "receiptWeight": 2, "label": "Stall. The paperwork keeps getting lost.",
         "effects": {
           "federal": 1,
           "mach": 1.5
@@ -419,7 +419,7 @@
       },
       {
         "id": "d",
-        "label": "Nullify. That law does not exist here.",
+        "receipt": "A President you cannot stand sent agents to enforce a law. You declared that the law did not exist in your state.", "receiptWeight": 2, "label": "Nullify. That law does not exist here.",
         "effects": {
           "federal": 2,
           "system": 1.5,
@@ -470,7 +470,7 @@
     "options": [
       {
         "id": "a",
-        "label": "The states. The Constitution already said so.",
+        "receipt": "Asked who should run American elections, you said the states. The Constitution already had.", "receiptWeight": 1, "label": "The states. The Constitution already said so.",
         "effects": {
           "federal": 1.5,
           "democracy": 1
@@ -492,7 +492,7 @@
       },
       {
         "id": "c",
-        "label": "The President, by order, when states fail.",
+        "receipt": "Asked who should run American elections, you said the President, by order.", "receiptWeight": 2, "label": "The President, by order, when states fail.",
         "effects": {
           "federal": -2,
           "democracy": -1.5,
@@ -501,7 +501,7 @@
       },
       {
         "id": "d",
-        "label": "Whoever helps my side tonight.",
+        "receipt": "Asked who should run American elections, you said whoever helps your side tonight.", "receiptWeight": 3, "label": "Whoever helps my side tonight.",
         "effects": {
           "mach": 1.5,
           "democracy": -1
@@ -689,7 +689,7 @@
     "options": [
       {
         "id": "a",
-        "label": "Two terms. Twenty-second Amendment. Done.",
+        "receipt": "Asked on stage about a third term, you said two terms, Twenty-second Amendment, done.", "receiptWeight": 1, "label": "Two terms. Twenty-second Amendment. Done.",
         "effects": {
           "democracy": 1.5,
           "loyalty": -1
@@ -701,7 +701,7 @@
       },
       {
         "id": "b",
-        "label": "It's a joke. Watching you panic is the point.",
+        "receipt": "Asked about a third term, you said it was a joke, and that watching people panic was the point.", "receiptWeight": 2, "label": "It's a joke. Watching you panic is the point.",
         "effects": {
           "online": 1,
           "democracy": -0.5,
@@ -711,7 +711,7 @@
       },
       {
         "id": "c",
-        "label": "Repeal the limit. Let the voters decide.",
+        "receipt": "Asked on stage about a third term, you said repeal the limit and let the voters decide.", "receiptWeight": 2, "label": "Repeal the limit. Let the voters decide.",
         "effects": {
           "democracy": -1.5,
           "loyalty": 1.5
@@ -722,7 +722,7 @@
       },
       {
         "id": "d",
-        "label": "There's always a loophole. Find it.",
+        "receipt": "Asked on stage about a third term, you said there is always a loophole. Find it.", "receiptWeight": 3, "label": "There's always a loophole. Find it.",
         "effects": {
           "democracy": -2,
           "mach": 1.5,
@@ -750,7 +750,7 @@
     "options": [
       {
         "id": "a",
-        "label": "Sign the certificate. The count is the count.",
+        "receipt": "Your party's leader was holding on line one. You signed the certificate.", "receiptWeight": 2, "label": "Sign the certificate. The count is the count.",
         "effects": {
           "democracy": 2,
           "loyalty": -1.5
@@ -762,7 +762,7 @@
       },
       {
         "id": "b",
-        "label": "Find a reason to wait. Take the call.",
+        "receipt": "You held the pen that made the result real. You found a reason to wait, and took the call.", "receiptWeight": 3, "label": "Find a reason to wait. Take the call.",
         "effects": {
           "democracy": -2,
           "loyalty": 2,
@@ -797,7 +797,7 @@
     "options": [
       {
         "id": "a",
-        "label": "Turn it around. A court order is an order.",
+        "receipt": "A court ordered your deportation flight turned around. You turned it around.", "receiptWeight": 1, "label": "Turn it around. A court order is an order.",
         "effects": {
           "democracy": 1.5,
           "system": -1
@@ -805,7 +805,7 @@
       },
       {
         "id": "b",
-        "label": "Land first. We can argue afterward.",
+        "receipt": "A judge ordered the plane back. You landed it first and argued afterward.", "receiptWeight": 2, "label": "Land first. We can argue afterward.",
         "effects": {
           "democracy": -1,
           "mach": 1.5
@@ -822,7 +822,7 @@
       },
       {
         "id": "d",
-        "label": "Fly on. Judges don't command the executive.",
+        "receipt": "A judge ordered the plane turned around. You told the pilot to fly on.", "receiptWeight": 3, "label": "Fly on. Judges don't command the executive.",
         "effects": {
           "democracy": -2,
           "system": 1.5,
@@ -982,7 +982,7 @@
     "options": [
       {
         "id": "a",
-        "label": "Both wrong. Independent commissions, everywhere.",
+        "receipt": "Asked about states rigging their maps, you said both were wrong.", "receiptWeight": 1, "label": "Both wrong. Independent commissions, everywhere.",
         "effects": {
           "democracy": 1.5,
           "system": -0.5,
@@ -991,7 +991,7 @@
       },
       {
         "id": "b",
-        "label": "They started it. Fire with fire.",
+        "receipt": "Asked about states rigging their maps, you said they started it. Fire with fire.", "receiptWeight": 1, "label": "They started it. Fire with fire.",
         "effects": {
           "democracy": -0.5,
           "style": 1.5,
@@ -1003,7 +1003,7 @@
       },
       {
         "id": "c",
-        "label": "Winners draw the maps. They always have.",
+        "receipt": "Asked about states rigging their maps, you said winners draw them. They always have.", "receiptWeight": 2, "label": "Winners draw the maps. They always have.",
         "effects": {
           "democracy": -1,
           "mach": 1,
@@ -1127,7 +1127,7 @@
     "options": [
       {
         "id": "a",
-        "label": "Nobody I know. That is the whole point.",
+        "receipt": "On your last morning, with the pardon pen in your hand, you pardoned nobody you knew.", "receiptWeight": 1, "label": "Nobody I know. That is the whole point.",
         "effects": {
           "democracy": 1.5,
           "mach": -1,
@@ -1136,7 +1136,7 @@
       },
       {
         "id": "b",
-        "label": "My family, in advance. They'll be hunted.",
+        "receipt": "On your last morning in office, you pardoned your family in advance.", "receiptWeight": 2, "label": "My family, in advance. They'll be hunted.",
         "effects": {
           "dynasty": 1.5,
           "democracy": -1
@@ -1144,7 +1144,7 @@
       },
       {
         "id": "c",
-        "label": "The people who broke the law for me.",
+        "receipt": "With the pardon pen and nobody left to say no, you pardoned the people who broke the law for you.", "receiptWeight": 2, "label": "The people who broke the law for me.",
         "effects": {
           "loyalty": 1.5,
           "democracy": -1.5,
@@ -1153,7 +1153,7 @@
       },
       {
         "id": "d",
-        "label": "Everyone above. And one for myself.",
+        "receipt": "On your last morning in office you pardoned your family, your accomplices and yourself.", "receiptWeight": 3, "label": "Everyone above. And one for myself.",
         "effects": {
           "democracy": -2,
           "narc": 1.5,
@@ -1281,7 +1281,7 @@
     "options": [
       {
         "id": "a",
-        "label": "Add the seats. Power unused is power lost.",
+        "receipt": "The Court kept striking down what you passed. You added four chairs.", "receiptWeight": 2, "label": "Add the seats. Power unused is power lost.",
         "effects": {
           "democracy": -1.5,
           "system": 1.5,
@@ -1290,7 +1290,7 @@
       },
       {
         "id": "b",
-        "label": "Leave the Court alone. Win the next one.",
+        "receipt": "The Court kept striking down what you passed. You left it alone and set out to win the next one.", "receiptWeight": 1, "label": "Leave the Court alone. Win the next one.",
         "effects": {
           "democracy": 1.5,
           "system": -1.5
@@ -1316,7 +1316,7 @@
     "options": [
       {
         "id": "a",
-        "label": "They were right. The oath is to the Constitution.",
+        "receipt": "Six veterans told troops they may refuse illegal orders. You said they were right.", "receiptWeight": 1, "label": "They were right. The oath is to the Constitution.",
         "effects": {
           "democracy": 1.5,
           "loyalty": -1
@@ -1336,7 +1336,7 @@
       },
       {
         "id": "c",
-        "label": "It tells soldiers to second-guess orders. Bad.",
+        "receipt": "Six veterans told troops they may refuse illegal orders. You said it teaches soldiers to second-guess.", "receiptWeight": 1, "label": "It tells soldiers to second-guess orders. Bad.",
         "effects": {
           "democracy": -0.5,
           "loyalty": 1,
@@ -1345,7 +1345,7 @@
       },
       {
         "id": "d",
-        "label": "It was sedition. Treat it that way.",
+        "receipt": "Six veterans told troops they may refuse illegal orders. You called it sedition.", "receiptWeight": 3, "label": "It was sedition. Treat it that way.",
         "effects": {
           "democracy": -1.5,
           "loyalty": 2,
@@ -1488,14 +1488,14 @@
     "options": [
       {
         "id": "a",
-        "label": "Nothing. Ugly speech is still speech.",
+        "receipt": "A man burned his own flag outside the debate hall. You did nothing: ugly speech is still speech.", "receiptWeight": 1, "label": "Nothing. Ugly speech is still speech.",
         "effects": {
           "liberty": 1.5
         }
       },
       {
         "id": "b",
-        "label": "A year in jail.",
+        "receipt": "A man burned his own flag outside the debate hall. You gave him a year in jail.", "receiptWeight": 2, "label": "A year in jail.",
         "effects": {
           "liberty": -1.5,
           "social": -1,
@@ -1504,7 +1504,7 @@
       },
       {
         "id": "c",
-        "label": "Legal for citizens. A visa-holder goes home.",
+        "receipt": "A man burned his own flag outside the hall. You said a citizen walks free and a visa-holder goes home.", "receiptWeight": 2, "label": "Legal for citizens. A visa-holder goes home.",
         "effects": {
           "liberty": -1,
           "border": -1
@@ -1675,7 +1675,7 @@
     "options": [
       {
         "id": "a",
-        "label": "Let them march. Pull the police back.",
+        "receipt": "Forty thousand people who despise you filled the streets. You pulled the police back.", "receiptWeight": 1, "label": "Let them march. Pull the police back.",
         "effects": {
           "liberty": 1.5,
           "style": -0.5
@@ -1691,7 +1691,7 @@
       },
       {
         "id": "c",
-        "label": "Call out the National Guard.",
+        "receipt": "Forty thousand marched against you with drums and cardboard. You called out the Guard.", "receiptWeight": 2, "label": "Call out the National Guard.",
         "effects": {
           "liberty": -1.5,
           "psych": 0.5
@@ -1699,7 +1699,7 @@
       },
       {
         "id": "d",
-        "label": "Name the organizers terrorists. Trace the money.",
+        "receipt": "They marched against you with drums and cardboard. You called the organizers terrorists and traced the money.", "receiptWeight": 2, "label": "Name the organizers terrorists. Trace the money.",
         "effects": {
           "liberty": -2,
           "democracy": -1.5,
@@ -1728,7 +1728,7 @@
     "options": [
       {
         "id": "a",
-        "label": "Good. Jokes have consequences now.",
+        "receipt": "A comedian who mocked you lost his show. You said jokes have consequences now.", "receiptWeight": 2, "label": "Good. Jokes have consequences now.",
         "effects": {
           "liberty": -1.5,
           "style": 1
@@ -1736,7 +1736,7 @@
       },
       {
         "id": "b",
-        "label": "Stop. Next time it's our comedian.",
+        "receipt": "Your regulator scared a network into pulling a comedian. You told him to stop.", "receiptWeight": 1, "label": "Stop. Next time it's our comedian.",
         "effects": {
           "liberty": 1.5,
           "loyalty": -0.5
@@ -1755,7 +1755,7 @@
       },
       {
         "id": "d",
-        "label": "Say nothing. Enjoy it in private.",
+        "receipt": "A comedian who mocked you nightly was pulled off the air. You said nothing, and enjoyed it in private.", "receiptWeight": 2, "label": "Say nothing. Enjoy it in private.",
         "effects": {
           "mach": 1.5,
           "liberty": -0.5
@@ -1931,7 +1931,7 @@
     "options": [
       {
         "id": "a",
-        "label": "Never. The state stays off the delete button.",
+        "receipt": "A rumor about the count was spreading. You kept the state off the delete button.", "receiptWeight": 1, "label": "Never. The state stays off the delete button.",
         "effects": {
           "liberty": 1.5,
           "online": 0.5
@@ -1939,7 +1939,7 @@
       },
       {
         "id": "b",
-        "label": "In an emergency, with every request published.",
+        "receipt": "A rumor about the count was spreading. You allowed the call, with every request published.", "receiptWeight": 1, "label": "In an emergency, with every request published.",
         "effects": {
           "liberty": 0.5,
           "democracy": 1
@@ -1955,7 +1955,7 @@
       },
       {
         "id": "d",
-        "label": "Make the call. It's fine when we do it.",
+        "receipt": "A rumor about the count was spreading. You had your officials call the platforms. It is fine when we do it.", "receiptWeight": 3, "label": "Make the call. It's fine when we do it.",
         "effects": {
           "mach": 1.5,
           "liberty": -1.5
@@ -1977,7 +1977,7 @@
     "options": [
       {
         "id": "a",
-        "label": "Send it back unopened and log that it existed.",
+        "receipt": "Handed three months of your opponent's movements, you sent the folder back unopened.", "receiptWeight": 1, "label": "Send it back unopened and log that it existed.",
         "effects": {
           "liberty": 1.5,
           "democracy": 1,
@@ -1986,7 +1986,7 @@
       },
       {
         "id": "b",
-        "label": "Read it. Never use it. Probably.",
+        "receipt": "Handed your opponent's phone locations, you read them and promised yourself you would never use them.", "receiptWeight": 2, "label": "Read it. Never use it. Probably.",
         "effects": {
           "mach": 1,
           "liberty": -0.5
@@ -1994,7 +1994,7 @@
       },
       {
         "id": "c",
-        "label": "Use it.",
+        "receipt": "Your intelligence chief handed you three months of your opponent's movements. You used them.", "receiptWeight": 3, "label": "Use it.",
         "effects": {
           "mach": 2,
           "liberty": -1.5,
@@ -2024,7 +2024,7 @@
     "options": [
       {
         "id": "a",
-        "label": "Sink them. The cartels are at war with us.",
+        "receipt": "Small boats were being blown up with no arrests and no trial. You said sink them.", "receiptWeight": 2, "label": "Sink them. The cartels are at war with us.",
         "effects": {
           "world": 0.8,
           "psych": 1.5,
@@ -2037,7 +2037,7 @@
       },
       {
         "id": "b",
-        "label": "Board them, arrest them, try them.",
+        "receipt": "Small boats were being blown up with no arrests and no trial. You said board them, arrest them, try them.", "receiptWeight": 1, "label": "Board them, arrest them, try them.",
         "effects": {
           "world": -0.5,
           "psych": -1,
@@ -2060,7 +2060,7 @@
       },
       {
         "id": "d",
-        "label": "Not our war. Fix the demand at home.",
+        "receipt": "Small boats were being blown up in the Caribbean. You said it was not our war.", "receiptWeight": 1, "label": "Not our war. Fix the demand at home.",
         "effects": {
           "world": -1.5,
           "psych": -1
@@ -2088,7 +2088,7 @@
     "options": [
       {
         "id": "a",
-        "label": "Drop it. Allies are not real estate.",
+        "receipt": "An ally said its island was not for sale. You dropped it: allies are not real estate.", "receiptWeight": 1, "label": "Drop it. Allies are not real estate.",
         "effects": {
           "psych": -1,
           "style": -1,
@@ -2105,7 +2105,7 @@
       },
       {
         "id": "c",
-        "label": "Squeeze: tariffs until they come to the table.",
+        "receipt": "An ally said its island was not for sale. You squeezed with tariffs until they came to the table.", "receiptWeight": 2, "label": "Squeeze: tariffs until they come to the table.",
         "effects": {
           "psych": 1,
           "trade": -1,
@@ -2114,7 +2114,7 @@
       },
       {
         "id": "d",
-        "label": "Send the fleet.",
+        "receipt": "An ally said its island was not for sale. You sent the fleet.", "receiptWeight": 3, "label": "Send the fleet.",
         "effects": {
           "world": 1.5,
           "psych": 2,
@@ -2172,7 +2172,7 @@
     "options": [
       {
         "id": "a",
-        "label": "Bring back the draft. Everyone's kids. Mine too.",
+        "receipt": "The volunteers ran out. You brought back the draft, your own children included.", "receiptWeight": 2, "label": "Bring back the draft. Everyone's kids. Mine too.",
         "effects": {
           "world": 1,
           "liberty": -1.5,
@@ -2181,7 +2181,7 @@
       },
       {
         "id": "b",
-        "label": "No draft. No volunteers means no war.",
+        "receipt": "The volunteers ran out. You said no volunteers means no war.", "receiptWeight": 1, "label": "No draft. No volunteers means no war.",
         "effects": {
           "world": -1.5,
           "liberty": 1.5
@@ -2209,7 +2209,7 @@
     "options": [
       {
         "id": "a",
-        "label": "Strike now. Tell Congress at breakfast.",
+        "receipt": "At 3 a.m., with Congress asleep, you ordered the strike and told them at breakfast.", "receiptWeight": 2, "label": "Strike now. Tell Congress at breakfast.",
         "effects": {
           "world": 1.5,
           "democracy": -1,
@@ -2226,7 +2226,7 @@
       },
       {
         "id": "c",
-        "label": "No vote, no strike. Even if the window shuts.",
+        "receipt": "The window closed at dawn and Congress was asleep. No vote, so no strike.", "receiptWeight": 1, "label": "No vote, no strike. Even if the window shuts.",
         "effects": {
           "world": -1,
           "democracy": 1.5
@@ -2238,7 +2238,7 @@
       },
       {
         "id": "d",
-        "label": "Strike, and deny it was us.",
+        "receipt": "At 3 a.m. you ordered the strike, and then denied it was yours.", "receiptWeight": 3, "label": "Strike, and deny it was us.",
         "effects": {
           "mach": 2,
           "psych": 1,
@@ -2366,7 +2366,7 @@
     "options": [
       {
         "id": "a",
-        "label": "Abort. Not like this.",
+        "receipt": "The target was in the house with his family. You called it off.", "receiptWeight": 1, "label": "Abort. Not like this.",
         "effects": {
           "psych": -1.5,
           "world": -0.5
@@ -2382,7 +2382,7 @@
       },
       {
         "id": "c",
-        "label": "Send a team in instead. Risk our own.",
+        "receipt": "The target was home with his family. You sent your own people through the door instead.", "receiptWeight": 1, "label": "Send a team in instead. Risk our own.",
         "effects": {
           "world": 1,
           "psych": 0.5,
@@ -2391,7 +2391,7 @@
       },
       {
         "id": "d",
-        "label": "Strike now.",
+        "receipt": "The target was in the house with his family. You gave the order.", "receiptWeight": 2, "label": "Strike now.",
         "effects": {
           "psych": 2,
           "world": 1.5
@@ -2423,7 +2423,7 @@
     "options": [
       {
         "id": "a",
-        "label": "To prayer, the same as I would on stage.",
+        "receipt": "On the worst night of the campaign, with nobody watching, you prayed, the same as you would on stage.", "receiptWeight": 1, "label": "To prayer, the same as I would on stage.",
         "effects": {
           "faith": 1.5,
           "mach": -0.5
@@ -2435,7 +2435,7 @@
       },
       {
         "id": "b",
-        "label": "To prayer, though I never mention it in public.",
+        "receipt": "On the worst night of the campaign, you prayed. You have never mentioned it in public.", "receiptWeight": 1, "label": "To prayer, though I never mention it in public.",
         "effects": {
           "faith": 0.5,
           "narc": -0.5
@@ -2447,7 +2447,7 @@
       },
       {
         "id": "c",
-        "label": "I quote scripture on stage. Alone, I'm less sure.",
+        "receipt": "On the worst night of the campaign, alone, you were less sure of the scripture you quote on stage.", "receiptWeight": 3, "label": "I quote scripture on stage. Alone, I'm less sure.",
         "effects": {
           "faith": -0.5,
           "mach": 1
@@ -2459,7 +2459,7 @@
       },
       {
         "id": "d",
-        "label": "To family and a long walk. No heaven involved.",
+        "receipt": "On the worst night of the campaign, you turned to family and a long walk. No heaven involved.", "receiptWeight": 1, "label": "To family and a long walk. No heaven involved.",
         "effects": {
           "faith": -1.5,
           "mach": -0.5
@@ -2519,7 +2519,7 @@
     "options": [
       {
         "id": "a",
-        "label": "Yes. And I'd say so in an empty room.",
+        "receipt": "Asked on stage if you believe in God, you said yes, and that you would say it in an empty room.", "receiptWeight": 1, "label": "Yes. And I'd say so in an empty room.",
         "effects": {
           "faith": 1.5
         },
@@ -2530,7 +2530,7 @@
       },
       {
         "id": "b",
-        "label": "Yes: because no isn't an answer you survive.",
+        "receipt": "Asked on stage if you believe in God, you said yes, because no is not an answer you survive.", "receiptWeight": 3, "label": "Yes: because no isn't an answer you survive.",
         "effects": {
           "faith": 0.5,
           "mach": 1.5
@@ -2555,7 +2555,7 @@
       },
       {
         "id": "d",
-        "label": "No. And voters deserve to hear it from me.",
+        "receipt": "Asked on live television if you believe in God, you said no.", "receiptWeight": 2, "label": "No. And voters deserve to hear it from me.",
         "effects": {
           "faith": -1.5,
           "mach": -1

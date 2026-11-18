@@ -44,7 +44,8 @@ export async function loadShareConfig(base = '../data/') {
   } catch { return normalizeShareConfig(null); }
 }
 
-// {name} {pct} {camp} {route} {top2} {verdict} {archetype} {url}; unknown keys are left out, spacing tidied.
+// {archetype} {tagline} {closer} {cand} {pct} {mate} {knife} {url}, and the older {name} {camp} {route} {top2}
+// {verdict}; unknown keys are left out, spacing tidied.
 export function fillTemplate(tpl, vars) {
   return String(tpl)
     .replace(/\{(\w+)\}/g, (_, k) => (vars[k] == null ? '' : String(vars[k])))
@@ -55,7 +56,7 @@ export function fillTemplate(tpl, vars) {
 }
 
 export function shareVars(result, cfg) {
-  const { top, route, campName, verdict, archetype } = result;
+  const { top, route, campName, verdict, archetype, tagline, closer, mate, knife } = result;
   const first = top[0] || {}, second = top[1] || {};
   return {
     name: first.name || '',
@@ -64,7 +65,12 @@ export function shareVars(result, cfg) {
     route: route === 'dem' ? 'Democratic' : route === 'gop' ? 'Republican' : '',
     top2: second.name || '',
     verdict: (cfg.verdicts && cfg.verdicts[first.id]) || verdict || '',
-    archetype: archetype || '', // the reading's archetype name, for templates that use {archetype}
+    archetype: archetype || '', // the reading's archetype name (with The), leading every template now
+    tagline: tagline || '',     // the archetype's line, as written (second person)
+    closer: closer || '',
+    cand: first.name || '',     // the closest match; {name} is the older spelling of the same thing
+    mate: mate || '',           // the running mate and the knife from the ticket, by name
+    knife: knife || '',
     url: cfg.url,
   };
 }
@@ -73,9 +79,13 @@ export function shareVars(result, cfg) {
 // 280 characters: other templates are tried first, then the verdict is dropped, then the text is cut.
 export function buildMessage(result, cfg, { rng = Math.random, limit = Infinity, hashtags = false } = {}) {
   const vars = shareVars(result, cfg);
-  const order = cfg.templates.map((t, i) => i);
+  // Templates lead with the type; without a reading (no archetype) or a ticket (no mate or knife), the
+  // ones that need them are skipped, and with none left the built-in template stands in.
+  const usable = t => (vars.archetype || !/\{(archetype|tagline)\}/.test(t)) && (vars.mate || !/\{mate\}/.test(t)) && (vars.knife || !/\{knife\}/.test(t)) && (vars.cand || !/\{(cand|name)\}/.test(t));
+  const list = cfg.templates.filter(usable).length ? cfg.templates.filter(usable) : FALLBACK.templates;
+  const order = list.map((t, i) => i);
   const start = Math.floor(rng() * order.length);
-  const tried = order.slice(start).concat(order.slice(0, start)).map(i => cfg.templates[i]);
+  const tried = order.slice(start).concat(order.slice(0, start)).map(i => list[i]);
   const withUrl = t => (t.includes('{url}') ? t : `${t} {url}`);
   const tags = hashtags && cfg.hashtags.length ? ' ' + cfg.hashtags.slice(0, HASHTAGS_USED).map(h => `#${h}`).join(' ') : '';
   for (const variant of [vars, { ...vars, verdict: '' }]) {

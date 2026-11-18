@@ -7,11 +7,11 @@ export const HOW = {
   hold: 'Press and hold your answer. The longer you hold, the stronger you mean it: about a second and a half is full.',
   slider: 'Drag the lever to where you stand, then lock it in.',
   budget: 'Split your 100 points, 10 at a time. Tap + and − on each line, then lock it in.',
-  rank: 'Drag the cards into order, most important at the top. The bottom card is the one you would drop.',
+  rank: 'Drag the cards into the order the question asks. The top card is first.',
   swipe: 'Press Start, then swipe right for yes, left for no, or use the buttons. Four seconds a card.',
   whosaid: 'First guess who said it. Then say if you agree.',
   draft: 'Tap the person you would pick.',
-  sign: 'Drag the pen across the line to sign, or stamp VETO.',
+  sign: 'Drag the pen across the line to sign, or hold VETO to veto.',
   envelope: 'Choose what you do.',
   pin: 'Tap a spot on the picture. Each spot is a different answer. Then confirm.',
 };
@@ -22,6 +22,7 @@ export function howFor(q, { fine = false, ends = null } = {}) {
   let t = HOW[q.type] || 'Tap your answer.';
   if (q.type === 'swipe' && ends) t = `Press Start, then swipe right for ${ends.yes}, left for ${ends.no}, or use the buttons. Four seconds a card.`;
   if (q.type === 'budget' && q.unit) t = t.replace('points', q.unit);
+  if (q.type === 'rank') t = rankLine(q);
   if (fine) {
     t = t.replace(/\bTap\b/g, 'Click').replace(/\btap\b/g, 'click').replace(/^Press and hold/, 'Click and hold').replace(/swipe right for/, 'drag right for');
     const keys = { slider: ' Or use the arrow keys.', rank: ' Or use the arrow keys on a card.', swipe: ' Arrow keys work too.', sign: ' Or press Enter on the pen.' }[q.type];
@@ -107,4 +108,21 @@ export function watchIdle(type, wrap, howEl) {
   wrap.addEventListener('keydown', reset, true);
   reset();
   return () => { stopped = true; clearTimeout(timer); };
+}
+
+// Rank: what goes on top, in the question's own words (sense check: prompts say worst first while the old
+// line said most important at the top). An optional rankHint in the data wins.
+export function rankLine(q) {
+  if (q.rankHint) return q.rankHint;
+  const p = String(q.prompt || '');
+  let top = null;
+  let m = /\b(?:from\s+)?(most[\w\s]*?)\s+to\s+least\b/i.exec(p);
+  if (m) top = m[1].trim();
+  // Otherwise the last phrase before first / at the top / on top that is not the Rank instruction itself.
+  if (!top) for (const x of p.matchAll(/(?:^|[,.;:]\s*)([^,.;:]{2,60}?)\s+(?:goes\s+)?(?:first|at the top|on top)\b/gi)) {
+    const t = x[1].trim();
+    if (!/^(rank|order)\b/i.test(t)) top = t;
+  }
+  if (top) top = top.replace(/^(the one|one)\s/i, m => m.toLowerCase()).replace(/^[A-Z](?![A-Z])/, c => c.toLowerCase());
+  return top ? `Drag the cards into order: ${top} at the top.` : 'Drag the cards into the order the question asks. The top card is first.';
 }

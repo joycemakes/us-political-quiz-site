@@ -15,7 +15,9 @@
         "effects": {
           "mach": 1.5,
           "econ": 0.5
-        }
+        },
+        "receipt": "A donor offered forty checks for one line of your speech. You cut the line.",
+        "receiptWeight": 2
       },
       {
         "id": "b",
@@ -23,7 +25,9 @@
         "effects": {
           "mach": 2,
           "psych": 0.5
-        }
+        },
+        "receipt": "A donor paid forty checks to kill a line of your speech. You took the checks and kept the line.",
+        "receiptWeight": 2
       },
       {
         "id": "c",
@@ -31,7 +35,9 @@
         "effects": {
           "mach": -1.5,
           "system": 0.5
-        }
+        },
+        "receipt": "A donor slid an envelope across the table after dinner. You slid it back.",
+        "receiptWeight": 1
       }
     ],
     "art": "C-ENV-DONOR-LIST",
@@ -61,7 +67,9 @@
         "effects": {
           "mach": 2,
           "psych": 1
-        }
+        },
+        "receipt": "Your rival's stolen medical records came by courier. A friendly reporter had them by morning.",
+        "receiptWeight": 3
       },
       {
         "id": "b",
@@ -72,7 +80,9 @@
         },
         "cand": {
           "slotkin": 2
-        }
+        },
+        "receipt": "Handed your rival's stolen medical records, you called a lawyer and then the FBI.",
+        "receiptWeight": 1
       },
       {
         "id": "c",
@@ -81,7 +91,9 @@
           "mach": -0.5,
           "psych": -1.5,
           "style": -0.5
-        }
+        },
+        "receipt": "Sent your rival's stolen medical records, you called the rival and warned them.",
+        "receiptWeight": 2
       }
     ],
     "signature": [
@@ -109,14 +121,18 @@
         "effects": {
           "mach": 1.5,
           "psych": 0.5
-        }
+        },
+        "receipt": "You knew the number was wrong. You used it anyway, because corrections do not vote.",
+        "receiptWeight": 2
       },
       {
         "id": "b",
         "label": "Leave it in the folder.",
         "effects": {
           "mach": -1.5
-        }
+        },
+        "receipt": "You held a number that would have ended your rival's night. It was false, so it stayed in the folder.",
+        "receiptWeight": 1
       }
     ],
     "discrimination": 3
@@ -418,14 +434,18 @@
         "label": "Correct it.",
         "effects": {
           "mach": -1.5
-        }
+        },
+        "receipt": "A reporter's mistake flattered you. You corrected it with ten minutes to spare.",
+        "receiptWeight": 1
       },
       {
         "id": "b",
         "label": "Say nothing. It is her story.",
         "effects": {
           "mach": 1
-        }
+        },
+        "receipt": "A reporter read you a flattering mistake. You let her print it.",
+        "receiptWeight": 1
       },
       {
         "id": "c",
@@ -433,7 +453,9 @@
         "effects": {
           "mach": 2,
           "narc": 0.5
-        }
+        },
+        "receipt": "A reporter got a fact wrong in your favor. You confirmed it and offered her another.",
+        "receiptWeight": 3
       }
     ],
     "art": "C-ENV-REPORTER-CALL",
@@ -843,7 +865,9 @@
         "effects": {
           "mach": -1.5,
           "psych": -0.5
-        }
+        },
+        "receipt": "A false rumor was winning you the race. You killed it in public.",
+        "receiptWeight": 1
       },
       {
         "id": "b",
@@ -851,7 +875,9 @@
         "effects": {
           "mach": 1.5,
           "psych": 1
-        }
+        },
+        "receipt": "A lie about your rival was working. You had not started it, so you let it work.",
+        "receiptWeight": 2
       }
     ],
     "discrimination": 3
@@ -1618,14 +1644,18 @@
         "label": "Stop at once. Thank them.",
         "effects": {
           "narc": -1
-        }
+        },
+        "receipt": "A junior staffer pointed out a bad habit of yours in a meeting. You thanked them and stopped.",
+        "receiptWeight": 1
       },
       {
         "id": "b",
         "label": "It is a brand. Brands have names.",
         "effects": {
           "narc": 1.5
-        }
+        },
+        "receipt": "Told you had started referring to yourself in the third person, you explained that brands have names.",
+        "receiptWeight": 2
       },
       {
         "id": "c",
@@ -1641,7 +1671,9 @@
         "effects": {
           "narc": 1.5,
           "psych": 1.5
-        }
+        },
+        "receipt": "A junior staffer noticed you talk about yourself in the third person. They were not in the next meeting.",
+        "receiptWeight": 2
       }
     ],
     "discrimination": 2
@@ -1858,7 +1890,9 @@
         },
         "cand": {
           "christie": 1
-        }
+        },
+        "receipt": "Your aide of twelve years offered his resignation. You announced it before six.",
+        "receiptWeight": 2
       },
       {
         "id": "b",
@@ -1867,7 +1901,9 @@
           "psych": -1.5,
           "narc": -0.5,
           "mach": -1
-        }
+        },
+        "receipt": "Your aide of twelve years offered to resign. You tore it up and told the cameras the mistake was yours.",
+        "receiptWeight": 1
       },
       {
         "id": "c",
@@ -1875,7 +1911,9 @@
         "effects": {
           "mach": 1.5,
           "psych": 0.5
-        }
+        },
+        "receipt": "You accepted your aide's resignation with a warm statement and a quiet contract.",
+        "receiptWeight": 2
       }
     ],
     "signature": [
@@ -1904,14 +1942,18 @@
         "effects": {
           "psych": 1.5,
           "style": 1
-        }
+        },
+        "receipt": "Your rival wept at a town hall. Your ad of it was on the air within the hour.",
+        "receiptWeight": 2
       },
       {
         "id": "b",
         "label": "Scrap it, and tell the team why.",
         "effects": {
           "psych": -1.5
-        }
+        },
+        "receipt": "Your rival cried on camera and your team had the cut ready. You scrapped it.",
+        "receiptWeight": 1
       }
     ],
     "discrimination": 3
@@ -1933,14 +1975,18 @@
         "label": "One email tonight. Laptops back by Friday.",
         "effects": {
           "psych": 1.5
-        }
+        },
+        "receipt": "A week before Christmas you fired forty organizers in one email. Laptops back by Friday.",
+        "receiptWeight": 3
       },
       {
         "id": "b",
         "label": "Call every one of them myself.",
         "effects": {
           "psych": -1.5
-        }
+        },
+        "receipt": "You had to fire forty people a week before Christmas. You called every one of them yourself.",
+        "receiptWeight": 1
       },
       {
         "id": "c",
@@ -1948,7 +1994,9 @@
         "effects": {
           "psych": 0.5,
           "mach": 0.5
-        }
+        },
+        "receipt": "Forty organizers were fired a week before Christmas. You had someone for that.",
+        "receiptWeight": 2
       },
       {
         "id": "d",
@@ -1956,7 +2004,9 @@
         "effects": {
           "psych": -1,
           "narc": -1
-        }
+        },
+        "receipt": "Out of money in December, you cut your own ads and kept the forty.",
+        "receiptWeight": 1
       }
     ],
     "discrimination": 2
@@ -1976,7 +2026,9 @@
         "effects": {
           "psych": -1.5,
           "mach": -1
-        }
+        },
+        "receipt": "Your oldest friend was indicted. You stood next to him on the courthouse steps.",
+        "receiptWeight": 1
       },
       {
         "id": "b",
@@ -1984,7 +2036,9 @@
         "effects": {
           "psych": 1.5,
           "mach": 1.5
-        }
+        },
+        "receipt": "Your oldest friend was indicted. Your statement said you were never close. The wedding photo disagreed.",
+        "receiptWeight": 3
       },
       {
         "id": "c",
@@ -1992,14 +2046,18 @@
         "effects": {
           "mach": 1,
           "psych": -0.5
-        }
+        },
+        "receipt": "Your indicted friend got a phone call at night and your distance by day.",
+        "receiptWeight": 1
       },
       {
         "id": "d",
         "label": "Stop returning his calls.",
         "effects": {
           "psych": 1.5
-        }
+        },
+        "receipt": "Your oldest friend was indicted, and you stopped picking up.",
+        "receiptWeight": 2
       }
     ],
     "discrimination": 2
@@ -2038,7 +2096,9 @@
         "effects": {
           "psych": -1.5,
           "narc": -1
-        }
+        },
+        "receipt": "Your first volunteer was dying two hours away on debate day. You went, and told no one.",
+        "receiptWeight": 2
       },
       {
         "id": "b",
@@ -2046,14 +2106,18 @@
         "effects": {
           "mach": 1.5,
           "narc": 1
-        }
+        },
+        "receipt": "You visited your dying first volunteer, and brought one photographer.",
+        "receiptWeight": 3
       },
       {
         "id": "c",
         "label": "Record a warm video. Prep comes first.",
         "effects": {
           "psych": 1.5
-        }
+        },
+        "receipt": "Your first volunteer asked to see you before the end. You sent a video.",
+        "receiptWeight": 2
       }
     ],
     "art": "C-ENV-HOSPICE-NOTE",
@@ -2167,14 +2231,18 @@
         "effects": {
           "psych": 1.5,
           "mach": 0.5
-        }
+        },
+        "receipt": "Every word of the ad was true, and it would end a decent opponent's marriage. You aired it.",
+        "receiptWeight": 2
       },
       {
         "id": "b",
         "label": "Shelve it and take my chances.",
         "effects": {
           "psych": -1.5
-        }
+        },
+        "receipt": "One true ad would have won you the race and ended a marriage. You shelved it.",
+        "receiptWeight": 1
       }
     ],
     "discrimination": 3
@@ -2195,7 +2263,9 @@
         "effects": {
           "psych": -1.5,
           "style": -1
-        }
+        },
+        "receipt": "The loser called to concede, voice breaking. You let them talk as long as they needed.",
+        "receiptWeight": 1
       },
       {
         "id": "b",
@@ -2210,7 +2280,9 @@
         "effects": {
           "psych": 1.5,
           "narc": 1
-        }
+        },
+        "receipt": "The loser called to concede. You let it go to voicemail.",
+        "receiptWeight": 2
       },
       {
         "id": "d",
@@ -2218,7 +2290,9 @@
         "effects": {
           "psych": 2,
           "narc": 1
-        }
+        },
+        "receipt": "The loser called to concede, voice breaking. You put it on speaker for the room.",
+        "receiptWeight": 3
       }
     ],
     "discrimination": 2
@@ -2555,7 +2629,9 @@
         "effects": {
           "psych": -1.5,
           "style": -0.5
-        }
+        },
+        "receipt": "A rival's teenager was trending for a mistake. You said children were off limits, loudly.",
+        "receiptWeight": 1
       },
       {
         "id": "b",
@@ -2563,7 +2639,9 @@
         "effects": {
           "mach": 1.5,
           "psych": 1
-        }
+        },
+        "receipt": "A rival's child made a mistake online. You said nothing, and let the surrogates feed.",
+        "receiptWeight": 2
       },
       {
         "id": "c",
@@ -2571,7 +2649,9 @@
         "effects": {
           "psych": 2,
           "style": 1
-        }
+        },
+        "receipt": "Your opponent's sixteen-year-old posted something stupid. You used it.",
+        "receiptWeight": 2
       },
       {
         "id": "d",
@@ -2579,7 +2659,9 @@
         "effects": {
           "psych": -1,
           "mach": -0.5
-        }
+        },
+        "receipt": "Your rival's kid was trending for the wrong reasons. You called, parent to parent.",
+        "receiptWeight": 1
       }
     ],
     "discrimination": 2
@@ -2662,7 +2744,9 @@
         "effects": {
           "psych": -1,
           "mach": -1.5
-        }
+        },
+        "receipt": "A staffer had a complaint against the man who raises half your money. You walked it to the board with her.",
+        "receiptWeight": 1
       },
       {
         "id": "b",
@@ -2670,7 +2754,9 @@
         "effects": {
           "mach": 1.5,
           "psych": 0.5
-        }
+        },
+        "receipt": "She had a harassment complaint against your best fundraiser. You asked her to wait until after the primary.",
+        "receiptWeight": 3
       },
       {
         "id": "c",
@@ -2678,7 +2764,9 @@
         "effects": {
           "psych": 1.5,
           "mach": 1.5
-        }
+        },
+        "receipt": "She was about to report your finance director. You found her a better job somewhere else.",
+        "receiptWeight": 2
       }
     ],
     "art": "C-ENV-COMPLAINT",
@@ -3139,7 +3227,9 @@
         "effects": {
           "dynasty": 2,
           "psych": -0.5
-        }
+        },
+        "receipt": "Your brother was not up to running the White House. You gave him the job anyway.",
+        "receiptWeight": 2
       },
       {
         "id": "b",
@@ -3147,7 +3237,9 @@
         "effects": {
           "mach": 1.5,
           "dynasty": 0.5
-        }
+        },
+        "receipt": "Your brother asked to be chief of staff. He got a grand title and an empty calendar.",
+        "receiptWeight": 1
       },
       {
         "id": "c",
@@ -3155,7 +3247,9 @@
         "effects": {
           "dynasty": -1.5,
           "psych": 0.5
-        }
+        },
+        "receipt": "Your brother ran your first campaign from his garage. You told him no, to his face.",
+        "receiptWeight": 1
       }
     ],
     "art": "C-ENV-BROTHER",
@@ -4382,7 +4476,9 @@
         "effects": {
           "libertine": 1.5,
           "mach": -1
-        }
+        },
+        "receipt": "A tabloid offered you proof of your rival's affair. You declined it.",
+        "receiptWeight": 1
       },
       {
         "id": "b",
@@ -4390,7 +4486,9 @@
         "effects": {
           "mach": 2,
           "libertine": -0.5
-        }
+        },
+        "receipt": "Handed proof of your rival's affair, you let it surface with no trail back to you.",
+        "receiptWeight": 2
       },
       {
         "id": "c",
@@ -4398,7 +4496,9 @@
         "effects": {
           "libertine": -1.5,
           "style": 1.5
-        }
+        },
+        "receipt": "Handed proof of your rival's affair, you used it in the open.",
+        "receiptWeight": 1
       },
       {
         "id": "d",
@@ -4406,7 +4506,9 @@
         "effects": {
           "mach": 1.5,
           "psych": 1.5
-        }
+        },
+        "receipt": "You let your rival know you had the proof of his affair, and then you said nothing at all.",
+        "receiptWeight": 2
       }
     ],
     "discrimination": 2
@@ -4525,7 +4627,9 @@
           "loyalty": 2,
           "system": 1,
           "democracy": -1
-        }
+        },
+        "receipt": "The man who made your career asked for something the Constitution forbids. You did it.",
+        "receiptWeight": 3
       },
       {
         "id": "b",
@@ -4537,7 +4641,9 @@
         },
         "cand": {
           "pence": 2
-        }
+        },
+        "receipt": "Your patron asked for something unlawful. You refused him in writing.",
+        "receiptWeight": 1
       },
       {
         "id": "c",
@@ -4558,7 +4664,9 @@
         "effects": {
           "mach": 1.5,
           "loyalty": 0.5
-        }
+        },
+        "receipt": "Your patron asked you to break the law. You found a reason to be out of the room.",
+        "receiptWeight": 2
       }
     ],
     "signature": [
@@ -4771,7 +4879,9 @@
         "effects": {
           "loyalty": 2,
           "psych": 1
-        }
+        },
+        "receipt": "The leader sent a statement attacking your friend. You signed it by noon.",
+        "receiptWeight": 2
       },
       {
         "id": "b",
@@ -4779,7 +4889,9 @@
         "effects": {
           "mach": 1.5,
           "loyalty": 0.5
-        }
+        },
+        "receipt": "Asked to sign an attack on your friend, you softened the wording and signed that.",
+        "receiptWeight": 2
       },
       {
         "id": "c",
@@ -4787,7 +4899,9 @@
         "effects": {
           "loyalty": -1.5,
           "style": 0.5
-        }
+        },
+        "receipt": "They wanted your name on an attack on a friend. You sent it back unsigned.",
+        "receiptWeight": 1
       }
     ],
     "art": "C-ENV-LOYALTY-STATEMENT",
@@ -5144,7 +5258,9 @@
         },
         "cand": {
           "vance": 2
-        }
+        },
+        "receipt": "You once called him unfit, on tape. Offered the ticket, you said you had been wrong, and said it often.",
+        "receiptWeight": 2
       },
       {
         "id": "b",
@@ -5152,7 +5268,9 @@
         "effects": {
           "loyalty": -2,
           "mach": -1
-        }
+        },
+        "receipt": "Offered a place on the ticket by a man you once called unfit, you said you still meant it.",
+        "receiptWeight": 1
       },
       {
         "id": "c",
@@ -5168,7 +5286,9 @@
         "effects": {
           "mach": 2,
           "psych": 0.5
-        }
+        },
+        "receipt": "He offered you the ticket. You accepted, and kept your own copy of the tape.",
+        "receiptWeight": 2
       }
     ],
     "signature": [
@@ -5245,7 +5365,9 @@
         "label": "Write: Never.",
         "effects": {
           "loyalty": 2
-        }
+        },
+        "receipt": "The vetting form asked if you would ever disagree with the nominee in public. You wrote: Never.",
+        "receiptWeight": 2
       },
       {
         "id": "b",
@@ -5253,7 +5375,9 @@
         "effects": {
           "loyalty": 1,
           "mach": 0.5
-        }
+        },
+        "receipt": "Asked if you would ever disagree with the nominee, you wrote: only behind a closed door.",
+        "receiptWeight": 1
       },
       {
         "id": "c",
@@ -5262,7 +5386,9 @@
           "loyalty": -1.5,
           "style": 0.5,
           "narc": 0.5
-        }
+        },
+        "receipt": "Asked in writing if you would ever contradict the nominee, you wrote yes.",
+        "receiptWeight": 1
       }
     ],
     "art": "C-ENV-VETTING-FORM",
@@ -5833,7 +5959,9 @@
           "mach": 1,
           "tech": 1,
           "econ": 0.5
-        }
+        },
+        "receipt": "A billionaire offered fifty million for your silence. You took it and called it doing good.",
+        "receiptWeight": 2
       },
       {
         "id": "b",
@@ -5846,14 +5974,18 @@
         },
         "cand": {
           "aoc": 1
-        }
+        },
+        "receipt": "A billionaire's fixer left fifty million in your hotel room. You posted a photo and named him.",
+        "receiptWeight": 1
       },
       {
         "id": "c",
         "label": "Take the meeting, promise nothing, let the money land.",
         "effects": {
           "mach": 2
-        }
+        },
+        "receipt": "Offered fifty million to go quiet, you promised nothing and let the money land.",
+        "receiptWeight": 3
       }
     ],
     "art": "C-ENV-TERM-SHEET",
@@ -5948,7 +6080,9 @@
         "cand": {
           "kelly": 2,
           "slotkin": 2
-        }
+        },
+        "receipt": "A general told you he had been given an unlawful order. You said so to a camera.",
+        "receiptWeight": 1
       },
       {
         "id": "b",
@@ -5964,7 +6098,9 @@
         "effects": {
           "loyalty": 1,
           "style": -0.5
-        }
+        },
+        "receipt": "A general brought you an unlawful order. You decided the chain of command was not your business.",
+        "receiptWeight": 2
       },
       {
         "id": "d",
@@ -5972,7 +6108,9 @@
         "effects": {
           "mach": 2,
           "psych": 1
-        }
+        },
+        "receipt": "A general told you about an unlawful order. You saved it for October.",
+        "receiptWeight": 3
       }
     ],
     "signature": [

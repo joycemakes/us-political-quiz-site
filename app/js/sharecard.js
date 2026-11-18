@@ -3,7 +3,7 @@
 //   square 1080x1080 (feed posts), story 1080x1920 (stories), link 1200x630 (X, Facebook, LinkedIn)
 // Missing art or portraits fall back to drawn panels, so a card always renders.
 
-import { initials } from './art.js?v=eafef2c-1794988692';
+import { initials } from './art.js?v=c583357-1795003897';
 
 export const SIZES = {
   square: { w: 1080, h: 1080, label: 'Square', note: 'Feed posts' },
@@ -162,6 +162,8 @@ export async function drawShareCard(canvas, kind, card) {
   canvas.width = w; canvas.height = h;
   const x = canvas.getContext('2d');
   x.imageSmoothingEnabled = false;
+  // With a reading, the type leads (drawTypeCard); without one, the match-led card below.
+  if (card.archetype) return drawTypeCard(canvas, kind, card);
   const [bgWide, bgTall, p0, ...rest] = await Promise.all([
     loadImage(card.art.wide), loadImage(card.art.tall),
     ...card.top.slice(0, 5).map(m => loadImage(card.portraitUrl(m.id))),
@@ -250,6 +252,114 @@ export async function drawShareCard(canvas, kind, card) {
     const others = card.top.slice(1, 5).map((m, i) => `${i + 2} ${m.name.replace(/ Jr\.?$/, '').split(' ').slice(-1)[0]} ${m.pct < 25 ? '<25' : m.pct + '%'}`);
     [others.slice(0, 2).join('  '), others.slice(2).join('  ')].forEach((l, i) => text(x, l, 60, 474 + i * 32, { size: fitSize(x, l, 320, 26, 16), color: C.smoke }));
     text(x, `THE 2028 RACE · ${host}`, 60, h - 34, { size: 24, spacing: 2 });
+  }
+  return canvas;
+}
+
+// ---- the type-led cards (ENDGAME_CONTRACT section 3): the archetype and its line lead, the match follows -----
+// A tall card picture in a brass frame; without the picture, the night backdrop and the type's initial.
+function artBox(x, img, bg, name, px, py, bw, bh) {
+  x.fillStyle = C.ink; x.fillRect(px - 12, py - 12, bw + 24, bh + 24);
+  x.fillStyle = C.brass; x.fillRect(px - 8, py - 8, bw + 16, bh + 16);
+  x.fillStyle = C.brass2; x.fillRect(px - 8, py - 8, bw + 16, 3);
+  x.save();
+  x.beginPath(); x.rect(px, py, bw, bh); x.clip();
+  const pic = img || bg;
+  if (pic) {
+    const s = Math.max(bw / pic.width, bh / pic.height);
+    x.imageSmoothingEnabled = true;
+    x.drawImage(pic, px + (bw - pic.width * s) / 2, py + (bh - pic.height * s) / 2, pic.width * s, pic.height * s);
+    x.imageSmoothingEnabled = false;
+  } else { x.fillStyle = C.navy2; x.fillRect(px, py, bw, bh); }
+  if (!img) {
+    x.fillStyle = 'rgba(9,13,24,.62)'; x.fillRect(px, py, bw, bh);
+    const ch = String(name || '?').replace(/^the\s+/i, '').charAt(0).toUpperCase();
+    text(x, ch, px + bw / 2, py + bh * 0.62, { size: bw * 0.62, font: MARK, color: C.brass2, align: 'center' });
+  }
+  x.restore();
+}
+
+function centerPara(x, s, cx, y, maxW, size, lines, color) {
+  let z = size, ls = wrap(x, s, maxW, z);
+  while (ls.length > lines && z > size * 0.7) { z -= 2; ls = wrap(x, s, maxW, z); }
+  if (ls.length > lines) { ls = ls.slice(0, lines); ls[lines - 1] = ls[lines - 1].replace(/\s*\S*$/, '') + '…'; }
+  ls.forEach((l, i) => text(x, l, cx, y + i * z * 1.18, { size: z, color, align: 'center' }));
+  return y + ls.length * z * 1.18;
+}
+
+function nameLines(x, s, maxW, size, min, maxLines = 2) {
+  let z = size, ls = wrap(x, s, maxW, z, MARK);
+  while ((ls.length > maxLines || ls.some(l => (x.font = `${z}px ${MARK}`, x.measureText(l).width > maxW))) && z > min) { z -= 4; ls = wrap(x, s, maxW, z, MARK); }
+  return { z, ls: ls.slice(0, maxLines) };
+}
+
+async function drawTypeCard(canvas, kind, card) {
+  const { w, h } = SIZES[kind];
+  const x = canvas.getContext('2d');
+  x.imageSmoothingEnabled = false;
+  const [bgWide, bgTall, typeImg, p0] = await Promise.all([
+    loadImage(card.art.wide), loadImage(card.art.tall), loadImage(card.typeArt), loadImage(card.portraitUrl(card.top[0].id)),
+  ]);
+  const first = card.top[0];
+  const c0 = card.cands.get(first.id) || first;
+  const routeName = card.route === 'dem' ? 'DEMOCRATIC PRIMARY' : 'REPUBLICAN PRIMARY';
+  const host = hostOf(card.url);
+  const pct = first.pct < 25 ? 'under 25%' : `${first.pct}%`;
+  const typeName = card.archetype;
+
+  if (kind === 'square') {
+    cover(x, bgWide, w, h, 1, 0.5);
+    shade(x, w, h, [[0, 'rgba(9,13,24,.95)'], [0.6, 'rgba(9,13,24,.85)'], [1, 'rgba(9,13,24,.6)']], true);
+    shade(x, w, h, [[0.6, 'rgba(9,13,24,0)'], [1, 'rgba(9,13,24,.92)']]);
+    frame(x, w, h);
+    text(x, 'US Political Quiz', 70, 140, { size: fitSize(x, 'US Political Quiz', 940, 100, 56, MARK), font: MARK, color: C.brass2 });
+    text(x, `THE 2028 RACE · ${routeName}`, 74, 186, { size: 28, color: C.smoke, spacing: 3 });
+    artBox(x, typeImg, bgTall, typeName, 74, 236, 330, 495);
+    text(x, 'MY TYPE', 450, 276, { size: 30, color: C.smoke, spacing: 5 });
+    const { z, ls } = nameLines(x, typeName, 560, 104, 56);
+    ls.forEach((l, i) => text(x, l, 446, 276 + z * 0.95 * (i + 1), { size: z, font: MARK, color: C.win || C.brass2 }));
+    const ty = 276 + z * 0.95 * ls.length + 56;
+    para(x, card.tagline, 450, ty, 560, 42, 4, { color: C.amber });
+    // The closest match, second.
+    scrim(x, 60, 770, w - 120, 210, 0.82);
+    text(x, 'CLOSEST MATCH', 90, 818, { size: 28, color: C.smoke, spacing: 4 });
+    portrait(x, p0, c0, 90, 840, 116, 5);
+    text(x, first.name, 236, 900, { size: fitSize(x, first.name, 420, 54, 34) });
+    text(x, pct, 236, 960, { size: 54, color: C.brass2 });
+    trio(x, 830, 905, 52, 116, card.tem);
+    text(x, host, w / 2, h - 40, { size: 26, color: C.parch, align: 'center', spacing: 2 });
+  } else if (kind === 'story') {
+    cover(x, bgTall || bgWide, w, h, bgTall ? 0.5 : 1, 0.5);
+    shade(x, w, h, [[0, 'rgba(9,13,24,.9)'], [0.4, 'rgba(9,13,24,.72)'], [0.62, 'rgba(9,13,24,.86)'], [1, 'rgba(9,13,24,.97)']]);
+    frame(x, w, h);
+    text(x, 'US Political Quiz', w / 2, 200, { size: fitSize(x, 'US Political Quiz', 960, 150, 70, MARK), font: MARK, color: C.brass2, align: 'center' });
+    text(x, `THE 2028 RACE · ${routeName}`, w / 2, 262, { size: 34, color: C.smoke, align: 'center', spacing: 4 });
+    artBox(x, typeImg, bgTall, typeName, (w - 440) / 2, 320, 440, 660);
+    text(x, 'MY TYPE', w / 2, 1060, { size: 38, color: C.smoke, align: 'center', spacing: 6 });
+    const { z, ls } = nameLines(x, typeName, 940, 130, 70);
+    ls.forEach((l, i) => text(x, l, w / 2, 1060 + z * 0.95 * (i + 1), { size: z, font: MARK, color: C.brass2, align: 'center' }));
+    const ty = 1060 + z * 0.95 * ls.length + 60;
+    centerPara(x, card.tagline, w / 2, ty, 900, 46, 3, C.amber);
+    scrim(x, 60, 1500, w - 120, 300, 0.8);
+    text(x, 'CLOSEST MATCH', w / 2, 1556, { size: 34, color: C.smoke, align: 'center', spacing: 5 });
+    portrait(x, p0, c0, 110, 1590, 150, 6);
+    text(x, first.name, 300, 1660, { size: fitSize(x, first.name, 620, 60, 36) });
+    text(x, pct, 300, 1736, { size: 66, color: C.brass2 });
+    trio(x, 860, 1720, 46, 104, card.tem);
+    text(x, host, w / 2, h - 50, { size: 30, align: 'center', spacing: 2 });
+  } else {
+    cover(x, bgWide, w, h, 1, 0.55);
+    shade(x, w, h, [[0, 'rgba(9,13,24,.97)'], [0.65, 'rgba(9,13,24,.86)'], [1, 'rgba(9,13,24,.5)']], true);
+    frame(x, w, h, 16);
+    artBox(x, typeImg, bgTall, typeName, 64, 70, 300, 450);
+    text(x, 'US Political Quiz', 410, 100, { size: fitSize(x, 'US Political Quiz', 720, 70, 40, MARK), font: MARK, color: C.brass2 });
+    text(x, 'MY TYPE', 414, 150, { size: 24, color: C.smoke, spacing: 4 });
+    const { z, ls } = nameLines(x, typeName, 720, 92, 48);
+    ls.forEach((l, i) => text(x, l, 410, 150 + z * 0.95 * (i + 1), { size: z, font: MARK, color: C.brass2 }));
+    const ty = 150 + z * 0.95 * ls.length + 46;
+    para(x, card.tagline, 414, ty, 720, 32, 3, { color: C.amber });
+    text(x, `CLOSEST MATCH: ${first.name.toUpperCase()} · ${pct.toUpperCase()}`, 414, 520, { size: fitSize(x, `CLOSEST MATCH: ${first.name.toUpperCase()} · ${pct}`, 720, 26, 18), color: C.parch, spacing: 2 });
+    text(x, `THE 2028 RACE · ${host}`, 64, h - 34, { size: 24, spacing: 2 });
   }
   return canvas;
 }

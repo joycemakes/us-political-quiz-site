@@ -80,7 +80,10 @@ function draftOptions(q) {
     return q.pool.map(id => {
       const given = (q.options || []).find(o => o.id === id) || {};
       const cand = { [id]: 2, ...(given.cand || {}) };
-      return { id, label: given.label, effects: given.effects || {}, cand };
+      const out = { id, label: given.label, effects: given.effects || {}, cand };
+      // Receipts (ENDGAME_CONTRACT section 1) ride along on a draft pick; they never touch matching.
+      if (given.receipt) { out.receipt = given.receipt; out.receiptWeight = given.receiptWeight; }
+      return out;
     });
   }
   return q.options.map(o => ({ ...o, cand: o.cand || { [o.id]: 2 } }));

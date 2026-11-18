@@ -5,11 +5,12 @@
 // playReveal(R) resolves when the player asks for the full dossier.
 // R: { reading, matches, cands, profile, scores, route, shareCfg, replay }
 
-import { AXIS } from './axes.js?v=eafef2c-1794988692';
-import { portraitEl, artUrl, artVersion } from './art.js?v=eafef2c-1794988692';
-import { haptic, sleep, reducedMotion, typewriter, finishTyping, typingSkippedAt } from './feel.js?v=eafef2c-1794988692';
-import { sfx } from './sound.js?v=eafef2c-1794988692';
-import { renderShareSheet } from './sharesheet.js?v=eafef2c-1794988692';
+import { AXIS } from './axes.js?v=c583357-1795003897';
+import { portraitEl, artUrl, artVersion } from './art.js?v=c583357-1795003897';
+import { haptic, sleep, reducedMotion, typewriter, finishTyping, typingSkippedAt } from './feel.js?v=c583357-1795003897';
+import { sfx } from './sound.js?v=c583357-1795003897';
+import { renderShareSheet } from './sharesheet.js?v=c583357-1795003897';
+import { ticketEl } from './endgame-ui.js?v=c583357-1795003897';
 
 const h = (tag, cls, text) => {
   const e = document.createElement(tag);
@@ -260,6 +261,13 @@ export function playReveal(R) {
         const paras = [];
         const add = (cls, text) => { const p = typePara(cls, text); paras.push(p); return p; };
         if (arch.text) body.append(add('rv-lede', arch.text));
+        // Exhibits A, B, C: the player's own answers, quoted back (ENDGAME_CONTRACT section 1).
+        if (R.exhibits && R.exhibits.length) {
+          const g = h('div', 'rv-group rv-exhibits');
+          g.append(h('h3', 'rv-sub', 'The exhibits'));
+          for (const x of R.exhibits) { const f = h('div', 'rv-exhibit'); f.append(h('div', 'ex-label', x.label), add('ex-text', x.text)); g.append(f); }
+          body.append(g);
+        }
         const group = (title, items) => {
           if (!items.length) return;
           const g = h('div', 'rv-group');
@@ -270,6 +278,9 @@ export function playReveal(R) {
         group('Where you contradict yourself', reading.contradictions);
         group('What your answers gave away', reading.reads);
         group('How you answered', reading.tells);
+        // The ticket and the knife: running mate, betrayer, victim.
+        const tk = ticketEl(R.ticketView, cands);
+        if (tk) body.append(tk);
         if (reading.closer) { body.append(h('div', 'rv-rule')); body.append(add('rv-closer', reading.closer)); }
         c.append(body);
         c._enter = async () => {
@@ -298,7 +309,7 @@ export function playReveal(R) {
         c._enter = () => {
           if (c._sheet) return;
           c._sheet = true;
-          renderShareSheet(sheet, { profile: R.profile, matches, cands, route: R.route, scores: R.scores, shareCfg: R.shareCfg, reading, link: R.link });
+          renderShareSheet(sheet, { profile: R.profile, matches, cands, route: R.route, scores: R.scores, shareCfg: R.shareCfg, reading, link: R.link, ticket: R.ticket });
         };
         return c;
       },

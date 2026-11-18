@@ -1,10 +1,12 @@
-// Shareable dossiers (Chris, 18 Nov 2026): the RESULT of a run packed into a short code, USQ1, so a link
+// Shareable dossiers (Chris, 18 Nov 2026): the RESULT of a run packed into a short code, USQ2, so a link
 // <site>/app/#d=<code> opens that dossier anywhere. Pure, no DOM, so node can test it.
 //
 // The code holds the result, not the answers, so links survive changes to the question bank. Traits,
 // the reading and the share card are recomputed from it; the camp is stored as it was found.
 //
-//   USQ1-<73 base64url characters: 438 bits, below><4-character checksum>   (82 characters)
+//   USQ2-<86 base64url characters: 515 bits, below><4-character checksum>   (95 characters)
+//   USQ1 links (the first 438 bits only, 82 characters) still open: their ticket is worked out from the
+//   top five and the axes, and they carry no exhibits.
 //
 //   route 1 · questions answered 7 · minutes since 2026-01-01 UTC 23
 //   19 axes, in axes.js order: value 10 bits (-2..2 in steps of 0.005) and confidence 2 bits (0 = no evidence, 1..3 thirds)
@@ -14,13 +16,17 @@
 //   faith flags: professed 2 · private 2 (0 none, 1 religious, 2 secular)
 //   camps: best overall, then nearest in the route: camps.json index 4 (15 = none) · fit % 7
 //   (candidates.json and camps.json may only ever grow at the end, or old links change meaning)
+//   USQ2 adds the ticket: mate, knife, mark as candidate indexes 5 each (31 = none), and the exhibits:
+//   how many 2, then three 20-bit hashes of question id + option key (endgame.js receiptHash). An exhibit
+//   whose hash no longer matches a receipt in the bank is dropped, so links survive bank edits.
 //
 // Rounding never moves a value across a line the dossier draws (band edges, the reading's conditions,
 // one-decimal rounding), and the encoder checks that the rebuilt dossier matches.
 
-import { AXIS_IDS } from './axes.js?v=eafef2c-1794988692';
-import { buildProfile } from './profile.js?v=eafef2c-1794988692';
-import { readingContext, buildReading, normalizeReading, parseCond, READS_TAGS, READS_MIN } from './reading.js?v=eafef2c-1794988692';
+import { AXIS_IDS } from './axes.js?v=c583357-1795003897';
+import { buildProfile } from './profile.js?v=c583357-1795003897';
+import { readingContext, buildReading, normalizeReading, parseCond, READS_TAGS, READS_MIN } from './reading.js?v=c583357-1795003897';
+import { receiptHash, receiptIndex, pickTicket, matchListFromAxes } from './endgame.js?v=c583357-1795003897';
 
 // A 4-character base36 checksum (FNV-1a), so a mistyped or edited code is caught.
 export function checksum4(text) {
@@ -29,10 +35,14 @@ export function checksum4(text) {
   return (h % 1679616).toString(36).toUpperCase().padStart(4, '0');
 }
 
-export const DOSSIER_PREFIX = 'USQ1-';
-export const DOSSIER_BITS = 438;
-const PAYLOAD_CHARS = Math.ceil(DOSSIER_BITS / 6); // 73
-export const DOSSIER_LENGTH = DOSSIER_PREFIX.length + PAYLOAD_CHARS + 4;
+const CAMP_BITS = 22; // two camps, 4 + 7 bits each, in every USQ version
+const BITS = { 1: 416 + CAMP_BITS, 2: 416 + CAMP_BITS + 15 + 2 + 3 * 20 };
+const CHARS = { 1: Math.ceil(BITS[1] / 6), 2: Math.ceil(BITS[2] / 6) }; // 73, 86
+export const DOSSIER_VERSION = 2;
+export const DOSSIER_PREFIX = `USQ${DOSSIER_VERSION}-`;
+export const DOSSIER_BITS = BITS[DOSSIER_VERSION];
+export const DOSSIER_LENGTH = DOSSIER_PREFIX.length + CHARS[DOSSIER_VERSION] + 4;
+const EXHIBIT_BITS = 20;
 const EPOCH = Date.UTC(2026, 0, 1) / 1000;
 const B64 = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-_';
 const FAITH = [null, 'religious', 'secular'];
@@ -104,8 +114,9 @@ export const tidyReads = reads => Object.fromEntries(Object.entries(reads || {})
 
 // From a finished run: route, length (questions answered), t (unix seconds), scores (axisScores),
 // matches (matchCandidates rows), reads (sc.reads), signals (sc.signals), flags (sc.flags).
+// ticket: { mate, knife, mark } ids; exhibits: [{ qid, key, text, weight }] (endgame.js pickExhibits).
 // campRows: matchCamps() over every camp (scoring.js), best first.
-export function dossierFromRun({ route, length, t, scores, matches, reads = {}, signals = {}, flags = {}, campRows = [] }) {
+export function dossierFromRun({ route, length, t, scores, matches, reads = {}, signals = {}, flags = {}, ticket = null, exhibits = [], campRows = [] }) {
   const holds = Array.isArray(signals.holdStrengths) ? signals.holdStrengths : [];
   return {
     route, length, t: minuteOf(t),
@@ -119,13 +130,15 @@ export function dossierFromRun({ route, length, t, scores, matches, reads = {}, 
       holdAvg: holds.length ? tidy(holds.reduce((s, v) => s + v, 0) / holds.length) : null,
     },
     faith: flags.faith ? { professed: flags.faith.professed || null, private: flags.faith.private || null } : null,
+    ticket: ticket ? { mate: ticket.mate || null, knife: ticket.knife || null, mark: ticket.mark || null } : null,
+    exhibits: (exhibits || []).slice(0, 3).map(x => ({ qid: x.qid, key: x.key, text: x.text, weight: x.weight, hash: receiptHash(x.qid, x.key, EXHIBIT_BITS) })),
     campRows: [campRows[0], campRows.find(r => r.party === route)].map(r => (r ? { id: r.id, pct: r.pct } : null)),
   };
 }
 // The dossier's time is kept to the minute, so a rebuilt dossier matches the original.
 export const minuteOf = t => Math.floor((Number(t) || Math.floor(Date.now() / 1000)) / 60) * 60;
 
-function pack(d, candidates, th, nudges = {}, camps = []) {
+function pack(d, candidates, th, nudges = {}, version = DOSSIER_VERSION, camps = []) {
   const w = writer();
   const idx = new Map(candidates.map((c, i) => [c.id, i]));
   w.put(d.route === 'gop' ? 1 : 0, 1);
@@ -165,9 +178,15 @@ function pack(d, candidates, th, nudges = {}, camps = []) {
     w.put(i, 4);
     w.put(i === 15 ? 0 : clamp(r.pct, 0, 100), 7);
   }
-  if (w.bits.length !== DOSSIER_BITS) throw new Error(`packed ${w.bits.length} bits`);
+  if (version >= 2) {
+    for (const role of ['mate', 'knife', 'mark']) { const id = d.ticket?.[role]; w.put(id && idx.has(id) && idx.get(id) < 31 ? idx.get(id) : 31, 5); }
+    const ex = (d.exhibits || []).slice(0, 3);
+    w.put(ex.length, 2);
+    for (let i = 0; i < 3; i++) w.put(ex[i] ? (ex[i].hash ?? receiptHash(ex[i].qid, ex[i].key, EXHIBIT_BITS)) : 0, EXHIBIT_BITS);
+  }
+  if (w.bits.length !== BITS[version]) throw new Error(`packed ${w.bits.length} bits`);
   const payload = bitsToB64(w.bits);
-  return DOSSIER_PREFIX + payload + checksum4(payload);
+  return `USQ${version}-` + payload + checksum4(payload);
 }
 
 // Returns { ok: true, data, checksum } or { ok: false, error } (a plain sentence for the page).
@@ -176,13 +195,14 @@ export function decodeDossier(code, { candidates, camps = [] }) {
     const s = String(code || '').trim().replace(/\s+/g, '');
     const ver = /^USQ(\d+)-/i.exec(s);
     if (!ver) return { ok: false, error: 'This is not a dossier link.' };
-    if (ver[1] !== '1') return { ok: false, error: 'This dossier link comes from a newer version of the quiz.' };
-    const body = s.slice(DOSSIER_PREFIX.length);
-    if (body.length !== PAYLOAD_CHARS + 4) return { ok: false, error: 'This dossier link is cut short or has extra characters.' };
-    const payload = body.slice(0, PAYLOAD_CHARS), sum = body.slice(PAYLOAD_CHARS);
+    const version = Number(ver[1]);
+    if (!BITS[version]) return { ok: false, error: 'This dossier link comes from a newer version of the quiz.' };
+    const body = s.slice(ver[0].length);
+    if (body.length !== CHARS[version] + 4) return { ok: false, error: 'This dossier link is cut short or has extra characters.' };
+    const payload = body.slice(0, CHARS[version]), sum = body.slice(CHARS[version]);
     if (checksum4(payload) !== sum) return { ok: false, error: 'This dossier link has been changed or mistyped.' };
     const bits = b64ToBits(payload);
-    if (bits.slice(DOSSIER_BITS).some(Boolean)) return { ok: false, error: 'This dossier link has been changed or mistyped.' };
+    if (bits.slice(BITS[version]).some(Boolean)) return { ok: false, error: 'This dossier link has been changed or mistyped.' };
     const r = reader(bits);
     const d = { route: r.get(1) ? 'gop' : 'dem', length: r.get(7), t: EPOCH + r.get(23) * 60, axes: {}, top: [], reads: {}, signals: {}, faith: null };
     for (const a of AXIS_IDS) {
@@ -209,6 +229,17 @@ export function decodeDossier(code, { candidates, camps = [] }) {
       if (ki !== 15 && (!camps[ki] || pct > 100)) throw new Error('camp out of range');
       d.campRows.push(ki === 15 ? null : { id: camps[ki].id, pct });
     }
+    d.version = version;
+    d.ticket = null;
+    d.exhibits = [];
+    if (version >= 2) {
+      const t = {};
+      for (const role of ['mate', 'knife', 'mark']) { const ci = r.get(5); if (ci !== 31 && !candidates[ci]) throw new Error('ticket out of range'); t[role] = ci === 31 ? null : candidates[ci].id; }
+      d.ticket = t;
+      const n = r.get(2);
+      if (n > 3) throw new Error('exhibits out of range');
+      for (let i = 0; i < 3; i++) { const hsh = r.get(EXHIBIT_BITS); if (i < n) d.exhibits.push({ hash: hsh }); else if (hsh) throw new Error('stray exhibit'); }
+    }
     if (d.length < 1) throw new Error('no questions');
     return { ok: true, data: d, checksum: sum };
   } catch {
@@ -217,7 +248,9 @@ export function decodeDossier(code, { candidates, camps = [] }) {
 }
 
 // Everything the dossier page and the reveal need, rebuilt from dossier data.
-export function rebuildDossier(d, { candidates, camps, reading }) {
+// env.bank (the question bank) resolves exhibits carried as hashes; without it they are left out.
+const indexCache = new WeakMap();
+export function rebuildDossier(d, { candidates, camps, reading, bank = null }) {
   const byId = new Map(candidates.map(c => [c.id, c]));
   const scores = Object.fromEntries(AXIS_IDS.map(a => {
     const { value, conf } = d.axes[a];
@@ -234,7 +267,20 @@ export function rebuildDossier(d, { candidates, camps, reading }) {
   const campRows = (d.campRows || []).filter(Boolean).map(r => { const k = byCamp.get(r.id) || {}; return { id: r.id, short: k.short, name: k.name, blurb: k.blurb || '', party: k.party, pct: r.pct }; });
   const profile = buildProfile({ scores, matches, camps, route: d.route, scorerFlags, campRows: campRows.length ? campRows : null });
   const read = buildReading(reading, readingContext({ scores, signals, reads: d.reads, matches, route: d.route }));
-  return { route: d.route, length: d.length, t: d.t, scores, matches, signals, reads: d.reads, profile, reading: read };
+  // The ticket: carried in the code (USQ2), or worked out from the top five and the axes (USQ1).
+  const ticket = d.ticket && d.ticket.mate ? d.ticket : pickTicket({ matches: matchListFromAxes(d.top, scores, candidates), scores, route: d.route, candidates });
+  // Exhibits: as recorded (a fresh run), or looked up by hash in today's bank (a link); unknown ones drop out.
+  let exhibits = [];
+  for (const x of d.exhibits || []) {
+    if (x.text) { exhibits.push({ qid: x.qid, key: x.key, text: x.text, weight: x.weight }); continue; }
+    if (!bank) continue;
+    let idx = indexCache.get(bank);
+    if (!idx) { idx = receiptIndex(bank, EXHIBIT_BITS); indexCache.set(bank, idx); }
+    const hit = idx.get(x.hash);
+    if (hit) exhibits.push(hit);
+  }
+  exhibits = exhibits.map((x, i) => ({ ...x, label: `Exhibit ${'ABC'[i]}` }));
+  return { route: d.route, length: d.length, t: d.t, scores, matches, signals, reads: d.reads, profile, reading: read, ticket, exhibits };
 }
 
 // What must come out the same after the round trip.
@@ -262,7 +308,7 @@ export function encodeDossier(d, env) {
     return n;
   };
   const nudges = {};
-  let code = pack(d, env.candidates, th, nudges, env.camps), best = off(code);
+  let code = pack(d, env.candidates, th, nudges, DOSSIER_VERSION, env.camps), best = off(code);
   const keys = AXIS_IDS.concat(READS_TAGS.map(t => `tag:${t}`), ['holdAvg'], AXIS_IDS.map(a => `conf:${a}`));
   for (let pass = 0; pass < 6 && best > 0; pass++) {
     let improved = false;
@@ -271,7 +317,7 @@ export function encodeDossier(d, env) {
       const n = (nudges[k] || 0) + step;
       if (Math.abs(n) > 2) continue;
       const trial = { ...nudges, [k]: n };
-      const c = pack(d, env.candidates, th, trial, env.camps), o = off(c);
+      const c = pack(d, env.candidates, th, trial, DOSSIER_VERSION, env.camps), o = off(c);
       if (o < best) { best = o; code = c; nudges[k] = n; improved = true; }
     }
     if (!improved) break;
