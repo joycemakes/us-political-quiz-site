@@ -18,10 +18,10 @@ import { routeOk, optionVectors, prepareQuestion } from './questions.js';
 import { makeRng } from './rng.js';
 import { predictAnswer } from './scoring.js';
 
-// Run lengths, in one place (Chris, 17 Nov 2026): Quick 45, Full Dossier 90. Both meet the matching
+// Run lengths, in one place (Chris, 18 Nov 2026): Quick 45, Full Dossier 60 (was 90). Both meet the matching
 // bar (like-candidate bots first for 22+ of 23, random play's best match under 75%; app/tests/run.mjs).
 export const QUICK_LENGTH = 45;
-export const FULL_LENGTH = 90;
+export const FULL_LENGTH = 60;
 // Everything that depends on length scales from the per-50 figures below.
 export const SWEEP = 20;            // at 50; sweepAt(n) = min(21, round(0.4 n)): 14 at 35, 21 at 70
 export const BOMB_GAP = 8;          // at 50; bombGap(n) = clamp(round(8 n / 50), 6, 10): 6 at 35, 10 at 70

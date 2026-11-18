@@ -27,12 +27,20 @@ const h = (tag, cls, text) => {
 };
 const ROMAN = ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII'];
 const READY_GUARD_MS = 400;
+// The run in progress (or just finished) is saved here after every answer, so closing the tab loses
+// nothing. Replaying the saved answers through the seeded selector rebuilds the run exactly.
+const SAVE_KEY = 'uspq.run';
+const loadSave = () => {
+  const v = store.get(SAVE_KEY, null);
+  return v && v.v === 1 && Array.isArray(v.answers) && (v.route === 'dem' || v.route === 'gop') ? v : null;
+};
+const clearSave = () => { try { localStorage.removeItem(SAVE_KEY); } catch { /* private mode */ } };
 
 const S = {
   data: null,
   route: store.get('uspq.route', 'dem'),
-  // Quick or Full Dossier; an older saved length maps to the nearer of the two.
-  length: store.get('uspq.length', QUICK_LENGTH) > QUICK_LENGTH ? FULL_LENGTH : QUICK_LENGTH,
+  // Quick is the default every visit (Chris, 18 Nov 2026); a saved run keeps its own length.
+  length: QUICK_LENGTH,
   run: null,
 };
 // Test and debug handle (read-only use; the browser bot drives the real controls).
@@ -128,30 +136,54 @@ function title() {
   const toggles = h('div', 'toggle-row');
   toggles.append(hap, snd);
 
-  const begin = h('button', 'btn primary begin');
+  const saved = loadSave();
+  const begin = h('button', `btn ${saved ? '' : 'primary '}begin`);
   begin.type = 'button';
-  begin.appendChild(h('span', 'btn-label', 'Open the file'));
-  begin.addEventListener('click', () => { haptic('commit'); startRun(); });
+  begin.appendChild(h('span', 'btn-label', saved ? 'Start a new file' : 'Open the file'));
+  begin.addEventListener('click', () => { haptic('commit'); clearSave(); startRun(); });
   const panel = h('div', 'title-panel');
+  if (saved) {
+    const n = saved.answers.length;
+    const resume = h('button', 'btn primary resume');
+    resume.type = 'button';
+    resume.append(
+      h('span', 'pick-main', saved.done ? 'See your result' : 'Continue your file'),
+      h('span', 'pick-sub', `${saved.route === 'gop' ? 'Republican' : 'Democrat'} · ${saved.done ? `all ${n} answered` : `question ${n + 1} of ${saved.length}`}`),
+    );
+    resume.addEventListener('click', () => { haptic('commit'); startRun(saved); });
+    const cont = h('div', 'choice-group resume-group');
+    cont.append(h('div', 'group-label', 'Saved on this device'), resume);
+    panel.append(cont);
+  }
   panel.append(route, length, toggles, begin);
   t.append(hero, panel);
   app.appendChild(t);
 }
 
 // ---- the run -------------------------------------------------------------------------------------
-async function startRun() {
+async function startRun(saved = null) {
   const params = new URLSearchParams(location.search);
-  const seed = params.has('seed') ? Number(params.get('seed')) >>> 0 : newSeed();
+  const devBank = params.has('only') || params.has('q');
+  if (saved && devBank) saved = null;
+  const seed = saved ? saved.seed >>> 0 : params.has('seed') ? Number(params.get('seed')) >>> 0 : newSeed();
+  const route = saved ? saved.route : S.route;
+  const runLength = saved ? saved.length : S.length;
   const { candidates } = S.data;
   // Dev aid: ?only=pin,sign plays just those types; ?q=A-009 puts one question first.
   let bank = S.data.bank;
   if (params.get('only')) { const keep = new Set(params.get('only').split(',')); bank = bank.filter(q => keep.has(q.type)); }
   if (params.get('q')) { const f = bank.find(q => q.id === params.get('q')); if (f) bank = [{ ...f, chapter: 'announcement', route: 'both', tier: 'core' }].concat(bank.filter(q => q !== f)); }
-  const seen = new Set(store.get('uspq.seen', []));
-  const sel = createSelector({ bank, candidates, route: S.route, length: S.length, seed, seen });
+  const seenList = saved ? saved.seen || [] : store.get('uspq.seen', []);
+  const seen = new Set(seenList);
+  const sel = createSelector({ bank, candidates, route, length: runLength, seed, seen });
   const sc = createScorer();
-  const run = { seed, sel, sc, route: S.route, length: S.length, index: 0, current: null, log: [] };
+  const run = { seed, sel, sc, route, length: runLength, index: 0, current: null, log: [], seenTypes: new Set() };
   S.run = run;
+  const live = () => S.run === run;
+  const save = { v: 1, seed, route, length: runLength, seen: seenList, answers: [], done: false };
+  const persist = () => { if (!devBank && live()) store.set(SAVE_KEY, save); };
+  const replay = saved ? saved.answers : [];
+  if (!saved) persist();
 
   app.innerHTML = '';
   const backdrop = h('div', 'backdrop');
@@ -164,12 +196,16 @@ async function startRun() {
   const chapterLbl = h('div', 'hud-chapter');
   const qLbl = h('div', 'hud-q');
   mid.append(chapterLbl, qLbl);
+  // Start over: back to the title, where the saved file can still be continued or a new one opened.
+  const quit = h('button', 'hud-quit', 'Start over');
+  quit.type = 'button';
+  quit.addEventListener('click', () => { haptic('select'); title(); });
   const speaker = h('button', 'hud-sound');
   speaker.type = 'button';
   const syncSpeaker = () => { speaker.setAttribute('aria-pressed', String(!getSound())); speaker.setAttribute('aria-label', getSound() ? 'Sound on. Tap to mute.' : 'Sound off. Tap to turn on.'); speaker.dataset.on = getSound() ? '1' : '0'; };
   speaker.addEventListener('click', () => { setSound(!getSound()); syncSpeaker(); });
   syncSpeaker();
-  hud.append(map.el, mid, speaker, ghosts.el);
+  hud.append(map.el, mid, quit, speaker, ghosts.el);
   const banner = h('div', 'breaking');
   banner.hidden = true;
   banner.append(h('span', 'breaking-tag', 'Breaking'), h('span', 'breaking-text'));
@@ -191,20 +227,40 @@ async function startRun() {
     if (!q) break;
     run.index = i;
     total = sel.total;
-    backdrop.dataset.bg = sel.chapterAt(i);
-    if (sel.isChapterStart(i)) await chapterCard(sel.chapterAt(i), stage);
-    chapterLbl.textContent = CHAPTER_TITLE[sel.chapterAt(i)] || '';
-    qLbl.textContent = `Question ${i + 1} of ${total}`;
-    map.set(i, total);
-    const answer = await askQuestion(q, { body, stage, banner });
+    let answer;
+    if (i < replay.length) {
+      // Rebuilding a saved run: the same seed and answers give the same questions. If the bank has
+      // changed since (a new deploy), the save no longer fits, so a fresh file starts instead.
+      if (!replay[i] || replay[i].id !== q.id) {
+        console.warn(`[quiz] saved run no longer fits at question ${i + 1}; starting a new file`);
+        clearSave();
+        return startRun();
+      }
+      answer = replay[i].a || {};
+      run.seenTypes.add(q.type);
+    } else {
+      backdrop.dataset.bg = sel.chapterAt(i);
+      if (sel.isChapterStart(i)) await chapterCard(sel.chapterAt(i), stage);
+      if (!live()) return;
+      chapterLbl.textContent = CHAPTER_TITLE[sel.chapterAt(i)] || '';
+      qLbl.textContent = `Question ${i + 1} of ${total}`;
+      map.set(i, total);
+      answer = await askQuestion(q, { body, stage, banner, fresh: i === 0 });
+      if (!live()) return;
+    }
     const why = sel.history[i]?.reason || '';
     if (why.startsWith('borrow:')) console.info(`[quiz] ${q.id} borrowed from ${q.chapter} for coverage (${why})`);
     const summary = applyAnswer(sc, q, answer);
     run.log.push({ id: q.id, type: q.type, summary });
+    save.answers.push({ id: q.id, a: answer });
+    if (i >= replay.length) persist();
     rank = matchCandidates(sc, candidates, run.route).map(r => r.id);
-    ghosts.set(rank.slice(0, 3));
+    if (i >= replay.length - 1) ghosts.set(rank.slice(0, 3));
   }
+  if (!live()) return;
   map.set(total, total);
+  save.done = true;
+  persist();
   finish(run);
 }
 
@@ -252,7 +308,7 @@ function chapterCard(chapter, stage) {
   });
 }
 
-async function askQuestion(q, { body, stage, banner }) {
+async function askQuestion(q, { body, stage, banner, fresh }) {
   body.innerHTML = '';
   const wrap = h('article', `q q-${q.type}`);
   wrap.dataset.qid = q.id;
@@ -277,7 +333,6 @@ async function askQuestion(q, { body, stage, banner }) {
 
   // The answers show at once, dimmed, while the text types on; the first tap finishes the typing.
   const fine = (() => { try { return window.matchMedia('(pointer: fine)').matches; } catch { return false; } })();
-  S.run.seenTypes = S.run.seenTypes || new Set();
   const firstOfType = !S.run.seenTypes.has(q.type);
   S.run.seenTypes.add(q.type);
   const how = h('p', 'how');
@@ -287,7 +342,7 @@ async function askQuestion(q, { body, stage, banner }) {
   // The line types first; a renderer may then replace it with something more specific (pins, budgets).
   typewriter(how, howFor(q, { fine, ends: q.type === 'swipe' ? swipeEnds(q) : null }), { maxMs: 900 });
   const pending = renderAnswer(q, { el: answer, artHost, cands: S.cands, stage, chapter: q.chapter, firstOfType, how, fine });
-  if (S.run.index === 0) {
+  if (fresh) {
     const note = h('p', 'hud-note', 'The three shadows up top are your closest matches so far.');
     stage.querySelector('.hud')?.after(note);
     setTimeout(() => note.remove(), 9000);
@@ -363,7 +418,7 @@ function finish(run) {
   app.appendChild(bd);
   const out = renderResults(app, {
     profile, matches, scores, cands: S.cands, camps, route: run.route, length: run.sel.history.length, signals: run.sc.signals, shareCfg: S.shareCfg,
-    onAgain: () => title(),
+    onAgain: () => { clearSave(); title(); },
   });
   run.result.shown = !!out;
   window.scrollTo({ top: 0 });

@@ -126,11 +126,21 @@ h1, h2, h3 { font-weight: 400; margin: 0; }
 .switch-row[aria-checked="true"] .switch-knob { left: 29px; background: var(--brass); }
 .switch-state { width: 3ch; text-align: right; font-size: 16px; }
 .btn.begin { min-height: 60px; font-size: 22px; }
+/* A saved run: Continue sits above the pickers; Start a new file drops to a plain button. */
+.btn.primary.resume { flex-direction: column; gap: 2px; min-height: 68px; }
+.btn.primary.resume .pick-main { font-size: 24px; }
+.btn.primary.resume .pick-sub { color: var(--on-gold); opacity: .8; text-transform: none; letter-spacing: .04em; }
+.btn.begin:not(.primary) { justify-content: center; text-transform: uppercase; letter-spacing: .12em; font-size: 18px; }
+/* Start over, in the HUD: back to the title (the save stays until a new file is opened). */
+.hud-quit { height: 40px; padding: 0 10px; border: 0; cursor: pointer; font: inherit; font-size: 13px; letter-spacing: .08em; text-transform: uppercase; color: var(--sub); background: rgba(42, 14, 17, .7); box-shadow: var(--outline), var(--bevel); }
+@media (hover: hover) { .hud-quit:hover { color: var(--brass-2); } }
+.hud-quit:active { transform: translate(2px, 2px); box-shadow: var(--outline), var(--bevel-in); }
+
 .ios-haptic { position: fixed; left: -9999px; top: 0; opacity: 0; pointer-events: none; }
 
 /* ---- run screen: HUD --------------------------------------------------------------------------- */
 .run-screen { position: relative; padding-top: max(8px, env(safe-area-inset-top)); min-height: 100dvh; }
-.hud { position: sticky; top: 0; z-index: 5; display: grid; grid-template-columns: auto 1fr auto auto; align-items: center; gap: 8px; max-width: 1120px; margin: 0 auto;
+.hud { position: sticky; top: 0; z-index: 5; display: grid; grid-template-columns: auto 1fr auto auto auto; align-items: center; gap: 8px; max-width: 1120px; margin: 0 auto;
   padding: 8px 0 10px; background: linear-gradient(var(--navy) 70%, rgba(9, 13, 24, 0)); }
 .warmap { width: 92px; display: grid; gap: 2px; }
 .warmap svg { width: 100%; display: block; shape-rendering: crispEdges; }
@@ -713,3 +723,8 @@ h1, h2, h3 { font-weight: 400; margin: 0; }
   .fx-shake, .fx-shake-strong { animation: none !important; }
   .fx-candles .candle-overlay { animation: none; opacity: .8; }
 }
+
+/* Phones: room in the HUD for Start over (kept last so it wins over the earlier phone rules). */
+@media (max-width: 420px) { .hud-quit { width: 44px; height: 36px; padding: 0 2px; font-size: 10px; line-height: 1.05; letter-spacing: .02em; white-space: normal; }
+  .hud { gap: 4px; } .warmap { width: 58px; } .hud-mid { min-width: 0; }
+  .hud-chapter { font-size: 11px; letter-spacing: .03em; } .hud-q { font-size: 10px; letter-spacing: .03em; white-space: nowrap; } }
