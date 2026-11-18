@@ -1,15 +1,21 @@
 // The result screen (the full dossier): ghost reveal, the personality reading, top five, your camp, ideology gauges, temperament,
 // dynasty and libertine dials, three words and your tells, and the share sheet.
 
-import { AXES, AXIS } from './axes.js?v=7ad1c44-1794985733';
-import { reasonFor } from './scoring.js?v=7ad1c44-1794985733';
-import { portraitEl } from './art.js?v=7ad1c44-1794985733';
-import { silhouetteEl } from './hud.js?v=7ad1c44-1794985733';
-import { haptic, sleep, reducedMotion, typewriter } from './feel.js?v=7ad1c44-1794985733';
-import { sfx } from './sound.js?v=7ad1c44-1794985733';
-import { renderShareSheet } from './sharesheet.js?v=7ad1c44-1794985733';
-import { normalizeShareConfig } from './share.js?v=7ad1c44-1794985733';
-import { archetypeArt, archName } from './reveal.js?v=7ad1c44-1794985733';
+import { AXES, AXIS } from './axes.js?v=055793d-1794987752';
+import { reasonFor } from './scoring.js?v=055793d-1794987752';
+import { portraitEl } from './art.js?v=055793d-1794987752';
+import { silhouetteEl } from './hud.js?v=055793d-1794987752';
+import { haptic, sleep, reducedMotion, typewriter } from './feel.js?v=055793d-1794987752';
+import { sfx } from './sound.js?v=055793d-1794987752';
+import { renderShareSheet } from './sharesheet.js?v=055793d-1794987752';
+import { normalizeShareConfig } from './share.js?v=055793d-1794987752';
+import { archetypeArt, archName } from './reveal.js?v=055793d-1794987752';
+
+// The words on a dossier someone shared (the only quiz-specific copy for shared links).
+export const SHARED_COPY = {
+  banner: "Someone's 2028 dossier. Their answers stay private; this is what they add up to.",
+  cta: 'Take the quiz yourself',
+};
 
 const h = (tag, cls, text) => {
   const e = document.createElement(tag);
@@ -49,7 +55,12 @@ function dial(label, value, sub) {
   return el;
 }
 
+// A shared dossier is someone else's file: its headings say their, not your (playtest of shared links).
+let SHARED_VIEW = false;
+const Y = t => (SHARED_VIEW ? t.replace(/\bYour\b/g, 'Their').replace(/\byour\b/g, 'their').replace(/\byou chose\b/g, 'they chose').replace(/\bseats you\b/g, 'seats them') : t);
+
 export function renderResults(root, R) {
+  SHARED_VIEW = !!R.shared;
   const { profile, matches, scores, cands, camps, route, length, signals } = R;
   root.innerHTML = '';
   const screen = h('div', 'results');
@@ -57,6 +68,17 @@ export function renderResults(root, R) {
 
   const head = h('header', 'res-head');
   head.append(h('div', 'wordmark sm', 'US Political Quiz'), h('div', 'eyebrow', `The 2028 Race · ${partyName(route)} route · ${length} questions`));
+  if (R.shared) {
+    const ban = h('div', 'shared-banner');
+    ban.setAttribute('role', 'note');
+    const go = h('button', 'btn primary shared-go');
+    go.type = 'button';
+    go.append(h('span', 'btn-label', SHARED_COPY.cta));
+    go.addEventListener('click', () => { haptic('commit'); R.onAgain && R.onAgain(); });
+    ban.append(h('p', 'shared-text', SHARED_COPY.banner), go);
+    screen.appendChild(ban);
+  }
+  if (R.dossier) head.appendChild(fileBlock(R.dossier));
   screen.appendChild(head);
 
   // ---- ghost reveal ----
@@ -82,7 +104,7 @@ export function renderResults(root, R) {
   if (R.reading) screen.appendChild(readingBlock(R.reading, R.onReplay));
 
   // ---- top five ----
-  const top = section('Your top five', 'top-block');
+  const top = section(Y('Your top five'), 'top-block');
   top.appendChild(h('p', 'res-cap', 'The five of the 23 candidates whose answers sit closest to yours.'));
   const ol = h('ol', 'top5');
   const campShort = id => (camps || []).find(l => l.id === id)?.short || '';
@@ -118,16 +140,16 @@ export function renderResults(root, R) {
 
   // ---- camp ----
   if (profile.camp) {
-    const camp = section('Your camp', 'lane-block');
+    const camp = section(Y('Your camp'), 'lane-block');
     const big = h('div', 'lane-big');
     big.append(h('span', 'lane-short', profile.camp.short), h('span', 'lane-name', profile.camp.name), h('span', 'lane-pct', `${profile.camp.pct}% fit`));
     camp.appendChild(big);
     if (profile.camp.blurb) camp.appendChild(h('p', 'lane-note', profile.camp.blurb));
     const otherParty = matches[0] && cands.get(matches[0].id)?.party !== route;
     if (profile.campAlt) {
-      camp.appendChild(h('p', 'lane-note', `Your answers sit closer to the other party: ${profile.campAlt.name}, ${profile.campAlt.pct}% fit. The camp above is the nearest one in the primary you chose.`));
+      camp.appendChild(h('p', 'lane-note', Y(`Your answers sit closer to the other party: ${profile.campAlt.name}, ${profile.campAlt.pct}% fit. The camp above is the nearest one in the primary you chose.`)));
     } else if (otherParty) {
-      camp.appendChild(h('p', 'lane-note', 'Your closest match runs in the other primary. The camp above is the nearest one in the primary you chose.'));
+      camp.appendChild(h('p', 'lane-note', Y('Your closest match runs in the other primary. The camp above is the nearest one in the primary you chose.')));
     }
     const peers = [...cands.values()].filter(c => c.camp === profile.camp.id).map(c => c.name);
     if (peers.length) camp.appendChild(h('p', 'lane-note', `Also in this camp: ${peers.join(', ')}.`));
@@ -180,10 +202,10 @@ export function renderResults(root, R) {
 
   // ---- share ----
   const share = section('Share your result', 'share-block');
-  renderShareSheet(share, { profile, matches, cands, route, scores, shareCfg: R.shareCfg || normalizeShareConfig(null), reading: R.reading });
+  renderShareSheet(share, { profile, matches, cands, route, scores, shareCfg: R.shareCfg || normalizeShareConfig(null), reading: R.reading, link: R.dossier?.link });
   screen.appendChild(share);
 
-  const again = h('button', 'btn again', 'Play again');
+  const again = h('button', `btn again${R.shared ? ' primary' : ''}`, R.shared ? SHARED_COPY.cta : 'Play again');
   again.type = 'button';
   again.addEventListener('click', () => R.onAgain && R.onAgain());
   screen.append(again, h('p', 'fineprint', 'Real officeholders appear only in their portraits. Everything else is simulated fiction. Match percentages are editorial estimates, not claims.'));
@@ -193,12 +215,12 @@ export function renderResults(root, R) {
 // The reading near the top of the dossier: archetype, contradictions, all ten scales with their bands
 // (tap one for the detail), what the answers gave away, the tells and the closer.
 function readingBlock(reading, onReplay) {
-  const sec = section('Your reading', 'reading-block');
+  const sec = section(Y('Your reading'), 'reading-block');
   sec.appendChild(h('p', 'res-cap', 'Who your answers say you are: your type, ten scores in plain words, and where you contradict yourself.'));
   const a = reading.archetype;
   const head = h('div', 'rd-head');
   const meta = h('div', 'rd-meta');
-  meta.append(h('div', 'rd-label', 'Your type'), archName('rd-name', a.name));
+  meta.append(h('div', 'rd-label', Y('Your type')), archName('rd-name', a.name));
   if (a.tagline) meta.append(h('p', 'rd-tag', a.tagline));
   if (onReplay) {
     const rp = h('button', 'btn rd-replay');
@@ -240,8 +262,34 @@ function readingBlock(reading, onReplay) {
     if (s.plain) d.append(h('p', 'rd-plain', s.plain));
     list.appendChild(d);
   }
-  right.append(h('h4', 'rd-sub', 'Your ten scores'), h('p', 'rd-hint', 'Tap a score for what it means.'), list);
+  right.append(h('h4', 'rd-sub', Y('Your ten scores')), h('p', 'rd-hint', 'Tap a score for what it means.'), list);
   sec.append(left, right);
   if (reading.closer) sec.appendChild(h('p', 'rd-closer', reading.closer));
   return sec;
+}
+
+// The top of every dossier: a short file number, the full code in small type, Copy link and Share.
+function fileBlock(d) {
+  const box = h('div', 'file-block');
+  const row = h('div', 'file-row');
+  row.append(h('span', 'file-no', `File No. ${d.file}`));
+  const status = h('span', 'file-status');
+  status.setAttribute('role', 'status');
+  const say = (t, ok = true) => { status.textContent = t; haptic(ok ? 'commit' : 'error'); setTimeout(() => { if (status.textContent === t) status.textContent = ''; }, 2400); };
+  const copy = h('button', 'btn file-btn', 'Copy link');
+  copy.type = 'button';
+  copy.addEventListener('click', async () => say((await copyText(d.link)) ? 'Link copied.' : 'Could not copy. Select the code below.', true));
+  const share = h('button', 'btn file-btn', 'Share');
+  share.type = 'button';
+  share.addEventListener('click', async () => {
+    if (navigator.share) {
+      try { await navigator.share({ title: 'A 2028 dossier', url: d.link }); return; } catch (e) { if (e?.name === 'AbortError') return; }
+    }
+    document.querySelector('.results .share-block')?.scrollIntoView({ behavior: reducedMotion() ? 'auto' : 'smooth', block: 'start' });
+  });
+  row.append(copy, share);
+  const code = h('output', 'file-code', d.code);
+  code.setAttribute('aria-label', 'Dossier code');
+  box.append(row, code, status);
+  return box;
 }

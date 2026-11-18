@@ -1,24 +1,25 @@
 // US Political Quiz: boot, title screen, the run loop, chapter cards and the hand-off to results.
 
-import { loadData } from './data.js?v=7ad1c44-1794985733';
-import { createSelector, QUICK_LENGTH, FULL_LENGTH } from './selector.js?v=7ad1c44-1794985733';
-import { createScorer, applyAnswer, axisScores, matchCandidates, matchCamps } from './scoring.js?v=7ad1c44-1794985733';
-import { buildProfile } from './profile.js?v=7ad1c44-1794985733';
-import { CHAPTERS, CHAPTER_TITLE, CHAPTER_LINE } from './axes.js?v=7ad1c44-1794985733';
-import { routeOk } from './questions.js?v=7ad1c44-1794985733';
-import { installPress, haptic, setHaptics, getHaptics, runFx, typewriter, sleep, store, reducedMotion } from './feel.js?v=7ad1c44-1794985733';
-import { loadArtManifest, createArtSlot, artUrl, artVersion } from './art.js?v=7ad1c44-1794985733';
-import { billTitle } from './types.js?v=7ad1c44-1794985733';
-import { createWarMap, createGhosts } from './hud.js?v=7ad1c44-1794985733';
-import { renderAnswer } from './types.js?v=7ad1c44-1794985733';
-import { howFor, showCue, watchIdle } from './howto.js?v=7ad1c44-1794985733';
-import { swipeEnds } from './types.js?v=7ad1c44-1794985733';
-import { renderResults } from './results.js?v=7ad1c44-1794985733';
-import { newSeed } from './rng.js?v=7ad1c44-1794985733';
-import { loadShareConfig } from './share.js?v=7ad1c44-1794985733';
-import { getSound, setSound, sfx } from './sound.js?v=7ad1c44-1794985733';
-import { readingContext, buildReading } from './reading.js?v=7ad1c44-1794985733';
-import { playReveal } from './reveal.js?v=7ad1c44-1794985733';
+import { loadData } from './data.js?v=055793d-1794987752';
+import { createSelector, QUICK_LENGTH, FULL_LENGTH } from './selector.js?v=055793d-1794987752';
+import { createScorer, applyAnswer, axisScores, matchCandidates, matchCamps } from './scoring.js?v=055793d-1794987752';
+import { buildProfile } from './profile.js?v=055793d-1794987752';
+import { CHAPTERS, CHAPTER_TITLE, CHAPTER_LINE } from './axes.js?v=055793d-1794987752';
+import { routeOk } from './questions.js?v=055793d-1794987752';
+import { installPress, haptic, setHaptics, getHaptics, runFx, typewriter, sleep, store, reducedMotion } from './feel.js?v=055793d-1794987752';
+import { loadArtManifest, createArtSlot, artUrl, artVersion } from './art.js?v=055793d-1794987752';
+import { billTitle } from './types.js?v=055793d-1794987752';
+import { createWarMap, createGhosts } from './hud.js?v=055793d-1794987752';
+import { renderAnswer } from './types.js?v=055793d-1794987752';
+import { howFor, showCue, watchIdle } from './howto.js?v=055793d-1794987752';
+import { swipeEnds } from './types.js?v=055793d-1794987752';
+import { renderResults } from './results.js?v=055793d-1794987752';
+import { newSeed } from './rng.js?v=055793d-1794987752';
+import { loadShareConfig } from './share.js?v=055793d-1794987752';
+import { getSound, setSound, sfx } from './sound.js?v=055793d-1794987752';
+import { readingContext, buildReading } from './reading.js?v=055793d-1794987752';
+import { playReveal } from './reveal.js?v=055793d-1794987752';
+import { dossierFromRun, encodeDossier, decodeDossier, rebuildDossier, dossierLink, codeFromHash, fileNumber, minuteOf, tidyScores, tidyReads } from './dossier.js?v=055793d-1794987752';
 
 const app = document.getElementById('app');
 const h = (tag, cls, text) => {
@@ -69,11 +70,40 @@ async function boot() {
     console.warn(e);
     return;
   }
-  title();
+  // A shared dossier link (#d=<code>) opens that dossier, read-only; pasting one later works too.
+  window.addEventListener('hashchange', () => { const c = codeFromHash(location.hash); if (c) openShared(c); });
+  const shared = codeFromHash(location.hash);
+  if (shared) openShared(shared);
+  else title();
+}
+
+// ---- a shared dossier ----------------------------------------------------------------------------
+// Never touches this device's own saved run or seen-list.
+const dropHash = () => { try { history.replaceState(null, '', location.pathname + location.search); } catch { /* file: */ } };
+function openShared(code) {
+  const { candidates, camps, reading } = S.data;
+  const r = decodeDossier(code, { candidates, camps });
+  if (!r.ok) { dropHash(); title({ notice: r.error }); return; }
+  S.run = null;
+  const rb = rebuildDossier(r.data, { candidates, camps, reading });
+  const dossier = { code, link: dossierLink(code, S.shareCfg.url), file: fileNumber(code) };
+  S.shared = { code, data: r.data, ...rb };
+  const reveal = { reading: rb.reading, matches: rb.matches, cands: S.cands, profile: rb.profile, scores: rb.scores, route: rb.route, shareCfg: S.shareCfg, link: dossier.link };
+  app.innerHTML = '';
+  const bd = h('div', 'backdrop');
+  bd.dataset.bg = 'election_night';
+  app.appendChild(bd);
+  renderResults(app, {
+    profile: rb.profile, matches: rb.matches, scores: rb.scores, cands: S.cands, camps, route: rb.route, length: rb.length, signals: rb.signals,
+    shareCfg: S.shareCfg, reading: rb.reading, dossier, shared: true,
+    onAgain: () => { dropHash(); S.shared = null; title(); },
+    onReplay: () => playReveal({ ...reveal, replay: true }),
+  });
+  window.scrollTo({ top: 0 });
 }
 
 // ---- title --------------------------------------------------------------------------------------
-function title() {
+function title({ notice = '' } = {}) {
   S.run = null;
   app.innerHTML = '';
   const bd = h('div', 'backdrop title-backdrop');
@@ -161,6 +191,11 @@ function title() {
     panel.append(cont);
   }
   panel.append(route, length, toggles, begin);
+  if (notice) {
+    const n = h('p', 'title-notice', notice);
+    n.setAttribute('role', 'alert');
+    hero.prepend(n);
+  }
   t.append(hero, panel);
   app.appendChild(t);
 }
@@ -421,22 +456,33 @@ async function finish(run) {
   const ids = run.sel.history.map(x => x.id);
   store.set('uspq.seen', prevSeen.filter(id => !ids.includes(id)).concat(ids).slice(-SEEN_KEEP));
   const { candidates, camps } = S.data;
-  const scores = axisScores(run.sc);
+  // Values tidied to 1e-9 (dossier.js) so this page and its shared link agree at band edges.
+  const scores = tidyScores(axisScores(run.sc));
   const matches = matchCandidates(run.sc, candidates, run.route);
+  // The time is kept to the minute, the same as in the dossier code, so a shared link rebuilds the same dossier.
+  const t = minuteOf(Math.floor(Date.now() / 1000));
   const profile = buildProfile({ scores, matches, camps, route: run.route, scorerFlags: run.sc.flags, campRows: matchCamps(run.sc, camps, candidates) });
-  const reading = buildReading(S.data.reading, readingContext({ scores, signals: run.sc.signals, reads: run.sc.reads, matches, route: run.route }));
-  run.result = { scores, matches, profile, reading };
+  const reading = buildReading(S.data.reading, readingContext({ scores, signals: run.sc.signals, reads: tidyReads(run.sc.reads), matches, route: run.route }));
+  // The shareable dossier: the result packed into a USQ1 code and a link (app/js/dossier.js).
+  let dossier = null;
+  try {
+    const enc = encodeDossier(dossierFromRun({ route: run.route, length: run.sel.history.length, t, scores, matches, reads: run.sc.reads, signals: run.sc.signals, flags: run.sc.flags, campRows: matchCamps(run.sc, camps, candidates) }),
+      { candidates, camps, reading: S.data.reading });
+    if (!enc.exact) console.info(`[quiz] dossier link rebuilds with ${enc.off} small difference(s) from this page`);
+    dossier = { code: enc.code, link: dossierLink(enc.code, S.shareCfg.url), file: fileNumber(enc.code) };
+  } catch (e) { console.warn('[quiz] could not make a dossier link', e); }
+  run.result = { scores, matches, profile, reading, dossier };
   run.stage.classList.remove('fx-night', 'fx-candles');
-  const reveal = { reading, matches, cands: S.cands, profile, scores, route: run.route, shareCfg: S.shareCfg };
+  const reveal = { reading, matches, cands: S.cands, profile, scores, route: run.route, shareCfg: S.shareCfg, link: dossier?.link };
   const live = () => S.run === run;
 
-  const dossier = () => {
+  const showDossier = () => {
     app.innerHTML = '';
     const bd = h('div', 'backdrop');
     bd.dataset.bg = 'election_night';
     app.appendChild(bd);
     const out = renderResults(app, {
-      profile, matches, scores, cands: S.cands, camps, route: run.route, length: run.sel.history.length, signals: run.sc.signals, shareCfg: S.shareCfg, reading,
+      profile, matches, scores, cands: S.cands, camps, route: run.route, length: run.sel.history.length, signals: run.sc.signals, shareCfg: S.shareCfg, reading, dossier,
       onAgain: () => { clearSave(); title(); },
       // Replay the reveal over the dossier; closing it comes back to the same place on the page.
       onReplay: () => playReveal({ ...reveal, replay: true }),
@@ -447,7 +493,7 @@ async function finish(run) {
 
   // A run reopened with See your result goes straight to the dossier once its reveal has been
   // watched (the dossier has Replay the reveal); otherwise the reveal plays first.
-  if (run.save?.revealSeen) { dossier(); return; }
+  if (run.save?.revealSeen) { showDossier(); return; }
   app.innerHTML = '';
   const bd = h('div', 'backdrop');
   bd.dataset.bg = 'election_night';
@@ -456,7 +502,7 @@ async function finish(run) {
   if (!live()) return;
   run.save.revealSeen = true;
   run.persist();
-  dossier();
+  showDossier();
 }
 
 boot();

@@ -1,11 +1,11 @@
 // The share sheet on the result screen: image preview in three sizes, a system Share button on phones,
 // one button per platform, Instagram (download the story image), copy link, copy message, download.
 
-import { SIZES, drawShareCard, canvasBlob } from './sharecard.js?v=7ad1c44-1794985733';
-import { buildMessage, shareUrls, X_LIMIT } from './share.js?v=7ad1c44-1794985733';
-import { portraitUrl, artUrl } from './art.js?v=7ad1c44-1794985733';
-import { reasonFor } from './scoring.js?v=7ad1c44-1794985733';
-import { haptic } from './feel.js?v=7ad1c44-1794985733';
+import { SIZES, drawShareCard, canvasBlob } from './sharecard.js?v=055793d-1794987752';
+import { buildMessage, shareUrls, X_LIMIT } from './share.js?v=055793d-1794987752';
+import { portraitUrl, artUrl } from './art.js?v=055793d-1794987752';
+import { reasonFor } from './scoring.js?v=055793d-1794987752';
+import { haptic } from './feel.js?v=055793d-1794987752';
 
 const h = (tag, cls, text) => {
   const e = document.createElement(tag);
@@ -45,14 +45,17 @@ const isPhone = () => {
 };
 
 export function renderShareSheet(section, R) {
-  const { profile, matches, cands, route, scores, shareCfg, reading } = R;
+  const { profile, matches, cands, route, scores, reading } = R;
+  // Messages and buttons carry the dossier link when there is one (#d=<code>), else the site.
+  const shareCfg = R.link ? { ...R.shareCfg, url: R.link } : R.shareCfg;
+  const siteUrl = R.shareCfg.url;
   // The archetype from the personality reading, once reading.json has given it a real name.
   const archetype = reading && reading.present && !reading.archetype?.fallback ? reading.archetype.name : null;
   const top = matches.slice(0, 5).map(m => ({ id: m.id, name: cands.get(m.id)?.name || m.id, pct: m.pct, party: cands.get(m.id)?.party }));
   const first = cands.get(matches[0].id);
   const verdict = shareCfg.verdicts[matches[0].id] || reasonFor(scores, first, matches[0].picks);
   const card = {
-    top, cands, route, verdict, url: shareCfg.url, archetype,
+    top, cands, route, verdict, url: siteUrl, archetype,
     camp: profile.camp ? { short: profile.camp.short, name: profile.camp.name } : null,
     tem: { mach: scores.mach.value, narc: scores.narc.value, psych: scores.psych.value },
     art: { wide: artUrl('share_wide.webp'), tall: artUrl('share_tall.webp') },

@@ -5,11 +5,11 @@
 // playReveal(R) resolves when the player asks for the full dossier.
 // R: { reading, matches, cands, profile, scores, route, shareCfg, replay }
 
-import { AXIS } from './axes.js?v=7ad1c44-1794985733';
-import { portraitEl, artUrl, artVersion } from './art.js?v=7ad1c44-1794985733';
-import { haptic, sleep, reducedMotion, typewriter, finishTyping, typingSkippedAt } from './feel.js?v=7ad1c44-1794985733';
-import { sfx } from './sound.js?v=7ad1c44-1794985733';
-import { renderShareSheet } from './sharesheet.js?v=7ad1c44-1794985733';
+import { AXIS } from './axes.js?v=055793d-1794987752';
+import { portraitEl, artUrl, artVersion } from './art.js?v=055793d-1794987752';
+import { haptic, sleep, reducedMotion, typewriter, finishTyping, typingSkippedAt } from './feel.js?v=055793d-1794987752';
+import { sfx } from './sound.js?v=055793d-1794987752';
+import { renderShareSheet } from './sharesheet.js?v=055793d-1794987752';
 
 const h = (tag, cls, text) => {
   const e = document.createElement(tag);
@@ -298,7 +298,7 @@ export function playReveal(R) {
         c._enter = () => {
           if (c._sheet) return;
           c._sheet = true;
-          renderShareSheet(sheet, { profile: R.profile, matches, cands, route: R.route, scores: R.scores, shareCfg: R.shareCfg, reading });
+          renderShareSheet(sheet, { profile: R.profile, matches, cands, route: R.route, scores: R.scores, shareCfg: R.shareCfg, reading, link: R.link });
         };
         return c;
       },
