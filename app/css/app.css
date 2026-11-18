@@ -997,6 +997,24 @@ html.reveal-open, html.reveal-open body { overflow: hidden; }
 .vs-nav { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
 .vs-nav .btn { justify-content: center; text-align: center; }
 
+
+/* ---- live playtest fixes (72ae772) --------------------------------------------------------------- */
+/* Versus: both columns share rows (who, picture, name, line, match, file), so the names line up. */
+.vs-pair { grid-template-rows: repeat(6, auto); }
+.vs-col { grid-row: span 6; grid-template-rows: subgrid; }
+.vs-col > p:empty { margin: 0; }
+.vs-name { align-self: end; }
+/* Their ticket: the lines are read to them, set as quotations. */
+.ticket.their .ticket-line { font-style: italic; color: var(--muted); padding-left: 8px; box-shadow: inset 2px 0 0 var(--trim); }
+.ticket.their .ticket-cap { font-style: italic; }
+@media (max-width: 899px) {
+  /* Rank and budget: the Lock it in button follows the list instead of floating over its last rows. */
+  .q-rank .q-answer .btn.commit, .q-budget .q-answer .btn.commit { position: static; box-shadow: var(--outline), inset 2px 2px 0 #f6d38a, inset -2px -2px 0 #8a5a14, 3px 3px 0 rgba(0, 0, 0, .6); }
+  /* Scenes and envelopes: the frame follows --scene-h, which on phones never drops below 60% of the width. */
+  .art-slot[data-version="tall"].art-envelope .art-frame, .art-slot[data-version="tall"].art-scene .art-frame { width: min(100%, calc(var(--scene-h, 40vh) * var(--ar))); max-height: var(--scene-h, 40vh); }
+  .q:has(.q-context:not([hidden])) .art-envelope .art-frame, .art-envelope .art-frame { max-height: var(--scene-h, 30vh); }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
   .fx-shake, .fx-shake-strong { animation: none !important; }

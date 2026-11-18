@@ -1,6 +1,6 @@
 // Exhibits and the ticket, as blocks for the reveal, the dossier and the versus view.
 
-import { portraitEl } from './art.js?v=21123e1-1795007242';
+import { portraitEl } from './art.js?v=13556fa-1795008148';
 
 const h = (tag, cls, text) => {
   const e = document.createElement(tag);
@@ -27,7 +27,7 @@ export function exhibitsEl(exhibits, { title = 'The exhibits', cap = 'Your own a
 // view: endgame.js ticketView(). their: the third-person intro for a shared file.
 export function ticketEl(view, cands, { title = 'The ticket', cap = 'Who runs with you, who turns on you, and who you destroy.', their = false } = {}) {
   if (!view || !view.length) return null;
-  const box = h('div', 'ticket');
+  const box = h('div', `ticket${their ? ' their' : ''}`);
   box.append(h('h4', 'ticket-title', title));
   if (cap) box.append(h('p', 'ticket-cap', cap));
   const list = h('div', 'ticket-list');

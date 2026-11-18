@@ -1,8 +1,8 @@
 // The endgame (research/ENDGAME_CONTRACT.md): receipts and exhibits, the ticket (running mate, knife,
 // mark), versus lines, and the hand-off text. Pure, no DOM, so node can test it.
 
-import { AXES, AXIS_IDS } from './axes.js?v=21123e1-1795007242';
-import { parseCond } from './reading.js?v=21123e1-1795007242';
+import { AXES, AXIS_IDS } from './axes.js?v=13556fa-1795008148';
+import { parseCond } from './reading.js?v=13556fa-1795008148';
 
 const isObj = v => v && typeof v === 'object' && !Array.isArray(v);
 const clampW = w => Math.max(1, Math.min(3, Math.round(Number(w) || 1)));
@@ -184,7 +184,11 @@ export function versusWhen(when, A, B) {
 // The two best-fitting versus lines (most conditions, then margin, then list order), filled in.
 // A, B: { axes: {id: value}, archetype: id, archetypeName, top, route }.
 export function pickVersus(lines = [], A, B, { aName = 'You', bName = 'Them', n = 2 } = {}) {
-  return lines.filter(x => isObj(x) && typeof x.text === 'string')
+  const twins = !!A.archetype && A.archetype === B.archetype;
+  // Two files of the same type: a line that uses both {a} and {b} would read The Coward out-schemes The
+  // Coward, so it is skipped unless its conditions ask for the same type.
+  const fitsTwins = x => !twins || !(x.text.includes('{a}') && x.text.includes('{b}')) || (isObj(x.when) && 'same:archetype' in x.when);
+  return lines.filter(x => isObj(x) && typeof x.text === 'string' && fitsTwins(x))
     .map((x, i) => ({ x, i, r: versusWhen(x.when, A, B) }))
     .filter(y => y.r.ok)
     .sort((p, q) => q.r.n - p.r.n || q.r.margin - p.r.margin || p.i - q.i)

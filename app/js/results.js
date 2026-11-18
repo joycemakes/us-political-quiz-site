@@ -1,16 +1,16 @@
 // The result screen (the full dossier): ghost reveal, the personality reading, top five, your camp, ideology gauges, temperament,
 // dynasty and libertine dials, three words and your tells, and the share sheet.
 
-import { AXES, AXIS } from './axes.js?v=21123e1-1795007242';
-import { reasonFor } from './scoring.js?v=21123e1-1795007242';
-import { portraitEl } from './art.js?v=21123e1-1795007242';
-import { silhouetteEl } from './hud.js?v=21123e1-1795007242';
-import { haptic, sleep, reducedMotion, typewriter } from './feel.js?v=21123e1-1795007242';
-import { sfx } from './sound.js?v=21123e1-1795007242';
-import { renderShareSheet } from './sharesheet.js?v=21123e1-1795007242';
-import { normalizeShareConfig } from './share.js?v=21123e1-1795007242';
-import { archetypeArt, archName } from './reveal.js?v=21123e1-1795007242';
-import { exhibitsEl, ticketEl } from './endgame-ui.js?v=21123e1-1795007242';
+import { AXES, AXIS } from './axes.js?v=13556fa-1795008148';
+import { reasonFor } from './scoring.js?v=13556fa-1795008148';
+import { portraitEl } from './art.js?v=13556fa-1795008148';
+import { silhouetteEl } from './hud.js?v=13556fa-1795008148';
+import { haptic, sleep, reducedMotion, typewriter } from './feel.js?v=13556fa-1795008148';
+import { sfx } from './sound.js?v=13556fa-1795008148';
+import { renderShareSheet } from './sharesheet.js?v=13556fa-1795008148';
+import { normalizeShareConfig } from './share.js?v=13556fa-1795008148';
+import { archetypeArt, archName } from './reveal.js?v=13556fa-1795008148';
+import { exhibitsEl, ticketEl } from './endgame-ui.js?v=13556fa-1795008148';
 
 // The words on a dossier someone shared (the only quiz-specific copy for shared links).
 export const SHARED_COPY = {
@@ -119,7 +119,7 @@ export function renderResults(root, R) {
   // ---- the ticket and the knife ----
   if (R.ticketView && R.ticketView.length) {
     const tk = section(SH('The ticket and the knife', 'Their ticket and their knife'), 'ticket-block');
-    const el = ticketEl(R.ticketView, cands, { title: '', cap: SH('Who runs with you, who turns on you, and who you destroy.', 'Who runs with them, who turns on them, and who they destroy.'), their: !!R.shared });
+    const el = ticketEl(R.ticketView, cands, { title: '', cap: SH('Who runs with you, who turns on you, and who you destroy.', 'Who runs with them, who turns on them, and who they destroy. The lines are read to them, not to you.'), their: !!R.shared });
     el.querySelector('.ticket-title')?.remove();
     tk.appendChild(el);
     screen.appendChild(tk);

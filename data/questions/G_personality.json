@@ -365,7 +365,7 @@
           "control": 1,
           "mercy": 0.5
         },
-        "receipt": "She cost you a county, so you kept her on the payroll and off the map.",
+        "receipt": "A young organizer's mistake cost you a county. You kept her on the payroll and off the map.",
         "receiptWeight": 1
       },
       {
@@ -1864,7 +1864,7 @@
           "charm": 0.5,
           "risk": -0.5
         },
-        "receipt": "The violation was yours and the signature was his, so you blamed the lawyers.",
+        "receipt": "The campaign finance violation was your decision and your treasurer's signature. You blamed the lawyers.",
         "receiptWeight": 1
       }
     ],
@@ -2090,7 +2090,7 @@
           "control": 1,
           "vanity": 0.5
         },
-        "receipt": "The tell-all was true. You said nothing, and had the people still on your payroll praise you on the record.",
+        "receipt": "A former aide's book said you scream at staff, and it was true. You said nothing and had your current staff praise you on the record.",
         "receiptWeight": 2
       },
       {
@@ -2160,7 +2160,7 @@
           "mercy": 1.5,
           "paranoia": -1
         },
-        "receipt": "She leaked your plan and confessed. You tore up her resignation, because she had been right.",
+        "receipt": "A staffer leaked your plan to the press to stop your mistake, then confessed. You tore up her resignation, because she had been right.",
         "receiptWeight": 1
       },
       {
@@ -2174,7 +2174,7 @@
           "control": 1,
           "mercy": -1
         },
-        "receipt": "She leaked to save you from yourself, and it worked. You accepted her resignation anyway.",
+        "receipt": "A staffer leaked your plan to the press to save you from a mistake, and it worked. You accepted her resignation anyway.",
         "receiptWeight": 2
       },
       {

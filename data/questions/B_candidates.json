@@ -4124,7 +4124,7 @@
     "options": [
       {
         "id": "a",
-        "receipt": "He called you disloyal and went after your wife. Three weeks later you helped him carry your state.", "receiptWeight": 2, "label": "Make peace. Winning the state outranks my pride.",
+        "receipt": "Your party's nominee called you disloyal and insulted your wife at a rally. Three weeks later you helped him carry your state.", "receiptWeight": 2, "label": "Make peace. Winning the state outranks my pride.",
         "effects": {
           "loyalty": 1,
           "mach": 1,
@@ -4136,7 +4136,7 @@
       },
       {
         "id": "b",
-        "receipt": "He insulted your wife and then needed your state. You let him sweat.", "receiptWeight": 2, "label": "Let him sweat. He can win it without me, or not at all.",
+        "receipt": "Your party's nominee insulted your wife at a rally, then needed your state to win. You let him sweat.", "receiptWeight": 2, "label": "Let him sweat. He can win it without me, or not at all.",
         "effects": {
           "loyalty": -1.5,
           "style": 1,
