@@ -1,15 +1,15 @@
 // The result screen (the full dossier): ghost reveal, the personality reading, top five, your camp, ideology gauges, temperament,
 // dynasty and libertine dials, three words and your tells, and the share sheet.
 
-import { AXES, AXIS } from './axes.js?v=faa61fd-1794988220';
-import { reasonFor } from './scoring.js?v=faa61fd-1794988220';
-import { portraitEl } from './art.js?v=faa61fd-1794988220';
-import { silhouetteEl } from './hud.js?v=faa61fd-1794988220';
-import { haptic, sleep, reducedMotion, typewriter } from './feel.js?v=faa61fd-1794988220';
-import { sfx } from './sound.js?v=faa61fd-1794988220';
-import { renderShareSheet } from './sharesheet.js?v=faa61fd-1794988220';
-import { normalizeShareConfig } from './share.js?v=faa61fd-1794988220';
-import { archetypeArt, archName } from './reveal.js?v=faa61fd-1794988220';
+import { AXES, AXIS } from './axes.js?v=c33a16e-1794988461';
+import { reasonFor } from './scoring.js?v=c33a16e-1794988461';
+import { portraitEl } from './art.js?v=c33a16e-1794988461';
+import { silhouetteEl } from './hud.js?v=c33a16e-1794988461';
+import { haptic, sleep, reducedMotion, typewriter } from './feel.js?v=c33a16e-1794988461';
+import { sfx } from './sound.js?v=c33a16e-1794988461';
+import { renderShareSheet } from './sharesheet.js?v=c33a16e-1794988461';
+import { normalizeShareConfig } from './share.js?v=c33a16e-1794988461';
+import { archetypeArt, archName } from './reveal.js?v=c33a16e-1794988461';
 
 // The words on a dossier someone shared (the only quiz-specific copy for shared links).
 export const SHARED_COPY = {
@@ -107,7 +107,7 @@ export function renderResults(root, R) {
 
   // ---- top five ----
   const top = section(Y('Your top five'), 'top-block');
-  top.appendChild(h('p', 'res-cap', 'The five of the 23 candidates whose answers sit closest to yours.'));
+  top.appendChild(h('p', 'res-cap', SH('The five of the 23 candidates whose answers sit closest to yours.', 'The five of the 23 candidates whose answers sit closest to theirs.')));
   const ol = h('ol', 'top5');
   const campShort = id => (camps || []).find(l => l.id === id)?.short || '';
   const usedPhrases = new Set();
@@ -192,7 +192,7 @@ export function renderResults(root, R) {
   const fl = h('dl', 'flags');
   const f = profile.flags;
   const add = (k, v) => { fl.append(h('dt', null, k), h('dd', null, v)); };
-  add('Family power', f.dynasty ? 'Built for a dynasty' : 'No dynasty in you');
+  add('Family power', f.dynasty ? 'Built for a dynasty' : SH('No dynasty in you', 'No dynasty in them'));
   if (f.faithProfessed) add('Faith', `Professed ${f.faithProfessed}, privately ${f.faithPrivate}`);
   const tells = [];
   if (signals.hesitations) tells.push(`${signals.hesitations} slow answer${signals.hesitations > 1 ? 's' : ''} on loyalty and envelopes`);

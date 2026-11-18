@@ -18,9 +18,9 @@
 // Rounding never moves a value across a line the dossier draws (band edges, the reading's conditions,
 // one-decimal rounding), and the encoder checks that the rebuilt dossier matches.
 
-import { AXIS_IDS } from './axes.js?v=faa61fd-1794988220';
-import { buildProfile } from './profile.js?v=faa61fd-1794988220';
-import { readingContext, buildReading, normalizeReading, parseCond, READS_TAGS, READS_MIN } from './reading.js?v=faa61fd-1794988220';
+import { AXIS_IDS } from './axes.js?v=c33a16e-1794988461';
+import { buildProfile } from './profile.js?v=c33a16e-1794988461';
+import { readingContext, buildReading, normalizeReading, parseCond, READS_TAGS, READS_MIN } from './reading.js?v=c33a16e-1794988461';
 
 // A 4-character base36 checksum (FNV-1a), so a mistyped or edited code is caught.
 export function checksum4(text) {
