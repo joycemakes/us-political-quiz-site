@@ -1,15 +1,15 @@
 // The result screen (the full dossier): ghost reveal, the personality reading, top five, your camp, ideology gauges, temperament,
 // dynasty and libertine dials, three words and your tells, and the share sheet.
 
-import { AXES, AXIS } from './axes.js?v=055793d-1794987752';
-import { reasonFor } from './scoring.js?v=055793d-1794987752';
-import { portraitEl } from './art.js?v=055793d-1794987752';
-import { silhouetteEl } from './hud.js?v=055793d-1794987752';
-import { haptic, sleep, reducedMotion, typewriter } from './feel.js?v=055793d-1794987752';
-import { sfx } from './sound.js?v=055793d-1794987752';
-import { renderShareSheet } from './sharesheet.js?v=055793d-1794987752';
-import { normalizeShareConfig } from './share.js?v=055793d-1794987752';
-import { archetypeArt, archName } from './reveal.js?v=055793d-1794987752';
+import { AXES, AXIS } from './axes.js?v=faa61fd-1794988220';
+import { reasonFor } from './scoring.js?v=faa61fd-1794988220';
+import { portraitEl } from './art.js?v=faa61fd-1794988220';
+import { silhouetteEl } from './hud.js?v=faa61fd-1794988220';
+import { haptic, sleep, reducedMotion, typewriter } from './feel.js?v=faa61fd-1794988220';
+import { sfx } from './sound.js?v=faa61fd-1794988220';
+import { renderShareSheet } from './sharesheet.js?v=faa61fd-1794988220';
+import { normalizeShareConfig } from './share.js?v=faa61fd-1794988220';
+import { archetypeArt, archName } from './reveal.js?v=faa61fd-1794988220';
 
 // The words on a dossier someone shared (the only quiz-specific copy for shared links).
 export const SHARED_COPY = {
@@ -57,7 +57,9 @@ function dial(label, value, sub) {
 
 // A shared dossier is someone else's file: its headings say their, not your (playtest of shared links).
 let SHARED_VIEW = false;
-const Y = t => (SHARED_VIEW ? t.replace(/\bYour\b/g, 'Their').replace(/\byour\b/g, 'their').replace(/\byou chose\b/g, 'they chose').replace(/\bseats you\b/g, 'seats them') : t);
+const SH = (own, theirs) => (SHARED_VIEW ? theirs : own);
+const Y = t => (SHARED_VIEW ? t.replace(/\bYour\b/g, 'Their').replace(/\byour\b/g, 'their').replace(/\byou chose\b/g, 'they chose').replace(/\bseats you\b/g, 'seats them')
+  .replace(/\bWhere you contradict yourself\b/g, 'Where they contradict themselves').replace(/\bHow you answered\b/g, 'How they answered') : t);
 
 export function renderResults(root, R) {
   SHARED_VIEW = !!R.shared;
@@ -158,7 +160,7 @@ export function renderResults(root, R) {
 
   // ---- ideology gauges ----
   const ideo = section('Ideology');
-  ideo.appendChild(h('p', 'res-cap', 'Where you sit on each fight, left pole to right pole. Faded rows had too few questions to say.'));
+  ideo.appendChild(h('p', 'res-cap', SH('Where you sit on each fight, left pole to right pole. Faded rows had too few questions to say.', 'Where they sit on each fight, left pole to right pole. Faded rows had too few questions to say.')));
   const g = h('div', 'gauges');
   for (const ax of AXES.filter(a => a.group === 'ideology' || a.group === 'style')) g.appendChild(gauge(ax, scores[ax.id].value, scores[ax.id].conf));
   ideo.appendChild(g);
@@ -174,7 +176,7 @@ export function renderResults(root, R) {
 
   // ---- power: dynasty and libertine ----
   const pow = section('Power and private life');
-  pow.appendChild(h('p', 'res-cap', 'How you feel about family power, and how scandal-proof you play it.'));
+  pow.appendChild(h('p', 'res-cap', SH('How you feel about family power, and how scandal-proof you play it.', 'How they feel about family power, and how scandal-proof they play it.')));
   const duo = h('div', 'dials duo');
   duo.append(
     dial('Dynasty', scores.dynasty.value, scores.dynasty.value >= 0.4 ? 'Family power is fine' : scores.dynasty.value <= -0.4 ? 'Meritocrat' : 'Undecided'),
@@ -216,7 +218,7 @@ export function renderResults(root, R) {
 // (tap one for the detail), what the answers gave away, the tells and the closer.
 function readingBlock(reading, onReplay) {
   const sec = section(Y('Your reading'), 'reading-block');
-  sec.appendChild(h('p', 'res-cap', 'Who your answers say you are: your type, ten scores in plain words, and where you contradict yourself.'));
+  sec.appendChild(h('p', 'res-cap', SH('Who your answers say you are: your type, ten scores in plain words, and where you contradict yourself.', 'Who their answers say they are: their type, ten scores in plain words, and where they contradict themselves. The reading speaks to them directly.')));
   const a = reading.archetype;
   const head = h('div', 'rd-head');
   const meta = h('div', 'rd-meta');
@@ -236,7 +238,7 @@ function readingBlock(reading, onReplay) {
   if (a.text) text.appendChild(h('p', 'rd-lede', a.text));
   const group = (title, items) => {
     if (!items.length) return;
-    text.appendChild(h('h4', 'rd-sub', title));
+    text.appendChild(h('h4', 'rd-sub', Y(title)));
     for (const t of items) text.appendChild(h('p', null, t.text));
   };
   group('Where you contradict yourself', reading.contradictions);

@@ -6,7 +6,7 @@
 //   { archetype, scales: {id: {band, value, title, line, detail, name, plain}}, contradictions, tells, reads, closer }
 // It never throws: a missing or partial reading.json falls back to plain built-in copy.
 
-import { AXIS, AXIS_IDS } from './axes.js?v=055793d-1794987752';
+import { AXIS, AXIS_IDS } from './axes.js?v=faa61fd-1794988220';
 
 export const SCALE_IDS = ['mach', 'narc', 'psych', 'dynasty', 'libertine', 'loyalty', 'style', 'online', 'system', 'faith'];
 export const BANDS = ['high', 'above', 'mid', 'below', 'low'];
