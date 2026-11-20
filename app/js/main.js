@@ -1,28 +1,28 @@
 // US Political Quiz: boot, title screen, the run loop, chapter cards and the hand-off to results.
 
-import { loadData } from './data.js?v=0169e50-1795189280';
-import { createSelector, QUICK_LENGTH, FULL_LENGTH } from './selector.js?v=0169e50-1795189280';
-import { createScorer, applyAnswer, axisScores, matchCandidates, matchCamps } from './scoring.js?v=0169e50-1795189280';
-import { buildProfile } from './profile.js?v=0169e50-1795189280';
-import { CHAPTERS, CHAPTER_TITLE, CHAPTER_LINE } from './axes.js?v=0169e50-1795189280';
-import { routeOk } from './questions.js?v=0169e50-1795189280';
-import { installPress, haptic, setHaptics, getHaptics, runFx, typewriter, sleep, store, reducedMotion } from './feel.js?v=0169e50-1795189280';
-import { loadArtManifest, createArtSlot, artUrl, artVersion } from './art.js?v=0169e50-1795189280';
-import { billTitle } from './types.js?v=0169e50-1795189280';
-import { createWarMap, createGhosts } from './hud.js?v=0169e50-1795189280';
-import { renderAnswer } from './types.js?v=0169e50-1795189280';
-import { howFor, showCue, watchIdle } from './howto.js?v=0169e50-1795189280';
-import { swipeEnds } from './types.js?v=0169e50-1795189280';
-import { renderResults } from './results.js?v=0169e50-1795189280';
-import { newSeed } from './rng.js?v=0169e50-1795189280';
-import { loadShareConfig } from './share.js?v=0169e50-1795189280';
-import { getSound, setSound, sfx } from './sound.js?v=0169e50-1795189280';
-import { readingContext, buildReading } from './reading.js?v=0169e50-1795189280';
-import { playReveal } from './reveal.js?v=0169e50-1795189280';
-import { dossierFromRun, encodeDossier, decodeDossier, rebuildDossier, dossierLink, codeFromHash, fileNumber, minuteOf, tidyScores, tidyReads } from './dossier.js?v=0169e50-1795189280';
-import { pickTicket, pickExhibits, ticketView } from './endgame.js?v=0169e50-1795189280';
-import { renderVersus } from './versus.js?v=0169e50-1795189280';
-import { sortQuestions, tiebreakQuestion, sortResult, sortResultText } from './sorter.js?v=0169e50-1795189280';
+import { loadData } from './data.js?v=c75380f-1795191132';
+import { createSelector, QUICK_LENGTH, FULL_LENGTH } from './selector.js?v=c75380f-1795191132';
+import { createScorer, applyAnswer, axisScores, matchCandidates, matchCamps } from './scoring.js?v=c75380f-1795191132';
+import { buildProfile } from './profile.js?v=c75380f-1795191132';
+import { CHAPTERS, CHAPTER_TITLE, CHAPTER_LINE } from './axes.js?v=c75380f-1795191132';
+import { routeOk } from './questions.js?v=c75380f-1795191132';
+import { installPress, haptic, setHaptics, getHaptics, runFx, typewriter, sleep, store, reducedMotion } from './feel.js?v=c75380f-1795191132';
+import { loadArtManifest, createArtSlot, artUrl, artVersion } from './art.js?v=c75380f-1795191132';
+import { billTitle } from './types.js?v=c75380f-1795191132';
+import { createWarMap, createGhosts } from './hud.js?v=c75380f-1795191132';
+import { renderAnswer } from './types.js?v=c75380f-1795191132';
+import { howFor, showCue, watchIdle } from './howto.js?v=c75380f-1795191132';
+import { swipeEnds } from './types.js?v=c75380f-1795191132';
+import { renderResults } from './results.js?v=c75380f-1795191132';
+import { newSeed } from './rng.js?v=c75380f-1795191132';
+import { loadShareConfig } from './share.js?v=c75380f-1795191132';
+import { getSound, setSound, sfx } from './sound.js?v=c75380f-1795191132';
+import { readingContext, buildReading } from './reading.js?v=c75380f-1795191132';
+import { playReveal } from './reveal.js?v=c75380f-1795191132';
+import { dossierFromRun, encodeDossier, decodeDossier, rebuildDossier, dossierLink, codeFromHash, fileNumber, minuteOf, tidyScores, tidyReads } from './dossier.js?v=c75380f-1795191132';
+import { pickTicket, pickExhibits, ticketView } from './endgame.js?v=c75380f-1795191132';
+import { renderVersus } from './versus.js?v=c75380f-1795191132';
+import { sortQuestions, tiebreakQuestion, sortResult, sortResultText } from './sorter.js?v=c75380f-1795191132';
 
 // Versus: this device's own finished file (its dossier code), and a file someone sent that is waiting to be
 // compared once the player has one of their own ({ code, pending }).

@@ -1,7 +1,7 @@
 // Loads candidates, the ideology camps, the personality reading and every question file named in
 // data/questions/index.json. A file that is missing or fails to parse is skipped.
 
-import { normalizeQuestion } from './questions.js?v=0169e50-1795189280';
+import { normalizeQuestion } from './questions.js?v=c75380f-1795191132';
 
 async function getJson(url) {
   const r = await fetch(url, { cache: 'no-cache' });
