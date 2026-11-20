@@ -1,0 +1,131 @@
+{
+  "_note": "Undecided sorting round. lean: negative = Democratic side, positive = Republican side. Written by Fable; rewritten in the house voice, 20 Nov 2026.",
+  "intro": {
+    "title": "Pick Your Vehicle",
+    "text": "You want the White House and have not yet chosen which party to ride there. Nine questions on the issues that split the country. Answer what you actually believe: one primary will crown you for it and the other will eat you alive, and you should know which is which before you file."
+  },
+  "questions": [
+    {
+      "id": "S-01",
+      "topic": "abortion",
+      "context": "Roe v. Wade was overturned in June 2022, and each state now sets its own abortion law.",
+      "prompt": "Donor dinner, first course. The woman with the biggest checkbook asks what the abortion law should be. She can smell a dodge. Your answer?",
+      "options": [
+        { "id": "a", "label": "Legal nationwide. The choice is hers and her doctor's, not a legislature's", "lean": -2 },
+        { "id": "b", "label": "Legal in most cases, with some limits late in pregnancy", "lean": -1 },
+        { "id": "c", "label": "Illegal in most cases, except rape, incest or the mother's life", "lean": 1 },
+        { "id": "d", "label": "Life begins at conception, and the law should protect it from there", "lean": 2 }
+      ]
+    },
+    {
+      "id": "S-02",
+      "topic": "guns",
+      "prompt": "Debate prep, 2 a.m. Your consultant says the gun answer costs you votes either way, so give the one you mean. What do you do about guns?",
+      "options": [
+        { "id": "a", "label": "Ban assault weapons and make every gun owner hold a license", "lean": -2 },
+        { "id": "b", "label": "Owning guns is fine. A background check on every sale, no exceptions", "lean": -1 },
+        { "id": "c", "label": "No new gun laws. Enforce the ones already on the books", "lean": 1 },
+        { "id": "d", "label": "The Second Amendment means what it says. The right shall not be infringed", "lean": 2 }
+      ]
+    },
+    {
+      "id": "S-03",
+      "topic": "immigration",
+      "prompt": "One rival calls you soft, another calls you cruel. Millions of immigrants live here illegally. What do you do with them?",
+      "options": [
+        { "id": "a", "label": "A path to citizenship, and an end to mass deportations", "lean": -2 },
+        { "id": "b", "label": "Legal status for those who work and obey the law, plus a secure border", "lean": -1 },
+        { "id": "c", "label": "Secure the border first, then deport the ones who commit crimes", "lean": 1 },
+        { "id": "d", "label": "Deport everyone who is here illegally and finish the wall", "lean": 2 }
+      ]
+    },
+    {
+      "id": "S-04",
+      "topic": "health care",
+      "prompt": "An insurance lobbyist waits in your outer office with a check and a smile. Before he comes in: how should Americans get health insurance?",
+      "options": [
+        { "id": "a", "label": "One government plan covering everyone. The insurers can find other work", "lean": -2 },
+        { "id": "b", "label": "Keep private insurance and add a government plan anyone can choose", "lean": -1 },
+        { "id": "c", "label": "Keep private insurance and force the insurers to compete on price", "lean": 1 },
+        { "id": "d", "label": "Get government out of health care. A free market serves patients better", "lean": 2 }
+      ]
+    },
+    {
+      "id": "S-05",
+      "topic": "taxes and government",
+      "prompt": "Your finance chair wants the tax plan on one index card before he makes a single call. Which way do taxes and government spending go?",
+      "options": [
+        { "id": "a", "label": "Raise taxes on the rich and corporations and fund more public services", "lean": -2 },
+        { "id": "b", "label": "The rich pay somewhat more, and the programs we have stay safe", "lean": -1 },
+        { "id": "c", "label": "Hold taxes where they are and slow the growth of spending", "lean": 1 },
+        { "id": "d", "label": "Cut taxes and cut spending. Government should be far smaller", "lean": 2 }
+      ]
+    },
+    {
+      "id": "S-06",
+      "topic": "climate and energy",
+      "prompt": "An oil executive and a climate billionaire both want breakfast with you. Only one leaves happy. What does your energy policy put first?",
+      "options": [
+        { "id": "a", "label": "Off fossil fuels as fast as possible. Climate change is an emergency", "lean": -2 },
+        { "id": "b", "label": "A steady shift to clean energy, bought with incentives, not bans", "lean": -1 },
+        { "id": "c", "label": "Every energy source, oil and gas included, and prices kept low", "lean": 1 },
+        { "id": "d", "label": "More American oil, gas and coal, and an end to climate mandates", "lean": 2 }
+      ]
+    },
+    {
+      "id": "S-07",
+      "topic": "policing and crime",
+      "prompt": "Crime leads every newscast in the state you cannot lose. The cameras are outside and your rivals have spoken. How do you make people safer?",
+      "options": [
+        { "id": "a", "label": "Move money out of policing into housing, mental health and social services", "lean": -2 },
+        { "id": "b", "label": "Keep the police funded, and punish officers who abuse the badge", "lean": -1 },
+        { "id": "c", "label": "Hire more police officers and stand behind them", "lean": 1 },
+        { "id": "d", "label": "Enforce every law strictly and hand lawbreakers tougher sentences", "lean": 2 }
+      ]
+    },
+    {
+      "id": "S-08",
+      "topic": "transgender policy",
+      "prompt": "The moderator saves the one that makes candidates sweat. Transgender minors, school sports and medical care: what are your rules?",
+      "options": [
+        { "id": "a", "label": "Protect their right to join teams and get care that match their identity", "lean": -2 },
+        { "id": "b", "label": "Leave it to families, doctors and local sports bodies, not politicians", "lean": -1 },
+        { "id": "c", "label": "Girls' sports for biological females. Medical care is the parents' call", "lean": 1 },
+        { "id": "d", "label": "Sports by biological sex, and no medical gender transition before 18", "lean": 2 }
+      ]
+    },
+    {
+      "id": "S-09",
+      "topic": "affirmative action and DEI",
+      "context": "In June 2023 the Supreme Court ended the use of race in college admissions.",
+      "prompt": "A college president and a CEO corner you at a fundraiser. Should colleges and employers weigh race to increase diversity? Both are donors.",
+      "options": [
+        { "id": "a", "label": "Yes. Discrimination is not over, and this is how you correct it", "lean": -2 },
+        { "id": "b", "label": "Back diversity programs and outreach, but no racial preferences", "lean": -1 },
+        { "id": "c", "label": "No. Merit alone, with no regard to race", "lean": 1 },
+        { "id": "d", "label": "No, and shut down diversity, equity and inclusion programs as well", "lean": 2 }
+      ]
+    }
+  ],
+  "tiebreak": {
+    "id": "S-TB",
+    "topic": "government",
+    "prompt": "A dead heat. You have managed to betray both parties equally. One question settles it. Which frightens you more?",
+    "options": [
+      { "id": "a", "label": "A government that does too little and leaves people to sink", "lean": -1 },
+      { "id": "b", "label": "A government that does too much and gets in everyone's way", "lean": 1 }
+    ]
+  },
+  "result": {
+    "dem": {
+      "strong": "Your answers clearly place you in the Democratic primary. On nearly every issue you stand where its voters stand, so they will trust you, and trust is the easiest thing in politics to spend.",
+      "lean": "On balance, your answers place you in the Democratic primary. You broke with its voters more than once, and your rivals have already written those answers down.",
+      "barely": "A near call: you could have sold yourself to either side. Your answers place you, narrowly, in the Democratic primary, where half the room will suspect you are a plant."
+    },
+    "gop": {
+      "strong": "Your answers clearly place you in the Republican primary. On nearly every issue you stand where its voters stand, so they will trust you, and trust is the easiest thing in politics to spend.",
+      "lean": "On balance, your answers place you in the Republican primary. You broke with its voters more than once, and your rivals have already written those answers down.",
+      "barely": "A near call: you could have sold yourself to either side. Your answers place you, narrowly, in the Republican primary, where half the room will suspect you are a plant."
+    }
+  }
+}

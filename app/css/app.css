@@ -1027,3 +1027,11 @@ html.reveal-open, html.reveal-open body { overflow: hidden; }
   .hud-chapter { font-size: 11px; letter-spacing: .03em; } .hud-q { font-size: 10px; letter-spacing: .03em; white-space: nowrap; } }
 /* Phones: the Haptics and Sound switches fit side by side at 375 (playtest: 14px sideways scroll). */
 @media (max-width: 420px) { .toggle-row { gap: 8px; } .toggle-row .switch-row { min-width: 0; gap: 6px; padding-left: 8px; padding-right: 8px; } .toggle-row .switch-label { font-size: 13px; letter-spacing: .06em; } .toggle-row .switch-track { width: 38px; } .toggle-row .switch-row[aria-checked="true"] .switch-knob { left: 15px; } }
+
+/* Undecided (20 Nov 2026): the third primary pick spans the row under the two parties. */
+.group-row .btn.pick.party-undecided { grid-column: 1 / -1; min-height: 56px; }
+.group-row .btn.pick.party-undecided .pick-main { font-size: 20px; }
+.btn.pick.party-undecided[aria-checked="true"] .pick-main { color: var(--brass); }
+.info-card.party-dem .chapter-title { color: var(--d-text); }
+.info-card.party-gop .chapter-title { color: var(--r-text); }
+.info-card .info-line { max-width: 34ch; }

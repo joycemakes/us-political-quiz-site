@@ -1,16 +1,16 @@
 // The result screen (the full dossier): ghost reveal, the personality reading, top five, your camp, ideology gauges, temperament,
 // dynasty and libertine dials, three words and your tells, and the share sheet.
 
-import { AXES, AXIS } from './axes.js?v=13556fa-1795008148';
-import { reasonFor } from './scoring.js?v=13556fa-1795008148';
-import { portraitEl } from './art.js?v=13556fa-1795008148';
-import { silhouetteEl } from './hud.js?v=13556fa-1795008148';
-import { haptic, sleep, reducedMotion, typewriter } from './feel.js?v=13556fa-1795008148';
-import { sfx } from './sound.js?v=13556fa-1795008148';
-import { renderShareSheet } from './sharesheet.js?v=13556fa-1795008148';
-import { normalizeShareConfig } from './share.js?v=13556fa-1795008148';
-import { archetypeArt, archName } from './reveal.js?v=13556fa-1795008148';
-import { exhibitsEl, ticketEl } from './endgame-ui.js?v=13556fa-1795008148';
+import { AXES, AXIS } from './axes.js?v=0169e50-1795189280';
+import { reasonFor } from './scoring.js?v=0169e50-1795189280';
+import { portraitEl } from './art.js?v=0169e50-1795189280';
+import { silhouetteEl } from './hud.js?v=0169e50-1795189280';
+import { haptic, sleep, reducedMotion, typewriter } from './feel.js?v=0169e50-1795189280';
+import { sfx } from './sound.js?v=0169e50-1795189280';
+import { renderShareSheet } from './sharesheet.js?v=0169e50-1795189280';
+import { normalizeShareConfig } from './share.js?v=0169e50-1795189280';
+import { archetypeArt, archName } from './reveal.js?v=0169e50-1795189280';
+import { exhibitsEl, ticketEl } from './endgame-ui.js?v=0169e50-1795189280';
 
 // The words on a dossier someone shared (the only quiz-specific copy for shared links).
 export const SHARED_COPY = {
@@ -70,7 +70,7 @@ export function renderResults(root, R) {
   root.appendChild(screen);
 
   const head = h('header', 'res-head');
-  head.append(h('div', 'wordmark sm', 'US Political Quiz'), h('div', 'eyebrow', `The 2028 Race · ${partyName(route)} route · ${length} questions`));
+  head.append(h('div', 'wordmark sm', 'US Political Quiz'), h('div', 'eyebrow', `The 2028 Race · ${R.sorted && !R.shared ? `Undecided, sorted ${partyName(route)}` : `${partyName(route)} route`} · ${length} questions`));
   if (R.shared) {
     const ban = h('div', 'shared-banner');
     ban.setAttribute('role', 'note');

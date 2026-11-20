@@ -1,27 +1,28 @@
 // US Political Quiz: boot, title screen, the run loop, chapter cards and the hand-off to results.
 
-import { loadData } from './data.js?v=13556fa-1795008148';
-import { createSelector, QUICK_LENGTH, FULL_LENGTH } from './selector.js?v=13556fa-1795008148';
-import { createScorer, applyAnswer, axisScores, matchCandidates, matchCamps } from './scoring.js?v=13556fa-1795008148';
-import { buildProfile } from './profile.js?v=13556fa-1795008148';
-import { CHAPTERS, CHAPTER_TITLE, CHAPTER_LINE } from './axes.js?v=13556fa-1795008148';
-import { routeOk } from './questions.js?v=13556fa-1795008148';
-import { installPress, haptic, setHaptics, getHaptics, runFx, typewriter, sleep, store, reducedMotion } from './feel.js?v=13556fa-1795008148';
-import { loadArtManifest, createArtSlot, artUrl, artVersion } from './art.js?v=13556fa-1795008148';
-import { billTitle } from './types.js?v=13556fa-1795008148';
-import { createWarMap, createGhosts } from './hud.js?v=13556fa-1795008148';
-import { renderAnswer } from './types.js?v=13556fa-1795008148';
-import { howFor, showCue, watchIdle } from './howto.js?v=13556fa-1795008148';
-import { swipeEnds } from './types.js?v=13556fa-1795008148';
-import { renderResults } from './results.js?v=13556fa-1795008148';
-import { newSeed } from './rng.js?v=13556fa-1795008148';
-import { loadShareConfig } from './share.js?v=13556fa-1795008148';
-import { getSound, setSound, sfx } from './sound.js?v=13556fa-1795008148';
-import { readingContext, buildReading } from './reading.js?v=13556fa-1795008148';
-import { playReveal } from './reveal.js?v=13556fa-1795008148';
-import { dossierFromRun, encodeDossier, decodeDossier, rebuildDossier, dossierLink, codeFromHash, fileNumber, minuteOf, tidyScores, tidyReads } from './dossier.js?v=13556fa-1795008148';
-import { pickTicket, pickExhibits, ticketView } from './endgame.js?v=13556fa-1795008148';
-import { renderVersus } from './versus.js?v=13556fa-1795008148';
+import { loadData } from './data.js?v=0169e50-1795189280';
+import { createSelector, QUICK_LENGTH, FULL_LENGTH } from './selector.js?v=0169e50-1795189280';
+import { createScorer, applyAnswer, axisScores, matchCandidates, matchCamps } from './scoring.js?v=0169e50-1795189280';
+import { buildProfile } from './profile.js?v=0169e50-1795189280';
+import { CHAPTERS, CHAPTER_TITLE, CHAPTER_LINE } from './axes.js?v=0169e50-1795189280';
+import { routeOk } from './questions.js?v=0169e50-1795189280';
+import { installPress, haptic, setHaptics, getHaptics, runFx, typewriter, sleep, store, reducedMotion } from './feel.js?v=0169e50-1795189280';
+import { loadArtManifest, createArtSlot, artUrl, artVersion } from './art.js?v=0169e50-1795189280';
+import { billTitle } from './types.js?v=0169e50-1795189280';
+import { createWarMap, createGhosts } from './hud.js?v=0169e50-1795189280';
+import { renderAnswer } from './types.js?v=0169e50-1795189280';
+import { howFor, showCue, watchIdle } from './howto.js?v=0169e50-1795189280';
+import { swipeEnds } from './types.js?v=0169e50-1795189280';
+import { renderResults } from './results.js?v=0169e50-1795189280';
+import { newSeed } from './rng.js?v=0169e50-1795189280';
+import { loadShareConfig } from './share.js?v=0169e50-1795189280';
+import { getSound, setSound, sfx } from './sound.js?v=0169e50-1795189280';
+import { readingContext, buildReading } from './reading.js?v=0169e50-1795189280';
+import { playReveal } from './reveal.js?v=0169e50-1795189280';
+import { dossierFromRun, encodeDossier, decodeDossier, rebuildDossier, dossierLink, codeFromHash, fileNumber, minuteOf, tidyScores, tidyReads } from './dossier.js?v=0169e50-1795189280';
+import { pickTicket, pickExhibits, ticketView } from './endgame.js?v=0169e50-1795189280';
+import { renderVersus } from './versus.js?v=0169e50-1795189280';
+import { sortQuestions, tiebreakQuestion, sortResult, sortResultText } from './sorter.js?v=0169e50-1795189280';
 
 // Versus: this device's own finished file (its dossier code), and a file someone sent that is waiting to be
 // compared once the player has one of their own ({ code, pending }).
@@ -168,9 +169,13 @@ function title({ notice = '' } = {}) {
     queueMicrotask(sync);
     return g;
   };
+  // Undecided (Chris, 20 Nov 2026): a short round of straight questions first places the player in a primary.
+  const canSort = !!(S.data.sorter && S.data.sorter.questions && S.data.sorter.questions.length);
+  if (S.route === 'undecided' && !canSort) S.route = 'dem';
   const route = group('Your primary', [
     { value: 'dem', main: 'Democrat', sub: 'The donkey', cls: 'party-dem' },
     { value: 'gop', main: 'Republican', sub: 'The elephant', cls: 'party-gop' },
+    ...(canSort ? [{ value: 'undecided', main: 'Undecided', sub: `Not sure? ${S.data.sorter.questions.length} questions place you`, cls: 'party-undecided' }] : []),
   ], 'route');
   const length = group('Length', [
     { value: QUICK_LENGTH, main: 'Quick', sub: `${QUICK_LENGTH} questions` },
@@ -202,7 +207,7 @@ function title({ notice = '' } = {}) {
   const begin = h('button', `btn ${saved ? '' : 'primary '}begin`);
   begin.type = 'button';
   begin.appendChild(h('span', 'btn-label', saved ? 'Start a new file' : 'Open the file'));
-  begin.addEventListener('click', () => { haptic('commit'); clearSave(); startRun(); });
+  begin.addEventListener('click', () => { haptic('commit'); clearSave(); if (S.route === 'undecided') sortRound(); else startRun(); });
   const panel = h('div', 'title-panel');
   if (saved) {
     const n = saved.answers.length;
@@ -210,7 +215,7 @@ function title({ notice = '' } = {}) {
     resume.type = 'button';
     resume.append(
       h('span', 'pick-main', saved.done ? 'See your result' : 'Continue your file'),
-      h('span', 'pick-sub', `${saved.route === 'gop' ? 'Republican' : 'Democrat'} · ${saved.length === FULL_LENGTH ? 'Full Dossier' : saved.length === QUICK_LENGTH ? 'Quick' : `${saved.length} questions`} · ${saved.done ? `all ${n} answered` : `question ${n + 1} of ${saved.length}`}`),
+      h('span', 'pick-sub', `${saved.route === 'gop' ? 'Republican' : 'Democrat'}${saved.sorted ? ' (sorted)' : ''} · ${saved.length === FULL_LENGTH ? 'Full Dossier' : saved.length === QUICK_LENGTH ? 'Quick' : `${saved.length} questions`} · ${saved.done ? `all ${n} answered` : `question ${n + 1} of ${saved.length}`}`),
     );
     resume.addEventListener('click', () => { haptic('commit'); startRun(saved); });
     const cont = h('div', 'choice-group resume-group');
@@ -231,12 +236,15 @@ function title({ notice = '' } = {}) {
 }
 
 // ---- the run -------------------------------------------------------------------------------------
-async function startRun(saved = null) {
+// opts.route: the primary the Undecided round placed the player in; opts.sorted: how (kept with the save).
+async function startRun(saved = null, opts = {}) {
   const params = new URLSearchParams(location.search);
   const devBank = params.has('only') || params.has('q');
   if (saved && devBank) saved = null;
   const seed = saved ? saved.seed >>> 0 : params.has('seed') ? Number(params.get('seed')) >>> 0 : newSeed();
-  const route = saved ? saved.route : S.route;
+  const route = saved ? saved.route : (opts.route || S.route);
+  if (route !== 'dem' && route !== 'gop') return sortRound();
+  const sorted = saved ? saved.sorted || null : opts.sorted || null;
   const runLength = saved ? saved.length : S.length;
   const { candidates } = S.data;
   // Dev aid: ?only=pin,sign plays just those types; ?q=A-009 puts one question first.
@@ -247,11 +255,12 @@ async function startRun(saved = null) {
   const seen = new Set(seenList);
   const sel = createSelector({ bank, candidates, route, length: runLength, seed, seen });
   const sc = createScorer();
-  const run = { seed, sel, sc, route, length: runLength, index: 0, current: null, log: [], seenTypes: new Set() };
+  const run = { seed, sel, sc, route, sorted, length: runLength, index: 0, current: null, log: [], seenTypes: new Set() };
   S.run = run;
   const live = () => S.run === run;
   // revealSeen: the win reveal has been watched to the end, so See your result opens the dossier.
   const save = { v: 1, seed, route, length: runLength, seen: seenList, answers: [], done: false, revealSeen: !!(saved && saved.revealSeen),
+    ...(sorted ? { sorted } : {}),
     // The file someone sent that this run will be compared with (moved here from uspq.versus at its end).
     ...(saved && saved.versus ? { versus: saved.versus } : {}) };
   const persist = () => { if (!devBank && live()) store.set(SAVE_KEY, save); };
@@ -309,7 +318,8 @@ async function startRun(saved = null) {
       if (!replay[i] || replay[i].id !== q.id) {
         console.warn(`[quiz] saved run no longer fits at question ${i + 1}; starting a new file`);
         clearSave();
-        return startRun();
+        // Same primary as the old file (an Undecided player is not sorted again).
+        return startRun(null, { route, sorted });
       }
       answer = replay[i].a || {};
       run.seenTypes.add(q.type);
@@ -347,6 +357,116 @@ async function startRun(saved = null) {
   run.finishedAt = save.t;
   persist();
   finish(run);
+}
+
+// ---- Undecided: the sorting round -----------------------------------------------------------------------
+// Nine straight questions (data/sorter.json), plus a tiebreak on a level score, then a card saying which
+// primary the answers put the player in; the run then starts on that route. Not saved part-way: closing the
+// tab during these few questions starts them again.
+async function sortRound() {
+  const sorter = S.data.sorter;
+  if (!sorter) return startRun(null, { route: 'dem' });
+  const seed = newSeed();
+  const run = { sorting: true, seenTypes: new Set(), current: null };
+  S.run = run;
+  const live = () => S.run === run;
+  app.innerHTML = '';
+  const backdrop = h('div', 'backdrop');
+  backdrop.dataset.bg = 'announcement';
+  app.appendChild(backdrop);
+  const stage = h('main', 'screen run-screen sort-screen');
+  const hud = h('header', 'hud');
+  const map = createWarMap();
+  const ghosts = createGhosts();
+  ghosts.el.style.visibility = 'hidden';
+  const mid = h('div', 'hud-mid');
+  const chapterLbl = h('div', 'hud-chapter', 'Undecided');
+  const qLbl = h('div', 'hud-q');
+  mid.append(chapterLbl, qLbl);
+  const quit = h('button', 'hud-quit', 'Exit to title');
+  quit.type = 'button';
+  quit.addEventListener('click', () => { haptic('select'); title(); });
+  const speaker = h('button', 'hud-sound');
+  speaker.type = 'button';
+  const syncSpeaker = () => { speaker.setAttribute('aria-pressed', String(!getSound())); speaker.setAttribute('aria-label', getSound() ? 'Sound on. Tap to mute.' : 'Sound off. Tap to turn on.'); speaker.dataset.on = getSound() ? '1' : '0'; };
+  speaker.addEventListener('click', () => { setSound(!getSound()); syncSpeaker(); });
+  syncSpeaker();
+  hud.append(map.el, mid, quit, speaker, ghosts.el);
+  const banner = h('div', 'breaking');
+  banner.hidden = true;
+  banner.append(h('span', 'breaking-tag', 'Breaking'), h('span', 'breaking-text'));
+  const body = h('div', 'q-wrap');
+  stage.append(hud, banner, body);
+  app.appendChild(stage);
+
+  await infoCard(stage, { eyebrow: 'Undecided', title: sorter.intro?.title || 'Find your primary', line: sorter.intro?.text || '', wait: 0 });
+  if (!live()) return;
+  const list = sortQuestions(sorter, seed);
+  const answers = [];
+  for (let i = 0; i < list.length; i++) {
+    const q = list[i];
+    qLbl.textContent = q.id === sorter.tiebreak?.id ? 'Tiebreak' : `Question ${i + 1} of ${list.length}`;
+    map.set(i, list.length);
+    const a = await askQuestion(q, { body, stage, banner, fresh: false });
+    if (!live()) return;
+    answers.push({ id: q.id, a: { optionId: a?.optionId } });
+    if (i === list.length - 1 && sortResult(sorter, answers).tie) {
+      const tb = tiebreakQuestion(sorter, seed);
+      if (tb) list.push(tb);
+    }
+  }
+  map.set(list.length, list.length);
+  let res = sortResult(sorter, answers);
+  // No tiebreak written and a level score: a coin toss, called a near call.
+  if (res.tie) res = { route: seed & 1 ? 'gop' : 'dem', score: 0, max: res.max, band: 'barely', tiebreak: true };
+  body.innerHTML = '';
+  await infoCard(stage, {
+    eyebrow: 'Your primary',
+    title: res.route === 'gop' ? 'The Republican primary' : 'The Democratic primary',
+    line: sortResultText(sorter, res),
+    cls: res.route === 'gop' ? 'party-gop' : 'party-dem',
+    wait: 0,
+  });
+  if (!live()) return;
+  startRun(null, { route: res.route, sorted: { band: res.band, score: res.score, max: res.max } });
+}
+
+// A full-screen card in the chapter card's style. wait > 0: it goes by itself after that long; wait 0: it
+// stays until tapped (the sorting result has to be read).
+function infoCard(stage, { eyebrow = '', title: head = '', line = '', cls = '', wait = 0 }) {
+  return new Promise(resolve => {
+    const card = h('div', `chapter-card info-card ${cls}`);
+    card.setAttribute('role', 'dialog');
+    card.setAttribute('aria-label', head);
+    const inner = h('div', 'chapter-inner panel');
+    const candlesRow = h('div', 'candle-row');
+    candlesRow.append(h('span', 'candle'), h('span', 'candle'), h('span', 'candle'));
+    candlesRow.setAttribute('aria-hidden', 'true');
+    const tap = wait ? (fineSkip() ? 'Click or press a key to skip' : 'Tap to skip') : (fineSkip() ? 'Click or press a key to go on' : 'Tap to go on');
+    inner.append(candlesRow, h('div', 'chapter-num', eyebrow), h('h2', 'chapter-title'), h('p', 'chapter-line info-line'), h('div', 'chapter-tap', tap));
+    card.appendChild(inner);
+    stage.appendChild(card);
+    haptic('light');
+    // A card that waits for a tap ignores taps for its first moment, so a tap meant for the last answer
+    // cannot skip it unread.
+    const armedAt = performance.now() + (wait ? 0 : 900);
+    (async () => {
+      await typewriter(card.querySelector('.chapter-title'), head, { maxMs: 700 }).done;
+      typewriter(card.querySelector('.info-line'), line, { maxMs: 1400 });
+    })();
+    let done = false;
+    const go = () => {
+      if (done || performance.now() < armedAt) return;
+      done = true;
+      window.removeEventListener('keydown', onKey);
+      card.classList.add('out');
+      setTimeout(() => { card.remove(); resolve(); }, reducedMotion() ? 0 : 280);
+    };
+    card.addEventListener('click', go);
+    const onKey = e => { if (!['Shift', 'Control', 'Alt', 'Meta', 'Tab'].includes(e.key)) go(); };
+    window.addEventListener('keydown', onKey);
+    if (wait) setTimeout(go, wait);
+  });
 }
 
 function chapterCard(chapter, stage) {
@@ -555,7 +675,7 @@ async function finish(run) {
     } : null;
     const out = renderResults(app, {
       profile, matches, scores, cands: S.cands, camps, route: run.route, length: run.sel.history.length, signals: run.sc.signals, shareCfg: S.shareCfg, reading, dossier,
-      exhibits, ticket, ticketView: tv, endgame: S.data.endgame, versus,
+      exhibits, ticket, ticketView: tv, endgame: S.data.endgame, versus, sorted: run.sorted,
       onAgain: () => { clearSave(); title(); },
       // Replay the reveal over the dossier; closing it comes back to the same place on the page.
       onReplay: () => playReveal({ ...reveal, replay: true }),
